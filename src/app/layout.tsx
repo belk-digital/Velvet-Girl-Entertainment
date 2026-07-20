@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Playfair_Display, Great_Vibes, Montserrat } from "next/font/google";
+import SiteShell from "@/components/layout/SiteShell";
 import "./globals.css";
 
 const playfair = Playfair_Display({
@@ -21,7 +22,7 @@ const montserrat = Montserrat({
 });
 
 export const metadata: Metadata = {
-  title: "Velvet Girls Entertainment",
+  title: "Velvet Girl Entertainment",
   description:
     "Elite exotic entertainment for bachelor parties, private events, and exclusive gatherings — nationwide, discreet, unforgettable.",
 };
@@ -36,7 +37,9 @@ export default function RootLayout({
       lang="en"
       className={`${playfair.variable} ${greatVibes.variable} ${montserrat.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col bg-black">{children}</body>
+      <body className="min-h-full flex flex-col bg-black">
+        <SiteShell>{children}</SiteShell>
+      </body>
     </html>
   );
 }

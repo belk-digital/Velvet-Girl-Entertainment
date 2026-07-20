@@ -185,7 +185,7 @@ export default function AgeGate({ onVerified }: AgeGateProps) {
           >
             Welcome to{" "}
             <span className="align-middle font-script text-3xl text-velvet-pink text-glow-pink sm:text-4xl md:text-[2.6rem]">
-              Velvet Girls
+              Velvet Girl
             </span>{" "}
             Entertainment
           </h1>
@@ -268,7 +268,7 @@ export default function AgeGate({ onVerified }: AgeGateProps) {
               <span className="absolute text-[6px] font-bold">18+</span>
             </span>
             <p className="font-body text-[10px]">
-              © {new Date().getFullYear()} Velvet Girls Entertainment. All
+              © {new Date().getFullYear()} Velvet Girl Entertainment. All
               Rights Reserved.
             </p>
           </div>

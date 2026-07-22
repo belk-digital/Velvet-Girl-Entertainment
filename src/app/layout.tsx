@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
-import { Playfair_Display, Great_Vibes, Montserrat } from "next/font/google";
+import { Great_Vibes, Montserrat } from "next/font/google";
 import SiteShell from "@/components/layout/SiteShell";
 import "./globals.css";
 
-const playfair = Playfair_Display({
+const montserratDisplay = Montserrat({
   variable: "--font-display-raw",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+  weight: ["300", "400", "500", "600", "700", "800", "900"],
 });
 
 const greatVibes = Great_Vibes({
@@ -35,9 +35,9 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${playfair.variable} ${greatVibes.variable} ${montserrat.variable} h-full antialiased`}
+      className={`${montserratDisplay.variable} ${greatVibes.variable} ${montserrat.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col bg-black">
+      <body className="min-h-full flex flex-col bg-black" suppressHydrationWarning>
         <SiteShell>{children}</SiteShell>
       </body>
     </html>

@@ -1,12 +1,12 @@
 @import "tailwindcss";
 
 :root {
-  --background: #0a0007;
+  --background: #000000;
   --foreground: #ffffff;
-  --velvet-pink: #ff2d95;
-  --velvet-pink-hot: #ff0080;
-  --velvet-magenta: #c2005f;
-  --velvet-deep: #3d0021;
+  --velvet-pink: #e6007e;
+  --velvet-pink-hot: #ff007f;
+  --velvet-magenta: #cc0066;
+  --velvet-deep: #4d0026;
 }
 
 @theme inline {
@@ -41,4 +41,9 @@ body {
 
 .tracking-caps {
   letter-spacing: 0.28em;
+}
+
+.text-stroke-pink {
+  -webkit-text-stroke: 1px var(--velvet-pink);
+  color: transparent;
 }

@@ -9,14 +9,14 @@ const stats = [
 
 export default function TrustStats() {
   return (
-    <div className="border-b border-white/10 bg-white/[0.02] px-6 py-14">
-      <div className="mx-auto grid max-w-5xl grid-cols-2 gap-8 sm:grid-cols-4">
+    <div className="bg-white px-6 py-20 border-b-4 border-velvet-pink/10">
+      <div className="mx-auto grid max-w-[120rem] grid-cols-2 gap-10 sm:grid-cols-4 lg:px-6">
         {stats.map((stat, i) => (
           <Reveal key={stat.label} delay={i * 0.1} className="text-center">
-            <p className="font-display text-3xl text-velvet-pink sm:text-4xl">
+            <p className="font-display text-4xl text-black sm:text-5xl font-bold">
               {stat.value}
             </p>
-            <p className="tracking-caps mt-2 font-body text-[10px] text-white/50 sm:text-xs">
+            <p className="tracking-caps mt-3 font-body text-[11px] font-bold text-velvet-pink">
               {stat.label}
             </p>
           </Reveal>

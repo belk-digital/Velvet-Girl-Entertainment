@@ -22,7 +22,7 @@ export default function FeaturedPerformers() {
       <div className="mt-10 text-center">
         <Link
           href="/performers"
-          className="tracking-caps inline-flex items-center gap-2 rounded-full border border-white/25 px-8 py-3.5 font-body text-xs font-semibold text-white/85 transition-colors duration-300 hover:border-velvet-pink/50 hover:text-velvet-pink"
+          className="tracking-caps inline-flex items-center gap-2 border border-white/25 px-8 py-3.5 font-body text-xs font-semibold text-white/85 transition-colors duration-300 hover:border-velvet-pink/50 hover:text-velvet-pink"
         >
           VIEW ALL PERFORMERS
         </Link>

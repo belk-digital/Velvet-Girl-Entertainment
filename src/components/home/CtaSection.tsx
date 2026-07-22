@@ -18,20 +18,20 @@ export default function CtaSection() {
         <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
           <Link
             href="/book-now"
-            className="tracking-caps box-glow-pink rounded-full bg-gradient-to-r from-velvet-pink-hot to-velvet-pink px-9 py-4 font-body text-sm font-semibold text-white transition-transform duration-300 hover:scale-105"
+            className="tracking-caps box-glow-pink bg-gradient-to-r from-velvet-pink-hot to-velvet-pink px-9 py-4 font-body text-sm font-semibold text-white transition-transform duration-300 hover:scale-105"
           >
             BOOK NOW
           </Link>
           <a
             href="tel:+18439387737"
-            className="tracking-caps flex items-center gap-2 rounded-full border border-white/25 px-9 py-4 font-body text-sm font-semibold text-white/85 transition-colors duration-300 hover:border-white/50 hover:text-white"
+            className="tracking-caps flex items-center gap-2 border border-white/25 px-9 py-4 font-body text-sm font-semibold text-white/85 transition-colors duration-300 hover:border-white/50 hover:text-white"
           >
             <Phone className="h-4 w-4 text-velvet-pink" />
             CALL (843) 938-7737
           </a>
           <a
             href="sms:+18439387737"
-            className="tracking-caps flex items-center gap-2 rounded-full border border-white/25 px-9 py-4 font-body text-sm font-semibold text-white/85 transition-colors duration-300 hover:border-white/50 hover:text-white"
+            className="tracking-caps flex items-center gap-2 border border-white/25 px-9 py-4 font-body text-sm font-semibold text-white/85 transition-colors duration-300 hover:border-white/50 hover:text-white"
           >
             <MessageCircle className="h-4 w-4 text-velvet-pink" />
             TEXT US

@@ -3,8 +3,10 @@ import TrustStats from "@/components/home/TrustStats";
 import AboutSection from "@/components/home/AboutSection";
 import WhyChooseUs from "@/components/home/WhyChooseUs";
 import ServicesGrid from "@/components/home/ServicesGrid";
-import FeaturedPerformers from "@/components/home/FeaturedPerformers";
-import PackagesSection from "@/components/home/PackagesSection";
+import VelvetDifference from "@/components/home/VelvetDifference";
+import OurPerformersGallery from "@/components/home/OurPerformersGallery";
+// import FeaturedPerformers from "@/components/home/FeaturedPerformers";
+// import PackagesSection from "@/components/home/PackagesSection";
 import CitiesSection from "@/components/home/CitiesSection";
 import Reviews from "@/components/home/Reviews";
 import FaqSection from "@/components/home/FaqSection";
@@ -18,8 +20,10 @@ export default function Home() {
       <AboutSection />
       <WhyChooseUs />
       <ServicesGrid />
-      <FeaturedPerformers />
-      <PackagesSection />
+      <VelvetDifference />
+      <OurPerformersGallery />
+      {/* <FeaturedPerformers /> */}
+      {/* <PackagesSection /> */}
       <CitiesSection />
       <Reviews />
       <FaqSection />

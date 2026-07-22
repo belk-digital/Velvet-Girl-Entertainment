@@ -19,7 +19,7 @@ export default function Section({
 }: SectionProps) {
   return (
     <section id={id} className={`px-6 py-16 sm:py-24 ${className}`}>
-      <div className="mx-auto max-w-6xl">
+      <div className="mx-auto max-w-[120rem] lg:px-6">
         <div className="mx-auto mb-12 max-w-2xl text-center">
           {eyebrow && (
             <p className="tracking-caps mb-3 font-body text-xs font-semibold text-velvet-pink">

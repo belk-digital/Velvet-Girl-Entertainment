@@ -2,9 +2,10 @@
 
 import { useEffect, useState } from "react";
 import type { ReactNode } from "react";
-import AgeGate from "@/components/AgeGate";
+// import AgeGate from "@/components/AgeGate";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
+import SmoothScroller from "@/components/layout/SmoothScroller";
 
 const AGE_VERIFIED_KEY = "vge_age_verified";
 
@@ -25,7 +26,8 @@ export default function SiteShell({ children }: { children: ReactNode }) {
 
   return (
     <div className="flex min-h-full flex-col bg-black">
-      {checkedStorage && !verified && <AgeGate onVerified={handleVerified} />}
+      <SmoothScroller />
+      {/* checkedStorage && !verified && <AgeGate onVerified={handleVerified} /> */}
       <Navbar />
       <main className="flex-1">{children}</main>
       <Footer />

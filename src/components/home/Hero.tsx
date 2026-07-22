@@ -5,6 +5,9 @@ import Link from "next/link";
 import gsap from "gsap";
 import { ArrowRight, MessageCircle, Phone } from "lucide-react";
 
+const HERO_IMAGE_URL =
+  "https://res.cloudinary.com/denskvdyt/image/upload/v1784580159/hero-banner_d2oozv.png";
+
 export default function Hero() {
   const rootRef = useRef<HTMLDivElement>(null);
 
@@ -12,27 +15,22 @@ export default function Hero() {
     const ctx = gsap.context(() => {
       const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
       tl.fromTo(
-        "[data-hero-eyebrow]",
-        { opacity: 0, y: 16 },
-        { opacity: 1, y: 0, duration: 0.6 }
+        "[data-hero-bg]",
+        { opacity: 0, scale: 1.08 },
+        { opacity: 1, scale: 1, duration: 1.4, ease: "power2.out" },
+        0
       )
         .fromTo(
           "[data-hero-heading]",
           { opacity: 0, y: 24 },
           { opacity: 1, y: 0, duration: 0.8 },
-          "-=0.35"
+          0.3
         )
         .fromTo(
           "[data-hero-sub]",
           { opacity: 0, y: 16 },
           { opacity: 1, y: 0, duration: 0.6 },
           "-=0.4"
-        )
-        .fromTo(
-          "[data-hero-badge]",
-          { opacity: 0, y: 12 },
-          { opacity: 1, y: 0, duration: 0.5 },
-          "-=0.3"
         )
         .fromTo(
           "[data-hero-actions]",
@@ -48,72 +46,50 @@ export default function Hero() {
   return (
     <div
       ref={rootRef}
-      className="relative overflow-hidden border-b border-white/10 bg-black px-6 py-28 sm:py-36"
+      className="relative overflow-hidden bg-black px-6 min-h-screen flex items-center justify-center pt-20 pb-16"
     >
-      <div className="absolute inset-0 bg-gradient-to-b from-velvet-deep/70 via-black to-black" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(255,0,128,0.22),transparent_60%)]" />
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        data-hero-bg
+        src={HERO_IMAGE_URL}
+        alt=""
+        className="absolute inset-0 h-full w-full object-cover opacity-0"
+      />
+      <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/80 pointer-events-none" />
 
-      <div className="relative mx-auto max-w-4xl text-center">
-        <p
-          data-hero-eyebrow
-          className="tracking-caps mb-5 font-body text-xs font-semibold text-velvet-pink opacity-0"
-        >
-          AMERICA&rsquo;S PREMIER ENTERTAINMENT BOOKING AGENCY
-        </p>
-
+      <div className="relative z-10 w-full max-w-[120rem] mx-auto text-left lg:px-6">
         <h1
           data-hero-heading
-          className="font-display text-4xl leading-tight text-white opacity-0 sm:text-5xl md:text-6xl"
+          className="font-display text-5xl leading-tight text-white opacity-0 sm:text-6xl md:text-8xl drop-shadow-lg"
         >
           Luxury Entertainment.
           <br />
           Professional Performers.
           <br />
-          <span className="font-script text-5xl text-velvet-pink text-glow-pink sm:text-6xl md:text-7xl">
+          <span className="font-script text-6xl text-white sm:text-7xl md:text-9xl mt-2 inline-block drop-shadow-lg">
             Nationwide.
           </span>
         </h1>
 
         <p
           data-hero-sub
-          className="mx-auto mt-6 max-w-2xl font-body text-sm text-white/65 opacity-0 sm:text-base"
+          className="mt-8 max-w-2xl font-body text-base text-white/95 opacity-0 sm:text-lg drop-shadow-md font-medium"
         >
           Elite entertainers for bachelor parties, private celebrations, VIP
           events, and unforgettable nights.
         </p>
 
         <div
-          data-hero-badge
-          className="tracking-caps mx-auto mt-6 inline-flex items-center gap-2 rounded-full border border-velvet-pink/40 bg-white/5 px-5 py-2 font-body text-[11px] font-semibold text-white/80 opacity-0"
-        >
-          Now Booking in 8 Cities &middot; 100% Real Photos
-        </div>
-
-        <div
           data-hero-actions
-          className="mt-10 flex flex-col items-center justify-center gap-4 opacity-0 sm:flex-row"
+          className="mt-12 flex flex-col items-start gap-4 opacity-0 sm:flex-row"
         >
           <Link
             href="/book-now"
-            className="tracking-caps group box-glow-pink flex items-center gap-2 rounded-full bg-gradient-to-r from-velvet-pink-hot to-velvet-pink px-9 py-4 font-body text-sm font-semibold text-white transition-transform duration-300 hover:scale-105"
+            className="tracking-caps group flex items-center gap-2 bg-black px-10 py-5 font-body text-sm font-semibold text-white transition-transform duration-300 hover:scale-105 border border-white/20"
           >
             BOOK NOW
             <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
           </Link>
-          <a
-            href="tel:+18439387737"
-            className="tracking-caps flex items-center gap-2 rounded-full border border-white/25 px-9 py-4 font-body text-sm font-semibold text-white/85 transition-colors duration-300 hover:border-white/50 hover:text-white"
-          >
-            <Phone className="h-4 w-4 text-velvet-pink" />
-            CALL NOW
-          </a>
-          <a
-            href="sms:+18439387737"
-            className="tracking-caps flex items-center gap-2 rounded-full border border-white/25 px-9 py-4 font-body text-sm font-semibold text-white/85 transition-colors duration-300 hover:border-white/50 hover:text-white"
-          >
-            <MessageCircle className="h-4 w-4 text-velvet-pink" />
-            TEXT US
-          </a>
         </div>
       </div>
     </div>

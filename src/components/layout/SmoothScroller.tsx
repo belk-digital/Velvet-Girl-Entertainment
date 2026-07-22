@@ -9,11 +9,7 @@ if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
 }
 
-declare global {
-  interface Window {
-    lenis?: Lenis;
-  }
-}
+
 
 export default function SmoothScroller() {
   useEffect(() => {
@@ -21,7 +17,7 @@ export default function SmoothScroller() {
       autoRaf: false,
       lerp: 0.1,
     });
-    window.lenis = lenis;
+    (window as any).lenis = lenis;
 
     lenis.on("scroll", ScrollTrigger.update);
 
@@ -32,7 +28,7 @@ export default function SmoothScroller() {
     return () => {
       gsap.ticker.remove(raf);
       lenis.destroy();
-      window.lenis = undefined;
+      (window as any).lenis = undefined;
     };
   }, []);
 

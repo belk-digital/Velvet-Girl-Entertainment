@@ -365,7 +365,7 @@ export default function MultiLevelDrawerMenu({ primaries, onOpenChange }: MultiL
     if (isOpenRef.current) return;
     isOpenRef.current = true;
     setIsOpen(true);
-    window.lenis?.stop();
+    (window as any).lenis?.stop();
     document.body.style.overflow = "hidden";
     toggleRef.current?.setAttribute("aria-expanded", "true");
     toggleRef.current?.setAttribute("aria-label", "Close navigation menu");
@@ -381,7 +381,7 @@ export default function MultiLevelDrawerMenu({ primaries, onOpenChange }: MultiL
     if (!isOpenRef.current) return;
     isOpenRef.current = false;
     setIsOpen(false);
-    window.lenis?.start();
+    (window as any).lenis?.start();
     document.body.style.overflow = "";
     closePanel2();
     toggleRef.current?.setAttribute("aria-expanded", "false");

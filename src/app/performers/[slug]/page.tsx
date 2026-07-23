@@ -15,7 +15,7 @@ interface Props {
 }
 
 export function generateStaticParams() {
-  return performers.map((p) => ({ slug: p.slug }));
+  return performers.map((p) => ({ slug: p.slug || p.id }));
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {

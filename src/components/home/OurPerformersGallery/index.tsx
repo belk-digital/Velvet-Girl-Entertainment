@@ -45,14 +45,28 @@ export default function OurPerformersGallery() {
 
   return (
     <section className="bg-black">
-      <div className="mx-auto max-w-[120rem] px-6 pt-16 pb-10 text-center sm:pt-24">
-        <p className="tracking-caps mb-3 font-body text-xs font-semibold text-velvet-pink">
-          OUR PERFORMERS
-        </p>
-        <h2 className="font-display text-3xl leading-tight text-white sm:text-4xl">
-          Step into their world
-        </h2>
-        <p className="mt-4 font-body text-sm text-white/60 sm:text-base">
+      {/* Custom Left-Aligned Stacked Heading */}
+      <div className="mb-10 w-full max-w-[120rem] mx-auto px-6 lg:px-12 pt-16 sm:pt-24">
+        <div className="relative">
+          <h2 className="text-5xl sm:text-7xl md:text-[7.5rem] font-black uppercase text-[#f90066] leading-[0.9] tracking-tighter relative z-30">
+            OUR PERFORMERS
+          </h2>
+          <h2 
+            className="text-5xl sm:text-7xl md:text-[7.5rem] font-black uppercase text-black leading-[0.9] tracking-tighter absolute top-3 sm:top-5 md:top-6 left-0 z-20"
+            style={{ WebkitTextStroke: '2px #f90066' }}
+            aria-hidden="true"
+          >
+            OUR PERFORMERS
+          </h2>
+          <h2 
+            className="text-5xl sm:text-7xl md:text-[7.5rem] font-black uppercase text-black leading-[0.9] tracking-tighter absolute top-6 sm:top-10 md:top-12 left-0 z-10"
+            style={{ WebkitTextStroke: '2px #f90066', opacity: 0.4 }}
+            aria-hidden="true"
+          >
+            OUR PERFORMERS
+          </h2>
+        </div>
+        <p className="mt-12 md:mt-24 font-body text-sm text-white/60 sm:text-base max-w-lg relative z-30">
           Scroll to move through the gallery — every performer sets her own mood.
         </p>
       </div>

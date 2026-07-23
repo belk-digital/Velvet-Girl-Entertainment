@@ -350,9 +350,9 @@ export function createDifferenceExperience({ canvas, container, getScrollProgres
       if (b && a) projectAnchor(p.id, a.x, blockWorldY(b) + a.y, a.z);
     });
 
-    // outro: block offset 4 factor 1.25, local [-canvasWidth/2, -canvasHeight/2, 0]
+    // outro: centered finale — sits just below the centered diamond.
     const bo = block("outro", outro.offset, 1.25);
-    projectAnchor("outro", -canvasWidth / 2, blockWorldY(bo) - canvasHeight / 2, 0);
+    projectAnchor("outro", 0, blockWorldY(bo) - 2.6, 0);
   }
 
   // ---- Frame ---------------------------------------------------------------
@@ -363,9 +363,14 @@ export function createDifferenceExperience({ canvas, container, getScrollProgres
     }
     raf = requestAnimationFrame(tick);
 
-    // scroll → virtual top (px)
+    // scroll → virtual top (px). Clamp at the point where the outro is centered
+    // so the last stretch of scroll HOLDS on the finale (centered diamond +
+    // "Book With Confidence") instead of scrolling into empty black.
     const progress = getScrollProgress();
-    state.top = progress * (config.pages - 1) * H;
+    const rawTop = progress * (config.pages - 1) * H;
+    const holdTop =
+      (outro.offset / (config.sections - 1)) * (config.pages - 1) * H;
+    state.top = Math.min(rawTop, holdTop);
 
     // global chromatic shift from scroll velocity — kept subtle and clamped so
     // fast scrolling doesn't blow the RGB smear out into a heavy glitch.

@@ -4,7 +4,7 @@
 
 export const config = {
   sections: 6,
-  pages: 5,
+  pages: 4.5,
   zoom: 75,
   background: "#050506", // near-black field
   stripeColor: "#ff007f", // hot-pink zig-zag bands
@@ -73,6 +73,6 @@ export const diamonds = [
   { x: 2, offset: 1.1, scale: 0.8, factor: 2.1 },
   { x: -5, offset: 2, scale: 0.8, factor: 2.5 },
   { x: 0, offset: 3.2, scale: 0.8, factor: 1.75 },
-  { x: 2, offset: 4, scale: 1.25, factor: 0.85 },
-  { x: 0, offset: 4.6, scale: 1.5, factor: 6 },
+  // centered finale diamond — lands dead-center when the outro holds (offset 4)
+  { x: 0, offset: 4, scale: 1.5, factor: 0.85 },
 ];

@@ -5,8 +5,13 @@ import Reveal from "@/components/ui/Reveal";
 export default function CtaSection() {
   return (
     <section className="relative overflow-hidden border-t border-white/10 px-6 py-20 sm:py-28">
-      <div className="absolute inset-0 bg-gradient-to-b from-black via-velvet-deep/50 to-black" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(255,0,128,0.2),transparent_65%)]" />
+      {/* Background Image */}
+      <div 
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-40 grayscale"
+        style={{ backgroundImage: "url('/images/gameday-girls.jpg')" }}
+      />
+      <div className="absolute inset-0 bg-gradient-to-b from-black via-black/50 to-black" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(255,0,128,0.3),transparent_65%)]" />
       <Reveal className="relative mx-auto max-w-2xl text-center">
         <h2 className="font-display text-3xl leading-tight text-white sm:text-4xl">
           Ready to Plan Your Event?

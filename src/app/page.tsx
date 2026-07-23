@@ -3,7 +3,9 @@ import TrustStats from "@/components/home/TrustStats";
 import AboutSection from "@/components/home/AboutSection";
 import WhyChooseUs from "@/components/home/WhyChooseUs";
 import ServicesGrid from "@/components/home/ServicesGrid";
+import TextMarquee from "@/components/ui/TextMarquee";
 import VelvetDifference from "@/components/home/VelvetDifference";
+import ShowcaseGallery from "@/components/home/ShowcaseGallery";
 import OurPerformersGallery from "@/components/home/OurPerformersGallery";
 // import FeaturedPerformers from "@/components/home/FeaturedPerformers";
 // import PackagesSection from "@/components/home/PackagesSection";
@@ -16,8 +18,14 @@ export default function Home() {
   return (
     <>
       <Hero />
-      <TrustStats />
-      <AboutSection />
+      {/* <TrustStats /> */}
+      <TextMarquee items={[
+        "500+ EVENTS BOOKED",
+        "8 CITIES SERVED",
+        "24/7 BOOKING CONCIERGE",
+        "100% REAL PHOTOS, NO FILTERS"
+      ]} />
+      {/* <AboutSection /> */}
       <WhyChooseUs />
       <ServicesGrid />
       <VelvetDifference />
@@ -26,8 +34,9 @@ export default function Home() {
       {/* <PackagesSection /> */}
       <CitiesSection />
       <Reviews />
+      <ShowcaseGallery />
       <FaqSection />
-      <CtaSection />
+      {/* <CtaSection /> */}
     </>
   );
 }

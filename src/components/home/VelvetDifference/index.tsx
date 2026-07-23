@@ -132,15 +132,15 @@ export default function VelvetDifference() {
 
           <div
             ref={setRef("outro")}
-            data-extra="translateY(-100%)"
+            data-extra="translate(-50%, 0)"
             style={{
               ...overlayBase,
               color: "#ffffff",
-              fontSize: "clamp(1rem,2vw,1.4rem)",
-              fontWeight: 600,
-              letterSpacing: "0.02em",
-              paddingBottom: "2rem",
-              paddingLeft: "0.5rem",
+              fontSize: "clamp(1.6rem,4vw,3rem)",
+              fontWeight: 800,
+              letterSpacing: "0.01em",
+              textAlign: "center",
+              whiteSpace: "nowrap",
             }}
           >
             {outro.text}

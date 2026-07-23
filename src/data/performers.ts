@@ -1,137 +1,105 @@
-export interface Performer {
-  slug: string;
+export type Performer = {
+  id: string;
   name: string;
-  citySlug: string;
-  city: string;
-  stateSlug: string;
-  hairColor: "Blonde" | "Brunette" | "Redhead";
-  height: string;
-  languages: string[];
-  availableToday: boolean;
-  featured: boolean;
-  tagline: string;
-  services: string[];
-}
+  rating: number;
+  eventsCount: string;
+  location: string;
+  title: string;
+  availableTonight: boolean;
+  isVerified: boolean;
+  image: string;
+  slug?: string;
+  city?: string;
+  hairColor?: string;
+  featured?: boolean;
+  availableToday?: boolean;
+  citySlug?: string;
+  stateSlug?: string;
+  tagline?: string;
+  services?: string[];
+  height?: string;
+  languages?: string[];
+};
 
-// Placeholder roster — no photos or real identities. Swap in real
-// performer data and images before launch.
 export const performers: Performer[] = [
   {
-    slug: "sophia",
-    name: "Sophia",
-    city: "Charleston",
-    citySlug: "charleston",
-    stateSlug: "south-carolina",
-    hairColor: "Blonde",
-    height: "5'6\"",
-    languages: ["English"],
-    availableToday: true,
-    featured: true,
-    tagline: "Charleston favorite known for high-energy bachelor party sets.",
-    services: ["bachelor-parties", "vip-experiences", "private-events"],
+    id: "jessica-jay",
+    name: "JESSICA JAY",
+    rating: 4.6,
+    eventsCount: "90+ EVENTS",
+    location: "CHICAGO, IL",
+    title: "PREMIUM ENTERTAINER",
+    availableTonight: true,
+    isVerified: true,
+    image: "/images/performers-gallery/lotus.webp",
   },
   {
-    slug: "isabella",
-    name: "Isabella",
-    city: "Myrtle Beach",
-    citySlug: "myrtle-beach",
-    stateSlug: "south-carolina",
-    hairColor: "Brunette",
-    height: "5'5\"",
-    languages: ["English", "Spanish"],
-    availableToday: true,
-    featured: true,
-    tagline: "Specializes in pool parties and beachside celebrations.",
-    services: ["pool-parties", "bachelor-parties", "birthday-parties"],
+    id: "candy-cole",
+    name: "CANDY COLE",
+    rating: 4.6,
+    eventsCount: "90+ EVENTS",
+    location: "LOS ANGELES, CA",
+    title: "PREMIUM ENTERTAINER",
+    availableTonight: true,
+    isVerified: true,
+    image: "/images/performers-gallery/bad-cop.webp",
   },
   {
-    slug: "aria",
-    name: "Aria",
-    city: "Savannah",
-    citySlug: "savannah",
-    stateSlug: "georgia",
-    hairColor: "Redhead",
-    height: "5'7\"",
-    languages: ["English"],
-    availableToday: false,
-    featured: true,
-    tagline: "Known for polished VIP experiences and corporate events.",
-    services: ["vip-experiences", "corporate-entertainment"],
+    id: "lena-love",
+    name: "LENA LOVE",
+    rating: 4.7,
+    eventsCount: "90+ EVENTS",
+    location: "LAS VEGAS, NV",
+    title: "EVENT SPECIALIST",
+    availableTonight: true,
+    isVerified: true,
+    image: "/images/performers-gallery/sexy-nurse.webp",
   },
   {
-    slug: "luna",
-    name: "Luna",
-    city: "Orlando / Daytona Beach",
-    citySlug: "orlando-daytona-beach",
-    stateSlug: "florida",
-    hairColor: "Blonde",
-    height: "5'4\"",
-    languages: ["English"],
-    availableToday: true,
-    featured: true,
-    tagline: "Girls-night-out specialist with a big personality.",
-    services: ["girls-night-out", "birthday-parties"],
+    id: "kimmi-k",
+    name: "KIMMI K",
+    rating: 4.8,
+    eventsCount: "120+ EVENTS",
+    location: "MIAMI, FL",
+    title: "PARTY STARTER",
+    availableTonight: true,
+    isVerified: true,
+    image: "/images/performers-gallery/kimmi-k.webp",
   },
   {
-    slug: "mia",
-    name: "Mia",
-    city: "Charlotte",
-    citySlug: "charlotte",
-    stateSlug: "north-carolina",
-    hairColor: "Brunette",
-    height: "5'6\"",
-    languages: ["English"],
-    availableToday: false,
-    featured: false,
-    tagline: "Couples entertainment and private celebration expert.",
-    services: ["couples-entertainment", "private-events"],
+    id: "nina-rose",
+    name: "NINA ROSE",
+    rating: 4.9,
+    eventsCount: "150+ EVENTS",
+    location: "NEW YORK, NY",
+    title: "BACHELOR PARTY EXPERT",
+    availableTonight: true,
+    isVerified: true,
+    image: "/images/performers-gallery/dior.webp",
   },
   {
-    slug: "nova",
-    name: "Nova",
-    city: "Atlanta",
-    citySlug: "atlanta",
-    stateSlug: "georgia",
-    hairColor: "Redhead",
-    height: "5'8\"",
-    languages: ["English"],
-    availableToday: true,
-    featured: false,
-    tagline: "Yacht and pool party specialist across the Atlanta area.",
-    services: ["yacht-parties", "pool-parties"],
+    id: "scarlett-sky",
+    name: "SCARLETT SKY",
+    rating: 4.6,
+    eventsCount: "95+ EVENTS",
+    location: "ATLANTA, GA",
+    title: "EXOTIC ENTERTAINER",
+    availableTonight: true,
+    isVerified: true,
+    image: "/images/performers-gallery/sexy-nurse.webp", 
   },
   {
-    slug: "gia",
-    name: "Gia",
-    city: "Miami",
-    citySlug: "miami",
-    stateSlug: "florida",
-    hairColor: "Brunette",
-    height: "5'5\"",
-    languages: ["English", "Spanish"],
-    availableToday: true,
-    featured: true,
-    tagline: "South Beach favorite for pool parties and VIP nights out.",
-    services: ["pool-parties", "vip-experiences", "bachelor-parties"],
-  },
-  {
-    slug: "harper",
-    name: "Harper",
-    city: "Indianapolis",
-    citySlug: "indianapolis",
-    stateSlug: "indiana",
-    hairColor: "Blonde",
-    height: "5'6\"",
-    languages: ["English"],
-    availableToday: false,
-    featured: false,
-    tagline: "Indianapolis regular known for bachelor and guys' night bookings.",
-    services: ["bachelor-parties", "girls-night-out", "private-events"],
+    id: "asia-boss",
+    name: "ASIA BOSS",
+    rating: 4.6,
+    eventsCount: "110+ EVENTS",
+    location: "HOUSTON, TX",
+    title: "VIP ENTERTAINER",
+    availableTonight: true,
+    isVerified: true,
+    image: "/images/performers-gallery/bad-cop.webp", 
   },
 ];
 
-export function getPerformerBySlug(slug: string): Performer | undefined {
-  return performers.find((p) => p.slug === slug);
-}
-
-export const featuredPerformers = performers.filter((p) => p.featured);
+export const featuredPerformers: Performer[] = performers.slice(0, 4);
+export const getPerformerBySlug = (slug: string) => performers.find(p => (p.slug || p.id) === slug);

@@ -237,15 +237,16 @@ export function createDifferenceExperience({ canvas, container, getScrollProgres
   }
 
   function buildIntro() {
-    // Headline (3D), stacked words. Block offset 0, factor 1.1.
-    const b = block("intro-head", 0, 1.1);
+    // Headline (3D), stacked words. Block offset 0, factor 1.4.
+    const b = block("intro-head", 0, 1.4);
     const w = metrics.contentMaxWidth;
     const size = w * 0.065;
     const lineHeight = w / 11;
     const headGroup = new THREE.Group();
     intro.headline.forEach((word, i) => {
       const t = makeText(word, { size, color: config.headlineColor, top: true, left: true });
-      t.position.set(-w / 3.2, 2.05 - i * lineHeight, -1);
+      const hx = metrics.mobile ? -w / 2.1 : -w / 3.2;
+      t.position.set(hx, 2.05 - i * lineHeight, -1);
       headGroup.add(t);
     });
     b.group.add(headGroup);
@@ -256,7 +257,8 @@ export function createDifferenceExperience({ canvas, container, getScrollProgres
         const lh2 = w2 / 11;
         headGroup.children.forEach((t, i) => {
           t.scale.set(s2, s2, 0.1);
-          t.position.set(-w2 / 3.2, 2.05 - i * lh2, -1);
+          const hx = metrics.mobile ? -w2 / 2.1 : -w2 / 3.2;
+          t.position.set(hx, 2.05 - i * lh2, -1);
         });
       },
     });
@@ -304,12 +306,14 @@ export function createDifferenceExperience({ canvas, container, getScrollProgres
         anchorText(number, "center", "center");
         number.position.set(((left ? w : -w) / 2) * size, (w * size) / p.aspect / 1.5, -10);
 
-        // paragraph HTML anchor
+        // paragraph HTML anchor. On mobile, pin the caption to a small left
+        // margin (left-aligned, near full width) so it reads on 2–3 lines
+        // instead of a narrow clipped column.
         p._anchorLocal = {
-          x: gx + (left || mobile ? -(w * size) / 2 : 0),
+          x: mobile ? -canvasWidth / 2 + margin * 0.1 : gx + (left ? -(w * size) / 2 : 0),
           y: -(w * size) / p.aspect / 2 - 0.4,
           z: 1,
-          align: left ? "left" : "right",
+          align: mobile ? "left" : left ? "left" : "right",
         };
       };
       built.images.push({ place });
@@ -332,15 +336,15 @@ export function createDifferenceExperience({ canvas, container, getScrollProgres
     const w = metrics.contentMaxWidth;
     const { canvasWidth, canvasHeight, mobile } = metrics;
 
-    // eyebrow: intro-head block, sits above the headline (3D text grows upward
-    // from its anchor, so clear the top word by a good margin)
+    // eyebrow: intro-head block
     const bh = blocks.get("intro-head");
-    if (bh) projectAnchor("eyebrow", -w / 3.2, blockWorldY(bh) + 3.15, -1);
+    const hx = mobile ? -w / 2.1 : -w / 3.2;
+    if (bh) projectAnchor("eyebrow", hx, blockWorldY(bh) + 3.15, -1);
 
-    // intro paragraph: block intro-text factor 1.0
-    const bt = block("intro-text", 0, 1.0);
-    const ix = mobile ? -w / 3.2 : w / 12;
-    const iy = mobile ? -w * 0.62 : 0.4;
+    // intro paragraph: block intro-text factor 1.4
+    const bt = block("intro-text", 0, 1.4);
+    const ix = mobile ? hx : w / 12;
+    const iy = mobile ? -w * 0.4 : 0.4;
     projectAnchor("intro-text", ix, blockWorldY(bt) + iy, -1);
 
     // paragraphs

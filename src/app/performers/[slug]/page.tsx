@@ -34,7 +34,7 @@ export default async function PerformerProfilePage({ params }: Props) {
   if (!performer) notFound();
 
   const offeredServices = services.filter((s) =>
-    performer.services.includes(s.slug)
+    performer.services?.includes(s.slug)
   );
 
   return (
@@ -78,7 +78,7 @@ export default async function PerformerProfilePage({ params }: Props) {
               </div>
               <div className="flex items-center gap-2 font-body text-xs text-white/60">
                 <Globe className="h-4 w-4 text-velvet-pink" />
-                {performer.languages.join(", ")}
+                {performer.languages?.join(", ") || "English"}
               </div>
             </div>
 

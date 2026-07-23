@@ -108,7 +108,7 @@ export default function VelvetDifference() {
 
           <div
             ref={setRef("intro-text")}
-            style={{ ...overlayBase, width: "min(26vw, 380px)" }}
+            style={{ ...overlayBase, width: "min(70vw, 380px)" }}
             className="font-body text-sm leading-relaxed text-white/70"
           >
             {intro.text}
@@ -118,13 +118,10 @@ export default function VelvetDifference() {
             <div
               key={p.id}
               ref={setRef(p.id)}
-              style={{
-                ...overlayBase,
-                width: "min(24vw, 340px)",
-                textAlign: p.offset % 2 ? "left" : "right",
-                transform: "translate3d(0,0,0)",
-              }}
-              className="font-body text-sm leading-relaxed text-white/70"
+              style={{ ...overlayBase, transform: "translate3d(0,0,0)" }}
+              className={`font-body text-sm leading-relaxed text-white/70 w-[94vw] max-w-[420px] text-left md:w-[24vw] md:max-w-[340px] ${
+                p.offset % 2 ? "md:text-left" : "md:text-right"
+              }`}
             >
               {p.text}
             </div>

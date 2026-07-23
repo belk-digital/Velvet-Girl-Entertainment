@@ -30,21 +30,21 @@ export default function ServicesGrid() {
       <div className="mb-20 md:mb-32 w-full">
         <div className="relative">
           <h2 className="text-6xl sm:text-8xl md:text-[9rem] font-black uppercase text-[#f90066] leading-[0.9] tracking-tighter relative z-30">
-            OUR SERVICES
+            OUR <br className="md:hidden" /> SERVICES
           </h2>
           <h2 
             className="text-6xl sm:text-8xl md:text-[9rem] font-black uppercase text-black leading-[0.9] tracking-tighter absolute top-3 sm:top-5 md:top-6 left-0 z-20"
             style={{ WebkitTextStroke: '2px #f90066' }}
             aria-hidden="true"
           >
-            OUR SERVICES
+            OUR <br className="md:hidden" /> SERVICES
           </h2>
           <h2 
             className="text-6xl sm:text-8xl md:text-[9rem] font-black uppercase text-black leading-[0.9] tracking-tighter absolute top-6 sm:top-10 md:top-12 left-0 z-10"
             style={{ WebkitTextStroke: '2px #f90066', opacity: 0.4 }}
             aria-hidden="true"
           >
-            OUR SERVICES
+            OUR <br className="md:hidden" /> SERVICES
           </h2>
         </div>
       </div>
@@ -77,31 +77,41 @@ export default function ServicesGrid() {
           -webkit-text-stroke: 1px #f90066;
           color: black;
           transition: opacity 0.4s;
-          white-space: nowrap;
+          white-space: normal;
+          word-break: break-word;
           font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
           font-size: var(--item-font-size);
           font-weight: 900;
-          line-height: 1.15;
-          padding: 0 1vw;
+          line-height: 1;
+          padding: 0 1vw 0 4vw;
           opacity: 0.8;
         }
         @media (min-width: 768px) {
           .menu__item-link {
             -webkit-text-stroke: 2px #f90066;
+            white-space: nowrap;
+            padding: 0 1vw;
           }
         }
         .menu__item-link::before {
           counter-increment: menu;
           content: counter(menu);
           position: absolute;
-          bottom: 60%;
-          left: -2vw;
+          top: 0;
+          left: -4vw;
           pointer-events: none;
           font-size: 1rem;
           -webkit-text-stroke: 0px;
           color: #f90066;
           font-family: monospace;
           opacity: 0.8;
+        }
+        @media (min-width: 768px) {
+          .menu__item-link::before {
+            bottom: 60%;
+            top: auto;
+            left: -2vw;
+          }
         }
         .menu__item:hover .menu__item-link {
           transition-duration: 0.1s;

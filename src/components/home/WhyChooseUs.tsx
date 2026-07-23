@@ -60,7 +60,7 @@ export default function WhyChooseUs() {
         <div className="relative grid grid-cols-1 lg:grid-cols-[1fr_auto_1fr] items-center gap-12 lg:gap-0 max-w-[85rem] mx-auto z-10">
           
           {/* Left Features */}
-          <div className="flex flex-col gap-10 lg:gap-16 z-20 lg:pr-8 xl:pr-12">
+          <div className="order-1 flex flex-col gap-10 lg:gap-16 z-20 lg:pr-8 xl:pr-12">
              {leftReasons.map(({icon: Icon, title, description}, i) => (
                 <Reveal key={title} delay={i * 0.1}>
                   <div className="flex items-start gap-4 sm:gap-5">
@@ -77,7 +77,7 @@ export default function WhyChooseUs() {
           </div>
 
           {/* Center Image */}
-          <div className="relative h-[450px] sm:h-[600px] lg:h-[750px] w-full lg:w-[450px] xl:w-[550px] mx-auto z-0 mt-8 lg:mt-0 lg:-mx-8 lg:-mb-24 pointer-events-none">
+          <div className="order-3 lg:order-2 relative h-[450px] sm:h-[600px] lg:h-[750px] w-full lg:w-[450px] xl:w-[550px] mx-auto z-0 mt-4 lg:mt-0 lg:-mx-8 -mb-12 lg:-mb-24 pointer-events-none">
              <img 
                 src="https://res.cloudinary.com/denskvdyt/image/upload/v1784623153/about-image_zwdvdt.webp" 
                 alt="Why Choose Us Model"
@@ -86,7 +86,7 @@ export default function WhyChooseUs() {
           </div>
 
           {/* Right Features */}
-          <div className="flex flex-col gap-10 lg:gap-16 z-20 lg:pl-8 xl:pl-12">
+          <div className="order-2 lg:order-3 flex flex-col gap-10 lg:gap-16 z-20 lg:pl-8 xl:pl-12">
              {rightReasons.map(({icon: Icon, title, description}, i) => (
                 <Reveal key={title} delay={i * 0.1}>
                   <div className="flex items-start gap-4 sm:gap-5">

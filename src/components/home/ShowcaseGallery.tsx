@@ -26,21 +26,27 @@ export default function ShowcaseGallery() {
   useGSAP(() => {
     if (!scrollContentRef.current || !scrollWrapperRef.current) return;
 
-    // Horizontal Scroll Animation
-    const scrollWidth = scrollContentRef.current.scrollWidth;
-    
-    gsap.to(scrollContentRef.current, {
-      x: () => -(scrollWidth - window.innerWidth + 64), // 64px for padding right
-      ease: "none",
-      scrollTrigger: {
-        trigger: scrollWrapperRef.current,
-        start: "center center",
-        end: () => `+=${scrollWidth}`,
-        pin: true,
-        scrub: 1, // Smooth scrubbing
-        invalidateOnRefresh: true, // Recalculates on resize
-      }
+    const mm = gsap.matchMedia();
+
+    mm.add("(min-width: 768px)", () => {
+      // Horizontal Scroll Animation for Desktop
+      const scrollWidth = scrollContentRef.current!.scrollWidth;
+      
+      gsap.to(scrollContentRef.current, {
+        x: () => -(scrollWidth - window.innerWidth + 64), // 64px for padding right
+        ease: "none",
+        scrollTrigger: {
+          trigger: scrollWrapperRef.current,
+          start: "center center",
+          end: () => `+=${scrollWidth}`,
+          pin: true,
+          scrub: 1, // Smooth scrubbing
+          invalidateOnRefresh: true, // Recalculates on resize
+        }
+      });
     });
+
+    return () => mm.revert();
   }, { scope: containerRef });
 
   return (
@@ -91,32 +97,34 @@ export default function ShowcaseGallery() {
           </h1>
         </div>
 
-        {/* Scrolling Images */}
-        <div ref={scrollContentRef} className="relative z-10 flex gap-6 lg:gap-10 px-8 w-max">
-          {images.map((src, idx) => (
-            <div key={idx} className="relative w-[80vw] sm:w-[450px] md:w-[550px] aspect-[4/3] group overflow-hidden cursor-pointer shrink-0 flex items-center justify-center">
-              <img 
-                src={src} 
-                alt={`Gallery ${idx + 1}`} 
-                className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000 ease-out" 
-              />
-              
-              {/* Special Overlay for the Last Image */}
-              {idx === images.length - 1 && (
-                <>
-                  <div className="absolute inset-0 bg-[#f90066] mix-blend-multiply opacity-70 group-hover:opacity-90 transition-opacity duration-500"></div>
-                  <div className="relative z-20 flex flex-col items-center justify-center text-center">
-                    <span className="text-white text-3xl md:text-5xl font-black uppercase tracking-widest drop-shadow-lg">
-                      View Full
-                    </span>
-                    <span className="text-white text-3xl md:text-5xl font-black uppercase tracking-widest drop-shadow-lg mt-2">
-                      Gallery
-                    </span>
-                  </div>
-                </>
-              )}
-            </div>
-          ))}
+        {/* Scrolling Images Container */}
+        <div className="w-full overflow-x-auto md:overflow-visible snap-x snap-mandatory scrollbar-hide">
+          <div ref={scrollContentRef} className="relative z-10 flex gap-6 lg:gap-10 px-8 md:px-8 w-max pb-8 md:pb-0 pt-4 md:pt-0">
+            {images.map((src, idx) => (
+              <div key={idx} className="snap-center relative w-[80vw] sm:w-[450px] md:w-[550px] aspect-[4/3] group overflow-hidden cursor-pointer shrink-0 flex items-center justify-center">
+                <img 
+                  src={src} 
+                  alt={`Gallery ${idx + 1}`} 
+                  className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000 ease-out pointer-events-none" 
+                />
+                
+                {/* Special Overlay for the Last Image */}
+                {idx === images.length - 1 && (
+                  <>
+                    <div className="absolute inset-0 bg-[#f90066] mix-blend-multiply opacity-70 group-hover:opacity-90 transition-opacity duration-500"></div>
+                    <div className="relative z-20 flex flex-col items-center justify-center text-center">
+                      <span className="text-white text-3xl md:text-5xl font-black uppercase tracking-widest drop-shadow-lg">
+                        View Full
+                      </span>
+                      <span className="text-white text-3xl md:text-5xl font-black uppercase tracking-widest drop-shadow-lg mt-2">
+                        Gallery
+                      </span>
+                    </div>
+                  </>
+                )}
+              </div>
+            ))}
+          </div>
         </div>
       </div>
 

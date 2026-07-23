@@ -24,7 +24,7 @@ export default function CitiesSection() {
       <style dangerouslySetInnerHTML={{
         __html: `
         .cities-carousel {
-          --carousel-radius: 200px;
+          --carousel-radius: 300px;
         }
         @media (min-width: 768px) {
           .cities-carousel { --carousel-radius: 400px; }
@@ -70,7 +70,7 @@ export default function CitiesSection() {
               >
                 <Link
                   href={`/cities/${city.stateSlug}/${city.slug}`}
-                  className="text-2xl md:text-4xl lg:text-5xl font-black uppercase whitespace-nowrap text-black hover:text-white transition-colors"
+                  className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black uppercase whitespace-nowrap text-black hover:text-white transition-colors"
                   style={{
                     // Adding a slight text stroke to make the overlapping text pop
                     WebkitTextStroke: '1px rgba(255,255,255,0.2)'

@@ -6,7 +6,8 @@ import ServicesGrid from "@/components/home/ServicesGrid";
 import TextMarquee from "@/components/ui/TextMarquee";
 import VelvetDifference from "@/components/home/VelvetDifference";
 import ShowcaseGallery from "@/components/home/ShowcaseGallery";
-import OurPerformersGallery from "@/components/home/OurPerformersGallery";
+import PerformersCarousel from "@/components/home/PerformersCarousel";
+// import OurPerformersGallery from "@/components/home/OurPerformersGallery";
 // import FeaturedPerformers from "@/components/home/FeaturedPerformers";
 // import PackagesSection from "@/components/home/PackagesSection";
 import CitiesSection from "@/components/home/CitiesSection";
@@ -29,7 +30,7 @@ export default function Home() {
       <WhyChooseUs />
       <ServicesGrid />
       <VelvetDifference />
-      <OurPerformersGallery />
+      <PerformersCarousel />
       {/* <FeaturedPerformers /> */}
       {/* <PackagesSection /> */}
       <CitiesSection />

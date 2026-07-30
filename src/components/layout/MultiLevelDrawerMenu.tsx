@@ -516,6 +516,10 @@ export default function MultiLevelDrawerMenu({ primaries, onOpenChange }: MultiL
         <button ref={scrimRef} className="mldm_scrim" aria-label="Close menu" tabIndex={-1} onClick={closeMenu} />
 
         <aside ref={panel1Ref} className="mldm_panel mldm_panel_primary">
+          <button className="mldm_close" aria-label="Close navigation menu" onClick={closeMenu}>
+            <span className="mldm_close_line" aria-hidden="true" />
+            <span className="mldm_close_line" aria-hidden="true" />
+          </button>
           <div className="mldm_panel_inner">
             <nav
               ref={primaryNavRef}
@@ -720,7 +724,7 @@ export default function MultiLevelDrawerMenu({ primaries, onOpenChange }: MultiL
         </span>
       </button>
 
-      {overlay}
+      {mounted ? createPortal(overlay, document.body) : null}
     </>
   );
 }

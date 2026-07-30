@@ -1,8 +1,8 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
+import dynamic from "next/dynamic";
 import Link from "next/link";
-import Silk from "@/components/ui/Silk";
 import {
   Star,
   MapPin,
@@ -12,6 +12,8 @@ import {
   ChevronRight,
   ArrowRight,
 } from "lucide-react";
+
+const Silk = dynamic(() => import("@/components/ui/Silk"), { ssr: false });
 
 const PINK = "#740107";
 
@@ -111,9 +113,23 @@ export default function PerformersCarousel() {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  const go = (dir: number) => setActive((a) => (a + dir + n) % n);
+  const go = useCallback((dir: number) => setActive((a) => (a + dir + n) % n), [n]);
+
+  // Auto-slide every 4s, paused on hover/touch interaction
+  const [isPaused, setIsPaused] = useState(false);
+  const autoSlideRef = useRef<ReturnType<typeof setInterval> | null>(null);
+
+  useEffect(() => {
+    if (isPaused) return;
+    autoSlideRef.current = setInterval(() => go(1), 2500);
+    return () => {
+      if (autoSlideRef.current) clearInterval(autoSlideRef.current);
+    };
+    // Resetting on `active` restarts the 4s countdown after any manual navigation
+  }, [isPaused, go, active]);
 
   const onTouchStart = (e: React.TouchEvent) => {
+    setIsPaused(true);
     setTouchEnd(null);
     setTouchStart(e.targetTouches[0].clientX);
   };
@@ -123,15 +139,17 @@ export default function PerformersCarousel() {
   };
 
   const onTouchEnd = () => {
-    if (!touchStart || !touchEnd) return;
-    const distance = touchStart - touchEnd;
-    const isLeftSwipe = distance > 50;
-    const isRightSwipe = distance < -50;
-    if (isLeftSwipe) {
-      go(1);
-    } else if (isRightSwipe) {
-      go(-1);
+    if (touchStart !== null && touchEnd !== null) {
+      const distance = touchStart - touchEnd;
+      const isLeftSwipe = distance > 50;
+      const isRightSwipe = distance < -50;
+      if (isLeftSwipe) {
+        go(1);
+      } else if (isRightSwipe) {
+        go(-1);
+      }
     }
+    setIsPaused(false);
   };
 
   return (
@@ -157,7 +175,11 @@ export default function PerformersCarousel() {
       </div>
 
       {/* 3D coverflow stage */}
-      <div className="relative mx-auto h-[640px] sm:h-[720px] md:h-[800px] w-full max-w-[1800px] px-4">
+      <div
+        className="relative mx-auto h-[640px] sm:h-[720px] md:h-[800px] w-full max-w-[1800px] px-4"
+        onMouseEnter={() => setIsPaused(true)}
+        onMouseLeave={() => setIsPaused(false)}
+      >
 
         {/* Removed pink oval floor glow */}
 

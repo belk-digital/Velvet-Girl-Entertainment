@@ -1,3 +1,6 @@
+"use client";
+
+import dynamic from "next/dynamic";
 import {
   Award,
   CalendarCheck,
@@ -7,7 +10,8 @@ import {
   Diamond,
 } from "lucide-react";
 import Reveal from "@/components/ui/Reveal";
-import Silk from "@/components/ui/Silk";
+
+const Silk = dynamic(() => import("@/components/ui/Silk"), { ssr: false });
 
 const leftReasons = [
   {

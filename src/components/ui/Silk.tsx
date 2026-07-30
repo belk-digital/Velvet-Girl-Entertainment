@@ -177,13 +177,14 @@ const Silk = ({ speed = 5, scale = 1, color = '#7B7481', noiseIntensity = 1.5, r
     <div ref={containerRef} className="absolute inset-0 w-full h-full pointer-events-none overflow-hidden">
       <Canvas
         dpr={1}
-        frameloop="always"
+        frameloop={isVisible ? "always" : "never"}
         gl={{
           powerPreference: "high-performance",
           antialias: false,
           depth: false,
           stencil: false,
           alpha: false,
+          preserveDrawingBuffer: false,
         }}
       >
         <SilkPlane ref={meshRef} uniforms={uniforms} isVisible={isVisible} />

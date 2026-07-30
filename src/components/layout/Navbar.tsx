@@ -2,8 +2,6 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { MessageCircle } from "lucide-react";
-import { services } from "@/data/services";
 import { cities } from "@/data/cities";
 import { packageThemes } from "@/data/packages";
 import MultiLevelDrawerMenu, {
@@ -11,38 +9,6 @@ import MultiLevelDrawerMenu, {
 } from "@/components/layout/MultiLevelDrawerMenu";
 
 const primaries: DrawerPrimary[] = [
-  { id: "home", label: "Home", href: "/" },
-  {
-    id: "about",
-    label: "About",
-    href: "/about",
-    dropdown: [
-      { label: "About Velvet Girl", href: "/about" },
-      { label: "Why Choose Us", href: "/about#why-choose-us" },
-      { label: "Our Process", href: "/about#our-process" },
-      { label: "Safety & Privacy", href: "/about#safety-privacy" },
-    ],
-  },
-  {
-    id: "performers",
-    label: "Performers",
-    href: "/performers",
-    dropdown: [
-      { label: "Blonde Performers", href: "/performers?hair=Blonde" },
-      { label: "Brunette Performers", href: "/performers?hair=Brunette" },
-      { label: "Redhead Performers", href: "/performers?hair=Redhead" },
-      { label: "Featured Performers", href: "/performers?featured=true" },
-    ],
-  },
-  {
-    id: "services",
-    label: "Services",
-    href: "/services",
-    dropdown: services.map((s) => ({
-      label: s.title,
-      href: `/services/${s.slug}`,
-    })),
-  },
   {
     id: "packages",
     label: "Packages",
@@ -70,35 +36,66 @@ const primaries: DrawerPrimary[] = [
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [hidden, setHidden] = useState(false);
 
   useEffect(() => {
+    let lastScrollY = window.scrollY;
+
     const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
+      const currentScrollY = window.scrollY;
+      setScrolled(currentScrollY > 50);
+
+      if (currentScrollY > lastScrollY && currentScrollY > 100) {
+        setHidden(true);
+      } else {
+        setHidden(false);
+      }
+      lastScrollY = currentScrollY;
     };
 
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
-    <header className={`fixed top-0 w-full z-[110] transition-colors duration-300 pointer-events-none ${scrolled && !isMenuOpen ? "bg-black" : "bg-transparent"} border-transparent`}>
+    <header className={`fixed top-0 w-full z-[110] transition-all duration-300 pointer-events-none ${hidden && !isMenuOpen ? "-translate-y-full" : "translate-y-0"} ${scrolled && !isMenuOpen ? "bg-white/95 backdrop-blur-md shadow-sm" : "bg-transparent"} border-transparent`}>
       <nav className="mx-auto flex max-w-[120rem] items-center justify-between px-6 py-3 lg:px-12">
         <Link href="/" className="pointer-events-auto flex items-center gap-3">
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/logo.svg" alt="Velvet Girl Entertainment" className="h-16 w-auto sm:h-20" />
-          <span className="font-heading text-lg font-bold uppercase tracking-widest text-white sm:text-2xl">
+          <img src="/velvet-logo.png" alt="Velvet Girl Entertainment" className="h-16 w-auto sm:h-20" />
+          <span className="font-heading text-lg font-bold uppercase tracking-widest text-black sm:text-2xl">
             Velvet Girls
           </span>
         </Link>
 
         <div className="flex items-center gap-4 sm:gap-6 pointer-events-auto">
-          <a
-            href="sms:+18439387737"
-            className="hidden items-center gap-2 font-body text-xs font-medium text-white/70 transition-colors hover:text-white sm:flex"
-          >
-            <MessageCircle className="h-4 w-4 text-velvet-pink" />
-            Text Us
-          </a>
+          {/* Main Navbar Links (not on drawer menu) prior to Text Us */}
+          <div className="hidden md:flex items-center gap-6 lg:gap-8 mr-2 lg:mr-4">
+            <Link
+              href="/"
+              className="font-heading text-sm font-bold uppercase tracking-wider text-black/85 hover:text-[#740107] transition-colors"
+            >
+              Home
+            </Link>
+            <Link
+              href="/about"
+              className="font-heading text-sm font-bold uppercase tracking-wider text-black/85 hover:text-[#740107] transition-colors"
+            >
+              About
+            </Link>
+            <Link
+              href="/performers"
+              className="font-heading text-sm font-bold uppercase tracking-wider text-black/85 hover:text-[#740107] transition-colors"
+            >
+              Performers
+            </Link>
+            <Link
+              href="/services"
+              className="font-heading text-sm font-bold uppercase tracking-wider text-black/85 hover:text-[#740107] transition-colors"
+            >
+              Services
+            </Link>
+          </div>
 
           <div className="ml-2 sm:ml-4">
             <MultiLevelDrawerMenu primaries={primaries} onOpenChange={setIsMenuOpen} />

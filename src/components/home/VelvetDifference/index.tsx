@@ -1,146 +1,103 @@
 "use client";
 
-import { useEffect, useRef } from "react";
-import { createDifferenceExperience } from "./engine/createDifferenceExperience";
-import { config, intro, paragraphs, outro } from "./engine/content";
+import React from "react";
 
-type OverlayPos = { x: number; y: number; visible: boolean };
+interface StatItem {
+  number: string;
+  label: string;
+}
+
+const stats: StatItem[] = [
+  {
+    number: "500+",
+    label:
+      "Events booked across the East Coast with repeat clients nationwide.",
+  },
+  {
+    number: "100%",
+    label:
+      "Real photos verified — the girl in the photo is the girl at your door.",
+  },
+  {
+    number: "24/7",
+    label:
+      "Dedicated booking concierges available day and night to assist you.",
+  },
+  {
+    number: "50+",
+    label:
+      "Cities and prime destinations served with elite professional standards.",
+  },
+];
 
 export default function VelvetDifference() {
-  const wrapperRef = useRef<HTMLDivElement>(null);
-  const stickyRef = useRef<HTMLDivElement>(null);
-  const canvasRef = useRef<HTMLCanvasElement>(null);
-  const overlayRefs = useRef<Record<string, HTMLDivElement | null>>({});
-
-  useEffect(() => {
-    const wrapper = wrapperRef.current;
-    const container = stickyRef.current;
-    const canvas = canvasRef.current;
-    if (!wrapper || !container || !canvas) return;
-
-    const getScrollProgress = () => {
-      const rect = wrapper.getBoundingClientRect();
-      const total = rect.height - window.innerHeight;
-      if (total <= 0) return 0;
-      return Math.min(1, Math.max(0, -rect.top / total));
-    };
-
-    const experience = createDifferenceExperience({ canvas, container, getScrollProgress });
-    const overlays = experience.overlays as Record<string, OverlayPos>;
-
-    let raf = 0;
-    let active = false;
-    const applyOverlays = () => {
-      if (!active) {
-        raf = 0;
-        return;
-      }
-      raf = requestAnimationFrame(applyOverlays);
-      for (const id in overlayRefs.current) {
-        const el = overlayRefs.current[id];
-        const pos = overlays[id];
-        if (!el || !pos) continue;
-        const extra = el.dataset.extra || "";
-        el.style.transform = `translate3d(${pos.x}px, ${pos.y}px, 0) ${extra}`;
-        el.style.opacity = pos.visible ? "1" : "0";
-      }
-    };
-
-    // Only render / update overlays while the section is on or near the
-    // viewport — the WebGL loop does a heavy 4-pass render every frame.
-    const io = new IntersectionObserver(
-      (entries) => {
-        const visible = entries[0]?.isIntersecting ?? false;
-        if (visible === active) return;
-        active = visible;
-        experience.setActive(visible);
-        if (visible && raf === 0) raf = requestAnimationFrame(applyOverlays);
-      },
-      { rootMargin: "200px 0px" }
-    );
-    io.observe(wrapper);
-
-    const onResize = () => experience.resize();
-    window.addEventListener("resize", onResize);
-
-    return () => {
-      io.disconnect();
-      if (raf) cancelAnimationFrame(raf);
-      window.removeEventListener("resize", onResize);
-      experience.dispose();
-    };
-  }, []);
-
-  const setRef = (id: string) => (el: HTMLDivElement | null) => {
-    overlayRefs.current[id] = el;
-  };
-
-  const overlayBase: React.CSSProperties = {
-    position: "absolute",
-    top: 0,
-    left: 0,
-    willChange: "transform, opacity",
-    pointerEvents: "none",
-    transition: "opacity 200ms ease",
-  };
-
   return (
-    <section className="relative bg-[#050506]">
-      <div ref={wrapperRef} style={{ height: `${config.pages * 100}vh` }} className="relative w-full">
-        <div ref={stickyRef} className="sticky top-0 h-screen w-full overflow-hidden">
-          <canvas ref={canvasRef} className="absolute inset-0 h-full w-full" />
+    <section
+      id="velvet-difference"
+      className="relative w-full min-h-screen overflow-hidden py-24 sm:py-32 flex items-center bg-black"
+    >
+      {/* Full Section Background Image with Dark Overlay */}
+      <div className="absolute inset-0 z-0 pointer-events-none">
+        <img
+          src="/velvet-difference/real-results.jpg"
+          alt="Real Results Background"
+          className="w-full h-full object-cover object-center"
+        />
+        <div className="absolute inset-0 bg-black/75" />
+      </div>
 
-          {/* HTML caption overlays, positioned to 3D anchors each frame */}
-          <div
-            ref={setRef("eyebrow")}
-            style={{
-              ...overlayBase,
-              color: "#ffffff",
-              textTransform: "uppercase",
-              letterSpacing: "0.22em",
-              fontSize: "13px",
-              fontWeight: 700,
-              whiteSpace: "nowrap",
-            }}
-          >
-            {intro.eyebrow}
-          </div>
-
-          <div
-            ref={setRef("intro-text")}
-            style={{ ...overlayBase, width: "min(70vw, 380px)" }}
-            className="font-body text-sm leading-relaxed text-white/70"
-          >
-            {intro.text}
-          </div>
-
-          {paragraphs.map((p) => (
-            <div
-              key={p.id}
-              ref={setRef(p.id)}
-              style={{ ...overlayBase, transform: "translate3d(0,0,0)" }}
-              className={`font-body text-sm leading-relaxed text-white/70 w-[94vw] max-w-[420px] text-left md:w-[24vw] md:max-w-[340px] ${
-                p.offset % 2 ? "md:text-left" : "md:text-right"
-              }`}
-            >
-              {p.text}
+      <div className="relative z-10 mx-auto max-w-[120rem] px-6 lg:px-12 w-full">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+          {/* Left Column: Heading & Copy */}
+          <div className="lg:col-span-5 flex flex-col justify-center">
+            <div className="flex items-center gap-2 mb-4">
+              <span className="w-1.5 h-1.5 rounded-full bg-white/70" />
+              <p className="text-xs sm:text-sm font-bold uppercase tracking-widest text-white/70">
+                THE VELVET DIFFERENCE
+              </p>
             </div>
-          ))}
+            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-tight mb-6">
+              Proven Results,
+              <br />
+              Better Outcomes
+            </h2>
+            <p className="text-base sm:text-lg text-white/80 leading-relaxed max-w-lg font-body">
+              Transforming your events through verified performers, professional
+              booking concierges, and 100% real photos that guarantee an
+              unforgettable experience every single time.
+            </p>
+          </div>
 
-          <div
-            ref={setRef("outro")}
-            data-extra="translate(-50%, 0)"
-            style={{
-              ...overlayBase,
-              color: "#ffffff",
-              fontSize: "clamp(1.6rem,4vw,3rem)",
-              fontWeight: 800,
-              letterSpacing: "0.01em",
-              textAlign: "center",
-              whiteSpace: "nowrap",
-            }}
-          >
-            {outro.text}
+          {/* Right Column: 2x2 Frosted Glass Stat Cards Grid */}
+          <div className="lg:col-span-7">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
+              {stats.map((stat) => (
+                <div
+                  key={stat.number}
+                  className="relative bg-white/[0.08] backdrop-blur-md border border-white/20 rounded-sm overflow-hidden shadow-2xl transition-all duration-300 hover:bg-white/[0.12] hover:border-white/30"
+                >
+                  {/* Corner Rivet Dots */}
+                  <div className="absolute top-2.5 left-2.5 w-1.5 h-1.5 rounded-full bg-white/40 pointer-events-none" />
+                  <div className="absolute top-2.5 right-2.5 w-1.5 h-1.5 rounded-full bg-white/40 pointer-events-none" />
+                  <div className="absolute bottom-2.5 left-2.5 w-1.5 h-1.5 rounded-full bg-white/40 pointer-events-none" />
+                  <div className="absolute bottom-2.5 right-2.5 w-1.5 h-1.5 rounded-full bg-white/40 pointer-events-none" />
+
+                  {/* Top Half: Number */}
+                  <div className="p-6 sm:p-8 border-b border-white/15">
+                    <span className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white block">
+                      {stat.number}
+                    </span>
+                  </div>
+
+                  {/* Bottom Half: Label */}
+                  <div className="p-6 sm:p-8">
+                    <p className="text-xs sm:text-sm text-white/80 leading-relaxed font-body">
+                      {stat.label}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>

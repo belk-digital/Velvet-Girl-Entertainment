@@ -6,11 +6,11 @@ export const config = {
   sections: 6,
   pages: 4.5,
   zoom: 75,
-  background: "#050506", // near-black field
-  stripeColor: "#ff007f", // hot-pink zig-zag bands
-  headlineColor: "#ffffff",
-  headerColor: "#ff007f",
-  numberColor: "#1b1b22",
+  background: "#ffffff", // white field
+  stripeColor: "#740107", // accent bands
+  headlineColor: "#000000",
+  headerColor: "#740107",
+  numberColor: "#000000",
 };
 
 export const intro = {
@@ -62,10 +62,10 @@ export const outro = {
   text: "Book With Confidence.",
 };
 
-// Slim hot-pink diagonal accent bands on the black field.
+// Slim diagonal accent bands on the field.
 export const stripes = [
-  { offset: 0, height: 4, color: "#ff007f" }, // small pink (intro)
-  { offset: 3.5, height: 4, color: "#ff007f" }, // small pink (end)
+  { offset: 0, height: 4, color: "#740107" }, // small accent (intro)
+  { offset: 3.5, height: 4, color: "#740107" }, // small accent (end)
 ];
 
 export const diamonds = [

@@ -1,12 +1,13 @@
 import {
   Award,
-  Accessibility,
+  CalendarCheck,
   Map,
   Lock,
   Clock,
   Diamond,
 } from "lucide-react";
 import Reveal from "@/components/ui/Reveal";
+import Silk from "@/components/ui/Silk";
 
 const leftReasons = [
   {
@@ -15,7 +16,7 @@ const leftReasons = [
     description: "Every performer is verified before joining our roster.",
   },
   {
-    icon: Accessibility,
+    icon: CalendarCheck,
     title: "Professional Booking",
     description: "Dedicated booking agents available day and night.",
   },
@@ -46,21 +47,35 @@ const rightReasons = [
 
 export default function WhyChooseUs() {
   return (
-    <section id="why-choose-us" className="relative w-full overflow-hidden bg-velvet-pink-hot pt-16 sm:pt-24 pb-0">
-      
-      <div className="relative z-10 mx-auto max-w-[120rem] px-4 sm:px-6">
+    <section id="why-choose-us" className="relative w-full min-h-screen overflow-hidden bg-[#740107] flex flex-col justify-between pt-16 sm:pt-24 pb-0">
+      {/* Interactive WebGL Animated Silk Background */}
+      <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
+        <Silk
+          speed={5}
+          scale={1}
+          color="#A80512"
+          noiseIntensity={0.8}
+          rotation={1.6}
+        />
+      </div>
+
+      <div className="relative z-10 mx-auto max-w-[120rem] px-4 sm:px-6 flex-1 flex flex-col justify-between">
         
         {/* Title */}
-        <div className="mb-12 text-center flex justify-center items-center flex-wrap gap-2 sm:gap-4 z-20 relative">
-           <span className="font-display text-5xl sm:text-7xl md:text-8xl lg:text-[7.5rem] leading-[0.85] font-black text-white/20 uppercase tracking-tighter">WHY</span>
-           <span className="font-display text-5xl sm:text-7xl md:text-8xl lg:text-[7.5rem] leading-[0.85] font-black text-white uppercase tracking-tighter">CHOOSE US</span>
+        <div className="mb-12 md:mb-16 text-center z-20 relative">
+          <p className="text-xs md:text-sm font-bold uppercase tracking-widest text-white/70 mb-3">
+            WHY US
+          </p>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-tight mb-4">
+            Why Choose <span className="text-white">Velvet Girls</span>
+          </h2>
         </div>
 
         {/* 3-Column Grid */}
-        <div className="relative grid grid-cols-1 lg:grid-cols-[1fr_auto_1fr] items-center gap-12 lg:gap-0 max-w-[85rem] mx-auto z-10">
+        <div className="relative grid grid-cols-1 lg:grid-cols-[1fr_auto_1fr] items-end gap-12 lg:gap-0 max-w-[85rem] mx-auto z-10 w-full mt-auto">
           
           {/* Left Features */}
-          <div className="order-1 flex flex-col gap-10 lg:gap-16 z-20 lg:pr-8 xl:pr-12">
+          <div className="order-1 flex flex-col gap-10 lg:gap-16 z-20 lg:pr-8 xl:pr-12 self-center pb-12 lg:pb-24">
              {leftReasons.map(({icon: Icon, title, description}, i) => (
                 <Reveal key={title} delay={i * 0.1}>
                   <div className="flex items-start gap-4 sm:gap-5">
@@ -77,7 +92,7 @@ export default function WhyChooseUs() {
           </div>
 
           {/* Center Image */}
-          <div className="order-3 lg:order-2 relative h-[450px] sm:h-[600px] lg:h-[750px] w-full lg:w-[450px] xl:w-[550px] mx-auto z-0 mt-4 lg:mt-0 lg:-mx-8 -mb-12 lg:-mb-24 pointer-events-none">
+          <div className="order-3 lg:order-2 relative h-[450px] sm:h-[600px] lg:h-[750px] w-full lg:w-[450px] xl:w-[550px] mx-auto z-0 mt-4 lg:mt-0 lg:-mx-8 pointer-events-none self-end mb-0">
              <img 
                 src="https://res.cloudinary.com/denskvdyt/image/upload/v1784623153/about-image_zwdvdt.webp" 
                 alt="Why Choose Us Model"
@@ -86,7 +101,7 @@ export default function WhyChooseUs() {
           </div>
 
           {/* Right Features */}
-          <div className="order-2 lg:order-3 flex flex-col gap-10 lg:gap-16 z-20 lg:pl-8 xl:pl-12">
+          <div className="order-2 lg:order-3 flex flex-col gap-10 lg:gap-16 z-20 lg:pl-8 xl:pl-12 self-center pb-12 lg:pb-24">
              {rightReasons.map(({icon: Icon, title, description}, i) => (
                 <Reveal key={title} delay={i * 0.1}>
                   <div className="flex items-start gap-4 sm:gap-5">
@@ -103,14 +118,6 @@ export default function WhyChooseUs() {
           </div>
         </div>
       </div>
-
-      {/* Bottom Wave Cut */}
-      <div className="absolute bottom-0 left-0 w-full z-30 pointer-events-none text-black">
-        <svg viewBox="0 0 1440 120" className="w-full h-[50px] sm:h-[80px] md:h-[120px]" preserveAspectRatio="none" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M0,120 L1440,120 L1440,60 L920,60 C860,60 820,110 720,110 C620,110 580,60 520,60 L0,60 Z" fill="currentColor" />
-        </svg>
-      </div>
-
     </section>
   );
 }

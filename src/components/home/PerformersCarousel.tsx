@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Silk from "@/components/ui/Silk";
 import {
   Star,
   MapPin,
@@ -12,7 +13,7 @@ import {
   ArrowRight,
 } from "lucide-react";
 
-const PINK = "#F90267";
+const PINK = "#740107";
 
 type Performer = {
   name: string;
@@ -134,17 +135,24 @@ export default function PerformersCarousel() {
   };
 
   return (
-    <section className="relative overflow-hidden bg-black py-16 sm:py-24">
+    <section id="performers-section" className="relative overflow-hidden bg-[#740107] py-16 sm:py-24 min-h-screen flex flex-col justify-between">
+      {/* Interactive WebGL Animated Silk Background */}
+      <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
+        <Silk
+          speed={5}
+          scale={1}
+          color="#A80512"
+          noiseIntensity={0.8}
+          rotation={1.6}
+        />
+      </div>
 
       {/* heading */}
-      <div className="relative z-10 mb-10 text-center sm:mb-14">
-        <p className="mb-3 font-body text-xs font-semibold tracking-widest uppercase text-[#F90267]">
-          MEET THE ROSTER
-        </p>
-        <h2 className="flex items-center justify-center gap-4 font-display text-4xl font-black uppercase tracking-tight text-white sm:text-6xl md:text-7xl">
-          <Sparkle />
-          Our Performers
-          <Sparkle />
+      <div className="relative z-10 mb-8 sm:mb-12 text-center">
+        <h2 className="flex items-center justify-center gap-3 sm:gap-6 text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black tracking-widest text-white leading-tight uppercase font-display drop-shadow-[0_4px_20px_rgba(0,0,0,0.5)]">
+          <span className="text-3xl sm:text-5xl md:text-6xl text-white">✦</span>
+          <span>PERFORMERS</span>
+          <span className="text-3xl sm:text-5xl md:text-6xl text-white">✦</span>
         </h2>
       </div>
 
@@ -179,13 +187,13 @@ export default function PerformersCarousel() {
               const xStep = abs === 0 
                 ? 0 
                 : abs === 1 
-                  ? (isMobile ? 180 : 250) 
+                  ? (isMobile ? 220 : 360) 
                   : abs === 2 
-                    ? (isMobile ? 320 : 460) 
-                    : (isMobile ? 440 : 620);
+                    ? (isMobile ? 380 : 660) 
+                    : (isMobile ? 520 : 920);
               const xPx = sign * xStep;
-              const z = -abs * 190;
-              const ry = isCenter ? 0 : -sign * 50;
+              const z = -abs * 130;
+              const ry = isCenter ? 0 : -sign * 35;
               const scale = isCenter ? 1 : Math.max(0.45, 0.78 - abs * 0.10);
               const opacity = !visible ? 0 : isCenter ? 1 : Math.max(0.12, 1 - abs * 0.20);
 
@@ -214,24 +222,6 @@ export default function PerformersCarousel() {
                 >
                   {/* Card */}
                   <PerformerCard p={p} center={isCenter} isMobile={isMobile} />
-
-                  {/* Floor reflection */}
-                  <div
-                    className="pointer-events-none absolute left-0 w-full overflow-hidden"
-                    style={{
-                      top: isCenter ? (isMobile ? "460px" : "560px") : (isMobile ? "400px" : "490px"),
-                      height: isCenter ? (isMobile ? "100px" : "130px") : (isMobile ? "65px" : "85px"),
-                      transform: "scaleY(-1)",
-                      opacity: isCenter ? 0.48 : 0.22,
-                      maskImage: "linear-gradient(to top, transparent 0%, rgba(0,0,0,0.9) 100%)",
-                      WebkitMaskImage: "linear-gradient(to top, transparent 0%, rgba(0,0,0,0.9) 100%)",
-                    }}
-                    aria-hidden
-                  >
-                    <div style={{ transform: "scaleY(-1)", overflow: "hidden", height: isCenter ? (isMobile ? "100px" : "130px") : (isMobile ? "65px" : "85px") }}>
-                      <PerformerCard p={p} center={isCenter} isMobile={isMobile} />
-                    </div>
-                  </div>
                 </article>
               );
             })}
@@ -243,39 +233,33 @@ export default function PerformersCarousel() {
           type="button"
           aria-label="Previous performer"
           onClick={() => go(-1)}
-          className="absolute left-2 top-1/2 z-[200] flex h-12 w-12 -translate-y-1/2 items-center justify-center border-2 bg-black/60 text-white backdrop-blur transition-colors hover:text-white sm:left-6"
-          style={{ borderColor: PINK }}
-          onMouseEnter={e => (e.currentTarget.style.backgroundColor = PINK)}
-          onMouseLeave={e => (e.currentTarget.style.backgroundColor = "rgba(0,0,0,0.6)")}
+          className="absolute left-2 sm:left-6 top-1/2 z-[200] flex h-12 w-12 sm:h-14 sm:w-14 -translate-y-1/2 items-center justify-center rounded-full bg-white text-black shadow-xl border border-black/10 transition-transform hover:scale-110"
         >
-          <ChevronLeft className="h-6 w-6" />
+          <ChevronLeft className="h-6 w-6 sm:h-7 sm:w-7" />
         </button>
         <button
           type="button"
           aria-label="Next performer"
           onClick={() => go(1)}
-          className="absolute right-2 top-1/2 z-[200] flex h-12 w-12 -translate-y-1/2 items-center justify-center border-2 bg-black/60 text-white backdrop-blur transition-colors hover:text-white sm:right-6"
-          style={{ borderColor: PINK }}
-          onMouseEnter={e => (e.currentTarget.style.backgroundColor = PINK)}
-          onMouseLeave={e => (e.currentTarget.style.backgroundColor = "rgba(0,0,0,0.6)")}
+          className="absolute right-2 sm:right-6 top-1/2 z-[200] flex h-12 w-12 sm:h-14 sm:w-14 -translate-y-1/2 items-center justify-center rounded-full bg-white text-black shadow-xl border border-black/10 transition-transform hover:scale-110"
         >
-          <ChevronRight className="h-6 w-6" />
+          <ChevronRight className="h-6 w-6 sm:h-7 sm:w-7" />
         </button>
       </div>
 
       {/* dots */}
-      <div className="relative z-10 mt-6 flex items-center justify-center gap-2.5">
+      <div className="relative z-10 mt-8 flex items-center justify-center gap-3">
         {performers.map((p, i) => (
           <button
             key={p.name}
             type="button"
             aria-label={`Go to ${p.name}`}
             onClick={() => setActive(i)}
-            className="h-2 transition-all duration-300"
+            className="h-3 w-3 rounded-full transition-all duration-300"
             style={{
-              width: i === active ? "24px" : "8px",
-              borderRadius: 0,
-              backgroundColor: i === active ? PINK : "rgba(255,255,255,0.25)",
+              backgroundColor: i === active ? PINK : "rgba(255,255,255,0.4)",
+              border: i === active ? "2px solid #fff" : "none",
+              transform: i === active ? "scale(1.25)" : "scale(1)",
             }}
           />
         ))}

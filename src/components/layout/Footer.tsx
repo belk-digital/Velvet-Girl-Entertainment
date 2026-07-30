@@ -49,49 +49,67 @@ export default function Footer() {
   }, { scope: containerRef });
 
   return (
-    <footer ref={containerRef} className="relative w-full bg-black overflow-hidden flex flex-col items-center pt-0 pb-16 font-sans">
+    <footer ref={containerRef} className="relative w-full bg-white overflow-hidden flex flex-col items-center pt-0 pb-12 font-sans">
       {/* Background Glows */}
-      <div className="absolute top-0 left-0 w-[600px] h-[600px] bg-[#f90066] rounded-full blur-[200px] opacity-15 -translate-x-1/2 -translate-y-1/2"></div>
-      <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-[#f90066] rounded-full blur-[200px] opacity-20 translate-x-1/3 translate-y-1/3"></div>
+      <div className="absolute top-0 left-0 w-[600px] h-[600px] bg-[#740107] rounded-full blur-[220px] opacity-10 -translate-x-1/2 -translate-y-1/2 pointer-events-none"></div>
+      <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-[#740107] rounded-full blur-[220px] opacity-10 translate-x-1/3 translate-y-1/3 pointer-events-none"></div>
 
-      {/* Background Watermarks */}
-      <div className="footer-watermark absolute top-0 left-0 -translate-x-[5%] -translate-y-[15%] pointer-events-none">
+      {/* Top-Left Deep Red Solid Watermark (matching 'octo') */}
+      <div className="footer-watermark absolute top-0 left-0 -translate-x-[2%] -translate-y-[10%] pointer-events-none z-0">
         <h1 
-          className="text-[12rem] md:text-[20rem] font-black text-transparent opacity-40 leading-none tracking-tighter select-none"
-          style={{ WebkitTextStroke: '2px #f90066' }}
+          className="text-[9rem] sm:text-[14rem] md:text-[18rem] lg:text-[23rem] font-black text-[#740107] leading-none tracking-tighter select-none lowercase"
+          style={{
+            maskImage: 'linear-gradient(to bottom, black 35%, transparent 100%)',
+            WebkitMaskImage: 'linear-gradient(to bottom, black 35%, transparent 100%)',
+          }}
         >
-          VELVET
+          velvet
         </h1>
       </div>
-      <div className="footer-watermark absolute bottom-0 right-0 translate-x-[5%] translate-y-[15%] pointer-events-none">
+
+      {/* Bottom-Right Soft Watermark (matching 'smm') */}
+      <div className="footer-watermark absolute bottom-0 right-0 translate-x-[5%] translate-y-[15%] pointer-events-none z-0">
         <h1 
-          className="text-[12rem] md:text-[20rem] font-black text-transparent opacity-40 leading-none tracking-tighter select-none"
-          style={{ WebkitTextStroke: '2px #f90066' }}
+          className="text-[9rem] sm:text-[14rem] md:text-[18rem] lg:text-[24rem] font-black text-[#740107]/12 leading-none tracking-tighter select-none lowercase"
         >
-          GIRLS
+          girls
         </h1>
       </div>
 
       {/* Main Image & Rotating Text */}
       <style dangerouslySetInnerHTML={{
         __html: `
-        @keyframes spin3d {
-          from { transform: rotateY(0deg); }
-          to { transform: rotateY(-360deg); }
+        @keyframes spin3d-footer {
+          from { transform: rotateX(-15deg) rotateZ(-10deg) rotateY(0deg); }
+          to { transform: rotateX(-15deg) rotateZ(-10deg) rotateY(-360deg); }
         }
       `}} />
       <div className="footer-3d-center relative z-10 w-full max-w-5xl mx-auto flex justify-center mb-16 md:mb-24" style={{ perspective: '1200px' }}>
-        <div className="relative flex items-center justify-center w-[300px] h-[300px] md:w-[400px] md:h-[400px]" style={{ transformStyle: 'preserve-3d', transform: 'rotateX(-12deg) rotateZ(8deg)' }}>
+        <div className="relative flex justify-center items-start w-[320px] h-[360px] sm:w-[400px] sm:h-[440px] md:w-[460px] md:h-[520px]" style={{ transformStyle: 'preserve-3d' }}>
 
-          {/* Rotating Text Ring */}
-          <div className="absolute inset-0 flex items-center justify-center" style={{ transformStyle: 'preserve-3d', animation: 'spin3d 12s linear infinite' }}>
-            {"CONTACT US \u00A0 CONTACT US \u00A0 CONTACT US \u00A0 ".split("").map((char, i, arr) => (
+          {/* Heels Image at Z=0 - Upright, touching top-0 */}
+          <img
+            src="/pleasers-img-bg-remove.png"
+            alt="Heels"
+            className="absolute top-0 h-full w-auto object-contain object-top drop-shadow-[0_20px_40px_rgba(0,0,0,0.15)]"
+            style={{ transform: 'translateZ(0px)' }}
+          />
+
+          {/* Rotating Text Ring around the legs (in front when Z>0, behind when Z<0) */}
+          <div 
+            className="absolute inset-0 flex items-center justify-center pointer-events-none" 
+            style={{ 
+              transformStyle: 'preserve-3d', 
+              animation: 'spin3d-footer 16s linear infinite' 
+            }}
+          >
+            {"contact us \u00A0 contact us \u00A0 contact us \u00A0 ".split("").map((char, i, arr) => (
               <span
                 key={i}
-                className="absolute text-5xl md:text-6xl font-black text-white whitespace-pre"
+                className="absolute text-5xl sm:text-6xl md:text-7xl font-black text-[#1c1c1c] whitespace-pre tracking-tight"
                 style={{
-                  transform: `rotateY(${i * (360 / arr.length)}deg) translateZ(180px)`,
-                  textShadow: '0 0 10px rgba(255,255,255,0.4)',
+                  transform: `rotateY(${i * (360 / arr.length)}deg) translateZ(185px)`,
+                  textShadow: '0 4px 15px rgba(0,0,0,0.1)',
                 }}
               >
                 {char}
@@ -99,33 +117,33 @@ export default function Footer() {
             ))}
           </div>
 
-          {/* Heels Image */}
-          <img
-            src="https://res.cloudinary.com/denskvdyt/image/upload/v1784745931/heels-image_vemqzw.png"
-            alt="Heels"
-            className="absolute w-auto h-full max-h-[300px] md:max-h-[400px] object-contain drop-shadow-[0_0_80px_rgba(249,0,102,0.4)]"
-            style={{ transform: 'rotateZ(-8deg) rotateX(12deg) translateZ(0)' }}
-          />
-
         </div>
       </div>
 
-      {/* Bottom Content Row */}
-      <div className="relative z-10 w-full max-w-[120rem] mx-auto px-6 lg:px-12 flex flex-col lg:flex-row items-start lg:items-end justify-between gap-12">
+      {/* Bottom Content Row - Exactly matching 4-column layout in photo */}
+      <div className="relative z-10 w-full max-w-[120rem] mx-auto px-6 lg:px-12 flex flex-col lg:flex-row items-start lg:items-end justify-between gap-12 pb-8">
 
-        {/* Logo & Socials */}
-        <div className="footer-content-item flex flex-col gap-6 md:gap-12">
+        {/* Column 1: Logo & Social Buttons */}
+        <div className="footer-content-item flex flex-col gap-6 md:gap-8 shrink-0">
           <Link href="/" className="flex items-center gap-3">
-            <img src="/logo.svg" alt="Velvet Girl Entertainment" className="h-16 w-auto sm:h-20" />
-            <span className="font-heading text-lg font-bold uppercase tracking-widest text-white sm:text-2xl">
+            <img src="/velvet-logo.png" alt="Velvet Girl Entertainment" className="h-14 w-auto sm:h-16" />
+            <span className="font-heading text-xl font-bold uppercase tracking-widest text-black sm:text-2xl">
               Velvet Girls
             </span>
           </Link>
           <div className="flex items-center gap-4">
-            <Link href="#" className="w-10 h-10 rounded-full bg-white flex items-center justify-center text-black hover:bg-[#f90066] hover:text-white transition-colors" aria-label="Telegram">
-              <Send className="w-5 h-5 -ml-1 mt-1" />
+            <Link 
+              href="#" 
+              className="w-11 h-11 rounded-full bg-white shadow-[0_4px_15px_rgba(0,0,0,0.08)] border border-black/5 flex items-center justify-center text-black hover:bg-[#740107] hover:text-white transition-all duration-300 hover:scale-105" 
+              aria-label="Telegram"
+            >
+              <Send className="w-5 h-5 -ml-0.5 mt-0.5" />
             </Link>
-            <Link href="#" className="w-10 h-10 rounded-full bg-white flex items-center justify-center text-black hover:bg-[#f90066] hover:text-white transition-colors" aria-label="Instagram">
+            <Link 
+              href="#" 
+              className="w-11 h-11 rounded-full bg-white shadow-[0_4px_15px_rgba(0,0,0,0.08)] border border-black/5 flex items-center justify-center text-black hover:bg-[#740107] hover:text-white transition-all duration-300 hover:scale-105" 
+              aria-label="Instagram"
+            >
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
                 <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
@@ -135,39 +153,45 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Links */}
-        <div className="footer-content-item grid grid-cols-2 gap-x-8 gap-y-2 font-medium text-white/90 text-sm md:text-base">
-          <div className="flex flex-col gap-2">
-            <Link href="/services" className="hover:text-[#f90066] transition-colors lowercase">services</Link>
-            <Link href="/packages" className="hover:text-[#f90066] transition-colors lowercase">packages</Link>
-            <Link href="/cities" className="hover:text-[#f90066] transition-colors lowercase">cities</Link>
-            <Link href="/about" className="hover:text-[#f90066] transition-colors lowercase">about us</Link>
-            <Link href="/blog" className="hover:text-[#f90066] transition-colors lowercase">blog</Link>
+        {/* Column 2: Links */}
+        <div className="footer-content-item grid grid-cols-2 gap-x-10 gap-y-2.5 font-medium text-black/75 text-sm md:text-base">
+          <div className="flex flex-col gap-2.5">
+            <Link href="/services" className="hover:text-[#740107] transition-colors lowercase">services</Link>
+            <Link href="/packages" className="hover:text-[#740107] transition-colors lowercase">packages</Link>
+            <Link href="/cities" className="hover:text-[#740107] transition-colors lowercase">cities</Link>
+            <Link href="/about" className="hover:text-[#740107] transition-colors lowercase">about us</Link>
+            <Link href="/blog" className="hover:text-[#740107] transition-colors lowercase">blog</Link>
           </div>
-          <div className="flex flex-col gap-2">
-            <Link href="/faq" className="hover:text-[#f90066] transition-colors lowercase">faq</Link>
-            <Link href="/join-team" className="hover:text-[#f90066] transition-colors lowercase">join team</Link>
-            <Link href="/privacy" className="hover:text-[#f90066] transition-colors lowercase">privacy</Link>
-            <Link href="/terms" className="hover:text-[#f90066] transition-colors lowercase">terms</Link>
-            <Link href="/disclaimer" className="hover:text-[#f90066] transition-colors lowercase">18+ disclaimer</Link>
+          <div className="flex flex-col gap-2.5">
+            <Link href="/faq" className="hover:text-[#740107] transition-colors lowercase">faq</Link>
+            <Link href="/join-team" className="hover:text-[#740107] transition-colors lowercase">join team</Link>
+            <Link href="/privacy" className="hover:text-[#740107] transition-colors lowercase">privacy</Link>
+            <Link href="/terms" className="hover:text-[#740107] transition-colors lowercase">terms</Link>
+            <Link href="/disclaimer" className="hover:text-[#740107] transition-colors lowercase">18+ disclaimer</Link>
           </div>
         </div>
 
-        {/* Big Text */}
-        <div className="footer-content-item whitespace-nowrap mt-4 md:mt-0">
-          <h2 className="text-4xl md:text-5xl lg:text-[4.5rem] font-bold leading-[1.05] tracking-tighter">
-            <span className="text-white">WE'LL BE HAPPY</span><br />
-            <span className="text-white">TO </span>
-            <span className="text-[#f90066]">ASSIST YOU</span>
+        {/* Column 3: Big Text 'we'll be happy to assist you' matching photo */}
+        <div className="footer-content-item whitespace-nowrap my-2 lg:my-0">
+          <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-[4.2rem] font-black leading-[0.93] tracking-tight lowercase">
+            <span className="text-black">we'll be happy</span><br />
+            <span className="text-black">to </span>
+            <span className="text-[#740107]">assist you</span>
           </h2>
         </div>
 
-        {/* Button & Email */}
-        <div className="footer-content-item flex flex-col items-start md:items-center gap-4 md:gap-6 min-w-[200px] mt-4 md:mt-0">
-          <Link href="/book-now" className="w-full bg-white text-black font-extrabold text-sm md:text-base py-4 md:py-5 px-8 text-center hover:bg-[#f90066] hover:text-white transition-colors tracking-wide shadow-lg uppercase">
+        {/* Column 4: Pill Button & Email matching photo */}
+        <div className="footer-content-item flex flex-col items-start lg:items-center gap-3.5 shrink-0 mt-2 lg:mt-0">
+          <Link 
+            href="/book-now" 
+            className="w-full bg-gradient-to-r from-[#740107] to-[#5a0105] text-white font-extrabold text-xs sm:text-sm py-4 px-10 text-center hover:from-[#5a0105] hover:to-[#740107] transition-all duration-300 tracking-widest uppercase rounded-full shadow-[0_10px_25px_rgba(116,1,7,0.35)] hover:shadow-[0_15px_30px_rgba(116,1,7,0.5)] hover:scale-105"
+          >
             BOOK NOW
           </Link>
-          <a href="mailto:info@velvetgirlentertainment.com" className="text-white/90 hover:text-[#f90066] transition-colors text-sm md:text-base">
+          <a 
+            href="mailto:info@velvetgirlentertainment.com" 
+            className="text-black/80 hover:text-[#740107] transition-colors text-sm md:text-base font-medium"
+          >
             info@velvetgirlentertainment.com
           </a>
         </div>
@@ -175,8 +199,8 @@ export default function Footer() {
       </div>
       
       {/* Disclaimer */}
-      <div className="relative z-10 w-full max-w-[120rem] mx-auto px-6 lg:px-12 mt-16 flex flex-col sm:flex-row items-center justify-between gap-4 pt-6 border-t border-white/10">
-        <div className="flex items-center gap-2 text-white/40">
+      <div className="relative z-10 w-full max-w-[120rem] mx-auto px-6 lg:px-12 mt-12 flex flex-col sm:flex-row items-center justify-between gap-4 pt-6 border-t border-black/10">
+        <div className="flex items-center gap-2 text-black/40">
           <span className="relative flex h-5 w-5 items-center justify-center">
             <Shield className="h-5 w-5" strokeWidth={1.5} />
             <span className="absolute text-[6px] font-bold">18+</span>
@@ -185,7 +209,7 @@ export default function Footer() {
             © {new Date().getFullYear()} Velvet Girl Entertainment. All Rights Reserved.
           </p>
         </div>
-        <p className="font-body text-xs text-white/40 text-center sm:text-right">
+        <p className="font-body text-xs text-black/40 text-center sm:text-right">
           This site contains mature content intended only for adults 18+.
         </p>
       </div>

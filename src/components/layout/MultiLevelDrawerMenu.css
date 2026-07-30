@@ -8,12 +8,12 @@
   border: none;
   cursor: pointer;
   padding: 0;
-  color: #ffffff;
+  color: #000000;
   transition: color 0.2s ease;
 }
 
 .mldm_toggle:hover {
-  color: #ff2d95;
+  color: #740107;
 }
 
 .mldm_toggle_label_wrap {
@@ -218,7 +218,7 @@
   width: 0.5rem;
   height: 0.5rem;
   border-radius: 50%;
-  background-color: #ff2d95;
+  background-color: #740107;
   transform: translate(0, -50%) scale(0);
   transform-origin: center;
   will-change: transform;

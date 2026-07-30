@@ -46,7 +46,7 @@ export default function Hero() {
   return (
     <div
       ref={rootRef}
-      className="relative overflow-hidden bg-black px-6 min-h-screen flex items-center justify-center pt-20 pb-16"
+      className="relative overflow-hidden bg-white px-6 min-h-screen flex items-center justify-center pt-20 pb-16"
     >
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
@@ -55,25 +55,25 @@ export default function Hero() {
         alt=""
         className="absolute inset-0 h-full w-full object-cover opacity-0"
       />
-      <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/80 pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-b from-white/75 via-white/50 to-white/90 pointer-events-none" />
 
       <div className="relative z-10 w-full max-w-[120rem] mx-auto text-left lg:px-6">
         <h1
           data-hero-heading
-          className="font-display text-5xl leading-tight text-white opacity-0 sm:text-6xl md:text-8xl drop-shadow-lg"
+          className="font-display text-5xl leading-tight text-black opacity-0 sm:text-6xl md:text-8xl drop-shadow-sm"
         >
           Luxury Entertainment.
           <br />
           Professional Performers.
           <br />
-          <span className="font-script text-6xl text-white sm:text-7xl md:text-9xl mt-2 inline-block drop-shadow-lg">
+          <span className="font-script text-6xl text-[#740107] sm:text-7xl md:text-9xl mt-2 inline-block drop-shadow-sm">
             Nationwide.
           </span>
         </h1>
 
         <p
           data-hero-sub
-          className="mt-8 max-w-2xl font-body text-base text-white/95 opacity-0 sm:text-lg drop-shadow-md font-medium"
+          className="mt-8 max-w-2xl font-body text-base text-black/90 opacity-0 sm:text-lg drop-shadow-sm font-medium"
         >
           Elite entertainers for bachelor parties, private celebrations, VIP
           events, and unforgettable nights.
@@ -85,7 +85,7 @@ export default function Hero() {
         >
           <Link
             href="/book-now"
-            className="tracking-caps group flex items-center gap-2 bg-black px-10 py-5 font-body text-sm font-semibold text-white transition-transform duration-300 hover:scale-105 border border-white/20"
+            className="tracking-caps group flex items-center gap-2 bg-[#740107] px-10 py-5 font-body text-sm font-semibold text-white transition-transform duration-300 hover:scale-105 border border-[#740107] shadow-md"
           >
             BOOK NOW
             <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />

@@ -9,15 +9,21 @@ const homeCities = featuredCitySlugs
 
 export default function CitiesSection() {
   return (
-    <section className="w-full bg-[#f90066] py-20 md:py-32 font-sans border-t border-black/10 overflow-hidden flex flex-col items-center">
+    <section className="w-full bg-[#740107] py-20 md:py-32 font-sans border-t border-black/10 overflow-hidden flex flex-col items-center">
       
       <div className="mb-12 md:mb-16 text-center px-4 relative z-10">
-         <h2 className="text-4xl md:text-6xl font-black text-black uppercase tracking-tighter mb-4">
-           Now Booking in <span className="text-white">{homeCities.length} Cities</span>
-         </h2>
-         <p className="text-black/80 max-w-lg mx-auto font-medium">
-           We're onboarding new markets regularly — more cities coming soon.
-         </p>
+        <p className="text-xs md:text-sm font-bold uppercase tracking-widest text-white/70 mb-3">
+          MARKETS WE SERVE
+        </p>
+        <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-tight mb-4">
+          Now Booking in{" "}
+          <span className="text-white">
+            {homeCities.length} Cities
+          </span>
+        </h2>
+        <p className="text-white/80 max-w-lg mx-auto font-body">
+          We're onboarding new markets regularly — more cities coming soon.
+        </p>
       </div>
 
       {/* 3D Carousel Styling */}
@@ -47,8 +53,8 @@ export default function CitiesSection() {
         className="cities-carousel relative w-full h-[250px] md:h-[400px] flex items-center justify-center pointer-events-none" 
         style={{ 
           perspective: '1200px',
-          maskImage: 'linear-gradient(to right, transparent, #f90066 15%, #f90066 85%, transparent)',
-          WebkitMaskImage: 'linear-gradient(to right, transparent, #f90066 15%, #f90066 85%, transparent)'
+          maskImage: 'linear-gradient(to right, transparent, #740107 15%, #740107 85%, transparent)',
+          WebkitMaskImage: 'linear-gradient(to right, transparent, #740107 15%, #740107 85%, transparent)'
         }}
       >
         
@@ -70,7 +76,7 @@ export default function CitiesSection() {
               >
                 <Link
                   href={`/cities/${city.stateSlug}/${city.slug}`}
-                  className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black uppercase whitespace-nowrap text-black hover:text-white transition-colors"
+                  className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black uppercase whitespace-nowrap text-white hover:text-white/70 transition-colors"
                   style={{
                     // Adding a slight text stroke to make the overlapping text pop
                     WebkitTextStroke: '1px rgba(255,255,255,0.2)'
@@ -88,7 +94,7 @@ export default function CitiesSection() {
       <div className="mt-12 md:mt-16 text-center z-10 relative">
         <Link
           href="/cities"
-          className="inline-flex items-center gap-2 border border-black/20 bg-black px-8 py-4 font-body text-sm font-semibold uppercase tracking-widest text-white transition-colors duration-300 hover:border-black hover:bg-black/90"
+          className="inline-flex items-center gap-2 border border-white/20 bg-white px-8 py-4 font-body text-sm font-semibold uppercase tracking-widest text-black transition-colors duration-300 hover:border-white hover:bg-white/90 shadow-lg"
         >
           VIEW ALL CITIES
         </Link>

@@ -23,25 +23,25 @@ const imageMapping: Record<string, string> = {
 export default function ServicesGrid() {
   return (
     <Section
-      className="bg-black overflow-hidden"
+      className="bg-white overflow-hidden"
     >
       
       {/* Custom Left-Aligned Stacked Heading */}
       <div className="mb-20 md:mb-32 w-full">
         <div className="relative">
-          <h2 className="text-6xl sm:text-8xl md:text-[9rem] font-black uppercase text-[#f90066] leading-[0.9] tracking-tighter relative z-30">
+          <h2 className="text-6xl sm:text-8xl md:text-[9rem] font-black uppercase text-[#740107] leading-[0.9] tracking-tighter relative z-30">
             OUR <br className="md:hidden" /> SERVICES
           </h2>
           <h2 
             className="text-6xl sm:text-8xl md:text-[9rem] font-black uppercase text-black leading-[0.9] tracking-tighter absolute top-3 sm:top-5 md:top-6 left-0 z-20"
-            style={{ WebkitTextStroke: '2px #f90066' }}
+            style={{ WebkitTextStroke: '2px #740107' }}
             aria-hidden="true"
           >
             OUR <br className="md:hidden" /> SERVICES
           </h2>
           <h2 
             className="text-6xl sm:text-8xl md:text-[9rem] font-black uppercase text-black leading-[0.9] tracking-tighter absolute top-6 sm:top-10 md:top-12 left-0 z-10"
-            style={{ WebkitTextStroke: '2px #f90066', opacity: 0.4 }}
+            style={{ WebkitTextStroke: '2px #740107', opacity: 0.4 }}
             aria-hidden="true"
           >
             OUR <br className="md:hidden" /> SERVICES
@@ -74,8 +74,8 @@ export default function ServicesGrid() {
         .menu__item-link {
           display: inline-block;
           position: relative;
-          -webkit-text-stroke: 1px #f90066;
-          color: black;
+          -webkit-text-stroke: 1px #740107;
+          color: white;
           transition: opacity 0.4s;
           white-space: normal;
           word-break: break-word;
@@ -88,7 +88,7 @@ export default function ServicesGrid() {
         }
         @media (min-width: 768px) {
           .menu__item-link {
-            -webkit-text-stroke: 2px #f90066;
+            -webkit-text-stroke: 2px #740107;
             white-space: nowrap;
             padding: 0 1vw;
           }
@@ -102,7 +102,7 @@ export default function ServicesGrid() {
           pointer-events: none;
           font-size: 1rem;
           -webkit-text-stroke: 0px;
-          color: #f90066;
+          color: #740107;
           font-family: monospace;
           opacity: 0.8;
         }
@@ -170,7 +170,7 @@ export default function ServicesGrid() {
           font-weight: 900;
           line-height: 1.15;
           font-style: italic;
-          color: white;
+          color: black;
         }
         @keyframes marquee {
           0% { transform: translate3d(var(--move-initial), 0, 0); }
@@ -209,7 +209,7 @@ export default function ServicesGrid() {
       <div className="mt-4 text-center">
         <Link
           href="/services"
-          className="tracking-caps inline-flex items-center gap-2 border border-white/25 px-8 py-3.5 font-body text-xs font-semibold text-white/85 transition-colors duration-300 hover:border-[#f90066] hover:text-[#f90066]"
+          className="tracking-caps inline-flex items-center gap-2 border border-black/25 px-8 py-3.5 font-body text-xs font-semibold text-black/85 transition-colors duration-300 hover:border-[#740107] hover:text-[#740107]"
         >
           VIEW ALL SERVICES
         </Link>

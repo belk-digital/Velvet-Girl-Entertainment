@@ -1,31 +1,186 @@
+"use client";
+
+import { useState } from "react";
 import Link from "next/link";
-import Section from "@/components/ui/Section";
-import Reveal from "@/components/ui/Reveal";
-import ThemeCard from "@/components/ui/ThemeCard";
-import { packageThemes } from "@/data/packages";
+import { ArrowRight } from "lucide-react";
+
+interface PackageCardData {
+  number: string;
+  title: string;
+  slug: string;
+  image: string;
+  description: string;
+  minDancers: string;
+}
+
+const packageCards: PackageCardData[] = [
+  {
+    number: "01",
+    title: "Private Party",
+    slug: "private-party",
+    image: "/images/gallery/img1.jpg",
+    description:
+      "Exclusive, personalized and all about you. The ultimate private experience.",
+    minDancers: "2 DANCERS MINIMUM",
+  },
+  {
+    number: "02",
+    title: "Bachelor Party",
+    slug: "bachelor-party",
+    image: "/images/services/bachelor.png",
+    description:
+      "Make his last night legendary with a party he'll never forget.",
+    minDancers: "2 DANCERS MINIMUM",
+  },
+  {
+    number: "03",
+    title: "Boat / Pool Party",
+    slug: "boat-pool-party",
+    image: "/images/services/yacht.png",
+    description:
+      "Sun, water and stunning company. Let's make waves together.",
+    minDancers: "2 DANCERS MINIMUM",
+  },
+  {
+    number: "04",
+    title: "Guys Night",
+    slug: "guys-night",
+    image: "/images/services/vip.png",
+    description:
+      "Round up the crew and we'll handle the rest.",
+    minDancers: "2 DANCERS MINIMUM",
+  },
+];
 
 export default function PackagesSection() {
+  const [activeIdx, setActiveIdx] = useState(0);
+
   return (
-    <Section
-      eyebrow="PACKAGES"
-      title="Pick your party theme"
-      subtitle="Every theme is fully customizable — choose your costume, dancer count, and upgrades."
-    >
-      <div className="grid grid-cols-2 gap-5 sm:grid-cols-3 lg:grid-cols-4">
-        {packageThemes.map((theme, i) => (
-          <Reveal key={theme.slug} delay={(i % 4) * 0.08}>
-            <ThemeCard theme={theme} />
-          </Reveal>
-        ))}
+    <section className="w-full bg-[#f5f5f7] py-20 md:py-32 font-sans overflow-hidden">
+      <div className="max-w-[120rem] mx-auto px-6 lg:px-12">
+        {/* Top Header Bar */}
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12 md:mb-16">
+          <div>
+            <p className="text-xs md:text-sm font-bold uppercase tracking-widest text-[#740107] mb-3">
+              PACKAGES
+            </p>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-black leading-tight mb-4 sm:whitespace-nowrap">
+              Choose Your{" "}
+              <span className="bg-gradient-to-r from-[#900609] via-[#740107] to-[#4a0004] bg-clip-text text-transparent">
+                Experience
+              </span>
+            </h2>
+            <p className="text-black/65 text-base md:text-lg max-w-xl font-body">
+              From private gatherings to unforgettable nights out, our packages
+              are designed to deliver the ultimate experience—tailored to your
+              vibe.
+            </p>
+          </div>
+
+          <Link
+            href="/packages"
+            className="flex items-center gap-2 font-bold text-xs md:text-sm uppercase tracking-widest text-black hover:text-[#740107] transition-colors group shrink-0"
+          >
+            <span>VIEW ALL PACKAGES</span>
+            <ArrowRight className="w-4 h-4 md:w-5 md:h-5 text-[#740107] group-hover:translate-x-1 transition-transform" />
+          </Link>
+        </div>
+
+        {/* 4 Package Cards Accordion Grid (Reference style) */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-0 border border-black/10 bg-white divide-y sm:divide-y-0 sm:divide-x divide-black/10">
+          {packageCards.map((pkg, idx) => {
+            const isActive = activeIdx === idx;
+            return (
+              <div
+                key={pkg.slug}
+                onMouseEnter={() => setActiveIdx(idx)}
+                onClick={() => setActiveIdx(idx)}
+                className={`group relative flex flex-col justify-between p-6 sm:p-8 lg:p-10 transition-all duration-500 overflow-hidden cursor-pointer ${
+                  isActive
+                    ? "h-[380px] sm:h-[540px] lg:h-[680px] bg-black text-white shadow-2xl z-20"
+                    : "h-[120px] sm:h-[540px] lg:h-[680px] bg-white text-black hover:bg-black/[0.02]"
+                }`}
+              >
+                {/* Background Image for active card */}
+                <div
+                  className={`absolute inset-0 z-0 transition-all duration-700 ease-in-out pointer-events-none ${
+                    isActive
+                      ? "translate-y-0 opacity-100"
+                      : "-translate-y-full opacity-0"
+                  }`}
+                >
+                  <img
+                    src={pkg.image}
+                    alt={pkg.title}
+                    className="w-full h-full object-cover scale-105 transition-transform duration-700"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-black/30" />
+                </div>
+
+                {/* Top Area: Large Number */}
+                <div className="z-10 relative">
+                  <span
+                    className={`text-6xl sm:text-7xl font-black tracking-tighter transition-colors duration-500 ${
+                      isActive ? "text-white" : "text-black"
+                    }`}
+                  >
+                    {pkg.number}
+                  </span>
+                </div>
+
+                {/* Bottom Area: Title, Description, and Button */}
+                <div className="z-10 relative flex flex-col items-start">
+                  <h3
+                    className={`text-2xl sm:text-3xl font-bold mb-2 transition-colors duration-500 ${
+                      isActive ? "text-white" : "text-black"
+                    }`}
+                  >
+                    {pkg.title}
+                  </h3>
+                  <p
+                    className={`text-sm md:text-base leading-relaxed transition-colors duration-500 ${
+                      isActive
+                        ? "text-white/90 mb-6 block"
+                        : "text-black/65 hidden sm:block"
+                    }`}
+                  >
+                    {pkg.description}
+                  </p>
+
+                  {/* Button only visible when active */}
+                  <div
+                    className={`transition-all duration-500 overflow-hidden ${
+                      isActive
+                        ? "max-h-20 opacity-100 translate-y-0"
+                        : "max-h-0 opacity-0 translate-y-4 pointer-events-none"
+                    }`}
+                  >
+                    <Link
+                      href={`/packages/${pkg.slug}`}
+                      className="inline-block bg-white text-black px-6 py-3 text-xs sm:text-sm font-bold tracking-wider uppercase hover:bg-white/90 transition-colors shadow-lg"
+                    >
+                      View package
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+
+        {/* Bottom Explore More Packages Bar */}
+        <div className="mt-16 md:mt-24 flex items-center justify-center gap-4 sm:gap-6">
+          <div className="h-[1px] bg-black/15 w-16 sm:w-32 md:w-48"></div>
+          <Link
+            href="/packages"
+            className="flex items-center gap-2 font-bold text-xs sm:text-sm uppercase tracking-widest text-black hover:text-[#740107] transition-colors group"
+          >
+            <span>EXPLORE MORE PACKAGES</span>
+            <ArrowRight className="w-4 h-4 text-[#740107] group-hover:translate-x-1 transition-transform" />
+          </Link>
+          <div className="h-[1px] bg-black/15 w-16 sm:w-32 md:w-48"></div>
+        </div>
       </div>
-      <div className="mt-10 text-center">
-        <Link
-          href="/packages"
-          className="tracking-caps inline-flex items-center gap-2 border border-white/25 px-8 py-3.5 font-body text-xs font-semibold text-white/85 transition-colors duration-300 hover:border-velvet-pink/50 hover:text-velvet-pink"
-        >
-          BUILD YOUR PACKAGE
-        </Link>
-      </div>
-    </Section>
+    </section>
   );
 }

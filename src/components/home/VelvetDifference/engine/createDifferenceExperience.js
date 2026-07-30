@@ -29,7 +29,35 @@ export function createDifferenceExperience({ canvas, container, getScrollProgres
   camera.position.set(0, 0, 500);
   camera.zoom = config.zoom;
 
-  const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: false });
+  let renderer;
+  try {
+    renderer = new THREE.WebGLRenderer({
+      canvas,
+      antialias: true,
+      alpha: false,
+      powerPreference: "high-performance",
+      failIfMajorPerformanceCaveat: false,
+    });
+  } catch (err1) {
+    try {
+      renderer = new THREE.WebGLRenderer({
+        canvas,
+        antialias: false,
+        alpha: false,
+        failIfMajorPerformanceCaveat: false,
+      });
+    } catch (err2) {
+      console.warn("WebGL context unavailable, returning fallback object:", err2);
+      return {
+        resize: () => {},
+        dispose: () => {},
+        overlays: {},
+        ready: Promise.resolve(),
+        setActive: () => {},
+        webglAvailable: false,
+      };
+    }
+  }
   // Cap pixel ratio at 1.5 — the 4-pass diamond render makes higher ratios
   // expensive for little visible gain on this section.
   renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 1.5));
@@ -499,5 +527,5 @@ export function createDifferenceExperience({ canvas, container, getScrollProgres
 
   const ready = init().catch((e) => console.error("VelvetDifference init failed", e));
 
-  return { resize, dispose, overlays, ready, setActive };
+  return { resize, dispose, overlays, ready, setActive, webglAvailable: true };
 }

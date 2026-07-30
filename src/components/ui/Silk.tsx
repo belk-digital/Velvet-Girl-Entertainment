@@ -37,6 +37,7 @@ uniform float uSpeed;
 uniform float uScale;
 uniform float uRotation;
 uniform float uNoiseIntensity;
+uniform float uAspect;
 
 float noise(vec2 texCoord) {
   return fract(sin(dot(texCoord, vec2(12.9898, 78.233))) * 43758.5453);
@@ -76,7 +77,8 @@ vec3 getSilkPalette(float t) {
 
 void main() {
   float rnd        = noise(gl_FragCoord.xy);
-  vec2  uv         = rotateUvs(vUv * uScale, uRotation);
+  vec2  aspectUv   = vec2((vUv.x - 0.5) * uAspect + 0.5, vUv.y);
+  vec2  uv         = rotateUvs(aspectUv * uScale, uRotation);
   vec2  tex        = uv * uScale;
   float tOffset    = uSpeed * uTime;
 
@@ -103,6 +105,7 @@ const SilkPlane = forwardRef<any, any>(function SilkPlane({ uniforms, isVisible 
   useLayoutEffect(() => {
     if (ref && "current" in ref && ref.current) {
       ref.current.scale.set(viewport.width, viewport.height, 1);
+      ref.current.material.uniforms.uAspect.value = viewport.width / viewport.height;
     }
   }, [ref, viewport]);
 
@@ -143,7 +146,8 @@ const Silk = ({ speed = 5, scale = 1, color = '#7B7481', noiseIntensity = 1.5, r
       uNoiseIntensity: { value: noiseIntensity },
       uColor: { value: new Color(...hexToNormalizedRGB(color)) },
       uRotation: { value: rotation },
-      uTime: { value: 0 }
+      uTime: { value: 0 },
+      uAspect: { value: 1 }
     }),
     // eslint-disable-next-line react-hooks/exhaustive-deps
     []

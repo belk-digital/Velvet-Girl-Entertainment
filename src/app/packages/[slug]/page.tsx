@@ -66,27 +66,27 @@ export default async function PackageThemeDetailPage({ params }: Props) {
         <Reveal className="mx-auto max-w-2xl text-center">
           {theme.comingSoon ? (
             <>
-              <p className="font-body text-base sm:text-lg text-black/80 font-medium leading-relaxed">
+              <p className="font-body text-base sm:text-lg text-white/85 font-medium leading-relaxed">
                 {theme.name} isn&rsquo;t live yet, but we&rsquo;re rolling it
                 out to select cities soon. Reach out to be the first to know
                 when it launches near you.
               </p>
               <Link
                 href="/contact"
-                className="mt-8 inline-flex items-center gap-2 bg-[#740107] px-8 py-4 font-body text-xs font-bold uppercase tracking-widest text-white transition-all duration-300 hover:scale-105 border border-[#740107] shadow-md"
+                className="mt-8 inline-flex items-center gap-2 bg-white px-8 py-4 font-body text-xs font-bold uppercase tracking-widest text-[#740107] transition-all duration-300 hover:scale-105 border border-white shadow-md"
               >
                 <span>NOTIFY ME</span>
               </Link>
             </>
           ) : (
             <>
-              <p className="font-body text-base sm:text-lg text-black/80 font-medium leading-relaxed">
+              <p className="font-body text-base sm:text-lg text-white/85 font-medium leading-relaxed">
                 Choose your costume, dancer count, and any upgrades on our
                 package builder, then continue straight to booking.
               </p>
               <Link
                 href={`/packages?theme=${theme.slug}#customize`}
-                className="mt-8 inline-flex items-center gap-2 bg-[#740107] px-8 py-4 font-body text-xs font-bold uppercase tracking-widest text-white transition-all duration-300 hover:scale-105 border border-[#740107] shadow-md"
+                className="mt-8 inline-flex items-center gap-2 bg-white px-8 py-4 font-body text-xs font-bold uppercase tracking-widest text-[#740107] transition-all duration-300 hover:scale-105 border border-white shadow-md"
               >
                 <span>CUSTOMIZE THIS PACKAGE</span>
               </Link>

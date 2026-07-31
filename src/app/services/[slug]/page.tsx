@@ -8,9 +8,9 @@ import Reveal from "@/components/ui/Reveal";
 import FaqSection from "@/components/home/FaqSection";
 import CtaSection from "@/components/home/CtaSection";
 import VelvetCurtains from "@/components/gallery/VelvetCurtains";
+import HowToBookTimeline from "@/components/ui/HowToBookTimeline";
 
 import { services, getServiceBySlug } from "@/data/services";
-import { homepageFaqs } from "@/data/faqs";
 import { featuredCitySlugs, cities } from "@/data/cities";
 
 interface Props {
@@ -28,6 +28,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: `${service.title} | Velvet Girl Entertainment`,
     description: service.heroDescription,
+    alternates: {
+      canonical: `/services/${service.slug}`,
+    },
   };
 }
 
@@ -41,14 +44,83 @@ export default async function ServiceDetailPage({ params }: Props) {
   const service = getServiceBySlug(slug);
   if (!service) notFound();
 
+  const pageUrl = `https://velvetgirlentertainment.com/services/${service.slug}`;
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Service",
+        "@id": `${pageUrl}/#service`,
+        name: `${service.title} Entertainment`,
+        serviceType: service.title,
+        description: service.content.intro,
+        url: pageUrl,
+        provider: {
+          "@type": "Organization",
+          name: "Velvet Girl Entertainment",
+          url: "https://velvetgirlentertainment.com/",
+        },
+        areaServed: {
+          "@type": "Country",
+          name: "United States",
+        },
+      },
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Home", item: "https://velvetgirlentertainment.com/" },
+          { "@type": "ListItem", position: 2, name: "Services", item: "https://velvetgirlentertainment.com/services" },
+          { "@type": "ListItem", position: 3, name: service.title, item: pageUrl },
+        ],
+      },
+      {
+        "@type": "FAQPage",
+        mainEntity: service.faqs.map(({ question, answer }) => ({
+          "@type": "Question",
+          name: question,
+          acceptedAnswer: { "@type": "Answer", text: answer },
+        })),
+      },
+    ],
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+
       <PageHero
         eyebrow="SERVICES"
         title={`${service.title} Entertainment`}
         subtitle={service.heroDescription}
         bgImage="/gallery images/DIOR.webp"
-      />
+      >
+        <nav className="flex flex-wrap items-center justify-center gap-2 font-body text-xs font-semibold uppercase tracking-widest text-stone-500">
+          <Link href="/services" className="hover:text-[#740107] transition-colors">
+            Services
+          </Link>
+          <span className="text-[#740107]">/</span>
+          <span className="text-stone-800">{service.title}</span>
+        </nav>
+      </PageHero>
+
+      <Section eyebrow="OVERVIEW" title={`About ${service.title}`}>
+        <Reveal className="mx-auto max-w-3xl text-center">
+          <p className="font-body text-base leading-relaxed text-stone-700 sm:text-lg font-medium">
+            {service.content.intro}
+          </p>
+        </Reveal>
+      </Section>
+
+      <Section eyebrow="WHY BOOK WITH US" title="Why Choose Velvet Girl" theme="muted">
+        <Reveal className="mx-auto max-w-3xl text-center">
+          <p className="font-body text-base leading-relaxed text-white/85 sm:text-lg font-medium">
+            {service.content.whyChooseUs}
+          </p>
+        </Reveal>
+      </Section>
 
       <Section eyebrow="WHAT'S INCLUDED" title="What's Included">
         <Reveal className="mx-auto max-w-3xl">
@@ -70,31 +142,26 @@ export default async function ServiceDetailPage({ params }: Props) {
         </Reveal>
       </Section>
 
+      <Section eyebrow="WHAT TO EXPECT" title="What to Expect" theme="muted">
+        <Reveal className="mx-auto max-w-3xl text-center">
+          <p className="font-body text-base leading-relaxed text-white/85 sm:text-lg font-medium">
+            {service.content.whatToExpect}
+          </p>
+        </Reveal>
+      </Section>
+
       <Section
         eyebrow="HOW TO BOOK"
         title="4 Simple Steps"
         subtitle="We make the entire booking process simple, transparent, and discreet."
-        theme="muted"
       >
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {service.bookingSteps.map((step, i) => (
-            <Reveal key={step} delay={i * 0.1}>
-              <div className="border border-stone-200/80 rounded-xl bg-white p-8 text-center shadow-sm hover:border-[#740107]/50 hover:shadow-md transition-all h-full flex flex-col justify-between group">
-                <span className="font-display text-4xl font-bold text-[#740107] group-hover:scale-110 inline-block transition-transform">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-                <p className="mt-4 font-body text-base font-bold text-stone-900 uppercase tracking-wider">
-                  {step}
-                </p>
-              </div>
-            </Reveal>
-          ))}
-        </div>
+        <HowToBookTimeline steps={service.bookingSteps} />
       </Section>
 
       <Section
         eyebrow="AVAILABLE NATIONWIDE"
         title={`Book ${service.title} in your city`}
+        theme="muted"
       >
         <Reveal className="mx-auto flex max-w-3xl flex-wrap justify-center gap-3">
           {linkCities.map((city) => (
@@ -110,11 +177,9 @@ export default async function ServiceDetailPage({ params }: Props) {
       </Section>
 
       <VelvetCurtains variant="bottom" />
-      <FaqSection />
+      <FaqSection items={service.faqs} title={`${service.title} FAQ`} />
 
       <CtaSection />
     </>
   );
 }
-
-

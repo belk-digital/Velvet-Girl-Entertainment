@@ -6,6 +6,7 @@ import Section from "@/components/ui/Section";
 import Reveal from "@/components/ui/Reveal";
 import ContactForm from "@/components/forms/ContactForm";
 import VelvetCurtains from "@/components/gallery/VelvetCurtains";
+import HowToBookTimeline from "@/components/ui/HowToBookTimeline";
 
 export const metadata: Metadata = {
   title: "Contact & Booking | Velvet Girl Entertainment",
@@ -30,16 +31,16 @@ export const metadata: Metadata = {
 
 const infoItems = [
   {
-    icon: MessageCircle,
-    label: "Text Us",
-    value: "(843) 938-7377",
-    href: "sms:8439387377",
+    icon: Phone,
+    label: "Call / Text Us",
+    value: "843-938-7377",
+    href: "tel:8439387377",
   },
   {
-    icon: Phone,
-    label: "Call Us",
-    value: "(843) 938-7377",
-    href: "tel:8439387377",
+    icon: MessageCircle,
+    label: "Direct Text",
+    value: "Send an SMS",
+    href: "sms:8439387377",
   },
   {
     icon: Mail,
@@ -143,22 +144,8 @@ export default function ContactPage() {
         bgImage="/gallery images/GALLERY(1).webp"
       />
 
-      <Section eyebrow="HOW IT WORKS" title="The Booking Process" theme="muted">
-        <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
-          {bookingSteps.map(({ icon: Icon, title, description }, i) => (
-            <Reveal key={title} delay={i * 0.1}>
-              <div className="flex flex-col items-start gap-4 border border-stone-200/80 rounded-xl bg-white p-6 h-full shadow-sm">
-                <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[#740107]/10 text-[#740107]">
-                  <Icon className="h-5 w-5" />
-                </span>
-                <div>
-                  <p className="font-display text-lg font-bold text-stone-900">{title}</p>
-                  <p className="mt-1 font-body text-sm text-stone-600 font-medium">{description}</p>
-                </div>
-              </div>
-            </Reveal>
-          ))}
-        </div>
+      <Section eyebrow="HOW IT WORKS" title="The Booking Process">
+        <HowToBookTimeline steps={bookingSteps} />
         <p className="mt-8 text-center font-body text-sm text-stone-600 font-medium">
           Not sure which package fits your event? Browse our{" "}
           <Link href="/packages" className="font-bold text-[#740107] hover:underline">

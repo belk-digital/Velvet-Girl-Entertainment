@@ -86,12 +86,6 @@ export default function Navbar() {
               About
             </Link>
             <Link
-              href="/performers"
-              className="font-heading text-sm font-bold uppercase tracking-wider text-black/85 hover:text-[#740107] transition-colors"
-            >
-              Performers
-            </Link>
-            <Link
               href="/gallery"
               className="font-heading text-sm font-bold uppercase tracking-wider text-black/85 hover:text-[#740107] transition-colors"
             >

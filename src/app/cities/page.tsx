@@ -150,17 +150,17 @@ export default function CitiesIndexPage() {
 
       <Section eyebrow="DESTINATION BOOKINGS" title="Planning an event outside these cities?" theme="muted">
         <Reveal className="mx-auto max-w-3xl text-center">
-          <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-[#740107]/10 text-[#740107]">
+          <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-white/10 text-white">
             <Plane className="h-6 w-6" />
           </div>
-          <p className="mt-6 font-body text-base leading-relaxed text-black/80 sm:text-lg font-medium">
+          <p className="mt-6 font-body text-base leading-relaxed text-white/85 sm:text-lg font-medium">
             Planning a destination bachelor party, wedding weekend, or group
             celebration somewhere we don&rsquo;t have a local roster yet? We
             regularly send performers to events outside our primary cities —
             think Nashville, Las Vegas, or a rented beach house down the coast.
             Share your dates, headcount, and location, and we&rsquo;ll confirm
             availability and travel logistics for your{" "}
-            <Link href="/packages/bachelor-party" className="font-bold text-[#740107] hover:underline">
+            <Link href="/packages/bachelor-party" className="font-bold text-white underline">
               bachelor party package
             </Link>
             .
@@ -168,7 +168,7 @@ export default function CitiesIndexPage() {
           <div className="mt-8">
             <Link
               href="/contact"
-              className="tracking-caps inline-flex items-center gap-2 bg-[#740107] px-9 py-4 font-body text-sm font-semibold text-white transition-transform duration-300 hover:scale-105"
+              className="tracking-caps inline-flex items-center gap-2 bg-white text-[#740107] px-9 py-4 font-body text-sm font-semibold transition-transform duration-300 hover:scale-105"
             >
               Inquire About a Destination Booking
             </Link>

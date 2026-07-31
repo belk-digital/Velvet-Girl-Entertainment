@@ -105,7 +105,7 @@ export default function AboutPage() {
         theme="muted"
       >
         <Reveal className="mx-auto max-w-3xl text-center">
-          <p className="font-body text-base leading-relaxed text-black/80 sm:text-lg font-medium">
+          <p className="font-body text-base leading-relaxed text-white/85 sm:text-lg font-medium">
             Our mission is to be the most reliable name in private
             entertainment booking nationwide — pairing clients with verified
             performers, backing every booking with responsive support, and
@@ -195,17 +195,17 @@ export default function AboutPage() {
         theme="muted"
       >
         <Reveal className="mx-auto max-w-3xl text-center">
-          <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-[#740107] text-white shadow-md">
+          <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-white/10 text-white shadow-md">
             <MapPin className="h-7 w-7" />
           </div>
-          <p className="mt-6 font-body text-base sm:text-lg text-black/80 font-medium">
+          <p className="mt-6 font-body text-base sm:text-lg text-white/85 font-medium">
             We currently serve Charleston, Myrtle Beach, Charlotte, Savannah,
             Atlanta, Miami, Orlando/Daytona Beach, and Indianapolis — and
             we&rsquo;re onboarding dancers in new cities regularly.
           </p>
           <Link
             href="/cities"
-            className="mt-8 inline-flex items-center gap-2 bg-[#740107] px-8 py-4 font-body text-xs font-bold uppercase tracking-widest text-white transition-all duration-300 hover:scale-105 border border-[#740107] shadow-md group"
+            className="mt-8 inline-flex items-center gap-2 bg-white text-[#740107] px-8 py-4 font-body text-xs font-bold uppercase tracking-widest transition-all duration-300 hover:scale-105 border border-white shadow-md group"
           >
             <span>VIEW ALL CITIES</span>
             <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />

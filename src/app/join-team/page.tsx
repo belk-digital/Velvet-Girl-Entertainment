@@ -5,6 +5,7 @@ import Section from "@/components/ui/Section";
 import Reveal from "@/components/ui/Reveal";
 import ApplicationForm from "@/components/forms/ApplicationForm";
 import VelvetCurtains from "@/components/gallery/VelvetCurtains";
+import HowToBookTimeline from "@/components/ui/HowToBookTimeline";
 
 export const metadata: Metadata = {
   title: "Join Our Team | Become a Performer | Velvet Girl Entertainment",
@@ -177,22 +178,8 @@ export default function JoinTeamPage() {
         </div>
       </Section>
 
-      <Section eyebrow="HOW IT WORKS" title="Our Application Process" theme="muted">
-        <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
-          {steps.map(({ icon: Icon, title, description }, i) => (
-            <Reveal key={title} delay={i * 0.1}>
-              <div className="flex flex-col items-start gap-4 border border-stone-200/80 rounded-xl bg-white p-6 h-full shadow-sm">
-                <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[#740107]/10 text-[#740107]">
-                  <Icon className="h-5 w-5" />
-                </span>
-                <div>
-                  <p className="font-display text-lg font-bold text-stone-900">{title}</p>
-                  <p className="mt-1 font-body text-sm text-stone-600 font-medium">{description}</p>
-                </div>
-              </div>
-            </Reveal>
-          ))}
-        </div>
+      <Section eyebrow="HOW IT WORKS" title="Our Application Process">
+        <HowToBookTimeline steps={steps} />
       </Section>
 
       <div className="border-t border-stone-200/80 bg-[#FAF7F2] px-6 py-20 sm:py-28">

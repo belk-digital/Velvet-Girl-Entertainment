@@ -6,13 +6,12 @@ import PageHero from "@/components/ui/PageHero";
 import Section from "@/components/ui/Section";
 import Reveal from "@/components/ui/Reveal";
 import FaqSection from "@/components/home/FaqSection";
-import PerformerCard from "@/components/ui/PerformerCard";
+import PerformerGalleryGrid from "@/components/gallery/PerformerGalleryGrid";
 
 import CtaSection from "@/components/home/CtaSection";
 import VelvetCurtains from "@/components/gallery/VelvetCurtains";
 import { cities, getCityBySlug } from "@/data/cities";
 import { homepageServiceSlugs, services } from "@/data/services";
-import { homepageFaqs } from "@/data/faqs";
 import { performers } from "@/data/performers";
 
 interface Props {
@@ -29,7 +28,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!cityData) return {};
   return {
     title: `${cityData.name} Entertainment Booking | Velvet Girl Entertainment`,
-    description: `Professional entertainers available throughout ${cityData.name} and surrounding areas.`,
+    description: cityData.content.intro.slice(0, 155).trim() + "…",
+    alternates: {
+      canonical: `/cities/${cityData.stateSlug}/${cityData.slug}`,
+    },
   };
 }
 
@@ -52,14 +54,97 @@ export default async function CityPage({ params }: Props) {
     ? localPerformers
     : nearbyPerformers.slice(0, 4);
 
+  const pageUrl = `https://velvetgirlentertainment.com/cities/${cityData.stateSlug}/${cityData.slug}`;
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "EntertainmentBusiness",
+        "@id": `${pageUrl}/#business`,
+        name: `Velvet Girl Entertainment — ${cityData.name}`,
+        url: pageUrl,
+        description: cityData.content.intro,
+        areaServed: {
+          "@type": "City",
+          name: cityData.name,
+          containedInPlace: {
+            "@type": "State",
+            name: cityData.stateName,
+          },
+        },
+        telephone: "+1-843-938-7377",
+      },
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Home", item: "https://velvetgirlentertainment.com/" },
+          { "@type": "ListItem", position: 2, name: "Cities", item: "https://velvetgirlentertainment.com/cities" },
+          { "@type": "ListItem", position: 3, name: cityData.stateName, item: `https://velvetgirlentertainment.com/cities/${cityData.stateSlug}` },
+          { "@type": "ListItem", position: 4, name: cityData.name, item: pageUrl },
+        ],
+      },
+      {
+        "@type": "FAQPage",
+        mainEntity: cityData.faqs.map(({ question, answer }) => ({
+          "@type": "Question",
+          name: question,
+          acceptedAnswer: { "@type": "Answer", text: answer },
+        })),
+      },
+    ],
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+
       <PageHero
         eyebrow={cityData.stateName}
         title={`${cityData.name} Entertainment Booking`}
         subtitle={`Professional entertainers available throughout ${cityData.name} and surrounding areas.`}
         bgImage="/gallery images/BEACH DAY PACKAGE OR BEACH CITY PAGE.webp"
-      />
+      >
+        <nav className="flex flex-wrap items-center justify-center gap-2 font-body text-xs font-semibold uppercase tracking-widest text-stone-500">
+          <Link href="/cities" className="hover:text-[#740107] transition-colors">
+            Cities
+          </Link>
+          <span className="text-[#740107]">/</span>
+          <span className="text-stone-800">{cityData.stateName}</span>
+          <span className="text-[#740107]">/</span>
+          <span className="text-stone-800">{cityData.name}</span>
+        </nav>
+      </PageHero>
+
+      <Section eyebrow="ABOUT THIS MARKET" title={`Entertainment Booking in ${cityData.name}`}>
+        <Reveal className="mx-auto max-w-3xl space-y-6 text-center">
+          <p className="font-body text-base leading-relaxed text-stone-700 sm:text-lg font-medium">
+            {cityData.content.intro}
+          </p>
+        </Reveal>
+      </Section>
+
+      <Section
+        eyebrow="WHY BOOK WITH US"
+        title={`Why Choose Velvet Girl in ${cityData.name}`}
+        theme="muted"
+      >
+        <Reveal className="mx-auto max-w-3xl text-center">
+          <p className="font-body text-base leading-relaxed text-white/85 sm:text-lg font-medium">
+            {cityData.content.whyChooseUs}
+          </p>
+        </Reveal>
+      </Section>
+
+      <Section eyebrow="LOCAL COVERAGE" title={`The ${cityData.name} Scene`}>
+        <Reveal className="mx-auto max-w-3xl text-center">
+          <p className="font-body text-base leading-relaxed text-stone-700 sm:text-lg font-medium">
+            {cityData.content.localScene}
+          </p>
+        </Reveal>
+      </Section>
 
       <Section eyebrow="SERVICES" title={`Popular Services in ${cityData.name}`}>
         <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
@@ -112,18 +197,15 @@ export default async function CityPage({ params }: Props) {
               stock images, no bait-and-switch. Who you see is who shows up.
             </p>
           </Reveal>
-          <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
-            {showPerformers.map((performer, i) => (
-              <Reveal key={performer.slug} delay={(i % 4) * 0.08}>
-                <PerformerCard performer={performer} />
-              </Reveal>
-            ))}
-          </div>
+          <PerformerGalleryGrid
+            performers={showPerformers}
+            emptyStateMessage={`We're onboarding new performers in ${cityData.name} — check back soon or contact us for availability.`}
+          />
         </Section>
       )}
 
       <VelvetCurtains variant="bottom" />
-      <FaqSection />
+      <FaqSection items={cityData.faqs} title={`${cityData.name} FAQ`} />
 
       <CtaSection />
     </>

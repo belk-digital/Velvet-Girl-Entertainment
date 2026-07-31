@@ -22,6 +22,7 @@ export default function Section({
   const isCrimson = theme === "crimson";
   const isDark = theme === "dark";
   const isMuted = theme === "muted";
+  const isDeepText = isCrimson || isDark || isMuted;
 
   return (
     <section
@@ -32,7 +33,7 @@ export default function Section({
           : isDark
           ? "bg-[#0f0f11] text-white"
           : isMuted
-          ? "bg-white/80 text-stone-900 border-y border-stone-200/80 shadow-xs"
+          ? "bg-[#5c0105] text-white border-y border-black/10 shadow-xs"
           : "bg-[#FAF7F2] text-stone-900"
       } ${className}`}
     >
@@ -42,7 +43,7 @@ export default function Section({
             {eyebrow && (
               <p
                 className={`text-xs md:text-sm font-bold uppercase tracking-widest mb-3 ${
-                  isCrimson ? "text-white/80" : "text-[#740107]"
+                  isDeepText ? "text-white/80" : "text-[#740107]"
                 }`}
               >
                 {eyebrow}
@@ -51,7 +52,7 @@ export default function Section({
             {title && (
               <h2
                 className={`font-display text-3xl sm:text-4xl md:text-5xl font-bold uppercase tracking-wider leading-tight ${
-                  isCrimson || isDark ? "text-white" : "text-[#740107]"
+                  isDeepText ? "text-white" : "text-[#740107]"
                 }`}
               >
                 {title}
@@ -62,7 +63,7 @@ export default function Section({
                 className={`mt-4 font-body text-base sm:text-lg font-medium leading-relaxed ${
                   isCrimson
                     ? "text-white/90"
-                    : isDark
+                    : isDark || isMuted
                     ? "text-white/70"
                     : "text-stone-700"
                 }`}

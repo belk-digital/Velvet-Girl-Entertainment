@@ -47,3 +47,12 @@ body {
   -webkit-text-stroke: 1px var(--velvet-pink);
   color: transparent;
 }
+
+.no-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}

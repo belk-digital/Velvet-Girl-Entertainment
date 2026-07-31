@@ -26,7 +26,7 @@ export default function PackagesPage() {
       />
 
       <Section eyebrow="THEMES" title="Choose your party theme">
-        <div className="grid grid-cols-2 gap-5 sm:grid-cols-3 lg:grid-cols-4">
+        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {packageThemes.map((theme, i) => (
             <Reveal key={theme.slug} delay={(i % 4) * 0.08}>
               <ThemeCard theme={theme} />

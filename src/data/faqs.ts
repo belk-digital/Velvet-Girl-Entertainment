@@ -67,7 +67,7 @@ export const faqs: Faq[] = [
   {
     question: "How do I contact support?",
     answer:
-      "You can text or call our booking concierge directly at (843) 938-7737, or use the contact form on our Contact page. We're available 24/7.",
+      "You can text or call our booking concierge directly at (843) 938-7377, or use the contact form on our Contact page. We're available 24/7.",
   },
 ];
 

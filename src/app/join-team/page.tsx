@@ -4,6 +4,7 @@ import PageHero from "@/components/ui/PageHero";
 import Section from "@/components/ui/Section";
 import Reveal from "@/components/ui/Reveal";
 import ApplicationForm from "@/components/forms/ApplicationForm";
+import VelvetCurtains from "@/components/gallery/VelvetCurtains";
 
 export const metadata: Metadata = {
   title: "Join Our Team | Become a Performer | Velvet Girl Entertainment",
@@ -49,13 +50,13 @@ const steps = [
   },
   {
     icon: UserCheck,
-    title: "Onboarding",
+    title: "Onboarding & Verification",
     description:
-      "We walk you through how bookings work, our safety standards, and what to expect before your first event.",
+      "We verify your ID, confirm your booking preferences and travel availability, and set up your profile.",
   },
   {
     icon: Sparkles,
-    title: "Start Booking",
+    title: "Start Receiving Bookings",
     description:
       "Once you're onboarded, you start receiving booking opportunities that match your schedule and location.",
   },
@@ -128,22 +129,51 @@ export default function JoinTeamPage() {
         eyebrow="JOIN OUR TEAM"
         title="Become a Velvet Girl Performer"
         subtitle="Join one of the nation's fastest-growing entertainment booking agencies."
+        bgImage="/gallery images/Velvet girl.webp"
       />
 
       <Section eyebrow="BENEFITS" title="Why perform with us">
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-5">
           {benefits.map(({ icon: Icon, title }, i) => (
             <Reveal key={title} delay={i * 0.08}>
-              <div className="h-full border border-black/10 bg-white p-8 text-center shadow-sm hover:border-[#740107]/50 hover:shadow-md transition-all">
+              <div className="h-full border border-stone-200/80 rounded-xl bg-white p-8 text-center shadow-sm hover:border-[#740107]/50 hover:shadow-md transition-all">
                 <span className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-[#740107]/10 text-[#740107]">
                   <Icon className="h-6 w-6" strokeWidth={1.75} />
                 </span>
-                <h3 className="mt-5 font-display text-lg font-bold text-black">
+                <h3 className="mt-5 font-display text-lg font-bold text-stone-900">
                   {title}
                 </h3>
               </div>
             </Reveal>
           ))}
+        </div>
+
+        {/* Performer Spotlight Showcase (.webp) */}
+        <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 gap-6 pt-6 text-left">
+          <div className="relative overflow-hidden rounded-2xl shadow-xl border border-stone-200/80 aspect-[16/10] group">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src={encodeURI("/gallery images/LOTUS.webp")}
+              alt="Performer Spotlight 1"
+              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+            <p className="absolute bottom-4 left-4 right-4 text-white text-sm font-bold uppercase tracking-wider">
+              Nationwide VIP Bookings &amp; Professional Concierge Support
+            </p>
+          </div>
+          <div className="relative overflow-hidden rounded-2xl shadow-xl border border-stone-200/80 aspect-[16/10] group">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src={encodeURI("/gallery images/DIOR.webp")}
+              alt="Performer Spotlight 2"
+              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+            <p className="absolute bottom-4 left-4 right-4 text-white text-sm font-bold uppercase tracking-wider">
+              Flexible Scheduling &amp; Verified Privacy Protection
+            </p>
+          </div>
         </div>
       </Section>
 
@@ -151,13 +181,13 @@ export default function JoinTeamPage() {
         <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
           {steps.map(({ icon: Icon, title, description }, i) => (
             <Reveal key={title} delay={i * 0.1}>
-              <div className="flex flex-col items-start gap-4 border border-black/10 bg-white p-6 h-full shadow-sm">
+              <div className="flex flex-col items-start gap-4 border border-stone-200/80 rounded-xl bg-white p-6 h-full shadow-sm">
                 <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[#740107]/10 text-[#740107]">
                   <Icon className="h-5 w-5" />
                 </span>
                 <div>
-                  <p className="font-display text-lg font-bold text-black">{title}</p>
-                  <p className="mt-1 font-body text-sm text-black/70 font-medium">{description}</p>
+                  <p className="font-display text-lg font-bold text-stone-900">{title}</p>
+                  <p className="mt-1 font-body text-sm text-stone-600 font-medium">{description}</p>
                 </div>
               </div>
             </Reveal>
@@ -165,29 +195,30 @@ export default function JoinTeamPage() {
         </div>
       </Section>
 
-      <div className="border-t border-black/5 bg-white px-6 py-20 sm:py-28">
+      <div className="border-t border-stone-200/80 bg-[#FAF7F2] px-6 py-20 sm:py-28">
         <Reveal className="mx-auto max-w-3xl">
           <div className="text-center">
             <p className="tracking-caps mb-3 font-body text-xs font-bold uppercase text-[#740107]">
               APPLICATION
             </p>
-            <h2 className="font-display text-3xl font-bold text-black sm:text-4xl">
+            <h2 className="font-display text-3xl font-bold uppercase tracking-wider text-[#740107] sm:text-4xl">
               Apply to join
             </h2>
           </div>
-          <div className="mt-10 border border-black/10 bg-white p-8 sm:p-12 shadow-sm">
+          <div className="mt-10 border border-stone-200/80 rounded-2xl bg-white p-8 sm:p-12 shadow-xl">
             <ApplicationForm />
           </div>
         </Reveal>
       </div>
 
+      <VelvetCurtains variant="bottom" />
       <Section eyebrow="FAQ" title="Common Questions" theme="muted">
         <div className="mx-auto max-w-3xl space-y-6">
           {faqs.map(({ question, answer }) => (
             <Reveal key={question}>
-              <div className="border border-black/10 bg-white p-6 shadow-sm">
-                <h3 className="font-display text-lg font-bold text-black">{question}</h3>
-                <p className="mt-2 font-body text-sm text-black/70 font-medium leading-relaxed">
+              <div className="border border-stone-200/80 rounded-xl bg-white p-6 shadow-sm">
+                <h3 className="font-display text-lg font-bold text-stone-900">{question}</h3>
+                <p className="mt-2 font-body text-sm text-stone-600 font-medium leading-relaxed">
                   {answer}
                 </p>
               </div>

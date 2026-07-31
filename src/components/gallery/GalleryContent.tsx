@@ -204,6 +204,23 @@ export default function GalleryContent() {
                 )}
               </div>
             </div>
+
+            {/* VIP Direct Call & Text CTAs */}
+            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-3 mt-6 w-full max-w-md">
+              <a
+                href="tel:8439387377"
+                className="flex-1 min-w-[170px] inline-flex items-center justify-center gap-2 bg-[#740107] hover:bg-[#5c0911] text-white px-5 py-3.5 rounded-full text-xs font-bold uppercase tracking-wider shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-0.5"
+              >
+                <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping" />
+                <span>Call: (843) 938-7377</span>
+              </a>
+              <a
+                href="sms:8439387377"
+                className="flex-1 min-w-[170px] inline-flex items-center justify-center gap-2 bg-stone-900 hover:bg-black text-white px-5 py-3.5 rounded-full text-xs font-bold uppercase tracking-wider shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-0.5"
+              >
+                <span>Text VIP Dispatch</span>
+              </a>
+            </div>
           </div>
         </div>
       </section>
@@ -421,12 +438,31 @@ export default function GalleryContent() {
                         </div>
                       </div>
 
-                      {/* Crimson VIEW PROFILE Pill Button */}
-                      <div className="w-full mt-4">
-                        <span className="w-full inline-flex items-center justify-center gap-2 bg-[#740107] group-hover:bg-[#5c0911] text-white rounded-full py-2.5 px-5 text-xs font-bold uppercase tracking-wider shadow-sm transition-all duration-300">
+                      {/* Crimson VIEW PROFILE Pill Button & Quick Contact */}
+                      <div className="w-full mt-4 flex flex-col gap-2">
+                        <span className="w-full inline-flex items-center justify-center gap-2 bg-[#740107] group-hover:bg-[#5c0911] text-white rounded-full py-2.5 px-4 text-xs font-bold uppercase tracking-wider shadow-sm transition-all duration-300">
                           <span>VIEW PROFILE</span>
                           <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
                         </span>
+                        <div
+                          className="flex items-center gap-2 pt-1"
+                          onClick={(e) => e.stopPropagation()}
+                        >
+                          <a
+                            href="tel:8439387377"
+                            className="flex-1 inline-flex items-center justify-center gap-1.5 bg-stone-100 hover:bg-[#740107] text-stone-800 hover:text-white rounded-full py-2 px-3 text-[11px] font-bold uppercase tracking-wider transition-colors border border-stone-200 shadow-xs"
+                            title="Call (843) 938-7377 to book"
+                          >
+                            <span>📞 Call</span>
+                          </a>
+                          <a
+                            href={`sms:8439387377?body=Hi! I would like to book ${performer.name} in ${performer.city || performer.location}`}
+                            className="flex-1 inline-flex items-center justify-center gap-1.5 bg-stone-100 hover:bg-stone-900 text-stone-800 hover:text-white rounded-full py-2 px-3 text-[11px] font-bold uppercase tracking-wider transition-colors border border-stone-200 shadow-xs"
+                            title="Text to book"
+                          >
+                            <span>💬 Text</span>
+                          </a>
+                        </div>
                       </div>
                     </div>
                   </div>

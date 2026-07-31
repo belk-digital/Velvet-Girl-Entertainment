@@ -104,6 +104,19 @@ export default function Navbar() {
               Services
             </Link>
 
+            {/* VIP Direct Call & Text Pills in Navbar */}
+            <a
+              href="tel:8439387377"
+              className="hidden lg:inline-flex items-center gap-1.5 bg-[#740107] hover:bg-[#5c0911] text-white px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wider shadow-sm transition-all duration-300"
+            >
+              <span>Call: (843) 938-7377</span>
+            </a>
+            <a
+              href="sms:8439387377"
+              className="hidden lg:inline-flex items-center gap-1.5 bg-stone-900 hover:bg-black text-white px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wider shadow-sm transition-all duration-300"
+            >
+              <span>Text Us</span>
+            </a>
           </div>
 
           <div className="ml-2 sm:ml-4">

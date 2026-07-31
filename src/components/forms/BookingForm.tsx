@@ -69,18 +69,18 @@ export default function BookingForm() {
             </p>
             <div className="mt-5 flex flex-col items-center justify-center gap-3 sm:flex-row">
               <a
-                href="tel:+18439387737"
+                href="tel:8439387377"
                 className="tracking-caps flex items-center gap-2 rounded-full bg-gradient-to-r from-velvet-pink-hot to-velvet-pink px-6 py-3 font-body text-xs font-semibold text-white"
               >
-                <Phone className="h-4 w-4" />
-                CALL NOW
+                <Phone className="h-4 w-4 animate-pulse" />
+                CALL: (843) 938-7377
               </a>
               <a
-                href="sms:+18439387737"
+                href="sms:8439387377"
                 className="tracking-caps flex items-center gap-2 rounded-full border border-white/25 px-6 py-3 font-body text-xs font-semibold text-white/85"
               >
                 <MessageCircle className="h-4 w-4" />
-                TEXT US
+                TEXT US: (843) 938-7377
               </a>
             </div>
           </>
@@ -96,7 +96,36 @@ export default function BookingForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-5">
+    <div className="space-y-6">
+      {/* Prominent Direct Call & Text VIP Banner */}
+      <div className="rounded-xl bg-[#740107]/10 border border-[#740107]/30 p-4 flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-left">
+        <div>
+          <h4 className="font-display text-sm font-bold uppercase tracking-wider text-[#740107]">
+            Want Instant VIP Booking?
+          </h4>
+          <p className="text-xs text-stone-600 font-medium">
+            Call or text us directly for immediate response &amp; date lock-in.
+          </p>
+        </div>
+        <div className="flex items-center gap-2">
+          <a
+            href="tel:8439387377"
+            className="inline-flex items-center gap-1.5 bg-[#740107] hover:bg-[#5c0911] text-white px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wider shadow-sm transition-transform hover:scale-105"
+          >
+            <Phone className="w-3.5 h-3.5 animate-pulse" />
+            <span>Call: (843) 938-7377</span>
+          </a>
+          <a
+            href="sms:8439387377"
+            className="inline-flex items-center gap-1.5 bg-stone-900 hover:bg-black text-white px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wider shadow-sm transition-transform hover:scale-105"
+          >
+            <MessageCircle className="w-3.5 h-3.5" />
+            <span>Text Now</span>
+          </a>
+        </div>
+      </div>
+
+      <form onSubmit={handleSubmit} className="space-y-5">
       <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
         <div>
           <label className={labelClass} htmlFor="name">
@@ -304,14 +333,14 @@ export default function BookingForm() {
             <p className="font-body text-xs leading-relaxed text-black/80 font-medium">
               This date is less than 24 hours away, so online deposit booking
               isn&rsquo;t available. Submit this form, then{" "}
-              <a href="tel:+18439387737" className="text-[#740107] font-bold underline">
-                call
+              <a href="tel:8439387377" className="text-[#740107] font-bold underline">
+                call (843) 938-7377
               </a>{" "}
               or{" "}
-              <a href="sms:+18439387737" className="text-[#740107] font-bold underline">
-                text
+              <a href="sms:8439387377" className="text-[#740107] font-bold underline">
+                text us
               </a>{" "}
-              us directly for same-day booking.
+              directly for same-day booking.
             </p>
           </div>
         ) : (
@@ -330,5 +359,6 @@ export default function BookingForm() {
         {isLastMinute ? "SEND REQUEST" : "REQUEST BOOKING"}
       </button>
     </form>
+    </div>
   );
 }

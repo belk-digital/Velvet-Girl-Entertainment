@@ -5,6 +5,7 @@ export interface PackageTheme {
   heroDescription: string;
   highlights: string[];
   comingSoon?: boolean;
+  image?: string;
 }
 
 export const packageThemes: PackageTheme[] = [
@@ -20,6 +21,7 @@ export const packageThemes: PackageTheme[] = [
       "Custom music & entrance",
       "Full privacy and discretion",
     ],
+    image: "/gallery images/GAME DAY GIRLS.webp",
   },
   {
     slug: "bachelor-party",
@@ -33,6 +35,7 @@ export const packageThemes: PackageTheme[] = [
       "Themed entrance",
       "Group-friendly games",
     ],
+    image: "/gallery images/BACHELOR PARTY_GUYS NIGHT.webp",
   },
   {
     slug: "boat-pool-party",
@@ -46,6 +49,7 @@ export const packageThemes: PackageTheme[] = [
       "Swimwear-friendly performances",
       "Great for larger groups",
     ],
+    image: "/gallery images/BOAT_ POOL PARTY_.webp",
   },
   {
     slug: "guys-night",
@@ -58,6 +62,7 @@ export const packageThemes: PackageTheme[] = [
       "Great for smaller groups",
       "Pairs well with Poker/Game Night",
     ],
+    image: "/gallery images/BACHELOR PARTY_GUYS NIGHT.webp",
   },
   {
     slug: "golf-caddy-girls",
@@ -70,6 +75,7 @@ export const packageThemes: PackageTheme[] = [
       "Themed caddy outfits",
       "Great for golf outings & tournaments",
     ],
+    image: "/gallery images/LOTUS.webp",
   },
   {
     slug: "poker-game-night",
@@ -82,6 +88,7 @@ export const packageThemes: PackageTheme[] = [
       "Themed outfits",
       "Pairs well with Guys Night",
     ],
+    image: "/gallery images/DIOR.webp",
   },
   {
     slug: "breakfast-with-babes",
@@ -94,6 +101,7 @@ export const packageThemes: PackageTheme[] = [
       "Casual, playful format",
       "Great pre-party warmup",
     ],
+    image: "/gallery images/BREAKFAST WITH BABES.webp",
   },
   {
     slug: "party-bus",
@@ -103,6 +111,7 @@ export const packageThemes: PackageTheme[] = [
       "Party bus entertainment is coming soon to select cities. Reach out to be the first to know when it launches in your area.",
     highlights: ["Coming soon", "Select cities only", "Join the waitlist"],
     comingSoon: true,
+    image: "/gallery images/GALLERY(2).webp",
   },
 ];
 

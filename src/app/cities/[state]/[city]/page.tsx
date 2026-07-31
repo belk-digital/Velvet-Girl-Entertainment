@@ -9,6 +9,7 @@ import FaqSection from "@/components/home/FaqSection";
 import PerformerCard from "@/components/ui/PerformerCard";
 
 import CtaSection from "@/components/home/CtaSection";
+import VelvetCurtains from "@/components/gallery/VelvetCurtains";
 import { cities, getCityBySlug } from "@/data/cities";
 import { homepageServiceSlugs, services } from "@/data/services";
 import { homepageFaqs } from "@/data/faqs";
@@ -57,6 +58,7 @@ export default async function CityPage({ params }: Props) {
         eyebrow={cityData.stateName}
         title={`${cityData.name} Entertainment Booking`}
         subtitle={`Professional entertainers available throughout ${cityData.name} and surrounding areas.`}
+        bgImage="/gallery images/BEACH DAY PACKAGE OR BEACH CITY PAGE.webp"
       />
 
       <Section eyebrow="SERVICES" title={`Popular Services in ${cityData.name}`}>
@@ -120,6 +122,7 @@ export default async function CityPage({ params }: Props) {
         </Section>
       )}
 
+      <VelvetCurtains variant="bottom" />
       <FaqSection />
 
       <CtaSection />

@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { Calendar } from "lucide-react";
+import PageHero from "@/components/ui/PageHero";
 import Reveal from "@/components/ui/Reveal";
 import CtaSection from "@/components/home/CtaSection";
+import VelvetCurtains from "@/components/gallery/VelvetCurtains";
 import { blogPosts, getBlogPostBySlug } from "@/data/blogPosts";
 
 interface Props {
@@ -31,34 +33,35 @@ function formatDate(dateStr: string) {
   });
 }
 
+const blogImages: Record<string, string> = {
+  "ultimate-charleston-bachelor-party-guide": "/gallery images/BACHELOR PARTY_GUYS NIGHT.webp",
+  "ultimate-myrtle-beach-bachelor-party-guide": "/gallery images/MYRTLE BEACH.webp",
+  "how-to-plan-the-perfect-bachelor-party": "/gallery images/GAME DAY GIRLS.webp",
+  "real-photos-no-bait-and-switch": "/gallery images/Velvet girl.webp",
+};
+
 export default async function BlogPostPage({ params }: Props) {
   const { slug } = await params;
   const post = getBlogPostBySlug(slug);
   if (!post) notFound();
 
+  const bgImg = blogImages[post.slug] || "/gallery images/Velvet girl.webp";
+
   return (
     <>
-      <div className="relative border-b border-black/10 bg-[#f7f7f9] px-6 py-20 sm:py-28">
+      <PageHero
+        eyebrow={`${formatDate(post.publishedAt)} · ${post.readTime}`}
+        title={post.title}
+        subtitle={post.excerpt}
+        bgImage={bgImg}
+      />
 
-        <div className="relative mx-auto max-w-4xl text-center">
-          <div className="inline-flex items-center gap-2 font-body text-xs font-bold uppercase tracking-widest text-[#740107] bg-[#740107]/10 px-4 py-1.5 rounded-full mb-6">
-            <Calendar className="h-4 w-4" />
-            <span>{formatDate(post.publishedAt)}</span>
-            <span>&middot;</span>
-            <span>{post.readTime}</span>
-          </div>
-          <h1 className="font-display text-4xl leading-tight font-bold text-black sm:text-5xl tracking-tight">
-            {post.title}
-          </h1>
-        </div>
-      </div>
-
-      <div className="px-6 py-20 sm:py-28 bg-white">
-        <Reveal className="mx-auto max-w-3xl space-y-12">
+      <div className="px-6 py-20 sm:py-28 bg-[#FAF7F2]">
+        <Reveal className="mx-auto max-w-3xl space-y-12 bg-white p-8 sm:p-12 rounded-2xl border border-stone-200/80 shadow-xl">
           {post.sections.map((section, i) => (
             <div key={i} className="space-y-6">
               {section.heading && (
-                <h2 className="font-display text-2xl sm:text-3xl font-bold text-black border-l-4 border-[#740107] pl-5 py-1">
+                <h2 className="font-display text-2xl sm:text-3xl font-bold text-stone-900 border-l-4 border-[#740107] pl-5 py-1 uppercase tracking-wide">
                   {section.heading}
                 </h2>
               )}
@@ -66,7 +69,7 @@ export default async function BlogPostPage({ params }: Props) {
                 {section.body.map((paragraph, j) => (
                   <p
                     key={j}
-                    className="font-body text-base sm:text-lg leading-relaxed text-black/85 font-normal"
+                    className="font-body text-base sm:text-lg leading-relaxed text-stone-700 font-normal"
                   >
                     {paragraph}
                   </p>
@@ -77,8 +80,8 @@ export default async function BlogPostPage({ params }: Props) {
         </Reveal>
       </div>
 
+      <VelvetCurtains variant="bottom" />
       <CtaSection />
     </>
   );
 }
-

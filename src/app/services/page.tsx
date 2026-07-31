@@ -17,6 +17,7 @@ import {
 import PageHero from "@/components/ui/PageHero";
 import Reveal from "@/components/ui/Reveal";
 import CtaSection from "@/components/home/CtaSection";
+import VelvetCurtains from "@/components/gallery/VelvetCurtains";
 import { services } from "@/data/services";
 
 export const metadata: Metadata = {
@@ -38,6 +39,19 @@ const icons: Record<string, LucideIcon> = {
   "special-requests": Sparkles,
 };
 
+const serviceImages: Record<string, string> = {
+  "bachelor-parties": "/gallery images/BACHELOR PARTY_GUYS NIGHT.webp",
+  "birthday-parties": "/gallery images/BREAKFAST WITH BABES.webp",
+  "private-events": "/gallery images/GAME DAY GIRLS.webp",
+  "vip-experiences": "/gallery images/DIOR.webp",
+  "corporate-entertainment": "/gallery images/LOTUS.webp",
+  "couples-entertainment": "/gallery images/BAD COP.webp",
+  "girls-night-out": "/gallery images/SEXY NURSE.webp",
+  "pool-parties": "/gallery images/BOAT_ POOL PARTY_.webp",
+  "yacht-parties": "/gallery images/BOAT_ POOL PARTY_.webp",
+  "special-requests": "/gallery images/DOMINATRIX.webp",
+};
+
 export default function ServicesIndexPage() {
   return (
     <>
@@ -45,29 +59,44 @@ export default function ServicesIndexPage() {
         eyebrow="SERVICES"
         title="Entertainment For Every Occasion"
         subtitle="Every service is available across all 8 of our served cities. Pick your occasion to see what's included."
+        bgImage="/gallery images/BREAKFAST WITH BABES.webp"
       />
-      <div className="px-6 py-20 sm:py-28 bg-white">
+      <div className="px-6 py-20 sm:py-28 bg-[#FAF7F2]">
         <div className="mx-auto grid max-w-7xl grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
           {services.map((service, i) => {
             const Icon = icons[service.slug] ?? Sparkles;
+            const imgUrl = serviceImages[service.slug] || "/gallery images/Velvet girl.webp";
             return (
               <Reveal key={service.slug} delay={(i % 3) * 0.08}>
                 <Link
                   href={`/services/${service.slug}`}
-                  className="group flex h-full flex-col justify-between border border-black/10 bg-white p-8 transition-all duration-300 hover:border-[#740107]/60 hover:shadow-xl"
+                  className="group flex h-full flex-col justify-between overflow-hidden rounded-2xl border border-stone-200/80 bg-white transition-all duration-500 hover:border-[#740107]/60 hover:shadow-2xl transform hover:-translate-y-1"
                 >
                   <div>
-                    <span className="flex h-14 w-14 items-center justify-center rounded-full bg-[#740107]/10 text-[#740107] transition-all duration-300 group-hover:bg-[#740107] group-hover:text-white">
-                      <Icon className="h-6 w-6" strokeWidth={1.75} />
-                    </span>
-                    <h2 className="mt-6 font-display text-2xl font-bold text-black group-hover:text-[#740107] transition-colors">
-                      {service.title}
-                    </h2>
-                    <p className="mt-3 font-body text-sm text-black/70 leading-relaxed font-medium">
-                      {service.shortDescription}
-                    </p>
+                    <div className="relative aspect-[16/10] w-full overflow-hidden bg-stone-900">
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img
+                        src={encodeURI(imgUrl)}
+                        alt={service.title}
+                        className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+                      <div className="absolute bottom-4 left-4 flex items-center gap-2 text-white">
+                        <span className="flex h-10 w-10 items-center justify-center rounded-full bg-[#740107] text-white shadow-md">
+                          <Icon className="h-5 w-5" strokeWidth={2} />
+                        </span>
+                        <h2 className="font-display text-xl font-bold uppercase tracking-wider text-white">
+                          {service.title}
+                        </h2>
+                      </div>
+                    </div>
+                    <div className="p-6">
+                      <p className="font-body text-sm text-stone-600 leading-relaxed font-medium">
+                        {service.shortDescription}
+                      </p>
+                    </div>
                   </div>
-                  <div className="mt-8 pt-4 border-t border-black/10 flex items-center justify-between font-body text-xs font-bold uppercase tracking-widest text-[#740107] group-hover:translate-x-1 transition-transform">
+                  <div className="mx-6 mb-6 pt-4 border-t border-stone-200/80 flex items-center justify-between font-body text-xs font-bold uppercase tracking-widest text-[#740107] group-hover:translate-x-1 transition-transform">
                     <span>Learn more</span>
                     <ArrowRight className="h-4 w-4" />
                   </div>
@@ -77,6 +106,7 @@ export default function ServicesIndexPage() {
           })}
         </div>
       </div>
+      <VelvetCurtains variant="bottom" />
       <CtaSection />
     </>
   );

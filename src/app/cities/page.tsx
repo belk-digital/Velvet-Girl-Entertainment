@@ -5,6 +5,7 @@ import PageHero from "@/components/ui/PageHero";
 import Section from "@/components/ui/Section";
 import Reveal from "@/components/ui/Reveal";
 import CtaSection from "@/components/home/CtaSection";
+import VelvetCurtains from "@/components/gallery/VelvetCurtains";
 import { stateGroups } from "@/data/cities";
 
 export const metadata: Metadata = {
@@ -101,9 +102,10 @@ export default function CitiesIndexPage() {
         eyebrow="AREAS WE SERVE"
         title="Now Booking in 8 Cities"
         subtitle="We're onboarding dancers in new markets regularly. Browse our current cities below to see local performers and popular areas we cover."
+        bgImage="/gallery images/MYRTLE BEACH.webp"
       />
 
-      <div className="px-6 pt-12 bg-white">
+      <div className="px-6 pt-12 bg-[#FAF7F2]">
         <Reveal className="mx-auto flex max-w-3xl items-start gap-4 border border-[#740107]/30 bg-[#740107]/5 p-6 text-left shadow-sm">
           <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#740107] text-white">
             <ShieldCheck className="h-5 w-5" />
@@ -117,7 +119,7 @@ export default function CitiesIndexPage() {
         </Reveal>
       </div>
 
-      <div className="px-6 py-20 sm:py-28 bg-white">
+      <div className="px-6 py-20 sm:py-28 bg-[#FAF7F2]">
         <div className="mx-auto max-w-7xl space-y-16">
           {stateGroups.map((group, gi) => (
             <Reveal key={group.slug} delay={(gi % 4) * 0.06}>
@@ -171,6 +173,34 @@ export default function CitiesIndexPage() {
               Inquire About a Destination Booking
             </Link>
           </div>
+
+          {/* Destination Showcase Photo Grid (.webp) */}
+          <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 gap-6 pt-6 text-left">
+            <div className="relative overflow-hidden rounded-2xl shadow-xl border border-stone-200/80 aspect-[16/10] group">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={encodeURI("/gallery images/BEACH DAY PACKAGE OR BEACH CITY PAGE.webp")}
+                alt="Beach Day VIP Destination Package"
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+              <p className="absolute bottom-4 left-4 right-4 text-white text-sm font-bold uppercase tracking-wider">
+                Beach House &amp; Coastal Getaways
+              </p>
+            </div>
+            <div className="relative overflow-hidden rounded-2xl shadow-xl border border-stone-200/80 aspect-[16/10] group">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={encodeURI("/gallery images/BOAT_ POOL PARTY_.webp")}
+                alt="Boat and Pool Party Destinations"
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+              <p className="absolute bottom-4 left-4 right-4 text-white text-sm font-bold uppercase tracking-wider">
+                Resort Pool &amp; Yacht Experiences
+              </p>
+            </div>
+          </div>
         </Reveal>
       </Section>
 
@@ -178,9 +208,9 @@ export default function CitiesIndexPage() {
         <div className="mx-auto max-w-3xl space-y-6">
           {faqs.map(({ question, answer }) => (
             <Reveal key={question}>
-              <div className="border border-black/10 bg-white p-6 shadow-sm">
-                <h3 className="font-display text-lg font-bold text-black">{question}</h3>
-                <p className="mt-2 font-body text-sm text-black/70 font-medium leading-relaxed">
+              <div className="border border-stone-200/80 rounded-xl bg-white p-6 shadow-sm">
+                <h3 className="font-display text-lg font-bold text-stone-900">{question}</h3>
+                <p className="mt-2 font-body text-sm text-stone-600 font-medium leading-relaxed">
                   {answer}
                 </p>
               </div>
@@ -189,6 +219,7 @@ export default function CitiesIndexPage() {
         </div>
       </Section>
 
+      <VelvetCurtains variant="bottom" />
       <CtaSection />
     </>
   );

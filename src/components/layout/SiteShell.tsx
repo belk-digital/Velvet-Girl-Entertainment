@@ -33,15 +33,27 @@ export default function SiteShell({ children }: { children: ReactNode }) {
       <main className="flex-1">{children}</main>
       <Footer />
 
-      {/* Floating Bottom-Right Text Us SMS Chat Button in #900609 */}
-      <a
-        href="sms:+18439387737"
-        className="fixed bottom-6 right-6 md:bottom-8 md:right-8 z-[100] flex h-14 w-14 md:h-16 md:w-16 items-center justify-center rounded-full bg-[#900609] text-white shadow-[0_4px_25px_rgba(144,6,9,0.45)] transition-all duration-300 hover:scale-110 hover:shadow-[0_8px_35px_rgba(144,6,9,0.7)]"
-        aria-label="Text Us"
-        title="Text Us"
-      >
-        <MessageCircle className="h-7 w-7 md:h-8 md:w-8" strokeWidth={2.2} />
-      </a>
+      {/* Floating 24/7 VIP Call & Text Now Dock */}
+      <div className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-[100] flex flex-row items-center gap-2 sm:gap-2.5 bg-white/95 backdrop-blur-md p-1.5 sm:p-2 rounded-full shadow-[0_8px_30px_rgba(0,0,0,0.35)] border border-stone-200">
+        <a
+          href="tel:8439387377"
+          className="flex items-center gap-2 rounded-full bg-[#740107] hover:bg-[#5c0911] text-white px-4 sm:px-5 py-2.5 sm:py-3 text-xs sm:text-sm font-bold uppercase tracking-wider shadow-md transition-all duration-300 hover:scale-105"
+          aria-label="Call (843) 938-7377"
+          title="Call Now: (843) 938-7377"
+        >
+          <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping" />
+          <span>Call: (843) 938-7377</span>
+        </a>
+        <a
+          href="sms:8439387377"
+          className="flex items-center gap-1.5 sm:gap-2 rounded-full bg-stone-900 hover:bg-black text-white px-4 sm:px-5 py-2.5 sm:py-3 text-xs sm:text-sm font-bold uppercase tracking-wider shadow-md transition-all duration-300 hover:scale-105"
+          aria-label="Text Us Now"
+          title="Text VIP Dispatch: (843) 938-7377"
+        >
+          <MessageCircle className="h-4 w-4 text-[#C5A880]" />
+          <span>Text Us</span>
+        </a>
+      </div>
     </div>
   );
 }

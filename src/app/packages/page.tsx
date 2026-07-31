@@ -6,6 +6,7 @@ import Reveal from "@/components/ui/Reveal";
 import ThemeCard from "@/components/ui/ThemeCard";
 import PackageBuilder from "@/components/forms/PackageBuilder";
 import CtaSection from "@/components/home/CtaSection";
+import VelvetCurtains from "@/components/gallery/VelvetCurtains";
 import { packageThemes } from "@/data/packages";
 
 export const metadata: Metadata = {
@@ -21,6 +22,7 @@ export default function PackagesPage() {
         eyebrow="PACKAGES"
         title="Party Packages"
         subtitle="Pick a theme below, then build your own custom experience — theme, costume, dancer count, and upgrades, all in one place."
+        bgImage="/gallery images/BACHELOR PARTY_GUYS NIGHT.webp"
       />
 
       <Section eyebrow="THEMES" title="Choose your party theme">
@@ -47,7 +49,7 @@ export default function PackagesPage() {
         </Reveal>
       </Section>
 
-
+      <VelvetCurtains variant="bottom" />
       <CtaSection />
     </>
   );

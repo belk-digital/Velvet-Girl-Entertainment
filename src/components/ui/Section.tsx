@@ -32,8 +32,8 @@ export default function Section({
           : isDark
           ? "bg-[#0f0f11] text-white"
           : isMuted
-          ? "bg-[#f7f7f9] text-black border-y border-black/5"
-          : "bg-white text-black"
+          ? "bg-white/80 text-stone-900 border-y border-stone-200/80 shadow-xs"
+          : "bg-[#FAF7F2] text-stone-900"
       } ${className}`}
     >
       <div className="mx-auto max-w-[120rem] lg:px-6">
@@ -50,8 +50,8 @@ export default function Section({
             )}
             {title && (
               <h2
-                className={`font-display text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight leading-tight ${
-                  isCrimson || isDark ? "text-white" : "text-black"
+                className={`font-display text-3xl sm:text-4xl md:text-5xl font-bold uppercase tracking-wider leading-tight ${
+                  isCrimson || isDark ? "text-white" : "text-[#740107]"
                 }`}
               >
                 {title}
@@ -61,10 +61,10 @@ export default function Section({
               <p
                 className={`mt-4 font-body text-base sm:text-lg font-medium leading-relaxed ${
                   isCrimson
-                    ? "text-white/85"
+                    ? "text-white/90"
                     : isDark
                     ? "text-white/70"
-                    : "text-black/70"
+                    : "text-stone-700"
                 }`}
               >
                 {subtitle}
@@ -77,4 +77,3 @@ export default function Section({
     </section>
   );
 }
-

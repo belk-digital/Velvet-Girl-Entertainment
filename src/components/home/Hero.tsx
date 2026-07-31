@@ -81,13 +81,27 @@ export default function Hero() {
 
         <div
           data-hero-actions
-          className="mt-12 flex flex-col items-start gap-4 opacity-0 sm:flex-row"
+          className="mt-12 flex flex-col items-stretch sm:items-center gap-4 opacity-0 sm:flex-row flex-wrap"
         >
+          <a
+            href="tel:8439387377"
+            className="tracking-caps group flex items-center justify-center gap-2.5 bg-[#740107] hover:bg-[#5c0911] px-8 py-5 font-body text-sm font-bold text-white transition-all duration-300 hover:scale-105 shadow-lg"
+          >
+            <Phone className="h-4 w-4 animate-pulse" />
+            <span>CALL NOW: (843) 938-7377</span>
+          </a>
+          <a
+            href="sms:8439387377"
+            className="tracking-caps group flex items-center justify-center gap-2.5 bg-stone-900 hover:bg-black px-8 py-5 font-body text-sm font-bold text-white transition-all duration-300 hover:scale-105 shadow-lg"
+          >
+            <MessageCircle className="h-4 w-4 text-[#C5A880]" />
+            <span>TEXT VIP DISPATCH</span>
+          </a>
           <Link
             href="/book-now"
-            className="tracking-caps group flex items-center gap-2 bg-[#740107] px-10 py-5 font-body text-sm font-semibold text-white transition-transform duration-300 hover:scale-105 border border-[#740107] shadow-md"
+            className="tracking-caps group flex items-center justify-center gap-2 bg-white hover:bg-stone-50 px-8 py-5 font-body text-sm font-bold text-stone-900 transition-all duration-300 border border-stone-300 shadow-sm"
           >
-            BOOK NOW
+            <span>BOOK ONLINE</span>
             <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
           </Link>
         </div>

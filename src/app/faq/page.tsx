@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import PageHero from "@/components/ui/PageHero";
 import FaqSection from "@/components/home/FaqSection";
 import CtaSection from "@/components/home/CtaSection";
+import VelvetCurtains from "@/components/gallery/VelvetCurtains";
 import { faqs } from "@/data/faqs";
 
 export const metadata: Metadata = {
@@ -17,7 +18,9 @@ export default function FaqPage() {
         eyebrow="FAQ"
         title="Frequently Asked Questions"
         subtitle="Everything you need to know about booking with Velvet Girl Entertainment."
+        bgImage="/gallery images/GALLERY(2).webp"
       />
+      <VelvetCurtains variant="bottom" />
       <FaqSection items={faqs} theme="crimson" />
       <CtaSection />
     </>

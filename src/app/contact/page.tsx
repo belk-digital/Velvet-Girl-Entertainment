@@ -5,6 +5,7 @@ import PageHero from "@/components/ui/PageHero";
 import Section from "@/components/ui/Section";
 import Reveal from "@/components/ui/Reveal";
 import ContactForm from "@/components/forms/ContactForm";
+import VelvetCurtains from "@/components/gallery/VelvetCurtains";
 
 export const metadata: Metadata = {
   title: "Contact & Booking | Velvet Girl Entertainment",
@@ -31,14 +32,14 @@ const infoItems = [
   {
     icon: MessageCircle,
     label: "Text Us",
-    value: "(843) 938-7737",
-    href: "sms:+18439387737",
+    value: "(843) 938-7377",
+    href: "sms:8439387377",
   },
   {
     icon: Phone,
     label: "Call Us",
-    value: "(843) 938-7737",
-    href: "tel:+18439387737",
+    value: "(843) 938-7377",
+    href: "tel:8439387377",
   },
   {
     icon: Mail,
@@ -118,7 +119,7 @@ const jsonLd = {
       url: "https://velvetgirlentertainment.com/",
       contactPoint: {
         "@type": "ContactPoint",
-        telephone: "+1-843-938-7737",
+        telephone: "+1-843-938-7377",
         contactType: "Customer Service",
         email: "bookings@velvetgirlentertainment.com",
         availableLanguage: ["English"],
@@ -139,25 +140,26 @@ export default function ContactPage() {
         eyebrow="CONTACT"
         title="Book Your Event"
         subtitle="Our booking concierge is available 24/7 to help plan your bachelor party, private event, or celebration."
+        bgImage="/gallery images/GALLERY(1).webp"
       />
 
       <Section eyebrow="HOW IT WORKS" title="The Booking Process" theme="muted">
         <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
           {bookingSteps.map(({ icon: Icon, title, description }, i) => (
             <Reveal key={title} delay={i * 0.1}>
-              <div className="flex flex-col items-start gap-4 border border-black/10 bg-white p-6 h-full shadow-sm">
+              <div className="flex flex-col items-start gap-4 border border-stone-200/80 rounded-xl bg-white p-6 h-full shadow-sm">
                 <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[#740107]/10 text-[#740107]">
                   <Icon className="h-5 w-5" />
                 </span>
                 <div>
-                  <p className="font-display text-lg font-bold text-black">{title}</p>
-                  <p className="mt-1 font-body text-sm text-black/70 font-medium">{description}</p>
+                  <p className="font-display text-lg font-bold text-stone-900">{title}</p>
+                  <p className="mt-1 font-body text-sm text-stone-600 font-medium">{description}</p>
                 </div>
               </div>
             </Reveal>
           ))}
         </div>
-        <p className="mt-8 text-center font-body text-sm text-black/60 font-medium">
+        <p className="mt-8 text-center font-body text-sm text-stone-600 font-medium">
           Not sure which package fits your event? Browse our{" "}
           <Link href="/packages" className="font-bold text-[#740107] hover:underline">
             entertainment packages
@@ -166,21 +168,21 @@ export default function ContactPage() {
         </p>
       </Section>
 
-      <div className="px-6 py-20 sm:py-28 bg-white">
+      <div className="px-6 py-20 sm:py-28 bg-[#FAF7F2]">
         <div className="mx-auto grid max-w-7xl grid-cols-1 gap-10 lg:grid-cols-5">
           <Reveal className="lg:col-span-2">
             <div className="space-y-4">
               {infoItems.map(({ icon: Icon, label, value, href }) => {
                 const content = (
-                  <div className="flex items-start gap-4 border border-black/10 bg-white p-6 shadow-sm hover:border-[#740107]/50 transition-colors duration-300">
+                  <div className="flex items-start gap-4 border border-stone-200/80 rounded-xl bg-white p-6 shadow-sm hover:border-[#740107]/50 transition-colors duration-300">
                     <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[#740107]/10 text-[#740107]">
                       <Icon className="h-5 w-5" />
                     </span>
                     <div>
-                      <p className="tracking-widest font-body text-[11px] font-bold uppercase text-black/50">
+                      <p className="tracking-widest font-body text-[11px] font-bold uppercase text-stone-400">
                         {label}
                       </p>
-                      <p className="mt-1 font-body text-base font-bold text-black">
+                      <p className="mt-1 font-display text-base font-bold text-stone-900">
                         {value}
                       </p>
                     </div>
@@ -197,18 +199,18 @@ export default function ContactPage() {
             </div>
           </Reveal>
 
-          <Reveal delay={0.1} className="lg:col-span-3">
-            <div className="border border-black/10 bg-white p-8 sm:p-12 shadow-sm">
-              <h2 className="font-display text-3xl font-bold text-black">
-                Send us a message
+          <Reveal className="lg:col-span-3" delay={0.15}>
+            <div className="border border-stone-200/80 rounded-2xl bg-white p-8 sm:p-12 shadow-xl">
+              <h2 className="font-display text-2xl font-bold uppercase tracking-wider text-[#740107]">
+                Send a Booking Inquiry
               </h2>
-              <p className="mt-2 font-body text-sm text-black/70 font-medium">
+              <p className="mt-2 font-body text-sm text-stone-600 font-medium">
                 Fill out the form and a booking specialist will follow up.
               </p>
               <div className="mt-8">
                 <ContactForm />
               </div>
-              <p className="mt-4 font-body text-xs text-black/50 font-medium">
+              <p className="mt-4 font-body text-xs text-stone-400 font-medium">
                 Your information is kept private and used only to coordinate your booking.
               </p>
             </div>
@@ -216,13 +218,14 @@ export default function ContactPage() {
         </div>
       </div>
 
+      <VelvetCurtains variant="bottom" />
       <Section eyebrow="FAQ" title="Common Questions" theme="muted">
         <div className="mx-auto max-w-3xl space-y-6">
           {faqs.map(({ question, answer }) => (
             <Reveal key={question}>
-              <div className="border border-black/10 bg-white p-6 shadow-sm">
-                <h3 className="font-display text-lg font-bold text-black">{question}</h3>
-                <p className="mt-2 font-body text-sm text-black/70 font-medium leading-relaxed">
+              <div className="border border-stone-200/80 rounded-xl bg-white p-6 shadow-sm">
+                <h3 className="font-display text-lg font-bold text-stone-900">{question}</h3>
+                <p className="mt-2 font-body text-sm text-stone-600 font-medium leading-relaxed">
                   {answer}
                 </p>
               </div>

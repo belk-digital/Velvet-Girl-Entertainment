@@ -7,6 +7,7 @@ import Section from "@/components/ui/Section";
 import Reveal from "@/components/ui/Reveal";
 import FaqSection from "@/components/home/FaqSection";
 import CtaSection from "@/components/home/CtaSection";
+import VelvetCurtains from "@/components/gallery/VelvetCurtains";
 
 import { packageThemes, getPackageThemeBySlug } from "@/data/packages";
 import { homepageFaqs } from "@/data/faqs";
@@ -40,6 +41,7 @@ export default async function PackageThemeDetailPage({ params }: Props) {
         eyebrow="PACKAGES"
         title={`${theme.name} Package`}
         subtitle={theme.heroDescription}
+        bgImage={theme.image || "/gallery images/BACHELOR PARTY_GUYS NIGHT.webp"}
       />
 
       <Section eyebrow="HIGHLIGHTS" title="What to expect">
@@ -48,23 +50,19 @@ export default async function PackageThemeDetailPage({ params }: Props) {
             {theme.highlights.map((item) => (
               <div
                 key={item}
-                className="flex items-center gap-4 border border-black/10 bg-white p-6 shadow-sm hover:border-[#740107]/50 transition-colors"
+                className="flex items-center gap-4 border border-stone-200/80 rounded-xl bg-white p-6 shadow-sm hover:border-[#740107]/50 transition-colors"
               >
                 <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#740107]/10 text-[#740107]">
                   <Check className="h-5 w-5" />
                 </div>
-                <span className="font-body text-base text-black/85 font-medium">{item}</span>
+                <span className="font-display text-base font-bold text-stone-900">{item}</span>
               </div>
             ))}
           </div>
         </Reveal>
       </Section>
 
-      <Section
-        eyebrow={theme.comingSoon ? "COMING SOON" : "CUSTOMIZE"}
-        title={theme.comingSoon ? "Join the waitlist" : "Make it yours"}
-        theme="muted"
-      >
+      <Section eyebrow="CUSTOMIZE" title={`Build your ${theme.name} package`} theme="muted">
         <Reveal className="mx-auto max-w-2xl text-center">
           {theme.comingSoon ? (
             <>
@@ -97,6 +95,7 @@ export default async function PackageThemeDetailPage({ params }: Props) {
         </Reveal>
       </Section>
 
+      <VelvetCurtains variant="bottom" />
       <FaqSection />
 
       <CtaSection />

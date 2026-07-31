@@ -20,27 +20,27 @@ export default function CtaSection() {
           Contact our booking team today to discuss availability and receive
           a personalized quote.
         </p>
-        <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
-          <Link
-            href="/book-now"
-            className="tracking-caps box-glow-pink bg-gradient-to-r from-velvet-pink-hot to-velvet-pink px-9 py-4 font-body text-sm font-semibold text-white transition-transform duration-300 hover:scale-105"
-          >
-            BOOK NOW
-          </Link>
+        <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row flex-wrap">
           <a
-            href="tel:+18439387737"
-            className="tracking-caps flex items-center gap-2 border border-white/25 px-9 py-4 font-body text-sm font-semibold text-white/85 transition-colors duration-300 hover:border-white/50 hover:text-white"
+            href="tel:8439387377"
+            className="tracking-caps box-glow-pink bg-gradient-to-r from-velvet-pink-hot to-velvet-pink px-8 py-4 font-body text-sm font-bold text-white transition-transform duration-300 hover:scale-105 flex items-center gap-2 shadow-lg"
           >
-            <Phone className="h-4 w-4 text-velvet-pink" />
-            CALL (843) 938-7737
+            <Phone className="h-4 w-4 animate-pulse" />
+            <span>CALL NOW: (843) 938-7377</span>
           </a>
           <a
-            href="sms:+18439387737"
-            className="tracking-caps flex items-center gap-2 border border-white/25 px-9 py-4 font-body text-sm font-semibold text-white/85 transition-colors duration-300 hover:border-white/50 hover:text-white"
+            href="sms:8439387377"
+            className="tracking-caps flex items-center gap-2 bg-white/10 hover:bg-white/20 border border-white/40 px-8 py-4 font-body text-sm font-bold text-white transition-all duration-300 hover:scale-105 shadow-md"
           >
             <MessageCircle className="h-4 w-4 text-velvet-pink" />
-            TEXT US
+            <span>TEXT VIP: (843) 938-7377</span>
           </a>
+          <Link
+            href="/book-now"
+            className="tracking-caps flex items-center gap-2 border border-white/25 px-6 py-4 font-body text-sm font-semibold text-white/80 transition-colors duration-300 hover:border-white/50 hover:text-white"
+          >
+            BOOK ONLINE
+          </Link>
         </div>
       </Reveal>
     </section>

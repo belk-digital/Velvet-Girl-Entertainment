@@ -10,6 +10,8 @@ import {
   Calendar,
   Sparkles,
   ArrowRight,
+  Phone,
+  MessageSquare,
 } from "lucide-react";
 import type { Performer } from "@/data/performers";
 
@@ -186,22 +188,29 @@ export default function PerformerProfileModal({
             </div>
           </div>
 
-          {/* Action Footer */}
-          <div className="mt-8 pt-4 border-t border-stone-200 flex flex-col sm:flex-row gap-3">
+          {/* High-Converting Action Footer with Call & Text CTAs */}
+          <div className="mt-8 pt-4 border-t border-stone-200 flex flex-col sm:flex-row flex-wrap gap-2.5">
+            <a
+              href="tel:8439387377"
+              className="flex-1 min-w-[150px] inline-flex items-center justify-center gap-2 bg-[#740107] hover:bg-[#5c0911] text-white px-5 py-3.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all duration-300 shadow-md hover:shadow-lg"
+            >
+              <Phone className="w-4 h-4 animate-pulse" />
+              <span>Call: (843) 938-7377</span>
+            </a>
+            <a
+              href={`sms:8439387377?body=Hi, I would like to book ${performer.name} in ${performer.city || performer.location}`}
+              className="flex-1 min-w-[150px] inline-flex items-center justify-center gap-2 bg-stone-900 hover:bg-black text-white px-5 py-3.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all duration-300 shadow-md hover:shadow-lg"
+            >
+              <MessageSquare className="w-4 h-4 text-[#C5A880]" />
+              <span>Text VIP To Book</span>
+            </a>
             <Link
               href={`/book-now?performer=${performer.slug || performer.id}`}
               onClick={onClose}
-              className="flex-1 inline-flex items-center justify-center gap-2 bg-[#740107] hover:bg-[#5c0911] text-white px-6 py-3.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all duration-300 shadow-md hover:shadow-lg group"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 border border-stone-300 bg-white hover:bg-stone-50 text-stone-800 px-5 py-3.5 rounded-full text-xs font-bold uppercase tracking-wider transition-colors"
             >
-              <span>Book {performer.name} Now</span>
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              <span>Book Online Form</span>
             </Link>
-            <button
-              onClick={onClose}
-              className="px-6 py-3.5 rounded-full border border-stone-300 text-stone-700 hover:bg-stone-50 text-xs font-bold uppercase tracking-wider transition-colors"
-            >
-              Close
-            </button>
           </div>
         </div>
       </div>

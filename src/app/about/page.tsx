@@ -7,6 +7,7 @@ import Reveal from "@/components/ui/Reveal";
 import FaqSection from "@/components/home/FaqSection";
 import WhyChooseUs from "@/components/home/WhyChooseUs";
 import CtaSection from "@/components/home/CtaSection";
+import VelvetCurtains from "@/components/gallery/VelvetCurtains";
 
 
 export const metadata: Metadata = {
@@ -30,6 +31,7 @@ export default function AboutPage() {
         eyebrow="ABOUT US"
         title="About Velvet Girl Entertainment"
         subtitle="Velvet Girl Entertainment connects clients with experienced, professional entertainers for private celebrations across the United States."
+        bgImage="/gallery images/Velvet girl.webp"
       />
 
       <Section eyebrow="OUR STORY" title="Built around discretion and reliability">
@@ -54,6 +56,46 @@ export default function AboutPage() {
             unedited photos of every dancer on our roster. No stock photos,
             no bait-and-switch — you know exactly who&rsquo;s showing up.
           </p>
+
+          {/* Luxury Editorial Photo Grid (.webp from gallery images) */}
+          <div className="mt-12 grid grid-cols-1 sm:grid-cols-3 gap-6 pt-6 text-left">
+            <div className="relative overflow-hidden rounded-2xl shadow-xl border border-stone-200/80 aspect-[4/5] group">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={encodeURI("/gallery images/BACHELOR PARTY_GUYS NIGHT.webp")}
+                alt="Bachelor Party VIP Entertainment"
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+              <p className="absolute bottom-4 left-4 right-4 text-white text-xs font-bold uppercase tracking-wider">
+                Bachelor Parties &amp; Guys Nights
+              </p>
+            </div>
+            <div className="relative overflow-hidden rounded-2xl shadow-xl border border-stone-200/80 aspect-[4/5] group">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={encodeURI("/gallery images/BREAKFAST WITH BABES.webp")}
+                alt="Breakfast With Babes Package"
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+              <p className="absolute bottom-4 left-4 right-4 text-white text-xs font-bold uppercase tracking-wider">
+                VIP Daytime Packages
+              </p>
+            </div>
+            <div className="relative overflow-hidden rounded-2xl shadow-xl border border-stone-200/80 aspect-[4/5] group">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={encodeURI("/gallery images/GAME DAY GIRLS.webp")}
+                alt="Game Day Girls Entertainment"
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+              <p className="absolute bottom-4 left-4 right-4 text-white text-xs font-bold uppercase tracking-wider">
+                Game Day VIP Gatherings
+              </p>
+            </div>
+          </div>
         </Reveal>
       </Section>
 
@@ -171,6 +213,8 @@ export default function AboutPage() {
         </Reveal>
       </Section>
 
+      {/* Signature Crimson Velvet Curtains Transition */}
+      <VelvetCurtains variant="bottom" />
       <FaqSection />
 
       <CtaSection />

@@ -7,6 +7,7 @@ import Section from "@/components/ui/Section";
 import Reveal from "@/components/ui/Reveal";
 import FaqSection from "@/components/home/FaqSection";
 import CtaSection from "@/components/home/CtaSection";
+import VelvetCurtains from "@/components/gallery/VelvetCurtains";
 
 import { services, getServiceBySlug } from "@/data/services";
 import { homepageFaqs } from "@/data/faqs";
@@ -46,6 +47,7 @@ export default async function ServiceDetailPage({ params }: Props) {
         eyebrow="SERVICES"
         title={`${service.title} Entertainment`}
         subtitle={service.heroDescription}
+        bgImage="/gallery images/DIOR.webp"
       />
 
       <Section eyebrow="WHAT'S INCLUDED" title="What's Included">
@@ -54,12 +56,12 @@ export default async function ServiceDetailPage({ params }: Props) {
             {service.whatsIncluded.map((item) => (
               <div
                 key={item}
-                className="flex items-center gap-4 border border-black/10 bg-white p-6 shadow-sm hover:border-[#740107]/50 transition-colors"
+                className="flex items-center gap-4 border border-stone-200/80 rounded-xl bg-white p-6 shadow-sm hover:border-[#740107]/50 transition-colors"
               >
                 <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#740107]/10 text-[#740107]">
                   <Check className="h-5 w-5" />
                 </div>
-                <span className="font-body text-base text-black/85 font-medium">
+                <span className="font-display text-base font-bold text-stone-900">
                   {item}
                 </span>
               </div>
@@ -69,18 +71,19 @@ export default async function ServiceDetailPage({ params }: Props) {
       </Section>
 
       <Section
-        eyebrow="BOOKING PROCESS"
-        title="How booking works"
+        eyebrow="HOW TO BOOK"
+        title="4 Simple Steps"
+        subtitle="We make the entire booking process simple, transparent, and discreet."
         theme="muted"
       >
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {service.bookingSteps.map((step, i) => (
-            <Reveal key={step} delay={i * 0.08}>
-              <div className="h-full border border-black/10 bg-white p-8 text-center shadow-sm hover:shadow-lg transition-all duration-300 group">
+            <Reveal key={step} delay={i * 0.1}>
+              <div className="border border-stone-200/80 rounded-xl bg-white p-8 text-center shadow-sm hover:border-[#740107]/50 hover:shadow-md transition-all h-full flex flex-col justify-between group">
                 <span className="font-display text-4xl font-bold text-[#740107] group-hover:scale-110 inline-block transition-transform">
                   {String(i + 1).padStart(2, "0")}
                 </span>
-                <p className="mt-4 font-body text-base font-bold text-black uppercase tracking-wider">
+                <p className="mt-4 font-body text-base font-bold text-stone-900 uppercase tracking-wider">
                   {step}
                 </p>
               </div>
@@ -98,7 +101,7 @@ export default async function ServiceDetailPage({ params }: Props) {
             <Link
               key={city.slug}
               href={`/cities/${city.stateSlug}/${city.slug}`}
-              className="border border-black/15 bg-white px-6 py-3 font-body text-xs font-bold uppercase tracking-widest text-black/85 transition-all duration-300 hover:border-[#740107] hover:bg-[#740107] hover:text-white shadow-sm"
+              className="border border-stone-200/80 rounded-full bg-white px-6 py-3 font-body text-xs font-bold uppercase tracking-widest text-stone-800 transition-all duration-300 hover:border-[#740107] hover:bg-[#740107] hover:text-white shadow-sm"
             >
               {city.name}
             </Link>
@@ -106,6 +109,7 @@ export default async function ServiceDetailPage({ params }: Props) {
         </Reveal>
       </Section>
 
+      <VelvetCurtains variant="bottom" />
       <FaqSection />
 
       <CtaSection />

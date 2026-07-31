@@ -231,18 +231,18 @@ export default function BookingForm() {
           <button
             type="button"
             onClick={() => setDancers((d) => Math.max(2, d - 1))}
-            className="flex h-10 w-10 items-center justify-center rounded-full border border-white/20 text-white transition-colors hover:border-velvet-pink/50"
+            className="flex h-11 w-11 items-center justify-center border border-black/20 bg-white text-black transition-all hover:border-[#740107] hover:bg-[#740107] hover:text-white"
             aria-label="Decrease dancer count"
           >
             <Minus className="h-4 w-4" />
           </button>
-          <span className="w-8 text-center font-display text-xl text-white">
+          <span className="w-10 text-center font-display text-2xl font-bold text-black">
             {dancers}
           </span>
           <button
             type="button"
             onClick={() => setDancers((d) => d + 1)}
-            className="flex h-10 w-10 items-center justify-center rounded-full border border-white/20 text-white transition-colors hover:border-velvet-pink/50"
+            className="flex h-11 w-11 items-center justify-center border border-black/20 bg-white text-black transition-all hover:border-[#740107] hover:bg-[#740107] hover:text-white"
             aria-label="Increase dancer count"
           >
             <Plus className="h-4 w-4" />
@@ -252,28 +252,35 @@ export default function BookingForm() {
 
       <div>
         <label className={labelClass}>Upgrades</label>
-        <div className="grid grid-cols-1 gap-2 sm:grid-cols-2">
-          {upgrades.map((u) => (
-            <label
-              key={u.slug}
-              className="flex items-start gap-2.5 rounded-xl border border-white/10 bg-white/5 px-4 py-3 font-body text-xs text-white/75"
-            >
-              <input
-                type="checkbox"
-                checked={selectedUpgrades.includes(u.slug)}
-                onChange={() => toggleUpgrade(u.slug)}
-                className="mt-0.5 h-4 w-4 rounded border-white/30 bg-white/5 accent-velvet-pink"
-              />
-              <span>
-                {u.label}
-                {u.note && (
-                  <span className="mt-0.5 block text-[10px] text-white/45">
-                    {u.note}
-                  </span>
-                )}
-              </span>
-            </label>
-          ))}
+        <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
+          {upgrades.map((u) => {
+            const isChecked = selectedUpgrades.includes(u.slug);
+            return (
+              <label
+                key={u.slug}
+                className={`flex items-start gap-3 border px-4 py-3.5 font-body text-xs cursor-pointer transition-all duration-300 ${
+                  isChecked
+                    ? "border-[#740107] bg-[#740107]/5 text-black font-semibold"
+                    : "border-black/15 bg-white text-black/80 hover:border-[#740107]/40"
+                }`}
+              >
+                <input
+                  type="checkbox"
+                  checked={isChecked}
+                  onChange={() => toggleUpgrade(u.slug)}
+                  className="mt-0.5 h-4 w-4 accent-[#740107] cursor-pointer"
+                />
+                <span>
+                  <span className="text-sm font-semibold block">{u.label}</span>
+                  {u.note && (
+                    <span className="mt-0.5 block text-[11px] text-black/60 font-normal">
+                      {u.note}
+                    </span>
+                  )}
+                </span>
+              </label>
+            );
+          })}
         </div>
       </div>
 
@@ -292,31 +299,32 @@ export default function BookingForm() {
 
       {dateValue &&
         (isLastMinute ? (
-          <div className="flex items-start gap-3 rounded-xl border border-velvet-pink/40 bg-velvet-pink/10 p-4">
-            <Phone className="mt-0.5 h-4 w-4 shrink-0 text-velvet-pink" />
-            <p className="font-body text-xs leading-relaxed text-white/80">
+          <div className="flex items-start gap-3 border border-[#740107]/30 bg-[#740107]/5 p-4">
+            <Phone className="mt-0.5 h-4 w-4 shrink-0 text-[#740107]" />
+            <p className="font-body text-xs leading-relaxed text-black/80 font-medium">
               This date is less than 24 hours away, so online deposit booking
               isn&rsquo;t available. Submit this form, then{" "}
-              <a href="tel:+18439387737" className="text-velvet-pink underline">
+              <a href="tel:+18439387737" className="text-[#740107] font-bold underline">
                 call
               </a>{" "}
               or{" "}
-              <a href="sms:+18439387737" className="text-velvet-pink underline">
+              <a href="sms:+18439387737" className="text-[#740107] font-bold underline">
                 text
               </a>{" "}
               us directly for same-day booking.
             </p>
           </div>
         ) : (
-          <div className="flex items-start gap-3 rounded-xl border border-white/15 bg-white/5 p-4">
-            <ShieldCheck className="mt-0.5 h-4 w-4 shrink-0 text-velvet-pink" />
-            <p className="font-body text-xs leading-relaxed text-white/70">
+          <div className="flex items-start gap-3 border border-black/15 bg-[#f7f7f9] p-4">
+            <ShieldCheck className="mt-0.5 h-4 w-4 shrink-0 text-[#740107]" />
+            <p className="font-body text-xs leading-relaxed text-black/80 font-medium">
               A {DEPOSIT_AMOUNT} deposit secures bookings made 24+ hours in
               advance. Submit this request and your booking specialist will
               follow up to collect the deposit securely.
             </p>
           </div>
         ))}
+
 
       <button type="submit" className={submitButtonClass}>
         {isLastMinute ? "SEND REQUEST" : "REQUEST BOOKING"}

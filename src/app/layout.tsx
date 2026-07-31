@@ -37,9 +37,10 @@ export default function RootLayout({
       lang="en"
       className={`${montserratDisplay.variable} ${greatVibes.variable} ${montserrat.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col bg-black" suppressHydrationWarning>
+      <body className="min-h-full flex flex-col bg-white text-black" suppressHydrationWarning>
         <SiteShell>{children}</SiteShell>
       </body>
+
     </html>
   );
 }

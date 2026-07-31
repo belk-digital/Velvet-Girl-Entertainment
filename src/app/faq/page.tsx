@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import PageHero from "@/components/ui/PageHero";
-import Reveal from "@/components/ui/Reveal";
-import Accordion from "@/components/ui/Accordion";
+import FaqSection from "@/components/home/FaqSection";
 import CtaSection from "@/components/home/CtaSection";
 import { faqs } from "@/data/faqs";
 
@@ -19,12 +18,10 @@ export default function FaqPage() {
         title="Frequently Asked Questions"
         subtitle="Everything you need to know about booking with Velvet Girl Entertainment."
       />
-      <div className="px-6 py-16 sm:py-24">
-        <Reveal className="mx-auto max-w-3xl">
-          <Accordion items={faqs} />
-        </Reveal>
-      </div>
+      <FaqSection items={faqs} theme="crimson" />
       <CtaSection />
     </>
   );
 }
+
+

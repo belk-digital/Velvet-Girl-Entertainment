@@ -1,52 +1,143 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { MapPin, ShieldCheck } from "lucide-react";
+import { MapPin, ShieldCheck, ArrowRight, Plane } from "lucide-react";
 import PageHero from "@/components/ui/PageHero";
+import Section from "@/components/ui/Section";
 import Reveal from "@/components/ui/Reveal";
 import CtaSection from "@/components/home/CtaSection";
 import { stateGroups } from "@/data/cities";
 
 export const metadata: Metadata = {
-  title: "Cities We Serve | Velvet Girl Entertainment",
+  title: "Areas We Serve | Cities & Destination Bookings | Velvet Girl Entertainment",
   description:
-    "Velvet Girl Entertainment books professional entertainers in Charleston, Myrtle Beach, Charlotte, Savannah, Atlanta, Miami, Orlando/Daytona Beach, and Indianapolis — with more cities coming soon.",
+    "See where Velvet Girl Entertainment books professional entertainers — Charleston, Myrtle Beach, Charlotte, Savannah, Atlanta, Miami, Orlando/Daytona Beach, and Indianapolis. Destination bookings available for other cities.",
+  alternates: {
+    canonical: "/cities",
+  },
+  openGraph: {
+    title: "Areas We Serve | Velvet Girl Entertainment",
+    description:
+      "Professional entertainers booked across 8 active cities, with destination bookings available for bachelor parties and events elsewhere.",
+    url: "/cities",
+  },
+  twitter: {
+    card: "summary",
+    title: "Areas We Serve | Velvet Girl Entertainment",
+    description:
+      "See where Velvet Girl Entertainment books professional entertainers, plus destination booking options for other cities.",
+  },
+};
+
+const faqs = [
+  {
+    question: "What cities does Velvet Girl Entertainment currently serve?",
+    answer:
+      "We have active, onboarded performer rosters in Charleston, Myrtle Beach, Charlotte, Savannah, Atlanta, Miami, Orlando/Daytona Beach, and Indianapolis. We're onboarding new markets regularly — check back or contact us if your city isn't listed yet.",
+  },
+  {
+    question: "Can I book entertainment for a city that's not listed?",
+    answer:
+      "Often, yes. For destination bachelor parties, weddings, and group events — think Nashville, Las Vegas, or a beach-house weekend — we can arrange for a performer to travel to your event. Reach out with your dates and location and we'll confirm availability.",
+  },
+  {
+    question: "How do I know the performer will match their photos?",
+    answer:
+      "We post real, unedited photos of every performer on their city page — no bait-and-switch. What you see is who shows up.",
+  },
+  {
+    question: "How far in advance should I book?",
+    answer:
+      "For our active cities, we can often accommodate short-notice requests. For destination bookings, custom themes, or larger group packages, we recommend booking at least 2-4 weeks ahead to lock in availability and travel logistics.",
+  },
+];
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://velvetgirlentertainment.com/cities/#webpage",
+      url: "https://velvetgirlentertainment.com/cities",
+      name: "Areas We Serve | Velvet Girl Entertainment",
+      description:
+        "See where Velvet Girl Entertainment books professional entertainers — Charleston, Myrtle Beach, Charlotte, Savannah, Atlanta, Miami, Orlando/Daytona Beach, and Indianapolis.",
+      inLanguage: "en-US",
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://velvetgirlentertainment.com/#organization",
+      name: "Velvet Girl Entertainment",
+      url: "https://velvetgirlentertainment.com/",
+      areaServed: stateGroups.flatMap((g) =>
+        g.cities.map((c) => ({
+          "@type": "City",
+          name: c.name,
+        }))
+      ),
+    },
+    {
+      "@type": "FAQPage",
+      mainEntity: faqs.map(({ question, answer }) => ({
+        "@type": "Question",
+        name: question,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: answer,
+        },
+      })),
+    },
+  ],
 };
 
 export default function CitiesIndexPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+
       <PageHero
-        eyebrow="CITIES"
+        eyebrow="AREAS WE SERVE"
         title="Now Booking in 8 Cities"
         subtitle="We're onboarding dancers in new markets regularly. Browse our current cities below to see local performers and popular areas we cover."
       />
-      <div className="px-6 pt-12">
-        <Reveal className="mx-auto flex max-w-2xl items-start gap-3 rounded-2xl border border-velvet-pink/30 bg-white/5 p-5 text-left">
-          <ShieldCheck className="mt-0.5 h-5 w-5 shrink-0 text-velvet-pink" />
-          <p className="font-body text-xs leading-relaxed text-white/70">
+
+      <div className="px-6 pt-12 bg-white">
+        <Reveal className="mx-auto flex max-w-3xl items-start gap-4 border border-[#740107]/30 bg-[#740107]/5 p-6 text-left shadow-sm">
+          <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#740107] text-white">
+            <ShieldCheck className="h-5 w-5" />
+          </div>
+          <p className="font-body text-sm sm:text-base leading-relaxed text-black/85 font-medium">
             We&rsquo;re one of the only booking agencies that posts{" "}
-            <span className="text-velvet-pink">real, unedited photos</span> of
+            <span className="text-[#740107] font-bold">real, unedited photos</span> of
             our dancers on every city page. No bait-and-switch — you know
             exactly who&rsquo;s showing up.
           </p>
         </Reveal>
       </div>
-      <div className="px-6 py-16 sm:py-24">
-        <div className="mx-auto max-w-6xl space-y-14">
+
+      <div className="px-6 py-20 sm:py-28 bg-white">
+        <div className="mx-auto max-w-7xl space-y-16">
           {stateGroups.map((group, gi) => (
             <Reveal key={group.slug} delay={(gi % 4) * 0.06}>
-              <h2 className="font-display text-2xl text-white">
-                {group.name}
-              </h2>
-              <div className="mt-5 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5">
+              <div className="border-b border-black/10 pb-4 mb-6">
+                <h2 className="font-display text-3xl sm:text-4xl font-bold text-black uppercase tracking-tight">
+                  {group.name}
+                </h2>
+              </div>
+              <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
                 {group.cities.map((city) => (
                   <Link
                     key={city.slug}
                     href={`/cities/${city.stateSlug}/${city.slug}`}
-                    className="flex items-center gap-2 rounded-xl border border-white/10 bg-white/5 px-4 py-4 font-body text-sm text-white/75 transition-colors duration-300 hover:border-velvet-pink/40 hover:text-white"
+                    className="group flex items-center justify-between border border-black/15 bg-white px-6 py-5 font-body text-base font-bold text-black transition-all duration-300 hover:border-[#740107] hover:bg-[#740107] hover:text-white hover:shadow-md"
                   >
-                    <MapPin className="h-4 w-4 shrink-0 text-velvet-pink" />
-                    {city.name}
+                    <div className="flex items-center gap-3">
+                      <MapPin className="h-5 w-5 shrink-0 text-[#740107] group-hover:text-white transition-colors" />
+                      <span>{city.name}</span>
+                    </div>
+                    <ArrowRight className="h-4 w-4 shrink-0 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all" />
                   </Link>
                 ))}
               </div>
@@ -54,6 +145,50 @@ export default function CitiesIndexPage() {
           ))}
         </div>
       </div>
+
+      <Section eyebrow="DESTINATION BOOKINGS" title="Planning an event outside these cities?" theme="muted">
+        <Reveal className="mx-auto max-w-3xl text-center">
+          <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-[#740107]/10 text-[#740107]">
+            <Plane className="h-6 w-6" />
+          </div>
+          <p className="mt-6 font-body text-base leading-relaxed text-black/80 sm:text-lg font-medium">
+            Planning a destination bachelor party, wedding weekend, or group
+            celebration somewhere we don&rsquo;t have a local roster yet? We
+            regularly send performers to events outside our primary cities —
+            think Nashville, Las Vegas, or a rented beach house down the coast.
+            Share your dates, headcount, and location, and we&rsquo;ll confirm
+            availability and travel logistics for your{" "}
+            <Link href="/packages/bachelor-party" className="font-bold text-[#740107] hover:underline">
+              bachelor party package
+            </Link>
+            .
+          </p>
+          <div className="mt-8">
+            <Link
+              href="/contact"
+              className="tracking-caps inline-flex items-center gap-2 bg-[#740107] px-9 py-4 font-body text-sm font-semibold text-white transition-transform duration-300 hover:scale-105"
+            >
+              Inquire About a Destination Booking
+            </Link>
+          </div>
+        </Reveal>
+      </Section>
+
+      <Section eyebrow="FAQ" title="Areas We Serve — Common Questions">
+        <div className="mx-auto max-w-3xl space-y-6">
+          {faqs.map(({ question, answer }) => (
+            <Reveal key={question}>
+              <div className="border border-black/10 bg-white p-6 shadow-sm">
+                <h3 className="font-display text-lg font-bold text-black">{question}</h3>
+                <p className="mt-2 font-body text-sm text-black/70 font-medium leading-relaxed">
+                  {answer}
+                </p>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+      </Section>
+
       <CtaSection />
     </>
   );

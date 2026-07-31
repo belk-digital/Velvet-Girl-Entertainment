@@ -27,11 +27,13 @@ const primaries: DrawerPrimary[] = [
       href: `/cities/${c.stateSlug}/${c.slug}`,
     })),
   },
+  { id: "gallery", label: "Gallery", href: "/gallery" },
   { id: "join-team", label: "Join Our Team", href: "/join-team" },
   { id: "blog", label: "Blog", href: "/blog" },
   { id: "faq", label: "FAQ", href: "/faq" },
   { id: "contact", label: "Contact", href: "/contact" },
 ];
+
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -90,11 +92,18 @@ export default function Navbar() {
               Performers
             </Link>
             <Link
+              href="/gallery"
+              className="font-heading text-sm font-bold uppercase tracking-wider text-black/85 hover:text-[#740107] transition-colors"
+            >
+              Gallery
+            </Link>
+            <Link
               href="/services"
               className="font-heading text-sm font-bold uppercase tracking-wider text-black/85 hover:text-[#740107] transition-colors"
             >
               Services
             </Link>
+
           </div>
 
           <div className="ml-2 sm:ml-4">

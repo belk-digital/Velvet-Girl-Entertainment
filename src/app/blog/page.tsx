@@ -27,29 +27,32 @@ export default function BlogIndexPage() {
         title="Planning Guides & Tips"
         subtitle="Bachelor party planning guides, city guides, and everything else you need to plan an unforgettable celebration."
       />
-      <div className="px-6 py-16 sm:py-24">
-        <div className="mx-auto grid max-w-5xl grid-cols-1 gap-6 sm:grid-cols-2">
+      <div className="px-6 py-20 sm:py-28 bg-white">
+        <div className="mx-auto grid max-w-6xl grid-cols-1 gap-8 sm:grid-cols-2">
           {blogPosts.map((post, i) => (
             <Reveal key={post.slug} delay={(i % 2) * 0.1}>
               <Link
                 href={`/blog/${post.slug}`}
-                className="group flex h-full flex-col rounded-2xl border border-white/10 bg-white/5 p-6 transition-colors duration-300 hover:border-velvet-pink/40"
+                className="group flex h-full flex-col justify-between border border-black/10 bg-white p-8 transition-all duration-300 hover:border-[#740107]/60 hover:shadow-xl"
               >
-                <div className="flex items-center gap-2 font-body text-[11px] text-white/40">
-                  <Calendar className="h-3.5 w-3.5" />
-                  {formatDate(post.publishedAt)}
-                  <span>&middot;</span>
-                  {post.readTime}
+                <div>
+                  <div className="flex items-center gap-2 font-body text-xs font-semibold uppercase tracking-wider text-[#740107]">
+                    <Calendar className="h-4 w-4" />
+                    <span>{formatDate(post.publishedAt)}</span>
+                    <span>&middot;</span>
+                    <span>{post.readTime}</span>
+                  </div>
+                  <h2 className="mt-4 font-display text-2xl font-bold text-black group-hover:text-[#740107] transition-colors">
+                    {post.title}
+                  </h2>
+                  <p className="mt-3 font-body text-sm text-black/70 leading-relaxed font-medium">
+                    {post.excerpt}
+                  </p>
                 </div>
-                <h2 className="mt-3 font-display text-xl text-white">
-                  {post.title}
-                </h2>
-                <p className="mt-2 flex-1 font-body text-xs text-white/60">
-                  {post.excerpt}
-                </p>
-                <span className="mt-4 inline-flex items-center gap-1.5 font-body text-xs font-semibold text-velvet-pink opacity-0 transition-all duration-300 group-hover:translate-x-1 group-hover:opacity-100">
-                  Read more <ArrowRight className="h-3.5 w-3.5" />
-                </span>
+                <div className="mt-8 pt-4 border-t border-black/10 flex items-center justify-between font-body text-xs font-bold uppercase tracking-widest text-[#740107] group-hover:translate-x-1 transition-transform">
+                  <span>Read article</span>
+                  <ArrowRight className="h-4 w-4" />
+                </div>
               </Link>
             </Reveal>
           ))}
@@ -58,3 +61,4 @@ export default function BlogIndexPage() {
     </>
   );
 }
+

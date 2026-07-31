@@ -11,11 +11,11 @@ export default function DisclaimerPage() {
   return (
     <>
       <PageHero eyebrow="LEGAL" title="18+ Disclaimer" />
-      <div className="px-6 py-16 sm:py-24">
-        <div className="mx-auto max-w-3xl space-y-6">
-          <div className="flex items-start gap-4 rounded-2xl border border-velvet-pink/30 bg-white/5 p-6">
-            <ShieldAlert className="mt-1 h-6 w-6 shrink-0 text-velvet-pink" />
-            <p className="font-body text-sm leading-relaxed text-white/70">
+      <div className="px-6 py-20 sm:py-28 bg-white">
+        <div className="mx-auto max-w-3xl space-y-8">
+          <div className="flex items-start gap-4 border border-[#740107]/30 bg-[#740107]/5 p-6 shadow-sm">
+            <ShieldAlert className="mt-1 h-6 w-6 shrink-0 text-[#740107]" />
+            <p className="font-body text-base leading-relaxed text-black/85 font-medium">
               This website is intended solely for adults 18 years of age or
               older. By accessing or using this site, you confirm that you
               are at least 18 years old and that viewing this content is
@@ -23,7 +23,7 @@ export default function DisclaimerPage() {
             </p>
           </div>
 
-          <div className="space-y-4 font-body text-sm leading-relaxed text-white/65">
+          <div className="space-y-6 font-body text-base leading-relaxed text-black/80 font-normal">
             <p>
               Velvet Girl Entertainment provides entertainment booking
               services for private, legal celebrations. All performers
@@ -39,7 +39,7 @@ export default function DisclaimerPage() {
               For questions about this disclaimer, contact us at{" "}
               <a
                 href="mailto:bookings@velvetgirlentertainment.com"
-                className="text-velvet-pink hover:underline"
+                className="text-[#740107] font-bold underline"
               >
                 bookings@velvetgirlentertainment.com
               </a>
@@ -51,3 +51,4 @@ export default function DisclaimerPage() {
     </>
   );
 }
+

@@ -4,8 +4,9 @@ import Link from "next/link";
 import { Globe, MapPin, Ruler, CheckCircle2 } from "lucide-react";
 import Section from "@/components/ui/Section";
 import Reveal from "@/components/ui/Reveal";
-import Accordion from "@/components/ui/Accordion";
+import FaqSection from "@/components/home/FaqSection";
 import CtaSection from "@/components/home/CtaSection";
+
 import { performers, getPerformerBySlug } from "@/data/performers";
 import { services } from "@/data/services";
 import { homepageFaqs } from "@/data/faqs";
@@ -128,13 +129,10 @@ export default async function PerformerProfilePage({ params }: Props) {
         </Reveal>
       </Section>
 
-      <Section eyebrow="FAQ" title="Frequently asked questions">
-        <Reveal className="mx-auto max-w-3xl">
-          <Accordion items={homepageFaqs} />
-        </Reveal>
-      </Section>
+      <FaqSection />
 
       <CtaSection />
     </>
   );
 }
+

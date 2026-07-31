@@ -15,17 +15,18 @@ export default function ContactForm() {
 
   if (submitted) {
     return (
-      <div className="rounded-2xl border border-velvet-pink/30 bg-white/5 p-8 text-center">
-        <CheckCircle2 className="mx-auto h-10 w-10 text-velvet-pink" />
-        <h3 className="mt-4 font-display text-xl text-white">
+      <div className="border border-[#740107]/30 bg-[#740107]/5 p-8 text-center">
+        <CheckCircle2 className="mx-auto h-12 w-12 text-[#740107]" />
+        <h3 className="mt-4 font-display text-2xl font-bold text-black">
           Thanks — we got it.
         </h3>
-        <p className="mt-2 font-body text-sm text-white/60">
+        <p className="mt-2 font-body text-sm text-black/70 font-medium">
           A booking specialist will reach out shortly to confirm details.
         </p>
       </div>
     );
   }
+
 
   return (
     <form onSubmit={handleSubmit} className="space-y-5">

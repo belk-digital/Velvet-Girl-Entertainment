@@ -38,14 +38,15 @@ export default function PackagesPage() {
         eyebrow="CUSTOMIZE"
         title="Build your package"
         subtitle="Select a theme, costume, and dancer count, then choose any upgrades — we'll carry your selections into the booking form."
-        className="border-t border-white/10 bg-white/[0.02]"
+        theme="muted"
       >
-        <Reveal className="mx-auto max-w-2xl">
+        <Reveal className="mx-auto max-w-3xl">
           <Suspense fallback={null}>
             <PackageBuilder />
           </Suspense>
         </Reveal>
       </Section>
+
 
       <CtaSection />
     </>

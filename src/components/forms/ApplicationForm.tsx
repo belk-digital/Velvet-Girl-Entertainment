@@ -28,10 +28,10 @@ function YesNo({
       {(["yes", "no"] as const).map((opt) => (
         <label
           key={opt}
-          className={`flex-1 cursor-pointer rounded-xl border px-4 py-3 text-center font-body text-xs font-medium transition-colors ${
+          className={`flex-1 cursor-pointer border px-4 py-3 text-center font-body text-xs uppercase tracking-wider transition-all duration-300 ${
             value === opt
-              ? "border-velvet-pink bg-velvet-pink/10 text-velvet-pink"
-              : "border-white/15 text-white/60 hover:border-white/30"
+              ? "border-[#740107] bg-[#740107] text-white font-bold shadow-sm"
+              : "border-black/20 bg-white text-black/80 hover:border-[#740107] font-semibold"
           }`}
         >
           <input
@@ -68,10 +68,10 @@ function FileField({
       </label>
       <label
         htmlFor={id}
-        className="flex cursor-pointer items-center gap-3 rounded-xl border border-dashed border-white/20 bg-white/5 px-4 py-4 font-body text-xs text-white/60 transition-colors hover:border-velvet-pink/40"
+        className="flex cursor-pointer items-center gap-3 border border-dashed border-black/25 bg-white px-4 py-4 font-body text-xs text-black/70 transition-colors hover:border-[#740107]"
       >
-        <Upload className="h-4 w-4 shrink-0 text-velvet-pink" />
-        <span className="flex-1 truncate">{fileName || hint}</span>
+        <Upload className="h-4 w-4 shrink-0 text-[#740107]" />
+        <span className="flex-1 truncate font-medium">{fileName || hint}</span>
       </label>
       <input
         id={id}
@@ -113,18 +113,19 @@ export default function ApplicationForm() {
 
   if (submitted) {
     return (
-      <div className="rounded-2xl border border-velvet-pink/30 bg-white/5 p-8 text-center">
-        <CheckCircle2 className="mx-auto h-10 w-10 text-velvet-pink" />
-        <h3 className="mt-4 font-display text-xl text-white">
+      <div className="border border-[#740107]/30 bg-[#740107]/5 p-8 text-center">
+        <CheckCircle2 className="mx-auto h-12 w-12 text-[#740107]" />
+        <h3 className="mt-4 font-display text-2xl font-bold text-black">
           Application received.
         </h3>
-        <p className="mt-2 font-body text-sm text-white/60">
+        <p className="mt-2 font-body text-sm text-black/70 font-medium">
           Our team reviews every application and will reach out if it looks
           like a fit.
         </p>
       </div>
     );
   }
+
 
   return (
     <form onSubmit={handleSubmit} className="space-y-6">
@@ -202,7 +203,7 @@ export default function ApplicationForm() {
           <input id="weight" name="weight" required className={inputClass} placeholder="130 lbs" />
         </div>
       </div>
-      <p className="-mt-3 font-body text-[11px] text-white/40">
+      <p className="-mt-3 font-body text-[11px] text-black/50">
         All body types are welcome — this just helps us match you with your ideal clients.
       </p>
 
@@ -254,8 +255,8 @@ export default function ApplicationForm() {
         )}
       </Fieldset>
 
-      <div className="space-y-4 rounded-2xl border border-white/10 bg-black/30 p-5">
-        <p className="font-body text-xs text-white/50">
+      <div className="space-y-4 border border-black/10 bg-[#f7f7f9] p-6">
+        <p className="font-body text-xs text-black/70 font-medium">
           Photos are required to apply. No filters on the headshot; no
           nudity in the body photos.
         </p>
@@ -275,10 +276,10 @@ export default function ApplicationForm() {
               key={d}
               type="button"
               onClick={() => toggle(days, setDays, d)}
-              className={`rounded-full border px-4 py-2 font-body text-xs transition-colors ${
+              className={`border px-4 py-2 font-body text-xs uppercase tracking-wider transition-all duration-300 ${
                 days.includes(d)
-                  ? "border-velvet-pink bg-velvet-pink/10 text-velvet-pink"
-                  : "border-white/15 text-white/60 hover:border-white/30"
+                  ? "border-[#740107] bg-[#740107] text-white font-bold shadow-sm"
+                  : "border-black/20 bg-white text-black/80 hover:border-[#740107] font-semibold"
               }`}
             >
               {d}
@@ -294,10 +295,10 @@ export default function ApplicationForm() {
               key={t}
               type="button"
               onClick={() => toggle(timeBlocks, setTimeBlocks, t)}
-              className={`rounded-full border px-4 py-2 font-body text-xs transition-colors ${
+              className={`border px-4 py-2 font-body text-xs uppercase tracking-wider transition-all duration-300 ${
                 timeBlocks.includes(t)
-                  ? "border-velvet-pink bg-velvet-pink/10 text-velvet-pink"
-                  : "border-white/15 text-white/60 hover:border-white/30"
+                  ? "border-[#740107] bg-[#740107] text-white font-bold shadow-sm"
+                  : "border-black/20 bg-white text-black/80 hover:border-[#740107] font-semibold"
               }`}
             >
               {t}
@@ -317,14 +318,15 @@ export default function ApplicationForm() {
         <input id="startDate" name="startDate" type="date" className={inputClass} />
       </div>
 
-      <label className="flex items-start gap-3 font-body text-xs text-white/60">
+      <label className="flex items-start gap-3 font-body text-xs text-black/80 font-medium cursor-pointer">
         <input
           type="checkbox"
           required
-          className="mt-0.5 h-4 w-4 rounded border-white/30 bg-white/5 accent-velvet-pink"
+          className="mt-0.5 h-4 w-4 accent-[#740107] cursor-pointer"
         />
         I confirm that I am 18 years of age or older.
       </label>
+
 
       <button type="submit" className={submitButtonClass}>
         SUBMIT APPLICATION

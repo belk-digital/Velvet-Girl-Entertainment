@@ -38,35 +38,35 @@ export default async function BlogPostPage({ params }: Props) {
 
   return (
     <>
-      <div className="relative overflow-hidden border-b border-white/10 bg-black px-6 py-20 sm:py-24">
-        <div className="absolute inset-0 bg-gradient-to-b from-velvet-deep/60 via-black to-black" />
-        <div className="relative mx-auto max-w-3xl text-center">
-          <div className="flex items-center justify-center gap-2 font-body text-xs text-white/40">
-            <Calendar className="h-3.5 w-3.5" />
-            {formatDate(post.publishedAt)}
+      <div className="relative border-b border-black/10 bg-[#f7f7f9] px-6 py-20 sm:py-28">
+
+        <div className="relative mx-auto max-w-4xl text-center">
+          <div className="inline-flex items-center gap-2 font-body text-xs font-bold uppercase tracking-widest text-[#740107] bg-[#740107]/10 px-4 py-1.5 rounded-full mb-6">
+            <Calendar className="h-4 w-4" />
+            <span>{formatDate(post.publishedAt)}</span>
             <span>&middot;</span>
-            {post.readTime}
+            <span>{post.readTime}</span>
           </div>
-          <h1 className="mt-4 font-display text-3xl leading-tight text-white sm:text-4xl">
+          <h1 className="font-display text-4xl leading-tight font-bold text-black sm:text-5xl tracking-tight">
             {post.title}
           </h1>
         </div>
       </div>
 
-      <div className="px-6 py-16 sm:py-20">
-        <Reveal className="mx-auto max-w-2xl space-y-8">
+      <div className="px-6 py-20 sm:py-28 bg-white">
+        <Reveal className="mx-auto max-w-3xl space-y-12">
           {post.sections.map((section, i) => (
-            <div key={i}>
+            <div key={i} className="space-y-6">
               {section.heading && (
-                <h2 className="font-display text-xl text-white">
+                <h2 className="font-display text-2xl sm:text-3xl font-bold text-black border-l-4 border-[#740107] pl-5 py-1">
                   {section.heading}
                 </h2>
               )}
-              <div className="mt-3 space-y-4">
+              <div className="space-y-6">
                 {section.body.map((paragraph, j) => (
                   <p
                     key={j}
-                    className="font-body text-sm leading-relaxed text-white/70"
+                    className="font-body text-base sm:text-lg leading-relaxed text-black/85 font-normal"
                   >
                     {paragraph}
                   </p>
@@ -81,3 +81,4 @@ export default async function BlogPostPage({ params }: Props) {
     </>
   );
 }
+

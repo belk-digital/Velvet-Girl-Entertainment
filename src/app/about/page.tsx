@@ -1,13 +1,13 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ShieldCheck, Lock, MapPin } from "lucide-react";
+import { ShieldCheck, Lock, MapPin, ArrowRight } from "lucide-react";
 import PageHero from "@/components/ui/PageHero";
 import Section from "@/components/ui/Section";
 import Reveal from "@/components/ui/Reveal";
-import Accordion from "@/components/ui/Accordion";
+import FaqSection from "@/components/home/FaqSection";
 import WhyChooseUs from "@/components/home/WhyChooseUs";
 import CtaSection from "@/components/home/CtaSection";
-import { homepageFaqs } from "@/data/faqs";
+
 
 export const metadata: Metadata = {
   title: "About Us | Velvet Girl Entertainment",
@@ -33,8 +33,8 @@ export default function AboutPage() {
       />
 
       <Section eyebrow="OUR STORY" title="Built around discretion and reliability">
-        <Reveal className="mx-auto max-w-3xl space-y-4 text-center">
-          <p className="font-body text-sm leading-relaxed text-white/65 sm:text-base">
+        <Reveal className="mx-auto max-w-3xl space-y-6 text-center">
+          <p className="font-body text-base leading-relaxed text-black/80 sm:text-lg font-medium">
             Velvet Girl Entertainment was built to solve a simple problem:
             booking professional entertainment for a private celebration
             shouldn&rsquo;t be stressful, uncertain, or unsafe. We work with a
@@ -42,14 +42,14 @@ export default function AboutPage() {
             client gets a smooth, discreet experience from first contact to
             the night of the event.
           </p>
-          <p className="font-body text-sm leading-relaxed text-white/65 sm:text-base">
+          <p className="font-body text-base leading-relaxed text-black/80 sm:text-lg font-medium">
             Every booking is handled with professionalism, discretion, and
             attention to detail. Whether you&rsquo;re planning a bachelor
             party, birthday celebration, VIP gathering, or private event, our
             booking specialists help match you with dancers that fit your
             occasion.
           </p>
-          <p className="font-body text-sm leading-relaxed text-white/65 sm:text-base">
+          <p className="font-body text-base leading-relaxed text-black/80 sm:text-lg font-medium">
             We&rsquo;re also one of the only booking agencies that posts real,
             unedited photos of every dancer on our roster. No stock photos,
             no bait-and-switch — you know exactly who&rsquo;s showing up.
@@ -60,10 +60,10 @@ export default function AboutPage() {
       <Section
         eyebrow="OUR MISSION"
         title="A premium, worry-free booking experience"
-        className="border-t border-white/10 bg-white/[0.02]"
+        theme="muted"
       >
         <Reveal className="mx-auto max-w-3xl text-center">
-          <p className="font-body text-sm leading-relaxed text-white/65 sm:text-base">
+          <p className="font-body text-base leading-relaxed text-black/80 sm:text-lg font-medium">
             Our mission is to be the most reliable name in private
             entertainment booking nationwide — pairing clients with verified
             performers, backing every booking with responsive support, and
@@ -75,12 +75,19 @@ export default function AboutPage() {
       <WhyChooseUs />
 
       <Section eyebrow="OUR STANDARDS" title="What every booking is held to">
-        <Reveal className="mx-auto max-w-2xl">
-          <ul className="space-y-4">
-            {standards.map((item) => (
-              <li key={item} className="flex items-start gap-3">
-                <ShieldCheck className="mt-0.5 h-5 w-5 shrink-0 text-velvet-pink" />
-                <span className="font-body text-sm text-white/70">
+        <Reveal className="mx-auto max-w-3xl">
+          <ul className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {standards.map((item, idx) => (
+              <li
+                key={item}
+                className={`flex items-start gap-4 border border-black/10 bg-white p-6 transition-all duration-300 hover:border-[#740107]/50 hover:shadow-md ${
+                  idx === standards.length - 1 ? "md:col-span-2" : ""
+                }`}
+              >
+                <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#740107]/10 text-[#740107]">
+                  <ShieldCheck className="h-5 w-5" />
+                </div>
+                <span className="font-body text-base text-black/85 font-medium">
                   {item}
                 </span>
               </li>
@@ -93,17 +100,19 @@ export default function AboutPage() {
         id="our-process"
         eyebrow="BOOKING PROCESS"
         title="How booking works"
-        className="border-t border-white/10 bg-white/[0.02]"
+        theme="muted"
       >
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {["Choose city", "Select your dancers", "Confirm booking", "Enjoy your event"].map(
             (step, i) => (
               <Reveal key={step} delay={i * 0.08}>
-                <div className="h-full rounded-2xl border border-white/10 bg-white/5 p-6 text-center">
-                  <span className="font-display text-3xl text-velvet-pink">
+                <div className="h-full border border-black/10 bg-white p-8 text-center shadow-sm hover:shadow-lg transition-all duration-300 group">
+                  <span className="font-display text-4xl font-bold text-[#740107] group-hover:scale-110 inline-block transition-transform">
                     {String(i + 1).padStart(2, "0")}
                   </span>
-                  <p className="mt-3 font-body text-sm text-white">{step}</p>
+                  <p className="mt-4 font-body text-base font-bold text-black uppercase tracking-wider">
+                    {step}
+                  </p>
                 </div>
               </Reveal>
             )
@@ -116,15 +125,20 @@ export default function AboutPage() {
         eyebrow="SAFETY & PRIVACY"
         title="Your privacy commitment"
       >
-        <Reveal className="mx-auto max-w-2xl">
-          <div className="rounded-2xl border border-velvet-pink/30 bg-white/5 p-8 text-center">
-            <Lock className="mx-auto h-8 w-8 text-velvet-pink" />
-            <p className="mt-4 font-body text-sm leading-relaxed text-white/70">
+        <Reveal className="mx-auto max-w-3xl">
+          <div className="border border-[#740107]/30 bg-[#740107]/5 p-10 text-center shadow-sm">
+            <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-[#740107] text-white shadow-md">
+              <Lock className="h-7 w-7" />
+            </div>
+            <p className="mt-6 font-body text-base sm:text-lg leading-relaxed text-black/85 font-medium">
               Discretion is a core part of how we operate — from how our
               booking team communicates to how dancers arrive and depart
               your event. Your personal information is never shared beyond
               what&rsquo;s required to fulfill your booking. Read our full{" "}
-              <Link href="/privacy" className="text-velvet-pink hover:underline">
+              <Link
+                href="/privacy"
+                className="text-[#740107] font-semibold underline underline-offset-4 hover:text-[#4a0105]"
+              >
                 Privacy Policy
               </Link>{" "}
               for details.
@@ -136,31 +150,32 @@ export default function AboutPage() {
       <Section
         eyebrow="GROWING COVERAGE"
         title="Now booking in 8 cities"
-        className="border-t border-white/10 bg-white/[0.02]"
+        theme="muted"
       >
-        <Reveal className="mx-auto max-w-2xl text-center">
-          <MapPin className="mx-auto h-8 w-8 text-velvet-pink" />
-          <p className="mt-4 font-body text-sm text-white/65 sm:text-base">
+        <Reveal className="mx-auto max-w-3xl text-center">
+          <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-[#740107] text-white shadow-md">
+            <MapPin className="h-7 w-7" />
+          </div>
+          <p className="mt-6 font-body text-base sm:text-lg text-black/80 font-medium">
             We currently serve Charleston, Myrtle Beach, Charlotte, Savannah,
             Atlanta, Miami, Orlando/Daytona Beach, and Indianapolis — and
             we&rsquo;re onboarding dancers in new cities regularly.
           </p>
           <Link
             href="/cities"
-            className="tracking-caps mt-6 inline-flex items-center gap-2 rounded-full border border-white/25 px-8 py-3.5 font-body text-xs font-semibold text-white/85 transition-colors duration-300 hover:border-velvet-pink/50 hover:text-velvet-pink"
+            className="mt-8 inline-flex items-center gap-2 bg-[#740107] px-8 py-4 font-body text-xs font-bold uppercase tracking-widest text-white transition-all duration-300 hover:scale-105 border border-[#740107] shadow-md group"
           >
-            VIEW ALL CITIES
+            <span>VIEW ALL CITIES</span>
+            <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
           </Link>
         </Reveal>
       </Section>
 
-      <Section eyebrow="FAQ" title="Frequently asked questions">
-        <Reveal className="mx-auto max-w-3xl">
-          <Accordion items={homepageFaqs} />
-        </Reveal>
-      </Section>
+      <FaqSection />
 
       <CtaSection />
     </>
   );
 }
+
+

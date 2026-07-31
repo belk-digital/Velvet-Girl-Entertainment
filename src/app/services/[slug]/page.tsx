@@ -5,8 +5,9 @@ import { Check } from "lucide-react";
 import PageHero from "@/components/ui/PageHero";
 import Section from "@/components/ui/Section";
 import Reveal from "@/components/ui/Reveal";
-import Accordion from "@/components/ui/Accordion";
+import FaqSection from "@/components/home/FaqSection";
 import CtaSection from "@/components/home/CtaSection";
+
 import { services, getServiceBySlug } from "@/data/services";
 import { homepageFaqs } from "@/data/faqs";
 import { featuredCitySlugs, cities } from "@/data/cities";
@@ -49,14 +50,16 @@ export default async function ServiceDetailPage({ params }: Props) {
 
       <Section eyebrow="WHAT'S INCLUDED" title="What's Included">
         <Reveal className="mx-auto max-w-3xl">
-          <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
             {service.whatsIncluded.map((item) => (
               <div
                 key={item}
-                className="flex items-center gap-3 rounded-xl border border-white/10 bg-white/5 px-4 py-3"
+                className="flex items-center gap-4 border border-black/10 bg-white p-6 shadow-sm hover:border-[#740107]/50 transition-colors"
               >
-                <Check className="h-4 w-4 shrink-0 text-velvet-pink" />
-                <span className="font-body text-sm text-white/75">
+                <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#740107]/10 text-[#740107]">
+                  <Check className="h-5 w-5" />
+                </div>
+                <span className="font-body text-base text-black/85 font-medium">
                   {item}
                 </span>
               </div>
@@ -68,16 +71,18 @@ export default async function ServiceDetailPage({ params }: Props) {
       <Section
         eyebrow="BOOKING PROCESS"
         title="How booking works"
-        className="border-t border-white/10 bg-white/[0.02]"
+        theme="muted"
       >
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {service.bookingSteps.map((step, i) => (
             <Reveal key={step} delay={i * 0.08}>
-              <div className="h-full rounded-2xl border border-white/10 bg-white/5 p-6 text-center">
-                <span className="font-display text-3xl text-velvet-pink">
+              <div className="h-full border border-black/10 bg-white p-8 text-center shadow-sm hover:shadow-lg transition-all duration-300 group">
+                <span className="font-display text-4xl font-bold text-[#740107] group-hover:scale-110 inline-block transition-transform">
                   {String(i + 1).padStart(2, "0")}
                 </span>
-                <p className="mt-3 font-body text-sm text-white">{step}</p>
+                <p className="mt-4 font-body text-base font-bold text-black uppercase tracking-wider">
+                  {step}
+                </p>
               </div>
             </Reveal>
           ))}
@@ -93,31 +98,19 @@ export default async function ServiceDetailPage({ params }: Props) {
             <Link
               key={city.slug}
               href={`/cities/${city.stateSlug}/${city.slug}`}
-              className="rounded-full border border-white/15 px-5 py-2.5 font-body text-xs text-white/70 transition-colors duration-300 hover:border-velvet-pink/50 hover:text-velvet-pink"
+              className="border border-black/15 bg-white px-6 py-3 font-body text-xs font-bold uppercase tracking-widest text-black/85 transition-all duration-300 hover:border-[#740107] hover:bg-[#740107] hover:text-white shadow-sm"
             >
               {city.name}
             </Link>
           ))}
-          <Link
-            href="/cities"
-            className="rounded-full border border-velvet-pink/40 px-5 py-2.5 font-body text-xs text-velvet-pink"
-          >
-            View all cities
-          </Link>
         </Reveal>
       </Section>
 
-      <Section
-        eyebrow="FAQ"
-        title="Frequently asked questions"
-        className="border-t border-white/10 bg-white/[0.02]"
-      >
-        <Reveal className="mx-auto max-w-3xl">
-          <Accordion items={homepageFaqs} />
-        </Reveal>
-      </Section>
+      <FaqSection />
 
       <CtaSection />
     </>
   );
 }
+
+

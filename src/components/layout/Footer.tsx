@@ -157,7 +157,9 @@ export default function Footer() {
         <div className="footer-content-item grid grid-cols-2 gap-x-10 gap-y-2.5 font-medium text-black/75 text-sm md:text-base">
           <div className="flex flex-col gap-2.5">
             <Link href="/services" className="hover:text-[#740107] transition-colors lowercase">services</Link>
+            <Link href="/gallery" className="hover:text-[#740107] transition-colors lowercase">gallery</Link>
             <Link href="/packages" className="hover:text-[#740107] transition-colors lowercase">packages</Link>
+
             <Link href="/cities" className="hover:text-[#740107] transition-colors lowercase">cities</Link>
             <Link href="/about" className="hover:text-[#740107] transition-colors lowercase">about us</Link>
             <Link href="/blog" className="hover:text-[#740107] transition-colors lowercase">blog</Link>

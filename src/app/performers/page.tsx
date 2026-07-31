@@ -33,14 +33,14 @@ export default async function PerformersIndexPage({ searchParams }: Props) {
         subtitle="Every performer is verified before joining our roster. Filter by hair color or view our featured lineup."
       />
 
-      <div className="px-6 pt-12">
-        <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-center gap-3">
+      <div className="px-6 pt-12 pb-6 bg-white border-b border-black/5">
+        <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-center gap-3">
           <Link
             href="/performers"
-            className={`rounded-full border px-5 py-2.5 font-body text-xs transition-colors duration-300 ${
+            className={`px-6 py-3 font-body text-xs uppercase tracking-widest transition-all duration-300 ${
               !hair && !featured
-                ? "border-velvet-pink bg-velvet-pink/10 text-velvet-pink"
-                : "border-white/15 text-white/70 hover:border-velvet-pink/40"
+                ? "border border-[#740107] bg-[#740107] text-white font-bold shadow-sm"
+                : "border border-black/15 bg-white text-black/75 hover:border-[#740107] hover:text-[#740107] font-semibold"
             }`}
           >
             All Performers
@@ -49,10 +49,10 @@ export default async function PerformersIndexPage({ searchParams }: Props) {
             <Link
               key={h}
               href={`/performers?hair=${h}`}
-              className={`rounded-full border px-5 py-2.5 font-body text-xs transition-colors duration-300 ${
+              className={`px-6 py-3 font-body text-xs uppercase tracking-widest transition-all duration-300 ${
                 hair === h
-                  ? "border-velvet-pink bg-velvet-pink/10 text-velvet-pink"
-                  : "border-white/15 text-white/70 hover:border-velvet-pink/40"
+                  ? "border border-[#740107] bg-[#740107] text-white font-bold shadow-sm"
+                  : "border border-black/15 bg-white text-black/75 hover:border-[#740107] hover:text-[#740107] font-semibold"
               }`}
             >
               {h} Performers
@@ -60,10 +60,10 @@ export default async function PerformersIndexPage({ searchParams }: Props) {
           ))}
           <Link
             href="/performers?featured=true"
-            className={`rounded-full border px-5 py-2.5 font-body text-xs transition-colors duration-300 ${
+            className={`px-6 py-3 font-body text-xs uppercase tracking-widest transition-all duration-300 ${
               featured === "true"
-                ? "border-velvet-pink bg-velvet-pink/10 text-velvet-pink"
-                : "border-white/15 text-white/70 hover:border-velvet-pink/40"
+                ? "border border-[#740107] bg-[#740107] text-white font-bold shadow-sm"
+                : "border border-black/15 bg-white text-black/75 hover:border-[#740107] hover:text-[#740107] font-semibold"
             }`}
           >
             Featured Performers
@@ -71,9 +71,9 @@ export default async function PerformersIndexPage({ searchParams }: Props) {
         </div>
       </div>
 
-      <div className="px-6 py-16 sm:py-24">
+      <div className="px-6 py-20 sm:py-28 bg-white">
         {filtered.length > 0 ? (
-          <div className="mx-auto grid max-w-6xl grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mx-auto grid max-w-7xl grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
             {filtered.map((performer, i) => (
               <Reveal key={performer.slug} delay={(i % 4) * 0.08}>
                 <PerformerCard performer={performer} />
@@ -81,13 +81,18 @@ export default async function PerformersIndexPage({ searchParams }: Props) {
             ))}
           </div>
         ) : (
-          <p className="text-center font-body text-sm text-white/50">
-            No performers match that filter right now — check back soon or{" "}
-            <Link href="/contact" className="text-velvet-pink hover:underline">
-              contact us
-            </Link>{" "}
-            for availability.
-          </p>
+          <div className="py-20 text-center">
+            <p className="font-body text-base text-black/70 font-medium">
+              No performers match that filter right now — check back soon or{" "}
+              <Link
+                href="/contact"
+                className="text-[#740107] font-bold underline underline-offset-4 hover:text-[#4a0105]"
+              >
+                contact us
+              </Link>{" "}
+              for availability.
+            </p>
+          </div>
         )}
       </div>
 
@@ -95,3 +100,4 @@ export default async function PerformersIndexPage({ searchParams }: Props) {
     </>
   );
 }
+

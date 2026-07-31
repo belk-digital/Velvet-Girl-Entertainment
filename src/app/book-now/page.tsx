@@ -18,15 +18,16 @@ export default function BookNowPage() {
         title="Request Your Booking"
         subtitle="Tell us about your event and our booking concierge will follow up with availability and pricing."
       />
-      <div className="px-6 py-16 sm:py-24">
-        <Reveal className="mx-auto max-w-2xl">
-          <div className="rounded-2xl border border-white/10 bg-white/5 p-6 sm:p-8">
+      <div className="px-6 py-20 sm:py-28 bg-[#f7f7f9]">
+        <Reveal className="mx-auto max-w-3xl">
+          <div className="border border-black/10 bg-white p-8 sm:p-12 shadow-sm">
             <Suspense fallback={null}>
               <BookingForm />
             </Suspense>
           </div>
         </Reveal>
       </div>
+
     </>
   );
 }

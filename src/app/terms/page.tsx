@@ -10,9 +10,9 @@ export default function TermsPage() {
   return (
     <>
       <PageHero eyebrow="LEGAL" title="Terms of Service" />
-      <div className="px-6 py-16 sm:py-24">
-        <div className="mx-auto max-w-3xl space-y-8 font-body text-sm leading-relaxed text-white/65">
-          <p className="text-white/40">
+      <div className="px-6 py-20 sm:py-28 bg-white">
+        <div className="mx-auto max-w-3xl space-y-8 font-body text-base leading-relaxed text-black/80 font-normal">
+          <p className="text-black/40 text-sm font-semibold">
             Last updated: {new Date().toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })}
           </p>
 
@@ -24,7 +24,7 @@ export default function TermsPage() {
           </p>
 
           <section className="space-y-3">
-            <h2 className="font-display text-xl text-white">
+            <h2 className="font-display text-2xl font-bold text-black">
               Eligibility
             </h2>
             <p>
@@ -35,7 +35,7 @@ export default function TermsPage() {
           </section>
 
           <section className="space-y-3">
-            <h2 className="font-display text-xl text-white">
+            <h2 className="font-display text-2xl font-bold text-black">
               Booking Terms
             </h2>
             <ul className="list-disc space-y-2 pl-5">
@@ -53,9 +53,8 @@ export default function TermsPage() {
               </li>
             </ul>
           </section>
-
           <section className="space-y-3">
-            <h2 className="font-display text-xl text-white">
+            <h2 className="font-display text-2xl font-bold text-black">
               Conduct
             </h2>
             <p>
@@ -66,7 +65,7 @@ export default function TermsPage() {
           </section>
 
           <section className="space-y-3">
-            <h2 className="font-display text-xl text-white">
+            <h2 className="font-display text-2xl font-bold text-black">
               Limitation of Liability
             </h2>
             <p>
@@ -77,12 +76,12 @@ export default function TermsPage() {
           </section>
 
           <section className="space-y-3">
-            <h2 className="font-display text-xl text-white">Contact Us</h2>
+            <h2 className="font-display text-2xl font-bold text-black">Contact Us</h2>
             <p>
               Questions about these terms can be sent to{" "}
               <a
                 href="mailto:bookings@velvetgirlentertainment.com"
-                className="text-velvet-pink hover:underline"
+                className="text-[#740107] font-bold underline"
               >
                 bookings@velvetgirlentertainment.com
               </a>
@@ -94,3 +93,4 @@ export default function TermsPage() {
     </>
   );
 }
+

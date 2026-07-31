@@ -76,30 +76,51 @@ export default function ShowcaseGallery() {
         {/* Scrolling Images Container */}
         <div className="w-full overflow-x-auto md:overflow-visible snap-x snap-mandatory scrollbar-hide">
           <div ref={scrollContentRef} className="relative z-10 flex gap-6 lg:gap-10 px-8 md:px-8 w-max pb-8 md:pb-0 pt-4 md:pt-0">
-            {images.map((src, idx) => (
-              <div key={idx} className="snap-center relative w-[80vw] sm:w-[450px] md:w-[550px] aspect-[4/3] group overflow-hidden cursor-pointer shrink-0 flex items-center justify-center">
-                <img 
-                  src={src} 
-                  alt={`Gallery ${idx + 1}`} 
-                  className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000 ease-out pointer-events-none" 
-                />
-                
-                {/* Special Overlay for the Last Image */}
-                {idx === images.length - 1 && (
-                  <>
-                    <div className="absolute inset-0 bg-[#740107] mix-blend-multiply opacity-70 group-hover:opacity-90 transition-opacity duration-500"></div>
-                    <div className="relative z-20 flex flex-col items-center justify-center text-center">
-                      <span className="text-white text-3xl md:text-5xl font-black uppercase tracking-widest drop-shadow-lg">
-                        View Full
-                      </span>
-                      <span className="text-white text-3xl md:text-5xl font-black uppercase tracking-widest drop-shadow-lg mt-2">
-                        Gallery
-                      </span>
-                    </div>
-                  </>
-                )}
-              </div>
-            ))}
+            {images.map((src, idx) => {
+              const isLast = idx === images.length - 1;
+              const cardContent = (
+                <>
+                  <img 
+                    src={src} 
+                    alt={`Gallery ${idx + 1}`} 
+                    className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000 ease-out pointer-events-none" 
+                  />
+                  
+                  {/* Special Overlay for the Last Image */}
+                  {isLast && (
+                    <>
+                      <div className="absolute inset-0 bg-[#740107] mix-blend-multiply opacity-70 group-hover:opacity-90 transition-opacity duration-500"></div>
+                      <div className="relative z-20 flex flex-col items-center justify-center text-center">
+                        <span className="text-white text-3xl md:text-5xl font-black uppercase tracking-widest drop-shadow-lg">
+                          View Full
+                        </span>
+                        <span className="text-white text-3xl md:text-5xl font-black uppercase tracking-widest drop-shadow-lg mt-2">
+                          Gallery
+                        </span>
+                      </div>
+                    </>
+                  )}
+                </>
+              );
+
+              return isLast ? (
+                <Link
+                  key={idx}
+                  href="/gallery"
+                  className="snap-center relative w-[80vw] sm:w-[450px] md:w-[550px] aspect-[4/3] group overflow-hidden cursor-pointer shrink-0 flex items-center justify-center"
+                >
+                  {cardContent}
+                </Link>
+              ) : (
+                <div
+                  key={idx}
+                  className="snap-center relative w-[80vw] sm:w-[450px] md:w-[550px] aspect-[4/3] group overflow-hidden cursor-pointer shrink-0 flex items-center justify-center"
+                >
+                  {cardContent}
+                </div>
+              );
+            })}
+
           </div>
         </div>
       </div>
@@ -122,10 +143,15 @@ export default function ShowcaseGallery() {
 
         <div className="flex items-center justify-between w-full md:w-auto gap-6 self-end md:self-auto">
           <span className="text-black/60 tracking-[0.2em] text-xs md:text-sm font-medium">{new Date().getFullYear()}</span>
-          <button className="border-2 border-black/20 rounded-full w-12 h-12 md:w-14 md:h-14 flex items-center justify-center text-black hover:bg-black hover:text-white hover:border-black transition-colors shrink-0">
+          <Link
+            href="/gallery"
+            className="border-2 border-black/20 rounded-full w-12 h-12 md:w-14 md:h-14 flex items-center justify-center text-black hover:bg-black hover:text-white hover:border-black transition-colors shrink-0"
+            aria-label="View full gallery"
+          >
             <ArrowUpRight className="w-5 h-5" strokeWidth={2} />
-          </button>
+          </Link>
         </div>
+
 
       </div>
 

@@ -1,447 +1,463 @@
 "use client";
 
-import { useState } from "react";
-import { ChevronLeft, ChevronRight, X, ZoomIn } from "lucide-react";
+import React, { useState, useRef } from "react";
+import Link from "next/link";
+import {
+  Search,
+  ChevronRight,
+  ChevronLeft,
+  ChevronDown,
+  Heart,
+  MapPin,
+  Star,
+  ArrowRight,
+  Sparkles,
+} from "lucide-react";
 import Reveal from "@/components/ui/Reveal";
+import { performers, type Performer } from "@/data/performers";
+import VelvetCurtains from "@/components/gallery/VelvetCurtains";
+import PerformerProfileModal from "@/components/gallery/PerformerProfileModal";
 
-interface GalleryItem {
-  id: number;
-  title: string;
-  category: "all" | "bachelor" | "private-event" | "vip" | "boat-pool";
-  src: string;
-  spanClass: string;
-  location?: string;
-}
-
-const galleryItems: GalleryItem[] = [
-  {
-    id: 1,
-    title: "Guys Night Bachelor Party",
-    category: "bachelor",
-    src: encodeURI("/gallery images/BACHELOR PARTY_GUYS NIGHT.webp"),
-    spanClass: "col-span-1 sm:col-span-2 row-span-1",
-    location: "Las Vegas, NV",
-  },
-  {
-    id: 2,
-    title: "Bad Cop Theme Experience",
-    category: "vip",
-    src: encodeURI("/gallery images/BAD COP.webp"),
-    spanClass: "col-span-1 row-span-1",
-    location: "Miami, FL",
-  },
-  {
-    id: 3,
-    title: "Beach Day VIP Package",
-    category: "boat-pool",
-    src: encodeURI("/gallery images/BEACH DAY PACKAGE OR BEACH CITY PAGE.webp"),
-    spanClass: "col-span-1 sm:col-span-2 row-span-1",
-    location: "Myrtle Beach, SC",
-  },
-  {
-    id: 4,
-    title: "Boat & Pool Celebration",
-    category: "boat-pool",
-    src: encodeURI("/gallery images/BOAT_ POOL PARTY_.webp"),
-    spanClass: "col-span-1 row-span-1",
-    location: "Charleston, SC",
-  },
-  {
-    id: 5,
-    title: "Breakfast With Babes Experience",
-    category: "bachelor",
-    src: encodeURI("/gallery images/BREAKFAST WITH BABES.webp"),
-    spanClass: "col-span-1 row-span-2",
-    location: "Scottsdale, AZ",
-  },
-  {
-    id: 6,
-    title: "Dior VIP Showcase I",
-    category: "vip",
-    src: encodeURI("/gallery images/DIOR(1).webp"),
-    spanClass: "col-span-1 row-span-1",
-    location: "Miami, FL",
-  },
-  {
-    id: 7,
-    title: "Dior VIP Showcase II",
-    category: "vip",
-    src: encodeURI("/gallery images/DIOR(2).webp"),
-    spanClass: "col-span-1 row-span-1",
-    location: "Miami, FL",
-  },
-  {
-    id: 8,
-    title: "Dior Exclusive Lounge",
-    category: "vip",
-    src: encodeURI("/gallery images/DIOR(3).webp"),
-    spanClass: "col-span-1 row-span-1",
-    location: "Las Vegas, NV",
-  },
-  {
-    id: 9,
-    title: "Dior Performance Feature",
-    category: "vip",
-    src: encodeURI("/gallery images/DIOR.webp"),
-    spanClass: "col-span-1 row-span-1",
-    location: "Charlotte, NC",
-  },
-  {
-    id: 10,
-    title: "Dior Private Gathering",
-    category: "private-event",
-    src: encodeURI("/gallery images/DIOR_1.webp"),
-    spanClass: "col-span-1 row-span-1",
-    location: "Tampa, FL",
-  },
-  {
-    id: 11,
-    title: "Dominatrix Theme Party",
-    category: "vip",
-    src: encodeURI("/gallery images/DOMINATRIX.webp"),
-    spanClass: "col-span-1 sm:col-span-2 row-span-1",
-    location: "Miami, FL",
-  },
-  {
-    id: 12,
-    title: "Velvet Gallery Highlights I",
-    category: "private-event",
-    src: encodeURI("/gallery images/GALLERY(1).webp"),
-    spanClass: "col-span-1 row-span-1",
-    location: "Savannah, GA",
-  },
-  {
-    id: 13,
-    title: "Velvet Gallery Highlights II",
-    category: "bachelor",
-    src: encodeURI("/gallery images/GALLERY(2).webp"),
-    spanClass: "col-span-1 row-span-2",
-    location: "Charleston, SC",
-  },
-  {
-    id: 14,
-    title: "Velvet Girl Signature Moment",
-    category: "vip",
-    src: encodeURI("/gallery images/GALLERY.webp"),
-    spanClass: "col-span-1 row-span-1",
-    location: "Myrtle Beach, SC",
-  },
-  {
-    id: 15,
-    title: "Exclusive Event Showcase I",
-    category: "private-event",
-    src: encodeURI("/gallery images/GALLERY_(1).webp"),
-    spanClass: "col-span-1 row-span-1",
-    location: "Nashville, TN",
-  },
-  {
-    id: 16,
-    title: "Exclusive Event Showcase II",
-    category: "bachelor",
-    src: encodeURI("/gallery images/GALLERY_.webp"),
-    spanClass: "col-span-1 row-span-1",
-    location: "Scottsdale, AZ",
-  },
-  {
-    id: 17,
-    title: "Game Day Girls Celebration",
-    category: "private-event",
-    src: encodeURI("/gallery images/GAME DAY GIRLS.webp"),
-    spanClass: "col-span-1 sm:col-span-2 row-span-1",
-    location: "Charlotte, NC",
-  },
-  {
-    id: 18,
-    title: "VIP Hospitality Evening",
-    category: "vip",
-    src: encodeURI("/gallery images/IMG_1556.webp"),
-    spanClass: "col-span-1 row-span-1",
-    location: "Las Vegas, NV",
-  },
-  {
-    id: 19,
-    title: "Poolside VIP Gathering",
-    category: "boat-pool",
-    src: encodeURI("/gallery images/IMG_2202.webp"),
-    spanClass: "col-span-1 row-span-1",
-    location: "Miami, FL",
-  },
-  {
-    id: 20,
-    title: "Bachelor Weekend Feature",
-    category: "bachelor",
-    src: encodeURI("/gallery images/IMG_9368.webp"),
-    spanClass: "col-span-1 row-span-1",
-    location: "Charleston, SC",
-  },
-  {
-    id: 21,
-    title: "Private Villa Party",
-    category: "private-event",
-    src: encodeURI("/gallery images/IMG_9370.webp"),
-    spanClass: "col-span-1 sm:col-span-2 row-span-1",
-    location: "Scottsdale, AZ",
-  },
-  {
-    id: 22,
-    title: "Exclusive Afterparty Experience",
-    category: "vip",
-    src: encodeURI("/gallery images/IMG_9372.webp"),
-    spanClass: "col-span-1 row-span-1",
-    location: "Myrtle Beach, SC",
-  },
-  {
-    id: 23,
-    title: "Kimmi K Exclusive Show I",
-    category: "vip",
-    src: encodeURI("/gallery images/KIMMI K(1).webp"),
-    spanClass: "col-span-1 row-span-1",
-    location: "Tampa, FL",
-  },
-  {
-    id: 24,
-    title: "Kimmi K Featured Performer",
-    category: "vip",
-    src: encodeURI("/gallery images/KIMMI K. HOMEPAGE.webp"),
-    spanClass: "col-span-1 row-span-2",
-    location: "Miami, FL",
-  },
-  {
-    id: 25,
-    title: "Kimmi K Private Feature",
-    category: "bachelor",
-    src: encodeURI("/gallery images/KIMMI K.webp"),
-    spanClass: "col-span-1 row-span-1",
-    location: "Las Vegas, NV",
-  },
-  {
-    id: 26,
-    title: "Kimmi K Event Spotlight",
-    category: "private-event",
-    src: encodeURI("/gallery images/KIMMI K_.webp"),
-    spanClass: "col-span-1 row-span-1",
-    location: "Charleston, SC",
-  },
-  {
-    id: 27,
-    title: "Lotus Theme Celebration",
-    category: "vip",
-    src: encodeURI("/gallery images/LOTUS.webp"),
-    spanClass: "col-span-1 row-span-1",
-    location: "Scottsdale, AZ",
-  },
-  {
-    id: 28,
-    title: "Lotus Private Show",
-    category: "bachelor",
-    src: encodeURI("/gallery images/LOTUS_1.webp"),
-    spanClass: "col-span-1 sm:col-span-2 row-span-1",
-    location: "Miami, FL",
-  },
-  {
-    id: 29,
-    title: "Myrtle Beach Beachside Bash",
-    category: "boat-pool",
-    src: encodeURI("/gallery images/MYRTLE BEACH.webp"),
-    spanClass: "col-span-1 row-span-1",
-    location: "Myrtle Beach, SC",
-  },
-  {
-    id: 30,
-    title: "Sexy Nurse Theme Event",
-    category: "vip",
-    src: encodeURI("/gallery images/SEXY NURSE.webp"),
-    spanClass: "col-span-1 row-span-1",
-    location: "Charlotte, NC",
-  },
-  {
-    id: 31,
-    title: "Signature Velvet Girl Feature",
-    category: "bachelor",
-    src: encodeURI("/gallery images/Velvet girl.webp"),
-    spanClass: "col-span-1 sm:col-span-2 row-span-1",
-    location: "Nationwide",
-  },
+const cityOptions = [
+  { id: "ALL CITIES", label: "ALL CITIES" },
+  { id: "MIAMI", label: "MIAMI" },
+  { id: "ORLANDO", label: "ORLANDO" },
+  { id: "TAMPA", label: "TAMPA" },
+  { id: "JACKSONVILLE", label: "JACKSONVILLE" },
+  { id: "NAPLES", label: "NAPLES" },
+  { id: "BOCA RATON", label: "BOCA RATON" },
+  { id: "WEST PALM BEACH", label: "WEST PALM BEACH" },
+  { id: "FORT LAUDERDALE", label: "FORT LAUDERDALE" },
+  { id: "CHARLESTON", label: "CHARLESTON" },
+  { id: "MYRTLE BEACH", label: "MYRTLE BEACH" },
+  { id: "CHARLOTTE", label: "CHARLOTTE" },
+  { id: "SAVANNAH", label: "SAVANNAH" },
+  { id: "ATLANTA", label: "ATLANTA" },
+  { id: "LAS VEGAS", label: "LAS VEGAS" },
+  { id: "LOS ANGELES", label: "LOS ANGELES" },
+  { id: "CHICAGO", label: "CHICAGO" },
+  { id: "NEW YORK", label: "NEW YORK" },
 ];
 
-const categories = [
-  { id: "all", label: "All" },
-  { id: "bachelor", label: "Bachelor Parties" },
-  { id: "private-event", label: "Private Events" },
-  { id: "vip", label: "VIP Hospitality" },
-  { id: "boat-pool", label: "Boat & Pool Parties" },
-] as const;
+const sortOptions = [
+  "Featured",
+  "Highest Rated",
+  "Most Popular",
+  "Newest",
+  "Name (A-Z)",
+];
 
 export default function GalleryContent() {
-  const [selectedCategory, setSelectedCategory] =
-    useState<string>("all");
-  const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
+  const [selectedCity, setSelectedCity] = useState<string>("ALL CITIES");
+  const [searchQuery, setSearchQuery] = useState<string>("");
+  const [sortBy, setSortBy] = useState<string>("Featured");
+  const [isSortOpen, setIsSortOpen] = useState<boolean>(false);
+  const [favorites, setFavorites] = useState<Record<string, boolean>>({});
+  const [selectedPerformer, setSelectedPerformer] =
+    useState<Performer | null>(null);
+  const [visibleCount, setVisibleCount] = useState<number>(12);
 
-  const filteredItems =
-    selectedCategory === "all"
-      ? galleryItems
-      : galleryItems.filter((item) => item.category === selectedCategory);
+  const cityScrollRef = useRef<HTMLDivElement>(null);
 
-  const handlePrev = () => {
-    if (lightboxIndex === null) return;
-    setLightboxIndex(
-      (lightboxIndex - 1 + filteredItems.length) % filteredItems.length
-    );
+  const handleCityScroll = (direction: "left" | "right") => {
+    if (cityScrollRef.current) {
+      const scrollAmount = 300;
+      cityScrollRef.current.scrollBy({
+        left: direction === "right" ? scrollAmount : -scrollAmount,
+        behavior: "smooth",
+      });
+    }
   };
 
-  const handleNext = () => {
-    if (lightboxIndex === null) return;
-    setLightboxIndex((lightboxIndex + 1) % filteredItems.length);
+  const toggleFavorite = (e: React.MouseEvent, id: string) => {
+    e.stopPropagation();
+    setFavorites((prev) => ({
+      ...prev,
+      [id]: !prev[id],
+    }));
   };
+
+  // Filter Logic - Primarily filtered by Locations (Cities)
+  const filteredPerformers = performers.filter((performer) => {
+    // City / Location Filter
+    if (selectedCity !== "ALL CITIES") {
+      const cityMatch =
+        performer.city?.toUpperCase() === selectedCity ||
+        performer.location?.toUpperCase().includes(selectedCity);
+      if (!cityMatch) return false;
+    }
+
+    // Search Query
+    if (searchQuery.trim() !== "") {
+      const q = searchQuery.toLowerCase().trim();
+      const matchName = performer.name.toLowerCase().includes(q);
+      const matchCity = performer.city?.toLowerCase().includes(q) || false;
+      const matchLoc = performer.location?.toLowerCase().includes(q) || false;
+      const matchTags =
+        performer.tags?.some((t) => t.toLowerCase().includes(q)) || false;
+      if (!matchName && !matchCity && !matchLoc && !matchTags) return false;
+    }
+
+    return true;
+  });
+
+  // Sorting Logic
+  const sortedPerformers = [...filteredPerformers].sort((a, b) => {
+    if (sortBy === "Highest Rated") {
+      return b.rating - a.rating;
+    }
+    if (sortBy === "Most Popular") {
+      return (b.reviewsCount || 0) - (a.reviewsCount || 0);
+    }
+    if (sortBy === "Newest") {
+      const aNew = a.tags?.includes("new") ? 1 : 0;
+      const bNew = b.tags?.includes("new") ? 1 : 0;
+      return bNew - aNew;
+    }
+    if (sortBy === "Name (A-Z)") {
+      return a.name.localeCompare(b.name);
+    }
+    // Default Featured
+    const aFeatured = a.featured ? 1 : 0;
+    const bFeatured = b.featured ? 1 : 0;
+    return bFeatured - aFeatured;
+  });
+
+  const visiblePerformers = sortedPerformers.slice(0, visibleCount);
+  const hasMore = visibleCount < sortedPerformers.length;
+
+  const displayCityHeader =
+    selectedCity === "ALL CITIES" ? "ALL CITIES" : selectedCity;
 
   return (
-    <section className="w-full bg-white py-16 sm:py-24 px-6 lg:px-12">
-      <div className="max-w-[120rem] mx-auto">
-        {/* Header Row Matching Reference Image */}
-        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-16 border-b border-black/10 pb-8">
-          <div>
-            <p className="text-xs sm:text-sm font-bold uppercase tracking-widest text-[#740107] mb-2 font-body">
-              All Our Good Vibes
-            </p>
-            <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-black tracking-tight">
-              From Our Gallery
-            </h2>
-          </div>
+    <div className="relative w-full min-h-screen bg-[#FAF7F2] text-stone-900 overflow-hidden font-body pb-36 sm:pb-48">
+      {/* Top Left Red Velvet Curtain Drapery */}
+      <VelvetCurtains variant="top-left" />
 
-          {/* Filter Bar with Horizontal Separators and Active Indicator */}
-          <div className="flex flex-wrap items-center gap-1 sm:gap-2">
-            {categories.map((cat, idx) => {
-              const isActive = selectedCategory === cat.id;
-              return (
-                <div key={cat.id} className="flex items-center">
-                  <button
-                    onClick={() => setSelectedCategory(cat.id)}
-                    className={`relative px-4 py-2 font-body text-xs sm:text-sm font-bold uppercase tracking-wider transition-all duration-300 ${
-                      isActive
-                        ? "text-black"
-                        : "text-black/50 hover:text-black/85"
-                    }`}
-                  >
-                    {cat.label}
-                    {isActive && (
-                      <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-6 h-0.5 bg-[#740107]" />
-                    )}
-                  </button>
-                  {idx < categories.length - 1 && (
-                    <span className="text-black/20 text-xs px-1 select-none">
-                      |
-                    </span>
-                  )}
+      {/* HERO SECTION WITH FULL-WIDTH BACKGROUND IMAGE */}
+      <section className="relative z-10 w-full overflow-hidden py-20 sm:py-28 md:py-36 border-b border-stone-200/80">
+        {/* Full Background Image IMG_9368.webp */}
+        <div className="absolute inset-0 z-0">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={encodeURI("/gallery images/IMG_9368.webp")}
+            alt="Velvet Girl Gallery Hero Background"
+            className="w-full h-full object-cover object-center"
+          />
+          {/* Editorial overlay gradient to ensure high text contrast and luxury ivory/cream theme consistency */}
+          <div className="absolute inset-0 bg-gradient-to-r from-[#FAF7F2] via-[#FAF7F2]/90 to-[#FAF7F2]/40" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#FAF7F2] via-[#FAF7F2]/40 to-transparent opacity-95" />
+        </div>
+
+        {/* Content Container */}
+        <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12">
+          <div className="max-w-3xl flex flex-col items-center lg:items-start text-center lg:text-left">
+            {/* Elegant Over-title */}
+            <div className="inline-flex items-center gap-3 mb-3">
+              <span className="h-[1px] w-8 sm:w-12 bg-[#C5A880]" />
+              <span className="font-display text-xs sm:text-sm font-bold uppercase tracking-widest text-[#9A7B56]">
+                MEET OUR
+              </span>
+              <span className="h-[1px] w-8 sm:w-12 bg-[#C5A880]" />
+            </div>
+
+            {/* Crimson Serif Main Title */}
+            <h1
+              className="font-display text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-extrabold tracking-tight text-[#740107] mb-6 drop-shadow-sm"
+              style={{ fontFamily: "var(--font-display)" }}
+            >
+              GALLERY
+            </h1>
+
+            {/* Subtitle */}
+            <p className="font-body text-base sm:text-lg text-stone-800 max-w-xl leading-relaxed mb-8 drop-shadow-sm">
+              Real women. Real photos. Real experience.
+              <br />
+              <span className="font-bold text-stone-900">
+                Browse entertainers available in your city.
+              </span>
+            </p>
+
+            {/* Search Input Pill */}
+            <div className="relative w-full max-w-md">
+              <div className="relative flex items-center w-full rounded-full bg-white/95 backdrop-blur-md border border-stone-300 shadow-lg focus-within:border-[#740107] focus-within:ring-2 focus-within:ring-[#740107]/20 transition-all duration-300">
+                <div className="pl-5 pr-2 py-3.5 text-stone-400">
+                  <Search className="w-5 h-5 text-[#740107]" />
                 </div>
+                <input
+                  type="text"
+                  value={searchQuery}
+                  onChange={(e) => {
+                    setSearchQuery(e.target.value);
+                    setVisibleCount(12);
+                  }}
+                  placeholder="Search performers by location or name..."
+                  className="w-full bg-transparent pr-6 py-3.5 text-sm sm:text-base text-stone-900 placeholder:text-stone-400 focus:outline-none font-medium"
+                />
+                {searchQuery && (
+                  <button
+                    onClick={() => setSearchQuery("")}
+                    className="pr-5 text-xs font-bold text-[#740107] hover:underline"
+                  >
+                    Clear
+                  </button>
+                )}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* LOCATION FILTER BAR & SORTING HEADER SECTION */}
+      <section className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 mt-4 sm:mt-8">
+        <div className="flex flex-col md:flex-row items-stretch md:items-center justify-between gap-4 py-4 border-t border-b border-stone-200/80">
+          {/* Left scroll button on desktop/tablet */}
+          <button
+            onClick={() => handleCityScroll("left")}
+            className="hidden sm:flex items-center justify-center w-9 h-9 rounded-full bg-white border border-stone-200 shadow-sm text-stone-600 hover:text-stone-900 mr-1 flex-shrink-0 z-10"
+            aria-label="Scroll locations left"
+          >
+            <ChevronLeft className="w-4 h-4" />
+          </button>
+
+          {/* Location / City Pill Buttons Row (Primary Filter) */}
+          <div
+            ref={cityScrollRef}
+            className="flex items-center gap-2 overflow-x-auto no-scrollbar py-1.5 w-full px-1"
+            style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
+          >
+            {cityOptions.map((city) => {
+              const isActive = selectedCity === city.id;
+              return (
+                <button
+                  key={city.id}
+                  onClick={() => {
+                    setSelectedCity(city.id);
+                    setVisibleCount(12);
+                  }}
+                  className={`flex-shrink-0 px-6 py-2.5 rounded-full text-xs sm:text-sm font-bold uppercase tracking-wider transition-all duration-300 shadow-sm ${
+                    isActive
+                      ? "bg-[#740107] text-white shadow-md scale-[1.02]"
+                      : "bg-white/90 hover:bg-white text-stone-700 hover:text-stone-950 border border-stone-200/90"
+                  }`}
+                >
+                  {city.label}
+                </button>
               );
             })}
           </div>
+
+          {/* Right arrow button to scroll locations */}
+          <button
+            onClick={() => handleCityScroll("right")}
+            className="hidden sm:flex items-center justify-center w-9 h-9 rounded-full bg-white hover:bg-stone-100 border border-stone-200 shadow-sm text-stone-700 hover:text-black ml-1 flex-shrink-0 transition-colors"
+            aria-label="Scroll locations right"
+          >
+            <ChevronRight className="w-4 h-4" />
+          </button>
+
+          {/* Sort By Dropdown */}
+          <div className="relative flex-shrink-0 self-end md:self-auto pl-2">
+            <button
+              onClick={() => setIsSortOpen((prev) => !prev)}
+              className="flex items-center gap-2 bg-white/90 hover:bg-white border border-stone-200 rounded-full px-5 py-2.5 text-xs font-semibold text-stone-700 shadow-sm transition-all"
+            >
+              <span className="text-stone-500">Sort by:</span>
+              <span className="font-bold text-stone-900">{sortBy}</span>
+              <ChevronDown
+                className={`w-3.5 h-3.5 text-stone-600 transition-transform ${
+                  isSortOpen ? "rotate-180" : ""
+                }`}
+              />
+            </button>
+
+            {/* Dropdown Menu */}
+            {isSortOpen && (
+              <div className="absolute right-0 mt-2 w-48 bg-white rounded-2xl shadow-xl border border-stone-200 py-2 z-50 animate-in fade-in zoom-in-95 duration-150">
+                {sortOptions.map((option) => (
+                  <button
+                    key={option}
+                    onClick={() => {
+                      setSortBy(option);
+                      setIsSortOpen(false);
+                    }}
+                    className={`w-full text-left px-4 py-2.5 text-xs font-semibold transition-colors ${
+                      sortBy === option
+                        ? "bg-[#740107]/10 text-[#740107] font-bold"
+                        : "text-stone-700 hover:bg-stone-100"
+                    }`}
+                  >
+                    {option}
+                  </button>
+                ))}
+              </div>
+            )}
+          </div>
+        </div>
+      </section>
+
+      {/* SECTION HEADER: SHOWING PERFORMERS IN ... */}
+      <section className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12 mt-10 mb-12 text-center">
+        <div className="inline-flex items-center gap-3 mb-2">
+          <span className="h-[1px] w-8 sm:w-16 bg-[#C5A880]" />
+          <span className="font-display text-xs font-bold uppercase tracking-widest text-[#9A7B56]">
+            SHOWING PERFORMERS IN
+          </span>
+          <span className="h-[1px] w-8 sm:w-16 bg-[#C5A880]" />
         </div>
 
-        {/* Gallery Grid Matching Editorial Masonry Layout */}
-        <Reveal>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 auto-rows-[260px] sm:auto-rows-[300px]">
-            {filteredItems.map((item, idx) => {
-              return (
-                <div
-                  key={item.id}
-                  onClick={() => setLightboxIndex(idx)}
-                  className={`${item.spanClass} group relative flex flex-col bg-white border border-black/10 overflow-hidden cursor-pointer shadow-sm hover:shadow-xl hover:border-black/20 transition-all duration-500`}
-                >
-                  {/* Image Container */}
-                  <div className="relative w-full flex-1 overflow-hidden bg-black/5">
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img
-                      src={item.src}
-                      alt={item.title}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                    />
+        <h2
+          className="font-display text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-wide text-[#740107] flex items-center justify-center gap-1.5"
+          style={{ fontFamily: "var(--font-display)" }}
+        >
+          <span>{displayCityHeader}</span>
+          <MapPin className="w-6 h-6 sm:w-8 sm:h-8 text-[#740107] inline-block" />
+        </h2>
+      </section>
 
-                    {/* Dark Hover Overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6">
-                      <div className="flex items-center justify-between text-white">
-                        <div>
-                          <p className="text-xs uppercase tracking-widest font-mono text-[#740107] bg-white/90 px-2.5 py-0.5 inline-block font-bold shadow-sm">
-                            {item.location || "Velvet Girl"}
-                          </p>
-                        </div>
+      {/* PERFORMERS GRID */}
+      <section className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12">
+        {sortedPerformers.length === 0 ? (
+          /* Empty State */
+          <div className="bg-white rounded-3xl p-12 text-center border border-stone-200 shadow-sm max-w-xl mx-auto my-12">
+            <Sparkles className="w-12 h-12 text-[#740107] mx-auto mb-4 opacity-75" />
+            <h3 className="font-display text-2xl font-bold text-stone-900 mb-2">
+              No Entertainers Found
+            </h3>
+            <p className="text-stone-600 text-sm mb-6">
+              We couldn&apos;t find any entertainers matching your selected
+              location criteria. Try choosing a different city or location.
+            </p>
+            <button
+              onClick={() => {
+                setSelectedCity("ALL CITIES");
+                setSearchQuery("");
+              }}
+              className="px-6 py-3 bg-[#740107] hover:bg-[#5c0911] text-white rounded-full text-xs font-bold uppercase tracking-wider transition-colors shadow-sm"
+            >
+              Reset Location Filter
+            </button>
+          </div>
+        ) : (
+          <Reveal>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-7">
+              {visiblePerformers.map((performer) => {
+                const isFav = !!favorites[performer.id];
+                const displayRating = performer.rating?.toFixed(1) || "5.0";
+                const displayReviewsCount = performer.reviewsCount || 28;
 
-                        <div className="w-10 h-10 rounded-full bg-[#740107] text-white flex items-center justify-center shadow-lg transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
-                          <ZoomIn className="w-5 h-5" />
+                return (
+                  <div
+                    key={performer.id}
+                    onClick={() => setSelectedPerformer(performer)}
+                    className="group relative flex flex-col justify-between bg-white rounded-[22px] border border-stone-200/90 overflow-hidden shadow-md hover:shadow-2xl hover:-translate-y-1.5 transition-all duration-300 cursor-pointer"
+                  >
+                    {/* Top Image Area */}
+                    <div className="relative aspect-[3/4] w-full overflow-hidden bg-stone-100">
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img
+                        src={performer.image}
+                        alt={performer.name}
+                        className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700"
+                      />
+
+                      {/* Top Left Badge: Available Tonight */}
+                      {performer.availableTonight && (
+                        <div className="absolute top-3.5 left-3.5 z-10">
+                          <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/85 backdrop-blur-md text-[11px] font-bold text-stone-800 shadow-sm border border-white/50">
+                            <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+                            Available Tonight
+                          </span>
                         </div>
+                      )}
+
+                      {/* Top Right Heart Favorite Button */}
+                      <button
+                        onClick={(e) => toggleFavorite(e, performer.id)}
+                        className={`absolute top-3.5 right-3.5 z-10 w-8 h-8 rounded-full flex items-center justify-center transition-all duration-200 shadow-sm border border-white/50 backdrop-blur-md ${
+                          isFav
+                            ? "bg-white text-red-500 scale-110"
+                            : "bg-white/70 hover:bg-white text-stone-700 hover:text-red-500"
+                        }`}
+                        aria-label="Save to favorites"
+                      >
+                        <Heart
+                          className={`w-4 h-4 transition-colors ${
+                            isFav ? "fill-red-500 text-red-500" : ""
+                          }`}
+                        />
+                      </button>
+
+                      {/* Subtle hover gradient at bottom of image */}
+                      <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    </div>
+
+                    {/* Bottom Card Footer Section */}
+                    <div className="p-5 flex flex-col items-center justify-between flex-1 bg-white text-center">
+                      <div>
+                        {/* Name in Crimson Serif */}
+                        <h3
+                          className="font-display text-xl font-bold tracking-wide text-[#740107] group-hover:text-[#4a0105] transition-colors"
+                          style={{ fontFamily: "var(--font-display)" }}
+                        >
+                          {performer.name}
+                        </h3>
+
+                        {/* Location Pin + City */}
+                        <p className="mt-1 font-body text-xs text-stone-500 font-semibold flex items-center justify-center gap-1">
+                          <MapPin className="w-3.5 h-3.5 text-[#740107]" />
+                          <span>{performer.city || performer.location}</span>
+                        </p>
+
+                        {/* Star Rating & Review Count */}
+                        <div className="mt-2.5 flex items-center justify-center gap-1 text-xs">
+                          <span className="font-bold text-stone-900 text-sm">
+                            {displayRating}
+                          </span>
+                          <Star className="w-3.5 h-3.5 text-amber-500 fill-amber-500 mx-0.5" />
+                          <span className="text-stone-400 font-medium">
+                            ({displayReviewsCount})
+                          </span>
+                        </div>
+                      </div>
+
+                      {/* Crimson VIEW PROFILE Pill Button */}
+                      <div className="w-full mt-4">
+                        <span className="w-full inline-flex items-center justify-center gap-2 bg-[#740107] group-hover:bg-[#5c0911] text-white rounded-full py-2.5 px-5 text-xs font-bold uppercase tracking-wider shadow-sm transition-all duration-300">
+                          <span>VIEW PROFILE</span>
+                          <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+                        </span>
                       </div>
                     </div>
                   </div>
-                </div>
-              );
-            })}
-          </div>
-        </Reveal>
-
-        {/* Fullscreen Lightbox Modal */}
-        {lightboxIndex !== null && (
-          <div
-            className="fixed inset-0 z-[200] bg-black/95 backdrop-blur-md flex items-center justify-center p-4 sm:p-8"
-            onClick={() => setLightboxIndex(null)}
-          >
-            {/* Close Button */}
-            <button
-              onClick={() => setLightboxIndex(null)}
-              className="absolute top-6 right-6 w-12 h-12 rounded-full bg-white/10 hover:bg-[#740107] text-white flex items-center justify-center transition-colors z-10"
-              aria-label="Close modal"
-            >
-              <X className="w-6 h-6" />
-            </button>
-
-            {/* Prev Button */}
-            <button
-              onClick={(e) => {
-                e.stopPropagation();
-                handlePrev();
-              }}
-              className="absolute left-4 sm:left-8 w-12 h-12 rounded-full bg-white/10 hover:bg-[#740107] text-white flex items-center justify-center transition-colors z-10"
-              aria-label="Previous image"
-            >
-              <ChevronLeft className="w-6 h-6" />
-            </button>
-
-            {/* Next Button */}
-            <button
-              onClick={(e) => {
-                e.stopPropagation();
-                handleNext();
-              }}
-              className="absolute right-4 sm:right-8 w-12 h-12 rounded-full bg-white/10 hover:bg-[#740107] text-white flex items-center justify-center transition-colors z-10"
-              aria-label="Next image"
-            >
-              <ChevronRight className="w-6 h-6" />
-            </button>
-
-            {/* Main Modal Image and Info */}
-            <div
-              className="relative max-w-5xl max-h-[85vh] w-full flex flex-col items-center justify-center"
-              onClick={(e) => e.stopPropagation()}
-            >
-              <div className="relative max-h-[75vh] overflow-hidden rounded-sm border border-white/20 shadow-2xl">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src={filteredItems[lightboxIndex].src}
-                  alt={filteredItems[lightboxIndex].title}
-                  className="max-h-[75vh] w-auto object-contain mx-auto"
-                />
-              </div>
-
-              {/* Caption Bar in Lightbox */}
-              <div className="mt-4 text-center">
-                <span className="text-xs uppercase tracking-widest font-mono text-[#740107] bg-white px-3 py-1 font-bold inline-block shadow-md">
-                  {filteredItems[lightboxIndex].location || "Velvet Girl"}
-                </span>
-              </div>
-
+                );
+              })}
             </div>
+          </Reveal>
+        )}
+
+        {/* LOAD MORE BUTTON */}
+        {hasMore && (
+          <div className="mt-14 text-center">
+            <button
+              onClick={() => setVisibleCount((prev) => prev + 12)}
+              className="inline-flex items-center gap-2 bg-white/90 hover:bg-white text-stone-800 border border-stone-300 hover:border-stone-400 rounded-full px-8 py-3.5 text-xs font-bold uppercase tracking-wider shadow-sm hover:shadow-md transition-all duration-300"
+            >
+              <span>LOAD MORE</span>
+              <ChevronDown className="w-4 h-4 text-stone-600" />
+            </button>
           </div>
         )}
-      </div>
-    </section>
+      </section>
+
+      {/* Bottom Red Velvet Curtains */}
+      <VelvetCurtains variant="bottom" />
+
+      {/* Performer Profile Modal */}
+      <PerformerProfileModal
+        performer={selectedPerformer}
+        onClose={() => setSelectedPerformer(null)}
+      />
+    </div>
   );
 }

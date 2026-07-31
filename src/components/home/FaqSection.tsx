@@ -8,6 +8,7 @@ interface FaqSectionProps {
   eyebrow?: string;
   title?: string;
   theme?: "crimson" | "light";
+  hideBorder?: boolean;
 }
 
 export default function FaqSection({
@@ -15,15 +16,18 @@ export default function FaqSection({
   eyebrow = "QUESTIONS & ANSWERS",
   title = "Frequently Asked Questions",
   theme = "crimson",
+  hideBorder = false,
 }: FaqSectionProps) {
   const isCrimson = theme === "crimson";
 
   return (
     <section
-      className={`w-full py-20 px-6 lg:px-12 font-sans border-t ${
+      className={`w-full py-20 px-6 lg:px-12 font-sans ${
+        hideBorder ? "" : "border-t"
+      } ${
         isCrimson
-          ? "bg-[#740107] border-white/10"
-          : "bg-white border-black/10"
+          ? `bg-[#740107] ${hideBorder ? "" : "border-white/10"}`
+          : `bg-white ${hideBorder ? "" : "border-black/10"}`
       }`}
     >
       <div className="max-w-[120rem] mx-auto">

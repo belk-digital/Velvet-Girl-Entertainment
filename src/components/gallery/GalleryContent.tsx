@@ -150,8 +150,8 @@ export default function GalleryContent() {
         </div>
 
         {/* Content Container */}
-        <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12">
-          <div className="max-w-3xl flex flex-col items-center lg:items-start text-center lg:text-left">
+        <div className="relative z-30 max-w-7xl mx-auto px-6 sm:px-12 lg:px-16">
+          <div className="max-w-3xl flex flex-col items-center lg:items-start text-center lg:text-left pl-0 sm:pl-12 md:pl-24 lg:pl-32 xl:pl-36">
             {/* Elegant Over-title */}
             <div className="inline-flex items-center gap-3 mb-3">
               <span className="h-[1px] w-8 sm:w-12 bg-[#C5A880]" />

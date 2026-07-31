@@ -14,7 +14,7 @@ export default function VelvetCurtains({
   if (variant === "top-left") {
     return (
       <div
-        className={`pointer-events-none absolute top-0 left-0 z-20 w-[240px] sm:w-[320px] md:w-[420px] lg:w-[480px] h-[340px] sm:h-[460px] md:h-[580px] overflow-hidden select-none ${className}`}
+        className={`pointer-events-none absolute top-0 left-0 z-20 w-[140px] sm:w-[180px] md:w-[220px] lg:w-[260px] xl:w-[300px] h-[220px] sm:h-[300px] md:h-[380px] lg:h-[440px] overflow-hidden select-none ${className}`}
         aria-hidden="true"
       >
         <svg
@@ -61,33 +61,33 @@ export default function VelvetCurtains({
             </radialGradient>
           </defs>
 
-          {/* Deepest Back Fold */}
+          {/* Deepest Back Fold - tapers gracefully into the left wall at (0, 520) */}
           <path
-            d="M0 0 L320 0 C240 180 180 340 110 600 L0 600 Z"
+            d="M0 0 L320 0 C260 160 160 360 0 520 Z"
             fill="url(#velvetFold1)"
           />
 
-          {/* Secondary Swag / Middle Layer */}
+          {/* Secondary Swag / Middle Layer - tapers into (0, 440) */}
           <path
-            d="M0 0 L240 0 C190 140 140 280 70 540 C40 380 20 220 0 100 Z"
+            d="M0 0 L240 0 C190 140 120 300 0 440 Z"
             fill="url(#velvetFold2)"
           />
 
-          {/* Dramatic Front Drape */}
+          {/* Dramatic Front Drape - tapers into (0, 340) */}
           <path
-            d="M0 0 L170 0 C140 120 100 240 45 420 C25 280 10 160 0 0 Z"
+            d="M0 0 L160 0 C130 110 80 230 0 340 Z"
             fill="url(#velvetFold3)"
           />
 
           {/* Lux Satin Highlight Curve */}
           <path
-            d="M0 0 C70 90 95 190 55 360 C35 240 18 120 0 0 Z"
+            d="M0 0 L140 0 C100 100 60 200 0 300 Z"
             fill="url(#velvetSheen)"
           />
 
           {/* Subtle Golden Fringe / Trim Highlight on the Edge */}
           <path
-            d="M320 0 C240 180 180 340 110 600"
+            d="M320 0 C260 160 160 360 0 520"
             stroke="#4a0105"
             strokeWidth="3"
             strokeOpacity="0.6"

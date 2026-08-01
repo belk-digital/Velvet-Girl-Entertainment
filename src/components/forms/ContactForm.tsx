@@ -10,6 +10,7 @@ export default function ContactForm() {
   const [submitted, setSubmitted] = useState(false);
   const [step, setStep] = useState(1);
   const [error, setError] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const [formData, setFormData] = useState({
     name: "",
@@ -42,14 +43,27 @@ export default function ContactForm() {
     setStep(1);
   };
 
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!formData.name.trim() || !formData.phone.trim() || !formData.email.trim()) {
       setError("Please fill in all required contact fields.");
       return;
     }
     setError("");
-    setSubmitted(true);
+    setIsSubmitting(true);
+
+    try {
+      await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+    } catch (err) {
+      console.error("Failed to submit contact form:", err);
+    } finally {
+      setIsSubmitting(false);
+      setSubmitted(true);
+    }
   };
 
   if (submitted) {
@@ -247,8 +261,12 @@ export default function ContactForm() {
                 <ArrowLeft className="h-4 w-4" />
                 <span>Back</span>
               </button>
-              <button type="submit" className={`${submitButtonClass} w-full sm:w-2/3`}>
-                SEND MESSAGE
+              <button
+                type="submit"
+                disabled={isSubmitting}
+                className={`${submitButtonClass} w-full sm:w-2/3 disabled:cursor-not-allowed disabled:opacity-60`}
+              >
+                {isSubmitting ? "SENDING..." : "SEND MESSAGE"}
               </button>
             </div>
           </div>

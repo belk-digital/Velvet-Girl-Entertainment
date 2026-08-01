@@ -19,8 +19,9 @@ import { performers } from "@/data/performers";
 export default function Step11Review() {
   const { state, setField, goToStep } = useBookingForm();
   const [error, setError] = useState<string | null>(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     if (!state.name.trim() || !state.phone.trim() || !state.email.trim()) {
       setError(
         "Please fill in your Name, Phone, and Email to complete your booking."
@@ -28,8 +29,43 @@ export default function Step11Review() {
       return;
     }
     setError(null);
-    setField("isSubmitted", true);
-    goToStep(12);
+    setIsSubmitting(true);
+
+    try {
+      const selectedPerformersNames = (state.selectedPerformers || [])
+        .map((id) => performers.find((p) => p.id === id))
+        .filter(Boolean)
+        .map((p) => p!.name);
+
+      await fetch("/api/booking", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: state.name,
+          phone: state.phone,
+          email: state.email,
+          eventType: state.eventType,
+          selectedCity: state.city,
+          eventDate: state.eventDate,
+          eventTime: state.eventTime,
+          guestCount: state.guestCount,
+          theme: state.theme,
+          costume: state.costume,
+          dancers: state.dancers,
+          selectedPerformers: selectedPerformersNames,
+          upgrades: state.upgrades,
+          notes: state.notes,
+          contactMethod: "phone",
+          preferredTime: "anytime",
+        }),
+      });
+    } catch (err) {
+      console.error("Failed to submit booking notification:", err);
+    } finally {
+      setIsSubmitting(false);
+      setField("isSubmitted", true);
+      goToStep(12);
+    }
   };
 
   const selectedPerformersList = (state.selectedPerformers || [])
@@ -201,7 +237,11 @@ export default function Step11Review() {
         </div>
       </div>
 
-      <StepNavigation nextLabel="Looks Good" onNext={handleSubmit} />
+      <StepNavigation
+        nextLabel={isSubmitting ? "Sending Confirmation..." : "Looks Good"}
+        disabled={isSubmitting}
+        onNext={handleSubmit}
+      />
     </StepLayout>
   );
 }

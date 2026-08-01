@@ -55,11 +55,13 @@ function FileField({
   name,
   label,
   hint,
+  onFileSelected,
 }: {
   id: string;
   name: string;
   label: string;
   hint: string;
+  onFileSelected: (file: File | null) => void;
 }) {
   const [fileName, setFileName] = useState<string | null>(null);
   return (
@@ -80,7 +82,11 @@ function FileField({
         type="file"
         accept="image/*"
         className="sr-only"
-        onChange={(e) => setFileName(e.target.files?.[0]?.name ?? null)}
+        onChange={(e) => {
+          const file = e.target.files?.[0] ?? null;
+          setFileName(file?.name ?? null);
+          onFileSelected(file);
+        }}
       />
     </div>
   );
@@ -105,6 +111,9 @@ export default function ApplicationForm() {
   const [comfortablePhotos, setComfortablePhotos] = useState<"yes" | "no" | "">("");
   const [days, setDays] = useState<string[]>([]);
   const [timeBlocks, setTimeBlocks] = useState<string[]>([]);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [headshotFile, setHeadshotFile] = useState<File | null>(null);
+  const [fullBodyFile, setFullBodyFile] = useState<File | null>(null);
 
   const [formData, setFormData] = useState({
     name: "",
@@ -162,10 +171,32 @@ export default function ApplicationForm() {
     setStep(targetStep);
   };
 
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setError("");
-    setSubmitted(true);
+    setIsSubmitting(true);
+
+    try {
+      const payload = new FormData();
+      Object.entries(formData).forEach(([key, value]) => payload.append(key, value));
+      payload.append("priorExperience", priorExperience);
+      payload.append("transportation", transportation);
+      payload.append("comfortablePhotos", comfortablePhotos);
+      payload.append("days", days.join(", "));
+      payload.append("timeBlocks", timeBlocks.join(", "));
+      if (headshotFile) payload.append("headshot", headshotFile);
+      if (fullBodyFile) payload.append("fullBody", fullBodyFile);
+
+      await fetch("/api/apply", {
+        method: "POST",
+        body: payload,
+      });
+    } catch (err) {
+      console.error("Failed to submit application:", err);
+    } finally {
+      setIsSubmitting(false);
+      setSubmitted(true);
+    }
   };
 
   if (submitted) {
@@ -532,12 +563,14 @@ export default function ApplicationForm() {
                 name="headshot"
                 label="Recent Headshot (no filters)"
                 hint="Choose a file..."
+                onFileSelected={setHeadshotFile}
               />
               <FileField
                 id="fullBody"
                 name="fullBody"
                 label="Full-body photo (form-fitting or bikini)"
                 hint="Choose a file..."
+                onFileSelected={setFullBodyFile}
               />
             </div>
 
@@ -550,8 +583,12 @@ export default function ApplicationForm() {
                 <ArrowLeft className="h-4 w-4" />
                 <span>Back</span>
               </button>
-              <button type="submit" className={`${submitButtonClass} w-full sm:w-2/3 rounded-xl`}>
-                SUBMIT APPLICATION
+              <button
+                type="submit"
+                disabled={isSubmitting}
+                className={`${submitButtonClass} w-full sm:w-2/3 rounded-xl disabled:cursor-not-allowed disabled:opacity-60`}
+              >
+                {isSubmitting ? "SUBMITTING..." : "SUBMIT APPLICATION"}
               </button>
             </div>
           </div>

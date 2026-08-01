@@ -37,7 +37,7 @@ export default function Step04Date() {
             Event Date
           </label>
           <div className="relative">
-            <div className="pointer-events-none absolute inset-y-0 right-4 flex items-center text-stone-400">
+            <div className="pointer-events-none absolute inset-y-0 left-4 flex items-center text-stone-400">
               <Calendar className="h-5 w-5 text-[#740107]" />
             </div>
             <input
@@ -46,7 +46,7 @@ export default function Step04Date() {
               value={state.eventDate}
               onChange={(e) => setField("eventDate", e.target.value)}
               min={new Date().toISOString().split("T")[0]}
-              className="w-full appearance-none rounded-2xl border border-black/20 bg-white px-5 py-4 font-body text-base font-semibold text-stone-800 outline-none transition-all duration-300 focus:border-[#740107] focus:ring-2 focus:ring-[#740107]/20 shadow-sm cursor-pointer"
+              className="w-full appearance-none rounded-2xl border border-black/20 bg-white pl-12 pr-4 py-4 font-body text-base font-semibold text-stone-800 outline-none transition-all duration-300 focus:border-[#740107] focus:ring-2 focus:ring-[#740107]/20 shadow-sm cursor-pointer"
             />
           </div>
         </div>
@@ -60,14 +60,14 @@ export default function Step04Date() {
             Start Time
           </label>
           <div className="relative">
-            <div className="pointer-events-none absolute inset-y-0 right-4 flex items-center text-stone-400">
+            <div className="pointer-events-none absolute inset-y-0 left-4 flex items-center text-stone-400">
               <Clock className="h-5 w-5 text-[#740107]" />
             </div>
             <select
               id="event-time"
               value={state.eventTime}
               onChange={(e) => setField("eventTime", e.target.value)}
-              className="w-full appearance-none rounded-2xl border border-black/20 bg-white px-5 py-4 font-body text-base font-semibold text-stone-800 outline-none transition-all duration-300 focus:border-[#740107] focus:ring-2 focus:ring-[#740107]/20 shadow-sm cursor-pointer"
+              className="w-full appearance-none rounded-2xl border border-black/20 bg-white pl-12 pr-10 py-4 font-body text-base font-semibold text-stone-800 outline-none transition-all duration-300 focus:border-[#740107] focus:ring-2 focus:ring-[#740107]/20 shadow-sm cursor-pointer"
             >
               {TIME_SLOTS.map((slot) => (
                 <option key={slot} value={slot}>

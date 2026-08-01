@@ -81,14 +81,13 @@ export default async function PackageThemeDetailPage({ params }: Props) {
           ) : (
             <>
               <p className="font-body text-base sm:text-lg text-white/85 font-medium leading-relaxed">
-                Choose your costume, dancer count, and any upgrades on our
-                package builder, then continue straight to booking.
+                Launch our interactive booking wizard with {theme.name} pre-selected to choose verified VIP entertainers, costumes, and upgrades.
               </p>
               <Link
-                href={`/packages?theme=${theme.slug}#customize`}
+                href={`/book-now?theme=${theme.slug}`}
                 className="mt-8 inline-flex items-center gap-2 bg-white px-8 py-4 font-body text-xs font-bold uppercase tracking-widest text-[#740107] transition-all duration-300 hover:scale-105 border border-white shadow-md"
               >
-                <span>CUSTOMIZE THIS PACKAGE</span>
+                <span>CUSTOMIZE & BOOK THIS PACKAGE</span>
               </Link>
             </>
           )}

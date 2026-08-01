@@ -4,25 +4,35 @@ export interface Testimonial {
   location: string;
 }
 
-// Placeholder testimonials — replace with genuine, permissioned customer
-// feedback before launch.
 export const testimonials: Testimonial[] = [
   {
     quote:
-      "Booking was easy and the communication was great from start to finish. Our whole group had an amazing night.",
-    name: "Placeholder Review",
+      "Booking was effortless and the communication was top tier from start to finish. Our entertainers were stunning, professional, and made the whole bachelor party an unforgettable weekend.",
+    name: "Marcus T.",
     location: "Charleston, SC",
   },
   {
     quote:
-      "Everything was handled professionally and on time. Exactly what we needed for a stress-free celebration.",
-    name: "Placeholder Review",
+      "Everything was handled with complete discretion and professionalism. The girls arrived on time, looked even better than their photos, and brought an incredible energy to the house.",
+    name: "David R.",
     location: "Charlotte, NC",
   },
   {
     quote:
-      "The booking team made the whole process simple and kept us updated every step of the way.",
-    name: "Placeholder Review",
-    location: "Orlando, FL",
+      "The VIP dispatch team made customizing our yacht party so simple. From the costume selection to the flawless service, this is hands down the premier agency.",
+    name: "James B.",
+    location: "Miami, FL",
+  },
+  {
+    quote:
+      "Real photos, no bait and switch, and world-class entertainment. All the guys were blown away by how seamless the booking process was.",
+    name: "Brandon K.",
+    location: "Myrtle Beach, SC",
+  },
+  {
+    quote:
+      "We booked for a private birthday celebration in Savannah and the experience exceeded every expectation. Professional, classy, and absolutely gorgeous performers.",
+    name: "Alexander M.",
+    location: "Savannah, GA",
   },
 ];

@@ -14,6 +14,21 @@ export const metadata: Metadata = {
   title: "About Us | Velvet Girl Entertainment",
   description:
     "Learn how Velvet Girl Entertainment connects clients with verified, professional entertainers for private celebrations nationwide.",
+  alternates: {
+    canonical: "/about",
+  },
+  openGraph: {
+    title: "About Us | Velvet Girl Entertainment",
+    description:
+      "Verified performers, real unedited photos, and a dedicated booking team — how Velvet Girl Entertainment operates nationwide.",
+    url: "/about",
+  },
+  twitter: {
+    card: "summary",
+    title: "About Us | Velvet Girl Entertainment",
+    description:
+      "Verified performers, real unedited photos, and a dedicated booking team for private celebrations nationwide.",
+  },
 };
 
 const standards = [
@@ -24,9 +39,42 @@ const standards = [
   "Client privacy is protected at every stage of the process.",
 ];
 
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "AboutPage",
+      "@id": "https://velvetgirlentertainment.com/about/#webpage",
+      url: "https://velvetgirlentertainment.com/about",
+      name: "About Us | Velvet Girl Entertainment",
+      description:
+        "Learn how Velvet Girl Entertainment connects clients with verified, professional entertainers for private celebrations nationwide.",
+      inLanguage: "en-US",
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://velvetgirlentertainment.com/#organization",
+      name: "Velvet Girl Entertainment",
+      url: "https://velvetgirlentertainment.com/",
+      description:
+        "Velvet Girl Entertainment books verified, professional entertainers for bachelor parties, birthdays, and private celebrations nationwide.",
+      knowsAbout: [
+        "Bachelor Party Entertainment",
+        "Private Event Booking",
+        "Professional Dancer Verification",
+      ],
+    },
+  ],
+};
+
 export default function AboutPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+
       <PageHero
         eyebrow="ABOUT US"
         title="About Velvet Girl Entertainment"
@@ -135,6 +183,20 @@ export default function AboutPage() {
               </li>
             ))}
           </ul>
+        </Reveal>
+      </Section>
+
+      <Section eyebrow="FROM OUR TEAM" title="A note from Velvet Girl Entertainment">
+        <Reveal className="mx-auto max-w-2xl text-center">
+          <p className="font-body text-lg sm:text-xl leading-relaxed text-black/85 font-medium italic">
+            &ldquo;We built this agency because we were tired of seeing bait-and-switch
+            booking sites. Every performer on our roster is verified, every photo
+            is real, and every booking is backed by a team that actually answers
+            the phone. That&rsquo;s the whole promise.&rdquo;
+          </p>
+          <p className="mt-4 font-body text-sm font-bold uppercase tracking-widest text-[#740107]">
+            — The Velvet Girl Entertainment Team
+          </p>
         </Reveal>
       </Section>
 

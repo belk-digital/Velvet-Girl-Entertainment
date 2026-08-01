@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import React from "react";
+import React, { Suspense } from "react";
 import { BookingProvider } from "@/context/BookingProvider";
 import BookingWizardFlow from "@/components/booking/BookingWizardFlow";
 
@@ -15,7 +15,9 @@ export const metadata: Metadata = {
 export default function BookNowPage() {
   return (
     <BookingProvider>
-      <BookingWizardFlow />
+      <Suspense fallback={null}>
+        <BookingWizardFlow />
+      </Suspense>
     </BookingProvider>
   );
 }

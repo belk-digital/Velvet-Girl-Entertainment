@@ -1,7 +1,9 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useRef } from "react";
+import { useSearchParams } from "next/navigation";
 import { useBookingForm } from "@/hooks/useBookingForm";
+import { packageThemes, costumes, upgrades } from "@/data/packages";
 import ProgressBar from "@/components/booking/ProgressBar";
 import Step01Welcome from "@/components/booking/steps/Step01Welcome";
 import Step02EventType from "@/components/booking/steps/Step02EventType";
@@ -17,7 +19,71 @@ import Step11Review from "@/components/booking/steps/Step11Review";
 import Step12Success from "@/components/booking/steps/Step12Success";
 
 export default function BookingWizardFlow() {
-  const { state } = useBookingForm();
+  const { state, setField } = useBookingForm();
+  const searchParams = useSearchParams();
+  const initializedRef = useRef(false);
+
+  useEffect(() => {
+    if (!searchParams || initializedRef.current) return;
+    initializedRef.current = true;
+
+    const themeParam = searchParams.get("theme") || searchParams.get("package");
+    const costumeParam = searchParams.get("costume");
+    const dancersParam = searchParams.get("dancers");
+    const upgradesParam = searchParams.get("upgrades");
+
+    if (themeParam) {
+      const matchedTheme = packageThemes.find(
+        (t) =>
+          t.slug.toLowerCase() === themeParam.toLowerCase() ||
+          t.name.toLowerCase() === themeParam.toLowerCase()
+      );
+      if (matchedTheme) {
+        setField("theme", matchedTheme.name);
+        setField("eventType", matchedTheme.name);
+      } else {
+        setField("theme", themeParam);
+      }
+    }
+
+    if (costumeParam) {
+      const matchedCostume = costumes.find(
+        (c) =>
+          c.slug.toLowerCase() === costumeParam.toLowerCase() ||
+          c.name.toLowerCase() === costumeParam.toLowerCase()
+      );
+      if (matchedCostume) {
+        setField("costume", matchedCostume.name);
+      } else {
+        setField("costume", costumeParam);
+      }
+    }
+
+    if (dancersParam) {
+      const num = parseInt(dancersParam, 10);
+      if (!isNaN(num) && num >= 2) {
+        setField("dancers", num);
+      }
+    }
+
+    if (upgradesParam) {
+      const slugs = upgradesParam.split(",").map((s) => s.trim());
+      const upgradeSlugs: string[] = [];
+      slugs.forEach((slug) => {
+        const found = upgrades.find(
+          (u) =>
+            u.slug.toLowerCase() === slug.toLowerCase() ||
+            u.label.toLowerCase() === slug.toLowerCase()
+        );
+        if (found && !upgradeSlugs.includes(found.slug)) {
+          upgradeSlugs.push(found.slug);
+        }
+      });
+      if (upgradeSlugs.length > 0) {
+        setField("upgrades", upgradeSlugs);
+      }
+    }
+  }, [searchParams, setField]);
 
   const renderStep = () => {
     switch (state.currentStep) {

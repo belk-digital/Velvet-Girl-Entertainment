@@ -3,7 +3,7 @@
 import { useEffect, useRef } from "react";
 import Link from "next/link";
 import gsap from "gsap";
-import { ArrowRight, MessageCircle, Phone } from "lucide-react";
+import { ArrowRight, Phone } from "lucide-react";
 
 const HERO_IMAGE_URL =
   "https://res.cloudinary.com/denskvdyt/image/upload/v1784580159/hero-banner_d2oozv.png";
@@ -90,16 +90,9 @@ export default function Hero() {
             <Phone className="h-4 w-4 animate-pulse" />
             <span>CALL NOW: (843) 938-7377</span>
           </a>
-          <a
-            href="sms:8439387377"
-            className="tracking-caps group flex items-center justify-center gap-2.5 bg-stone-900 hover:bg-black px-8 py-5 font-body text-sm font-bold text-white transition-all duration-300 hover:scale-105 shadow-lg"
-          >
-            <MessageCircle className="h-4 w-4 text-[#C5A880]" />
-            <span>TEXT VIP DISPATCH</span>
-          </a>
           <Link
             href="/book-now"
-            className="tracking-caps group flex items-center justify-center gap-2 bg-white hover:bg-stone-50 px-8 py-5 font-body text-sm font-bold text-stone-900 transition-all duration-300 border border-stone-300 shadow-sm"
+            className="tracking-caps group flex items-center justify-center gap-2 bg-stone-900 hover:bg-black px-8 py-5 font-body text-sm font-bold text-white transition-all duration-300 hover:scale-105 shadow-lg"
           >
             <span>BOOK ONLINE</span>
             <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />

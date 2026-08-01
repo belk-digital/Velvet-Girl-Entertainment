@@ -1,0 +1,38 @@
+"use client";
+
+import React from "react";
+import { useBookingForm } from "@/hooks/useBookingForm";
+import StepLayout from "@/components/booking/StepLayout";
+import StepNavigation from "@/components/booking/StepNavigation";
+
+export default function Step10Notes() {
+  const { state, setField } = useBookingForm();
+
+  const maxLength = 250;
+
+  const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    const val = e.target.value.slice(0, maxLength);
+    setField("notes", val);
+  };
+
+  return (
+    <StepLayout stepKey={10} title="Anything else we should know?">
+      <div className="max-w-2xl my-8">
+        <div className="relative">
+          <textarea
+            value={state.notes}
+            onChange={handleChange}
+            placeholder="Location details, dancer preferences, special requests..."
+            rows={5}
+            className="w-full rounded-2xl border border-black/20 bg-white p-5 font-body text-base text-stone-800 placeholder-stone-400 outline-none transition-all duration-300 focus:border-[#740107] focus:ring-2 focus:ring-[#740107]/20 shadow-sm resize-none"
+          />
+          <div className="mt-2 text-right font-body text-xs text-stone-400 font-medium">
+            {state.notes.length} / {maxLength}
+          </div>
+        </div>
+      </div>
+
+      <StepNavigation />
+    </StepLayout>
+  );
+}

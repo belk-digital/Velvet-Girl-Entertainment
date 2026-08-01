@@ -41,7 +41,13 @@ export default function PerformerGalleryGrid({
   return (
     <>
       <Reveal>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-7">
+        <div
+          className={`grid grid-cols-1 sm:grid-cols-2 ${
+            performers.length <= 3
+              ? "lg:grid-cols-3 max-w-5xl mx-auto"
+              : "lg:grid-cols-4"
+          } gap-6 sm:gap-7`}
+        >
           {performers.map((performer) => {
             const isFav = !!favorites[performer.id];
             const displayRating = performer.rating?.toFixed(1) || "5.0";

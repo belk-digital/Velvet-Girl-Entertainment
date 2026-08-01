@@ -1,6 +1,7 @@
 "use client";
 
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 import Link from "next/link";
 import {
   X,
@@ -24,6 +25,12 @@ export default function PerformerProfileModal({
   performer,
   onClose,
 }: PerformerProfileModalProps) {
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === "Escape") onClose();
@@ -38,14 +45,14 @@ export default function PerformerProfileModal({
     };
   }, [performer, onClose]);
 
-  if (!performer) return null;
+  if (!performer || !mounted) return null;
 
   const displayRating = performer.rating?.toFixed(1) || "5.0";
   const displayReviewsCount = performer.reviewsCount || 28;
 
-  return (
+  return createPortal(
     <div
-      className="fixed inset-0 z-[200] flex items-center justify-center bg-black/85 backdrop-blur-md p-4 sm:p-6 md:p-10 animate-in fade-in duration-300"
+      className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/85 backdrop-blur-md p-4 sm:p-6 md:p-10 animate-in fade-in duration-300"
       onClick={onClose}
     >
       <div
@@ -110,41 +117,49 @@ export default function PerformerProfileModal({
               </p>
             </div>
 
-            {/* Rating Bar */}
-            <div className="mt-4 flex items-center gap-3 py-2.5 px-4 bg-stone-50 rounded-xl border border-stone-100">
-              <div className="flex items-center gap-1">
-                <Star className="w-4 h-4 text-amber-500 fill-amber-500" />
-                <span className="font-bold text-stone-900 text-sm">
+            {/* Mobile Header info */}
+            <div className="md:hidden mb-4">
+              <p className="font-body text-xs font-bold uppercase tracking-widest text-stone-500 flex items-center gap-1">
+                <MapPin className="w-3.5 h-3.5 text-[#740107]" />
+                {performer.location || performer.city || "United States"}
+              </p>
+            </div>
+
+            {/* Ratings & Reviews Pill */}
+            <div className="mt-4 inline-flex items-center gap-2 bg-stone-50 px-4 py-2 rounded-xl border border-stone-200/80 text-xs font-bold text-stone-800">
+              <span className="flex items-center gap-1 text-amber-500">
+                <Star className="w-4 h-4 fill-amber-500" />
+                <span className="text-stone-900 font-black">
                   {displayRating}
                 </span>
-              </div>
+              </span>
               <span className="text-stone-300">|</span>
-              <span className="text-xs font-semibold text-stone-600">
+              <span className="text-stone-600">
                 {displayReviewsCount} Verified Client Reviews
               </span>
               <span className="text-stone-300">|</span>
-              <span className="text-xs font-semibold text-stone-600">
-                {performer.eventsCount || "90+ Events"}
+              <span className="text-stone-600 uppercase">
+                {performer.eventsCount || "100+ EVENTS"}
               </span>
             </div>
 
-            {/* Tags / Specializations */}
+            {/* Tags / Attributes */}
             {performer.tags && performer.tags.length > 0 && (
               <div className="mt-6">
-                <p className="text-xs font-bold uppercase tracking-widest text-stone-400 mb-2">
+                <h4 className="font-body text-xs font-bold uppercase tracking-widest text-stone-400 mb-2">
                   Attributes
-                </p>
-                <div className="flex flex-wrap gap-2">
+                </h4>
+                <div className="flex flex-wrap gap-1.5">
                   {performer.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="px-3 py-1 bg-stone-100 text-stone-800 rounded-full text-xs font-semibold capitalize"
+                      className="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-stone-100 text-stone-700 capitalize border border-stone-200/60"
                     >
                       {tag}
                     </span>
                   ))}
                   {performer.hairColor && (
-                    <span className="px-3 py-1 bg-stone-100 text-stone-800 rounded-full text-xs font-semibold">
+                    <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-stone-100 text-stone-700 border border-stone-200/60">
                       {performer.hairColor} Hair
                     </span>
                   )}
@@ -152,49 +167,50 @@ export default function PerformerProfileModal({
               </div>
             )}
 
-            {/* Services */}
+            {/* Specialties / Services */}
             <div className="mt-6">
-              <p className="text-xs font-bold uppercase tracking-widest text-stone-400 mb-2 flex items-center gap-1.5">
+              <h4 className="font-body text-xs font-bold uppercase tracking-widest text-stone-400 mb-2 flex items-center gap-1.5">
                 <Sparkles className="w-3.5 h-3.5 text-[#740107]" />
                 Available Specialties
-              </p>
+              </h4>
               <div className="grid grid-cols-2 gap-2">
                 {(
                   performer.services || [
-                    "Bachelor Parties",
-                    "Private Yachts",
+                    "Bachelor Party",
+                    "Private Event",
                     "VIP Hospitality",
-                    "Penthouse Events",
+                    "Afterparty",
                   ]
                 ).map((service, idx) => (
                   <div
                     key={idx}
-                    className="flex items-center gap-2 text-xs font-medium text-stone-700 bg-stone-50 p-2 rounded-lg border border-stone-100"
+                    className="flex items-center gap-2 text-xs font-medium text-stone-700 bg-stone-50 px-3 py-2 rounded-lg border border-stone-150"
                   >
-                    <div className="w-1.5 h-1.5 rounded-full bg-[#740107]" />
-                    <span>{service}</span>
+                    <div className="w-1.5 h-1.5 rounded-full bg-[#740107] flex-shrink-0" />
+                    <span className="truncate">{service}</span>
                   </div>
                 ))}
               </div>
             </div>
 
-            {/* Experience Copy */}
-            <div className="mt-6 border-t border-stone-200 pt-5">
-              <p className="text-sm leading-relaxed text-stone-600 italic">
-                &ldquo;Real women. Real photos. Real experience. Book{" "}
-                {performer.name} for an unforgettable VIP gathering in{" "}
-                {performer.city || "your city"}.&rdquo;
-              </p>
+            {/* Tagline or quote */}
+            <div className="mt-6 p-4 rounded-2xl bg-stone-50 border border-stone-200/60 text-stone-600 text-xs leading-relaxed italic">
+              &ldquo;
+              {performer.tagline ||
+                `Real women. Real photos. Real experience. Book ${performer.name} for an unforgettable VIP gathering in ${
+                  performer.city || "Charleston"
+                }.`}
+              &rdquo;
             </div>
           </div>
 
-          {/* High-Converting Action Footer with Call & Text CTAs */}
-          <div className="mt-8 pt-4 border-t border-stone-200 flex flex-col sm:flex-row flex-wrap gap-2.5">
+          {/* Action Footer */}
+          <div className="mt-8 pt-6 border-t border-stone-200/80 flex flex-col sm:flex-row items-center gap-3">
             <a
               href="tel:8439387377"
-              className="flex-1 min-w-[150px] inline-flex items-center justify-center gap-2 bg-[#740107] hover:bg-[#5c0911] text-white px-5 py-3.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all duration-300 shadow-md hover:shadow-lg"
+              className="w-full sm:w-auto flex-1 inline-flex items-center justify-center gap-2 bg-[#740107] hover:bg-[#5c0911] text-white px-5 py-3.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all duration-300 shadow-md hover:shadow-lg"
             >
-              <Phone className="w-4 h-4 animate-pulse" />
+              <Phone className="w-4 h-4" />
               <span>Call: (843) 938-7377</span>
             </a>
             <a
@@ -214,6 +230,7 @@ export default function PerformerProfileModal({
           </div>
         </div>
       </div>
-    </div>
+    </div>,
+    document.body
   );
 }

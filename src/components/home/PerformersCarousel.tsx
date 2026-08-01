@@ -30,78 +30,40 @@ type Performer = {
 
 const performers: Performer[] = [
   {
-    name: "Jessica Jay",
-    location: "Chicago, IL",
+    name: "DIOR",
+    location: "CHARLESTON, SC",
     role: "Premium Entertainer",
-    rating: 4.6,
-    events: "80+",
-    verified: true,
-    image: "/images/performers-gallery/velvet-girl.webp",
-  },
-  {
-    name: "Candy Cole",
-    location: "Los Angeles, CA",
-    role: "Premium Entertainer",
-    rating: 4.6,
-    events: "90+",
-    verified: true,
-    image: "/images/performers-gallery/velvet-girl.webp",
-  },
-  {
-    name: "Lena Love",
-    location: "Las Vegas, NV",
-    role: "Event Specialist",
-    rating: 4.7,
-    events: "95+",
+    rating: 5.0,
+    events: "160+",
     available: true,
     verified: true,
-    image: "/images/performers-gallery/lotus.webp",
+    image: encodeURI("/gallery images/DIOR(3).webp"),
   },
   {
-    name: "Kimmi K",
-    location: "Miami, FL",
+    name: "LOTUS",
+    location: "CHARLESTON, SC",
+    role: "Luxury Entertainer",
+    rating: 5.0,
+    events: "170+",
+    available: true,
+    verified: true,
+    image: encodeURI("/gallery images/LOTUS.webp"),
+  },
+  {
+    name: "KIMMI",
+    location: "CHARLESTON, SC",
     role: "Party Starter",
-    rating: 4.8,
-    events: "120+",
+    rating: 5.0,
+    events: "190+",
     available: true,
     verified: true,
-    image: "/images/performers-gallery/kimmi-k.webp",
-  },
-  {
-    name: "Nina Rose",
-    location: "New York, NY",
-    role: "Bachelor Party Expert",
-    rating: 4.9,
-    events: "150+",
-    available: true,
-    verified: true,
-    image: "/images/performers-gallery/dominatrix.webp",
-  },
-  {
-    name: "Scarlett Sky",
-    location: "Atlanta, GA",
-    role: "Exotic Entertainer",
-    rating: 4.6,
-    events: "85+",
-    available: true,
-    verified: true,
-    image: "/images/performers-gallery/sexy-nurse.webp",
-  },
-  {
-    name: "Asia Boss",
-    location: "Charleston, SC",
-    role: "VIP Entertainer",
-    rating: 4.7,
-    events: "100+",
-    available: true,
-    verified: true,
-    image: "/images/performers-gallery/dior.webp",
+    image: encodeURI("/gallery images/KIMMI K.webp"),
   },
 ];
 
 export default function PerformersCarousel() {
   const n = performers.length;
-  const [active, setActive] = useState(3);
+  const [active, setActive] = useState(1);
   const [isMobile, setIsMobile] = useState(false);
   const [touchStart, setTouchStart] = useState<number | null>(null);
   const [touchEnd, setTouchEnd] = useState<number | null>(null);

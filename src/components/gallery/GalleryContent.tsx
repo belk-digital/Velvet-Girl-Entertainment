@@ -15,6 +15,7 @@ import PerformerGalleryGrid from "@/components/gallery/PerformerGalleryGrid";
 
 const cityOptions = [
   { id: "ALL CITIES", label: "ALL CITIES" },
+  { id: "CHARLESTON", label: "CHARLESTON" },
   { id: "MIAMI", label: "MIAMI" },
   { id: "ORLANDO", label: "ORLANDO" },
   { id: "TAMPA", label: "TAMPA" },
@@ -23,7 +24,6 @@ const cityOptions = [
   { id: "BOCA RATON", label: "BOCA RATON" },
   { id: "WEST PALM BEACH", label: "WEST PALM BEACH" },
   { id: "FORT LAUDERDALE", label: "FORT LAUDERDALE" },
-  { id: "CHARLESTON", label: "CHARLESTON" },
   { id: "MYRTLE BEACH", label: "MYRTLE BEACH" },
   { id: "CHARLOTTE", label: "CHARLOTTE" },
   { id: "SAVANNAH", label: "SAVANNAH" },
@@ -43,7 +43,7 @@ const sortOptions = [
 ];
 
 export default function GalleryContent() {
-  const [selectedCity, setSelectedCity] = useState<string>("ALL CITIES");
+  const [selectedCity, setSelectedCity] = useState<string>("CHARLESTON");
   const [searchQuery, setSearchQuery] = useState<string>("");
   const [sortBy, setSortBy] = useState<string>("Featured");
   const [isSortOpen, setIsSortOpen] = useState<boolean>(false);

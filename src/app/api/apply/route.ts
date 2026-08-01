@@ -107,7 +107,7 @@ export async function POST(request: Request) {
       formData.get("fullBody") as File | null
     );
     const attachments = [headshotAttachment, fullBodyAttachment].filter(
-      (a): a is { filename: string; content: Buffer } => a !== null
+      (a): a is NonNullable<typeof headshotAttachment> => a !== null
     );
 
     if (apiKey) {

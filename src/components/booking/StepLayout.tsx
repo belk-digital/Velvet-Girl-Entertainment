@@ -3,6 +3,7 @@
 import React, { type ReactNode } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
+import VelvetCurtains from "@/components/gallery/VelvetCurtains";
 
 export interface StepLayoutProps {
   children: ReactNode;
@@ -76,8 +77,12 @@ export default function StepLayout({
         </>
       )}
 
+      {/* Signature Crimson Velvet Curtains on Every Booking Step Page */}
+      <VelvetCurtains variant="top-left" />
+      <VelvetCurtains variant="bottom" />
+
       {/* Main Centered Content Area */}
-      <div className="mx-auto w-full max-w-[1100px] flex-1 flex flex-col justify-center my-auto z-10">
+      <div className="mx-auto w-full max-w-[1100px] flex-1 flex flex-col justify-center my-auto z-30 relative">
         <AnimatePresence mode="wait">
           <motion.div
             key={stepKey}

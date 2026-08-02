@@ -38,10 +38,10 @@ export default function DisclaimerPage() {
             <p>
               For questions about this disclaimer, contact us at{" "}
               <a
-                href="mailto:bookings@velvetgirlentertainment.com"
+                href="mailto:inquiries@velvetgirlentertainment.com"
                 className="text-[#740107] font-bold underline"
               >
-                bookings@velvetgirlentertainment.com
+                inquiries@velvetgirlentertainment.com
               </a>
               .
             </p>

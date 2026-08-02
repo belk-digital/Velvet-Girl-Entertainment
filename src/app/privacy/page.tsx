@@ -18,7 +18,7 @@ export default function PrivacyPage() {
           <p className="text-black/40 text-sm font-semibold">
             Velvet Girl Entertainment LLC d/b/a Velvet Girl Entertainment
             <br />
-            velvetgirlentertainment@gmail.com
+            inquiries@velvetgirlentertainment.com
             <br />
             Effective Date: March 19, 2026
           </p>
@@ -236,10 +236,10 @@ export default function PrivacyPage() {
               Questions, requests, or concerns about this Privacy Policy or our data practices
               can be sent to{" "}
               <a
-                href="mailto:velvetgirlentertainment@gmail.com"
+                href="mailto:inquiries@velvetgirlentertainment.com"
                 className="text-[#740107] font-bold underline"
               >
-                velvetgirlentertainment@gmail.com
+                inquiries@velvetgirlentertainment.com
               </a>
               .
             </p>

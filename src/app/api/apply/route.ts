@@ -38,11 +38,10 @@ export async function POST(request: Request) {
     const apiKey = process.env.RESEND_API_KEY;
     const adminEmail =
       process.env.APPLICATION_NOTIFICATION_EMAIL ||
-      process.env.LEAD_NOTIFICATION_EMAIL ||
-      "bookings@velvetgirlentertainment.com";
+      "inquiries@velvetgirlentertainment.com";
     const fromEmail =
       process.env.RESEND_FROM_EMAIL ||
-      "Velvet Girls VIP Dispatch <onboarding@resend.dev>";
+      "Velvet Girls VIP Dispatch <inquiries@velvetgirlentertainment.com>";
 
     const row = (label: string, value: string) => `
       <tr>

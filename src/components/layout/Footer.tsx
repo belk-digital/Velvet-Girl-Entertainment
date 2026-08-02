@@ -190,12 +190,20 @@ export default function Footer() {
           >
             BOOK NOW
           </Link>
-          <a 
-            href="mailto:info@velvetgirlentertainment.com" 
-            className="text-black/80 hover:text-[#740107] transition-colors text-sm md:text-base font-medium"
-          >
-            info@velvetgirlentertainment.com
-          </a>
+          <div className="flex flex-col items-start lg:items-center gap-1">
+            <a 
+              href="mailto:bookings@velvetgirlentertainment.com" 
+              className="text-black/80 hover:text-[#740107] transition-colors text-sm md:text-base font-medium"
+            >
+              bookings@velvetgirlentertainment.com
+            </a>
+            <a 
+              href="mailto:inquiries@velvetgirlentertainment.com" 
+              className="text-black/60 hover:text-[#740107] transition-colors text-xs md:text-sm font-medium"
+            >
+              inquiries@velvetgirlentertainment.com
+            </a>
+          </div>
         </div>
 
       </div>

@@ -44,9 +44,15 @@ const infoItems = [
   },
   {
     icon: Mail,
-    label: "Email",
+    label: "Booking Email",
     value: "bookings@velvetgirlentertainment.com",
     href: "mailto:bookings@velvetgirlentertainment.com",
+  },
+  {
+    icon: Mail,
+    label: "General Inquiries",
+    value: "inquiries@velvetgirlentertainment.com",
+    href: "mailto:inquiries@velvetgirlentertainment.com",
   },
   {
     icon: Clock,

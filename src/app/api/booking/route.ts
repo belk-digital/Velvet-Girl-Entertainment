@@ -30,7 +30,7 @@ export async function POST(request: Request) {
       "bookings@velvetgirlentertainment.com";
     const fromEmail =
       process.env.RESEND_FROM_EMAIL ||
-      "Velvet Girls VIP Dispatch <onboarding@resend.dev>";
+      "Velvet Girls VIP Dispatch <bookings@velvetgirlentertainment.com>";
 
     // Clean formatting for arrays
     const performersDisplay =

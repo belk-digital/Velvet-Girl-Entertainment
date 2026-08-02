@@ -19,7 +19,7 @@ export default function TermsPage() {
           <p className="text-black/40 text-sm font-semibold">
             Velvet Girl Entertainment LLC d/b/a Velvet Girl Entertainment
             <br />
-            velvetgirlentertainment@gmail.com
+            inquiries@velvetgirlentertainment.com
             <br />
             Effective Date: March 19, 2026
           </p>
@@ -670,10 +670,10 @@ export default function TermsPage() {
               Reports should be made to the Company by contacting our safety and compliance team
               at{" "}
               <a
-                href="mailto:velvetgirlentertainment@gmail.com"
+                href="mailto:inquiries@velvetgirlentertainment.com"
                 className="text-[#740107] font-bold underline"
               >
-                velvetgirlentertainment@gmail.com
+                inquiries@velvetgirlentertainment.com
               </a>
               . Please provide as much detail as possible, including the date, time, location,
               and individuals involved.

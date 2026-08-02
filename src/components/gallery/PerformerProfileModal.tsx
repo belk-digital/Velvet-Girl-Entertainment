@@ -204,28 +204,28 @@ export default function PerformerProfileModal({
             </div>
           </div>
 
-          {/* Action Footer */}
-          <div className="mt-8 pt-6 border-t border-stone-200/80 flex flex-col sm:flex-row items-center gap-3">
+          {/* Action Footer - Stacked full-width buttons to prevent text wrapping and squished ovals */}
+          <div className="mt-8 pt-6 border-t border-stone-200/80 flex flex-col gap-2.5 w-full">
             <a
               href="tel:8439387377"
-              className="w-full sm:w-auto flex-1 inline-flex items-center justify-center gap-2 bg-[#740107] hover:bg-[#5c0911] text-white px-5 py-3.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all duration-300 shadow-md hover:shadow-lg"
+              className="w-full inline-flex items-center justify-center gap-2.5 bg-[#740107] hover:bg-[#5c0911] text-white px-6 py-3.5 rounded-full text-xs sm:text-sm font-bold uppercase tracking-wider transition-all duration-300 shadow-md hover:shadow-lg hover:scale-[1.01] whitespace-nowrap"
             >
-              <Phone className="w-4 h-4" />
-              <span>Call: (843) 938-7377</span>
+              <Phone className="w-4 h-4 shrink-0" />
+              <span>CALL: (843) 938-7377</span>
             </a>
             <a
               href={`sms:8439387377?body=Hi, I would like to book ${performer.name} in ${performer.city || performer.location}`}
-              className="flex-1 min-w-[150px] inline-flex items-center justify-center gap-2 bg-stone-900 hover:bg-black text-white px-5 py-3.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all duration-300 shadow-md hover:shadow-lg"
+              className="w-full inline-flex items-center justify-center gap-2.5 bg-stone-900 hover:bg-black text-white px-6 py-3.5 rounded-full text-xs sm:text-sm font-bold uppercase tracking-wider transition-all duration-300 shadow-md hover:shadow-lg hover:scale-[1.01] whitespace-nowrap"
             >
-              <MessageSquare className="w-4 h-4 text-[#C5A880]" />
-              <span>Text VIP To Book</span>
+              <MessageSquare className="w-4 h-4 text-[#C5A880] shrink-0" />
+              <span>TEXT VIP TO BOOK</span>
             </a>
             <Link
               href={`/book-now?performer=${performer.slug || performer.id}`}
               onClick={onClose}
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 border border-stone-300 bg-white hover:bg-stone-50 text-stone-800 px-5 py-3.5 rounded-full text-xs font-bold uppercase tracking-wider transition-colors"
+              className="w-full inline-flex items-center justify-center gap-2.5 border border-stone-300 bg-white hover:bg-stone-50 text-stone-800 px-6 py-3.5 rounded-full text-xs sm:text-sm font-bold uppercase tracking-wider transition-all duration-300 shadow-sm hover:shadow-md hover:scale-[1.01] whitespace-nowrap"
             >
-              <span>Book Online Form</span>
+              <span>BOOK ONLINE FORM</span>
             </Link>
           </div>
         </div>

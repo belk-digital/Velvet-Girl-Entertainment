@@ -277,9 +277,8 @@ export default function AboutPage() {
 
       {/* Signature Crimson Velvet Curtains Transition */}
       <VelvetCurtains variant="bottom" />
-      <FaqSection />
-
       <CtaSection />
+      <FaqSection />
     </>
   );
 }

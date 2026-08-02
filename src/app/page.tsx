@@ -100,8 +100,8 @@ export default function Home() {
       <CitiesSection />
       <Reviews />
       <ShowcaseGallery />
+      <CtaSection />
       <FaqSection />
-      {/* <CtaSection /> */}
     </>
   );
 }

@@ -50,21 +50,21 @@ export default function ShowcaseGallery() {
   }, { scope: containerRef });
 
   return (
-    <section ref={containerRef} className="w-full bg-white relative py-12 md:py-20 font-sans border-t border-black/10 overflow-hidden">
+    <section ref={containerRef} className="w-full bg-[#740106] text-white relative py-12 md:py-20 font-sans border-t border-white/10 overflow-hidden">
       
       {/* Top Header Section */}
       <div className="w-full max-w-[120rem] mx-auto px-6 lg:px-12 mb-12 md:mb-16 flex flex-col md:flex-row md:items-end justify-between gap-6">
         <div>
-          <p className="text-xs md:text-sm font-bold uppercase tracking-widest text-[#740107] mb-3">
+          <p className="text-xs md:text-sm font-bold uppercase tracking-widest text-[#C5A880] mb-3">
             GALLERY
           </p>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-black leading-tight mb-4 sm:whitespace-nowrap">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-tight mb-4 sm:whitespace-nowrap">
             Real Moments,{" "}
-            <span className="bg-gradient-to-r from-[#900609] via-[#740107] to-[#4a0004] bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-white via-stone-200 to-stone-400 bg-clip-text text-transparent">
               No Filters
             </span>
           </h2>
-          <p className="text-black/65 text-base md:text-lg max-w-xl font-body">
+          <p className="text-white/80 text-base md:text-lg max-w-xl font-body">
             Welcome to our exclusive gallery. Take a look behind the scenes and explore a curated collection of our finest moments.
           </p>
         </div>
@@ -89,7 +89,7 @@ export default function ShowcaseGallery() {
                   {/* Special Overlay for the Last Image */}
                   {isLast && (
                     <>
-                      <div className="absolute inset-0 bg-[#740107] mix-blend-multiply opacity-70 group-hover:opacity-90 transition-opacity duration-500"></div>
+                      <div className="absolute inset-0 bg-black/75 group-hover:bg-black/90 transition-colors duration-500"></div>
                       <div className="relative z-20 flex flex-col items-center justify-center text-center">
                         <span className="text-white text-3xl md:text-5xl font-black uppercase tracking-widest drop-shadow-lg">
                           View Full
@@ -129,23 +129,23 @@ export default function ShowcaseGallery() {
       <div className="w-full max-w-[1800px] mx-auto px-4 flex flex-col md:flex-row items-center justify-between mt-12 pb-8 gap-8">
         
         <div className="flex items-center gap-6 self-start md:self-auto w-full md:w-auto">
-          <button className="bg-[#740107] text-white w-14 h-14 md:w-16 md:h-16 flex items-center justify-center hover:bg-black hover:text-white transition-colors shrink-0">
+          <button className="bg-white text-[#740106] w-14 h-14 md:w-16 md:h-16 flex items-center justify-center hover:bg-black hover:text-white transition-colors shrink-0">
             <ArrowLeft className="w-5 h-5 md:w-6 md:h-6" strokeWidth={2.5} />
           </button>
-          <span className="text-black/60 tracking-[0.2em] text-xs md:text-sm font-medium">VELVET GIRLS</span>
+          <span className="text-white/80 tracking-[0.2em] text-xs md:text-sm font-medium">VELVET GIRLS</span>
         </div>
 
         <div className="flex-1 w-full max-w-lg items-center px-4 hidden md:flex">
-          <div className="h-[2px] bg-black/10 w-full relative">
-            <div className="absolute top-0 left-0 h-full bg-black/70 w-1/3 transition-all duration-500"></div>
+          <div className="h-[2px] bg-white/20 w-full relative">
+            <div className="absolute top-0 left-0 h-full bg-white/80 w-1/3 transition-all duration-500"></div>
           </div>
         </div>
 
         <div className="flex items-center justify-between w-full md:w-auto gap-6 self-end md:self-auto">
-          <span className="text-black/60 tracking-[0.2em] text-xs md:text-sm font-medium">{new Date().getFullYear()}</span>
+          <span className="text-white/80 tracking-[0.2em] text-xs md:text-sm font-medium">{new Date().getFullYear()}</span>
           <Link
             href="/gallery"
-            className="border-2 border-black/20 rounded-full w-12 h-12 md:w-14 md:h-14 flex items-center justify-center text-black hover:bg-black hover:text-white hover:border-black transition-colors shrink-0"
+            className="border-2 border-white/30 rounded-full w-12 h-12 md:w-14 md:h-14 flex items-center justify-center text-white hover:bg-white hover:text-[#740106] hover:border-white transition-colors shrink-0"
             aria-label="View full gallery"
           >
             <ArrowUpRight className="w-5 h-5" strokeWidth={2} />

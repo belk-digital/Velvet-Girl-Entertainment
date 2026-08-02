@@ -205,9 +205,8 @@ export default async function CityPage({ params }: Props) {
       )}
 
       <VelvetCurtains variant="bottom" />
-      <FaqSection items={cityData.faqs} title={`${cityData.name} FAQ`} />
-
       <CtaSection />
+      <FaqSection items={cityData.faqs} title={`${cityData.name} FAQ`} />
     </>
   );
 }

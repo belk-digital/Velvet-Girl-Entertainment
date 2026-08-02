@@ -1,27 +1,27 @@
 import type { Metadata } from "next";
-import GalleryContent from "@/components/gallery/GalleryContent";
+import PhotoGalleryContent from "@/components/gallery/PhotoGalleryContent";
 import FaqSection from "@/components/home/FaqSection";
 import CtaSection from "@/components/home/CtaSection";
 import { performers } from "@/data/performers";
 
 export const metadata: Metadata = {
-  title: "Gallery | Real Performer Photos | Velvet Girl Entertainment",
+  title: "Gallery | VIP Photo Portfolio | Velvet Girl Entertainment",
   description:
-    "Browse real, unedited photos of verified performers available for booking. Filter by city, see ratings and specialties, and book with confidence — no bait-and-switch.",
+    "Explore our exclusive VIP photo portfolio featuring authentic, unedited moments from luxury bachelor parties, private events, and costumes.",
   alternates: {
     canonical: "/gallery",
   },
   openGraph: {
-    title: "Gallery | Real Performer Photos | Velvet Girl Entertainment",
+    title: "Gallery | VIP Photo Portfolio | Velvet Girl Entertainment",
     description:
-      "Browse real, unedited photos of verified performers available for booking, filterable by city.",
+      "Explore our exclusive VIP photo portfolio featuring authentic, unedited moments from luxury gatherings.",
     url: "/gallery",
   },
   twitter: {
     card: "summary",
     title: "Gallery | Velvet Girl Entertainment",
     description:
-      "Real, unedited photos of verified performers available for booking, filterable by city.",
+      "Authentic, unedited moments from luxury bachelor parties and private events.",
   },
 };
 
@@ -99,14 +99,14 @@ export default function GalleryPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
-      {/* Complete Editorial Reference Design Gallery Section (Hero + Filter Bars + Grid + Curtains) */}
-      <GalleryContent />
-
-      {/* Signature Crimson FAQ Section with Seamless Transition */}
-      <FaqSection items={galleryFaqs} title="Gallery FAQ" hideBorder={true} />
+      {/* Complete Editorial Reference Design Photo Gallery Section */}
+      <PhotoGalleryContent />
 
       {/* Call to Action Section */}
       <CtaSection />
+
+      {/* Signature Crimson FAQ Section with Seamless Transition */}
+      <FaqSection items={galleryFaqs} title="Gallery FAQ" hideBorder={true} />
     </main>
   );
 }

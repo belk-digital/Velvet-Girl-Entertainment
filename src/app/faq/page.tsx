@@ -21,8 +21,8 @@ export default function FaqPage() {
         bgImage="/gallery images/GALLERY(2).webp"
       />
       <VelvetCurtains variant="bottom" />
-      <FaqSection items={faqs} theme="crimson" />
       <CtaSection />
+      <FaqSection items={faqs} theme="crimson" />
     </>
   );
 }

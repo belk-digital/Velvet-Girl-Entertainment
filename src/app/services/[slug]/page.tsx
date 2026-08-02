@@ -177,9 +177,8 @@ export default async function ServiceDetailPage({ params }: Props) {
       </Section>
 
       <VelvetCurtains variant="bottom" />
-      <FaqSection items={service.faqs} title={`${service.title} FAQ`} />
-
       <CtaSection />
+      <FaqSection items={service.faqs} title={`${service.title} FAQ`} />
     </>
   );
 }

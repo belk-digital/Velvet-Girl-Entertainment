@@ -354,6 +354,8 @@
   display: flex;
   flex-wrap: wrap;
   gap: 1rem 1.25rem;
+  margin-top: auto;
+  padding-top: 2rem;
 }
 
 .mldm_footer_link {

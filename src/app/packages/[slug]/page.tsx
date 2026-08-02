@@ -95,9 +95,8 @@ export default async function PackageThemeDetailPage({ params }: Props) {
       </Section>
 
       <VelvetCurtains variant="bottom" />
-      <FaqSection />
-
       <CtaSection />
+      <FaqSection />
     </>
   );
 }

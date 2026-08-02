@@ -586,33 +586,6 @@ export default function MultiLevelDrawerMenu({ primaries, onOpenChange }: MultiL
               </ul>
             </nav>
 
-            <div className="mldm_cards">
-              <Link
-                ref={(el) => {
-                  cardRefs.current[0] = el;
-                }}
-                className="mldm_card mldm_card_image"
-                href="/performers"
-                onClick={closeMenu}
-              >
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src="https://res.cloudinary.com/denskvdyt/image/upload/v1784624323/KIMMI_K__ycd6mq.webp" alt="View all models" className="mldm_card_bg" />
-                <span className="mldm_card_text">View all models</span>
-              </Link>
-              <Link
-                ref={(el) => {
-                  cardRefs.current[1] = el;
-                }}
-                className="mldm_card mldm_card_image"
-                href="/services"
-                onClick={closeMenu}
-              >
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src="https://res.cloudinary.com/denskvdyt/image/upload/v1784625942/kimi-about-image_w6t4qm.webp" alt="View services" className="mldm_card_bg" />
-                <span className="mldm_card_text">View services</span>
-              </Link>
-            </div>
-
             <nav className="mldm_footer_nav" aria-label="Legal">
               {secondaryLinks.map((link, i) => (
                 <Link

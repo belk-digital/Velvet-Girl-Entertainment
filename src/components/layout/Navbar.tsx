@@ -27,6 +27,7 @@ const primaries: DrawerPrimary[] = [
       href: `/cities/${c.stateSlug}/${c.slug}`,
     })),
   },
+  { id: "girls", label: "Girls", href: "/girls" },
   { id: "gallery", label: "Gallery", href: "/gallery" },
   { id: "join-team", label: "Join Our Team", href: "/join-team" },
   { id: "blog", label: "Blog", href: "/blog" },
@@ -72,42 +73,34 @@ export default function Navbar() {
           <div className="hidden md:flex items-center gap-6 lg:gap-8 mr-2 lg:mr-4">
             <Link
               href="/"
-              className="font-heading text-sm font-bold uppercase tracking-wider text-black/85 hover:text-[#740107] transition-colors"
+              className="font-heading text-sm font-semibold uppercase tracking-wider text-black/85 hover:text-[#740107] transition-colors"
             >
               Home
             </Link>
             <Link
               href="/about"
-              className="font-heading text-sm font-bold uppercase tracking-wider text-black/85 hover:text-[#740107] transition-colors"
+              className="font-heading text-sm font-semibold uppercase tracking-wider text-black/85 hover:text-[#740107] transition-colors"
             >
               About
             </Link>
             <Link
+              href="/girls"
+              className="font-heading text-sm font-semibold uppercase tracking-wider text-black/85 hover:text-[#740107] transition-colors"
+            >
+              Girls
+            </Link>
+            <Link
               href="/gallery"
-              className="font-heading text-sm font-bold uppercase tracking-wider text-black/85 hover:text-[#740107] transition-colors"
+              className="font-heading text-sm font-semibold uppercase tracking-wider text-black/85 hover:text-[#740107] transition-colors"
             >
               Gallery
             </Link>
             <Link
               href="/services"
-              className="font-heading text-sm font-bold uppercase tracking-wider text-black/85 hover:text-[#740107] transition-colors"
+              className="font-heading text-sm font-semibold uppercase tracking-wider text-black/85 hover:text-[#740107] transition-colors"
             >
               Services
             </Link>
-
-            {/* VIP Direct Call & Text Pills in Navbar */}
-            <a
-              href="tel:8439387377"
-              className="hidden lg:inline-flex items-center gap-1.5 bg-[#740107] hover:bg-[#5c0911] text-white px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wider shadow-sm transition-all duration-300"
-            >
-              <span>Call: (843) 938-7377</span>
-            </a>
-            <a
-              href="sms:8439387377"
-              className="hidden lg:inline-flex items-center gap-1.5 bg-stone-900 hover:bg-black text-white px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wider shadow-sm transition-all duration-300"
-            >
-              <span>Text Us</span>
-            </a>
           </div>
 
           <div className="ml-2 sm:ml-4">

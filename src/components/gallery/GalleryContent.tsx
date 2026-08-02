@@ -150,7 +150,7 @@ export default function GalleryContent() {
               className="font-display text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-extrabold tracking-tight text-[#740107] mb-6 drop-shadow-sm"
               style={{ fontFamily: "var(--font-display)" }}
             >
-              GALLERY
+              GIRLS
             </h1>
 
             {/* Subtitle */}

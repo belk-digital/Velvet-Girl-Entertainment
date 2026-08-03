@@ -123,6 +123,7 @@ const jsonLd = {
       "@id": "https://velvetgirlentertainment.com/#organization",
       name: "Velvet Girl Entertainment",
       url: "https://velvetgirlentertainment.com/",
+      sameAs: ["https://www.instagram.com/velvetgirlentertainment"],
       contactPoint: {
         "@type": "ContactPoint",
         telephone: "+1-843-938-7377",

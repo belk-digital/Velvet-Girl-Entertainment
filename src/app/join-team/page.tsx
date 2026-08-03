@@ -103,6 +103,7 @@ const jsonLd = {
       "@id": "https://velvetgirlentertainment.com/#organization",
       name: "Velvet Girl Entertainment",
       url: "https://velvetgirlentertainment.com/",
+      sameAs: ["https://www.instagram.com/velvetgirlentertainment"],
     },
     {
       "@type": "FAQPage",

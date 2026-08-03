@@ -69,6 +69,7 @@ const jsonLd = {
       "@id": "https://velvetgirlentertainment.com/#organization",
       name: "Velvet Girl Entertainment",
       url: "https://velvetgirlentertainment.com/",
+      sameAs: ["https://www.instagram.com/velvetgirlentertainment"],
       areaServed: stateGroups.flatMap((g) =>
         g.cities.map((c) => ({
           "@type": "City",

@@ -75,6 +75,7 @@ export default async function CityPage({ params }: Props) {
         name: `Velvet Girl Entertainment — ${cityData.name}`,
         url: pageUrl,
         description: cityData.content.intro,
+        sameAs: ["https://www.instagram.com/velvetgirlentertainment"],
         areaServed: {
           "@type": "City",
           name: cityData.name,

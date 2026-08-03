@@ -60,6 +60,7 @@ const jsonLd = {
       logo: `${siteUrl}/velvet-logo.png`,
       description:
         "Velvet Girl Entertainment books verified, professional entertainers for bachelor parties, birthdays, and private celebrations nationwide.",
+      sameAs: ["https://www.instagram.com/velvetgirlentertainment"],
       areaServed: cities.map((c) => ({
         "@type": "City",
         name: c.name,

@@ -58,6 +58,7 @@ const jsonLd = {
       url: "https://velvetgirlentertainment.com/",
       description:
         "Velvet Girl Entertainment books verified, professional entertainers for bachelor parties, birthdays, and private celebrations nationwide.",
+      sameAs: ["https://www.instagram.com/velvetgirlentertainment"],
       knowsAbout: [
         "Bachelor Party Entertainment",
         "Private Event Booking",

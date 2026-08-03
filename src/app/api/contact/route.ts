@@ -89,7 +89,7 @@ export async function POST(request: Request) {
       return NextResponse.json({
         success: true,
         message: "Message received and notification sent.",
-        data: { emailId: result?.data?.id || null, error: result.error || null },
+        data: { emailId: result?.data?.id || null },
       });
     }
 

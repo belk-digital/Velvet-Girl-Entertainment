@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useRef } from "react";
+import Image from "next/image";
 import {
   Search,
   ChevronRight,
@@ -122,11 +123,13 @@ export default function GalleryContent() {
       <section className="relative z-10 w-full overflow-hidden py-20 sm:py-28 md:py-36 border-b border-stone-200/80">
         {/* Full Background Image IMG_9368.webp */}
         <div className="absolute inset-0 z-0">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
+          <Image
             src={encodeURI("/gallery images/IMG_9368.webp")}
             alt="Velvet Girl Gallery Hero Background"
-            className="w-full h-full object-cover object-center"
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover object-center"
           />
           {/* Editorial overlay gradient to ensure high text contrast and luxury ivory/cream theme consistency */}
           <div className="absolute inset-0 bg-gradient-to-r from-[#FAF7F2] via-[#FAF7F2]/90 to-[#FAF7F2]/40" />

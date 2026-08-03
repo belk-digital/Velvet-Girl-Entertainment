@@ -4,6 +4,14 @@ import PageHero from "@/components/ui/PageHero";
 export const metadata: Metadata = {
   title: "Privacy Policy | Velvet Girl Entertainment",
   description: "How Velvet Girl Entertainment collects, uses, and protects your information.",
+  alternates: {
+    canonical: "/privacy",
+  },
+  openGraph: {
+    title: "Privacy Policy | Velvet Girl Entertainment",
+    description: "How Velvet Girl Entertainment collects, uses, and protects your information.",
+    url: "/privacy",
+  },
 };
 
 const h2 = "font-display text-2xl font-bold text-black";

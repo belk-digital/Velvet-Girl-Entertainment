@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import {
   Sparkles,
   Search,
@@ -318,10 +319,13 @@ export default function PhotoGalleryContent() {
       {/* HERO SECTION WITH FULL-WIDTH BACKGROUND IMAGE */}
       <section className="relative z-10 w-full overflow-hidden py-20 sm:py-28 md:py-36 border-b border-stone-200/80">
         <div className="absolute inset-0 z-0">
-          <img
+          <Image
             src={encodeURI("/gallery images/IMG_9368.webp")}
             alt="Velvet Girl Photo Gallery Hero Background"
-            className="w-full h-full object-cover object-center"
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover object-center"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-[#FAF7F2] via-[#FAF7F2]/90 to-[#FAF7F2]/40" />
           <div className="absolute inset-0 bg-gradient-to-t from-[#FAF7F2] via-[#FAF7F2]/40 to-transparent opacity-95" />
@@ -405,11 +409,12 @@ export default function PhotoGalleryContent() {
                 photo.aspect || "aspect-[3/4]"
               }`}
             >
-              <img
+              <Image
                 src={encodeURI(photo.src)}
                 alt={photo.title}
-                loading="lazy"
-                className="w-full h-full object-cover object-center group-hover:scale-110 transition-transform duration-700 ease-out"
+                fill
+                sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
+                className="object-cover object-center group-hover:scale-110 transition-transform duration-700 ease-out"
               />
 
               {/* Editorial Gradient Overlay */}
@@ -485,10 +490,12 @@ export default function PhotoGalleryContent() {
             className="relative max-w-5xl max-h-[80vh] w-full h-full flex items-center justify-center"
             onClick={(e) => e.stopPropagation()}
           >
-            <img
+            <Image
               src={encodeURI(activePhoto.src)}
               alt={activePhoto.title}
-              className="max-w-full max-h-full object-contain rounded-xl shadow-2xl animate-in zoom-in-95 duration-300"
+              fill
+              sizes="(max-width: 1024px) 100vw, 1024px"
+              className="object-contain rounded-xl shadow-2xl animate-in zoom-in-95 duration-300"
             />
           </div>
 

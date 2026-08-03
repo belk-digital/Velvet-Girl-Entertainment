@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import GalleryContent from "@/components/gallery/GalleryContent";
 import FaqSection from "@/components/home/FaqSection";
 import CtaSection from "@/components/home/CtaSection";
+import { performers } from "@/data/performers";
 
 export const metadata: Metadata = {
   title: "Girls | Real Performer Profiles | Velvet Girl Entertainment",
@@ -47,9 +48,64 @@ const girlsFaqs = [
   },
 ];
 
+const pageUrl = "https://velvetgirlentertainment.com/girls";
+const girlsPerformers = performers.slice(0, 16);
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "CollectionPage",
+      "@id": `${pageUrl}/#webpage`,
+      url: pageUrl,
+      name: "Girls | Real Performer Profiles | Velvet Girl Entertainment",
+      description:
+        "Browse real, unedited photos of verified performers available for booking, filterable by city.",
+      inLanguage: "en-US",
+    },
+    {
+      "@type": "ItemList",
+      "@id": `${pageUrl}/#itemList`,
+      name: "Velvet Girl Entertainment Performer Roster",
+      itemListElement: girlsPerformers.map((p, i) => ({
+        "@type": "ListItem",
+        position: i + 1,
+        item: {
+          "@type": "Person",
+          name: p.name,
+          image: p.image.startsWith("http")
+            ? p.image
+            : `https://velvetgirlentertainment.com${p.image}`,
+          jobTitle: p.title,
+        },
+      })),
+    },
+    {
+      "@type": "FAQPage",
+      mainEntity: girlsFaqs.map(({ question, answer }) => ({
+        "@type": "Question",
+        name: question,
+        acceptedAnswer: { "@type": "Answer", text: answer },
+      })),
+    },
+    {
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "Home", item: "https://velvetgirlentertainment.com" },
+        { "@type": "ListItem", position: 2, name: "Girls", item: pageUrl },
+      ],
+    },
+  ],
+};
+
 export default function GirlsPage() {
   return (
     <main className="min-h-screen bg-[#FAF7F2]">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+
       {/* Complete Editorial Reference Design Performers Section (Hero + Filter Bars + Grid + Curtains) */}
       <GalleryContent />
 

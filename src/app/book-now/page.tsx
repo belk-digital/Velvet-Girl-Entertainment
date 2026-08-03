@@ -10,6 +10,12 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/book-now",
   },
+  openGraph: {
+    title: "Book Now — Onboarding | Velvet Girl Entertainment",
+    description:
+      "Let's plan your perfect night. Answer a few quick questions to create an unforgettable entertainment experience.",
+    url: "/book-now",
+  },
 };
 
 export default function BookNowPage() {

@@ -25,11 +25,22 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const service = getServiceBySlug(slug);
   if (!service) return {};
+  const title = `${service.title} | Velvet Girl Entertainment`;
   return {
-    title: `${service.title} | Velvet Girl Entertainment`,
+    title,
     description: service.heroDescription,
     alternates: {
       canonical: `/services/${service.slug}`,
+    },
+    openGraph: {
+      title,
+      description: service.heroDescription,
+      url: `https://velvetgirlentertainment.com/services/${service.slug}`,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description: service.heroDescription,
     },
   };
 }

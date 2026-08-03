@@ -17,13 +17,14 @@ export async function GET() {
   );
   lines.push("");
   lines.push(
-    "Key facts: verified performer roster, real unedited photos guaranteed, phone/text/online booking, deposit secures a date, 24/7 concierge, service area currently spans several U.S. states with new cities added regularly."
+    "Key facts: verified performer roster, real unedited photos guaranteed, phone/text/online booking, deposit secures a date, 24/7 concierge, booking line (843) 938-7377, service area currently spans 8 U.S. cities (Charleston, Myrtle Beach, Charlotte, Savannah, Atlanta, Miami, Orlando/Daytona Beach, Indianapolis) with new cities added regularly."
   );
   lines.push("");
 
   lines.push("## Core Pages");
   lines.push(`- [Home](${siteUrl}/): Overview of the agency and booking process.`);
   lines.push(`- [About](${siteUrl}/about): Company background, booking standards, and privacy commitment.`);
+  lines.push(`- [Girls](${siteUrl}/girls): Browse real, unedited performer profiles, filterable by city.`);
   lines.push(`- [Gallery](${siteUrl}/gallery): Real, unedited photos of verified performers, filterable by city.`);
   lines.push(`- [Services](${siteUrl}/services): All event types we book entertainment for.`);
   lines.push(`- [Packages](${siteUrl}/packages): Themed party packages with costumes and upgrades.`);

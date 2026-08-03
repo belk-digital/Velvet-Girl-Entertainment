@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 
 import { ArrowLeft, ArrowUpRight } from "lucide-react";
 import { useRef } from "react";
@@ -58,7 +59,7 @@ export default function ShowcaseGallery() {
           <p className="text-xs md:text-sm font-bold uppercase tracking-widest text-[#C5A880] mb-3">
             GALLERY
           </p>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-tight mb-4 sm:whitespace-nowrap">
+          <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-normal font-script tracking-normal text-white leading-tight mb-4">
             Real Moments,{" "}
             <span className="bg-gradient-to-r from-white via-stone-200 to-stone-400 bg-clip-text text-transparent">
               No Filters
@@ -80,10 +81,12 @@ export default function ShowcaseGallery() {
               const isLast = idx === images.length - 1;
               const cardContent = (
                 <>
-                  <img 
-                    src={src} 
-                    alt={`Gallery ${idx + 1}`} 
-                    className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000 ease-out pointer-events-none" 
+                  <Image
+                    src={src}
+                    alt={`Real, unedited moment from a Velvet Girl Entertainment VIP event, photo ${idx + 1}`}
+                    fill
+                    sizes="(max-width: 640px) 80vw, (max-width: 768px) 450px, 550px"
+                    className="object-cover group-hover:scale-110 transition-transform duration-1000 ease-out pointer-events-none"
                   />
                   
                   {/* Special Overlay for the Last Image */}

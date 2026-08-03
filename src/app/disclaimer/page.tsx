@@ -5,6 +5,14 @@ import PageHero from "@/components/ui/PageHero";
 export const metadata: Metadata = {
   title: "18+ Disclaimer | Velvet Girl Entertainment",
   description: "This website is intended for adults 18 years of age or older.",
+  alternates: {
+    canonical: "/disclaimer",
+  },
+  openGraph: {
+    title: "18+ Disclaimer | Velvet Girl Entertainment",
+    description: "This website is intended for adults 18 years of age or older.",
+    url: "/disclaimer",
+  },
 };
 
 export default function DisclaimerPage() {

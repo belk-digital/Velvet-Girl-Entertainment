@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import Image from "next/image";
 import {
   User,
   Phone,
@@ -98,12 +99,13 @@ export default function Step11Review() {
                   key={p!.id}
                   className="flex items-center gap-3 p-3 rounded-xl border border-stone-200 bg-stone-50 shadow-sm"
                 >
-                  <div className="w-14 h-14 rounded-full overflow-hidden bg-stone-200 shrink-0 border-2 border-[#740107]/20">
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img
+                  <div className="relative w-14 h-14 rounded-full overflow-hidden bg-stone-200 shrink-0 border-2 border-[#740107]/20">
+                    <Image
                       src={p!.image}
                       alt={p!.name}
-                      className="w-full h-full object-cover object-top"
+                      fill
+                      sizes="56px"
+                      className="object-cover object-top"
                     />
                   </div>
                   <div className="min-w-0">

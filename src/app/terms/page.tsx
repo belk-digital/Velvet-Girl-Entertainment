@@ -5,6 +5,15 @@ export const metadata: Metadata = {
   title: "Terms of Service | Velvet Girl Entertainment",
   description:
     "The terms that govern use of this website and bookings made through Velvet Girl Entertainment.",
+  alternates: {
+    canonical: "/terms",
+  },
+  openGraph: {
+    title: "Terms of Service | Velvet Girl Entertainment",
+    description:
+      "The terms that govern use of this website and bookings made through Velvet Girl Entertainment.",
+    url: "/terms",
+  },
 };
 
 const h2 = "font-display text-2xl font-bold text-black";

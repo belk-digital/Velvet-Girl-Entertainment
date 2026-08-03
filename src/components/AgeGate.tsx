@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import Image from "next/image";
 import gsap from "gsap";
 import { ArrowRight, Check, Crown, Shield } from "lucide-react";
 
@@ -167,12 +168,14 @@ export default function AgeGate({ onVerified }: AgeGateProps) {
         muted
         playsInline
       />
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img
+      <Image
         ref={thumbnailRef}
         src={THUMBNAIL_URL}
         alt=""
-        className="absolute inset-0 h-full w-full object-cover opacity-0"
+        fill
+        priority
+        sizes="100vw"
+        className="object-cover opacity-0"
       />
       <div className="relative z-10 mx-4 w-full max-w-3xl sm:max-w-4xl">
         <div

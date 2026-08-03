@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { ShieldCheck, Lock, MapPin, ArrowRight } from "lucide-react";
 import PageHero from "@/components/ui/PageHero";
 import Section from "@/components/ui/Section";
@@ -108,11 +109,12 @@ export default function AboutPage() {
           {/* Luxury Editorial Photo Grid (.webp from gallery images) */}
           <div className="mt-12 grid grid-cols-1 sm:grid-cols-3 gap-6 pt-6 text-left">
             <div className="relative overflow-hidden rounded-2xl shadow-xl border border-stone-200/80 aspect-[4/5] group">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
+              <Image
                 src={encodeURI("/gallery images/BACHELOR PARTY_GUYS NIGHT.webp")}
                 alt="Bachelor Party VIP Entertainment"
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                fill
+                sizes="(max-width: 640px) 100vw, 33vw"
+                className="object-cover group-hover:scale-105 transition-transform duration-500"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
               <p className="absolute bottom-4 left-4 right-4 text-white text-xs font-bold uppercase tracking-wider">
@@ -120,11 +122,12 @@ export default function AboutPage() {
               </p>
             </div>
             <div className="relative overflow-hidden rounded-2xl shadow-xl border border-stone-200/80 aspect-[4/5] group">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
+              <Image
                 src={encodeURI("/gallery images/BREAKFAST WITH BABES.webp")}
                 alt="Breakfast With Babes Package"
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                fill
+                sizes="(max-width: 640px) 100vw, 33vw"
+                className="object-cover group-hover:scale-105 transition-transform duration-500"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
               <p className="absolute bottom-4 left-4 right-4 text-white text-xs font-bold uppercase tracking-wider">
@@ -132,11 +135,12 @@ export default function AboutPage() {
               </p>
             </div>
             <div className="relative overflow-hidden rounded-2xl shadow-xl border border-stone-200/80 aspect-[4/5] group">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
+              <Image
                 src={encodeURI("/gallery images/GAME DAY GIRLS.webp")}
                 alt="Game Day Girls Entertainment"
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                fill
+                sizes="(max-width: 640px) 100vw, 33vw"
+                className="object-cover group-hover:scale-105 transition-transform duration-500"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
               <p className="absolute bottom-4 left-4 right-4 text-white text-xs font-bold uppercase tracking-wider">

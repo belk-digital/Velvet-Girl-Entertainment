@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { Plus, Minus } from "lucide-react";
 import type { Faq } from "@/data/faqs";
 
@@ -111,14 +112,16 @@ export default function Accordion({
                     <div className="flex flex-col gap-6">
                       {showImage && (
                         <div
-                          className={`w-full max-w-sm aspect-video overflow-hidden ${
+                          className={`relative w-full max-w-sm aspect-video overflow-hidden ${
                             isCrimson ? "bg-white/10" : "bg-black/5"
                           }`}
                         >
-                          <img
+                          <Image
                             src={imageSrc}
-                            alt="FAQ visual"
-                            className="w-full h-full object-cover grayscale brightness-75 hover:grayscale-0 transition-all duration-700"
+                            alt=""
+                            fill
+                            sizes="384px"
+                            className="object-cover grayscale brightness-75 hover:grayscale-0 transition-all duration-700"
                           />
                         </div>
                       )}

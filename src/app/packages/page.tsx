@@ -13,6 +13,21 @@ export const metadata: Metadata = {
   title: "Packages | Velvet Girl Entertainment",
   description:
     "Browse our party themes and build your own custom package — pick a theme, costume, dancer count, and upgrades.",
+  alternates: {
+    canonical: "/packages",
+  },
+  openGraph: {
+    title: "Packages | Velvet Girl Entertainment",
+    description:
+      "Browse our party themes and build your own custom package — pick a theme, costume, dancer count, and upgrades.",
+    url: "/packages",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Packages | Velvet Girl Entertainment",
+    description:
+      "Browse our party themes and build your own custom package — pick a theme, costume, dancer count, and upgrades.",
+  },
 };
 
 export default function PackagesPage() {

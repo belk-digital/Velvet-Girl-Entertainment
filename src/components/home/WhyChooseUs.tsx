@@ -1,6 +1,7 @@
 "use client";
 
 import dynamic from "next/dynamic";
+import Image from "next/image";
 import {
   Award,
   CalendarCheck,
@@ -70,7 +71,7 @@ export default function WhyChooseUs() {
           <p className="text-xs md:text-sm font-bold uppercase tracking-widest text-white/70 mb-3">
             WHY US
           </p>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-tight mb-4">
+          <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-normal font-script tracking-normal text-white leading-tight mb-4">
             Why Choose <span className="text-white">Velvet Girls</span>
           </h2>
         </div>
@@ -97,10 +98,12 @@ export default function WhyChooseUs() {
 
           {/* Center Image */}
           <div className="order-3 lg:order-2 relative h-[450px] sm:h-[600px] lg:h-[750px] w-full lg:w-[450px] xl:w-[550px] mx-auto z-0 mt-4 lg:mt-0 lg:-mx-8 pointer-events-none self-end mb-0">
-             <img 
-                src="https://res.cloudinary.com/denskvdyt/image/upload/v1784623153/about-image_zwdvdt.webp" 
+             <Image
+                src="https://res.cloudinary.com/denskvdyt/image/upload/v1784623153/about-image_zwdvdt.webp"
                 alt="Why Choose Us Model"
-                className="w-full h-full object-contain object-bottom"
+                fill
+                sizes="(max-width: 1024px) 100vw, 550px"
+                className="object-contain object-bottom"
              />
           </div>
 

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { MapPin, ShieldCheck, ArrowRight, Plane } from "lucide-react";
 import PageHero from "@/components/ui/PageHero";
 import Section from "@/components/ui/Section";
@@ -177,11 +178,12 @@ export default function CitiesIndexPage() {
           {/* Destination Showcase Photo Grid (.webp) */}
           <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 gap-6 pt-6 text-left">
             <div className="relative overflow-hidden rounded-2xl shadow-xl border border-stone-200/80 aspect-[16/10] group">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
+              <Image
                 src={encodeURI("/gallery images/BEACH DAY PACKAGE OR BEACH CITY PAGE.webp")}
                 alt="Beach Day VIP Destination Package"
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                fill
+                sizes="(max-width: 640px) 100vw, 50vw"
+                className="object-cover group-hover:scale-105 transition-transform duration-500"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
               <p className="absolute bottom-4 left-4 right-4 text-white text-sm font-bold uppercase tracking-wider">
@@ -189,11 +191,12 @@ export default function CitiesIndexPage() {
               </p>
             </div>
             <div className="relative overflow-hidden rounded-2xl shadow-xl border border-stone-200/80 aspect-[16/10] group">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
+              <Image
                 src={encodeURI("/gallery images/BOAT_ POOL PARTY_.webp")}
                 alt="Boat and Pool Party Destinations"
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                fill
+                sizes="(max-width: 640px) 100vw, 50vw"
+                className="object-cover group-hover:scale-105 transition-transform duration-500"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
               <p className="absolute bottom-4 left-4 right-4 text-white text-sm font-bold uppercase tracking-wider">

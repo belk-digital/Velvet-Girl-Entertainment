@@ -15,13 +15,31 @@ export function generateStaticParams() {
   return blogPosts.map((p) => ({ slug: p.slug }));
 }
 
+const siteUrl = "https://velvetgirlentertainment.com";
+
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const post = getBlogPostBySlug(slug);
   if (!post) return {};
+  const title = `${post.title} | Velvet Girl Entertainment`;
   return {
-    title: `${post.title} | Velvet Girl Entertainment`,
+    title,
     description: post.excerpt,
+    alternates: {
+      canonical: `/blog/${post.slug}`,
+    },
+    openGraph: {
+      type: "article",
+      title,
+      description: post.excerpt,
+      url: `${siteUrl}/blog/${post.slug}`,
+      publishedTime: post.publishedAt,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description: post.excerpt,
+    },
   };
 }
 
@@ -46,9 +64,49 @@ export default async function BlogPostPage({ params }: Props) {
   if (!post) notFound();
 
   const bgImg = blogImages[post.slug] || "/gallery images/Velvet girl.webp";
+  const postUrl = `${siteUrl}/blog/${post.slug}`;
+
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BlogPosting",
+        "@id": `${postUrl}/#article`,
+        headline: post.title,
+        description: post.excerpt,
+        image: `${siteUrl}${encodeURI(bgImg)}`,
+        datePublished: post.publishedAt,
+        dateModified: post.publishedAt,
+        url: postUrl,
+        mainEntityOfPage: postUrl,
+        author: {
+          "@type": "Organization",
+          "@id": `${siteUrl}/#organization`,
+          name: "Velvet Girl Entertainment",
+        },
+        publisher: {
+          "@type": "Organization",
+          "@id": `${siteUrl}/#organization`,
+          name: "Velvet Girl Entertainment",
+        },
+      },
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Home", item: siteUrl },
+          { "@type": "ListItem", position: 2, name: "Blog", item: `${siteUrl}/blog` },
+          { "@type": "ListItem", position: 3, name: post.title, item: postUrl },
+        ],
+      },
+    ],
+  };
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <PageHero
         eyebrow={`${formatDate(post.publishedAt)} · ${post.readTime}`}
         title={post.title}

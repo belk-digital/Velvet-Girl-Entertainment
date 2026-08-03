@@ -88,6 +88,13 @@ const jsonLd = {
         acceptedAnswer: { "@type": "Answer", text: answer },
       })),
     },
+    {
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "Home", item: "https://velvetgirlentertainment.com" },
+        { "@type": "ListItem", position: 2, name: "Gallery", item: pageUrl },
+      ],
+    },
   ],
 };
 

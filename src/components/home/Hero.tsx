@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import gsap from "gsap";
 import { ArrowRight, Phone } from "lucide-react";
 
@@ -46,27 +47,29 @@ export default function Hero() {
   return (
     <div
       ref={rootRef}
-      className="relative overflow-hidden bg-white px-6 min-h-screen flex items-center justify-center pt-20 pb-16"
+      className="relative overflow-hidden bg-[#FBFAF8] px-6 min-h-screen flex items-center justify-center pt-20 pb-16"
     >
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img
+      <Image
         data-hero-bg
         src={HERO_IMAGE_URL}
         alt=""
-        className="absolute inset-0 h-full w-full object-cover opacity-0"
+        fill
+        priority
+        sizes="100vw"
+        className="object-cover opacity-0"
       />
-      <div className="absolute inset-0 bg-gradient-to-b from-white/75 via-white/50 to-white/90 pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-b from-[#FBFAF8]/75 via-[#FBFAF8]/50 to-[#FBFAF8]/90 pointer-events-none" />
 
       <div className="relative z-10 w-full max-w-[120rem] mx-auto text-left lg:px-6">
         <h1
           data-hero-heading
-          className="font-display text-5xl leading-tight text-black opacity-0 sm:text-6xl md:text-8xl drop-shadow-sm"
+          className="font-script font-normal text-5xl leading-[1.1] text-black opacity-0 sm:text-6xl md:text-7xl lg:text-8xl drop-shadow-sm"
         >
           Luxury Entertainment.
           <br />
           Professional Performers.
           <br />
-          <span className="font-script text-6xl text-[#740107] sm:text-7xl md:text-9xl mt-2 inline-block drop-shadow-sm">
+          <span className="font-script text-6xl text-[#740107] sm:text-7xl md:text-8xl lg:text-9xl mt-2 inline-block drop-shadow-sm">
             Nationwide.
           </span>
         </h1>

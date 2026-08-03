@@ -15,7 +15,7 @@ export default function CitiesSection() {
         <p className="text-xs md:text-sm font-bold uppercase tracking-widest text-white/70 mb-3">
           MARKETS WE SERVE
         </p>
-        <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-tight mb-4">
+        <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-normal font-script tracking-normal text-white leading-tight mb-4">
           Now Booking in{" "}
           <span className="text-white">
             {homeCities.length} Cities

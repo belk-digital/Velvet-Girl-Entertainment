@@ -71,24 +71,24 @@ export default function CtaSection() {
   return (
     <section
       ref={sectionRef}
-      className="relative overflow-hidden bg-white border-t border-b border-stone-100 pt-6 sm:pt-8 lg:pt-10 pb-12 sm:pb-16 lg:pb-20 font-sans"
+      className="relative overflow-hidden bg-[#FBFAF8] border-t border-b border-stone-100 pt-6 sm:pt-8 lg:pt-10 pb-12 sm:pb-16 lg:pb-20 font-sans"
     >
       <div className="w-full relative mx-auto max-w-[120rem] px-5 sm:px-6 lg:px-12 py-2 sm:py-4">
         <Reveal>
           <div className="grid grid-cols-1 md:grid-cols-12 items-center gap-8 md:gap-0 relative">
 
             {/* Left Column (col-span-6 = 0% to 50% width): Heading, Subtitle, and Booking CTA */}
-            <div className="md:col-span-6 xl:col-span-6 z-10 py-2 md:pr-8 lg:pr-12">
+            <div className="md:col-span-6 xl:col-span-6 z-30 relative py-2 md:pr-8 lg:pr-12">
               <h2
                 ref={headingRef}
-                className="font-display text-[26px] sm:text-3xl md:text-4xl lg:text-[40px] xl:text-[44px] text-stone-900 tracking-tight leading-[1.15] font-semibold"
+                className="font-sans font-bold text-[26px] sm:text-3xl md:text-4xl lg:text-[38px] xl:text-[42px] text-stone-900 tracking-tight leading-[1.2]"
               >
                 Ready to Plan <br />
-                <span className="font-script font-semibold text-[#740107] text-5xl sm:text-6xl md:text-7xl lg:text-[70px] leading-none block sm:inline my-1">
+                <span className="font-script font-normal text-[#740107] text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-none block sm:inline my-1">
                   Your Event?
                 </span>{" "}
                 <br />
-                <span className="whitespace-nowrap">Let&apos;s Make It Unforgettable.</span>
+                <span>Let&apos;s Make It Unforgettable.</span>
               </h2>
 
               <p
@@ -219,7 +219,7 @@ export default function CtaSection() {
       </div>
 
       {/* Tablet/Desktop Overlapping Woman Image - Elbow aligned with start of burgundy container */}
-      <div className="hidden md:block absolute bottom-0 left-1/2 -translate-x-[48%] lg:-translate-x-[50%] xl:-translate-x-[50%] w-[370px] lg:w-[450px] xl:w-[520px] 2xl:w-[580px] z-20 pointer-events-none select-none">
+      <div className="hidden md:block absolute bottom-0 left-1/2 -translate-x-[48%] lg:-translate-x-[50%] xl:-translate-x-[50%] w-[420px] lg:w-[500px] xl:w-[580px] 2xl:w-[650px] z-20 pointer-events-none select-none">
         <img
           src="/images/gallery/cta-girl-image.webp"
           alt="Velvet Girl Entertainer"

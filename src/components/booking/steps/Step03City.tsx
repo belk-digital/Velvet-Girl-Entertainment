@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useMemo } from "react";
+import Image from "next/image";
 import { MapPin, Star, Sparkles, Check, Eye } from "lucide-react";
 import { useBookingForm } from "@/hooks/useBookingForm";
 import StepLayout from "@/components/booking/StepLayout";
@@ -114,11 +115,12 @@ export default function Step03City() {
                   onClick={() => setSelectedModalPerformer(performer)}
                   className="relative aspect-[3/4] w-full overflow-hidden bg-stone-100 cursor-pointer"
                 >
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
+                  <Image
                     src={performer.image}
                     alt={performer.name}
-                    className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700"
+                    fill
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                    className="object-cover object-top group-hover:scale-105 transition-transform duration-700"
                   />
 
                   {/* Available Tonight Badge */}

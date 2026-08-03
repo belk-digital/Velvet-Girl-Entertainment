@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 
 interface PackageCardData {
@@ -56,7 +57,7 @@ export default function PackagesSection() {
   const [activeIdx, setActiveIdx] = useState(0);
 
   return (
-    <section className="w-full bg-[#f5f5f7] py-20 md:py-32 font-sans overflow-hidden">
+    <section className="w-full bg-[#FBFAF8] py-20 md:py-32 font-sans overflow-hidden">
       <div className="max-w-[120rem] mx-auto px-6 lg:px-12">
         {/* Top Header Bar */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12 md:mb-16">
@@ -64,7 +65,7 @@ export default function PackagesSection() {
             <p className="text-xs md:text-sm font-bold uppercase tracking-widest text-[#740107] mb-3">
               PACKAGES
             </p>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-black leading-tight mb-4 sm:whitespace-nowrap">
+            <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-normal font-script tracking-normal text-black leading-tight mb-4">
               Choose Your{" "}
               <span className="bg-gradient-to-r from-[#900609] via-[#740107] to-[#4a0004] bg-clip-text text-transparent">
                 Experience
@@ -87,7 +88,7 @@ export default function PackagesSection() {
         </div>
 
         {/* 4 Package Cards Accordion Grid (Reference style) */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-0 border border-black/10 bg-white divide-y sm:divide-y-0 sm:divide-x divide-black/10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-0 border border-black/10 bg-[#FBFAF8] divide-y sm:divide-y-0 sm:divide-x divide-black/10">
           {packageCards.map((pkg, idx) => {
             const isActive = activeIdx === idx;
             return (
@@ -98,7 +99,7 @@ export default function PackagesSection() {
                 className={`group relative flex flex-col justify-between p-6 sm:p-8 lg:p-10 transition-all duration-500 overflow-hidden cursor-pointer ${
                   isActive
                     ? "h-[380px] sm:h-[540px] lg:h-[680px] bg-black text-white shadow-2xl z-20"
-                    : "h-[120px] sm:h-[540px] lg:h-[680px] bg-white text-black hover:bg-black/[0.02]"
+                    : "h-[120px] sm:h-[540px] lg:h-[680px] bg-[#FBFAF8] text-black hover:bg-black/[0.02]"
                 }`}
               >
                 {/* Background Image for active card */}
@@ -109,10 +110,12 @@ export default function PackagesSection() {
                       : "-translate-y-full opacity-0"
                   }`}
                 >
-                  <img
+                  <Image
                     src={pkg.image}
                     alt={pkg.title}
-                    className="w-full h-full object-cover scale-105 transition-transform duration-700"
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 25vw"
+                    className="object-cover scale-105 transition-transform duration-700"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-black/30" />
                 </div>

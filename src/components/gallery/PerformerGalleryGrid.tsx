@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import Image from "next/image";
 import { Heart, MapPin, Star, ArrowRight, Sparkles } from "lucide-react";
 import Reveal from "@/components/ui/Reveal";
 import type { Performer } from "@/data/performers";
@@ -61,11 +62,12 @@ export default function PerformerGalleryGrid({
               >
                 {/* Top Image Area */}
                 <div className="relative aspect-[3/4] w-full overflow-hidden bg-stone-100">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
+                  <Image
                     src={performer.image}
                     alt={performer.name}
-                    className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700"
+                    fill
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                    className="object-cover object-top group-hover:scale-105 transition-transform duration-700"
                   />
 
                   {/* Top Left Badge: Available Tonight */}

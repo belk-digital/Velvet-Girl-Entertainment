@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 
 interface StatItem {
   number: string;
@@ -38,10 +39,12 @@ export default function VelvetDifference() {
     >
       {/* Full Section Background Image with Dark Overlay */}
       <div className="absolute inset-0 z-0 pointer-events-none">
-        <img
+        <Image
           src="/velvet-difference/real-results.jpg"
           alt="Real Results Background"
-          className="w-full h-full object-cover object-center"
+          fill
+          sizes="100vw"
+          className="object-cover object-center"
         />
         <div className="absolute inset-0 bg-black/75" />
       </div>
@@ -56,7 +59,7 @@ export default function VelvetDifference() {
                 THE VELVET DIFFERENCE
               </p>
             </div>
-            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-tight mb-6">
+            <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-normal font-script tracking-normal text-white leading-tight mb-6">
               Proven Results,
               <br />
               Better Outcomes

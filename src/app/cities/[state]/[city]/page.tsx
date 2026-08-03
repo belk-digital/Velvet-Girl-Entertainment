@@ -26,11 +26,23 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { state, city } = await params;
   const cityData = getCityBySlug(state, city);
   if (!cityData) return {};
+  const title = `${cityData.name} Entertainment Booking | Velvet Girl Entertainment`;
+  const description = cityData.content.intro.slice(0, 155).trim() + "…";
   return {
-    title: `${cityData.name} Entertainment Booking | Velvet Girl Entertainment`,
-    description: cityData.content.intro.slice(0, 155).trim() + "…",
+    title,
+    description,
     alternates: {
       canonical: `/cities/${cityData.stateSlug}/${cityData.slug}`,
+    },
+    openGraph: {
+      title,
+      description,
+      url: `https://velvetgirlentertainment.com/cities/${cityData.stateSlug}/${cityData.slug}`,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
     },
   };
 }
@@ -59,7 +71,7 @@ export default async function CityPage({ params }: Props) {
     "@context": "https://schema.org",
     "@graph": [
       {
-        "@type": "EntertainmentBusiness",
+        "@type": "Organization",
         "@id": `${pageUrl}/#business`,
         name: `Velvet Girl Entertainment — ${cityData.name}`,
         url: pageUrl,

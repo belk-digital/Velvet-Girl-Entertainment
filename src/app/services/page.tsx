@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import {
   PartyPopper,
   Cake,
@@ -24,6 +25,21 @@ export const metadata: Metadata = {
   title: "Services | Velvet Girl Entertainment",
   description:
     "Explore every entertainment service offered by Velvet Girl Entertainment, from bachelor parties to corporate events.",
+  alternates: {
+    canonical: "/services",
+  },
+  openGraph: {
+    title: "Services | Velvet Girl Entertainment",
+    description:
+      "Explore every entertainment service offered by Velvet Girl Entertainment, from bachelor parties to corporate events.",
+    url: "/services",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Services | Velvet Girl Entertainment",
+    description:
+      "Explore every entertainment service offered by Velvet Girl Entertainment, from bachelor parties to corporate events.",
+  },
 };
 
 const icons: Record<string, LucideIcon> = {
@@ -74,11 +90,12 @@ export default function ServicesIndexPage() {
                 >
                   <div>
                     <div className="relative aspect-[16/10] w-full overflow-hidden bg-stone-900">
-                      {/* eslint-disable-next-line @next/next/no-img-element */}
-                      <img
+                      <Image
                         src={encodeURI(imgUrl)}
                         alt={service.title}
-                        className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
+                        fill
+                        sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                        className="object-cover transition-transform duration-700 group-hover:scale-110"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
                       <div className="absolute bottom-4 left-4 flex items-center gap-2 text-white">

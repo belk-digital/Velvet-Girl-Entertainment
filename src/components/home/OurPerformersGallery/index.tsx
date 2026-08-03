@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
+import Image from "next/image";
 import { ChevronLeft, ChevronRight, Star, MapPin, Heart, ShieldCheck, ArrowRight } from "lucide-react";
 import { performers } from "@/data/performers";
 import gsap from "gsap";
@@ -12,10 +13,12 @@ const PerformerCardContent = ({ performer, isActive }: { performer: any, isActiv
     isActive ? 'border-[#F90267] shadow-[0_0_30px_rgba(249,2,103,0.6),0_0_60px_rgba(249,2,103,0.2)]' : 'border-[#F90267]/30'
   } transition-all duration-300`}>
     {/* Full-bleed Image */}
-    <img
+    <Image
       src={performer.image}
       alt={performer.name}
-      className="absolute inset-0 w-full h-full object-cover object-top"
+      fill
+      sizes="(max-width: 640px) 90vw, 400px"
+      className="object-cover object-top"
     />
 
     {/* Dark gradient overlay */}

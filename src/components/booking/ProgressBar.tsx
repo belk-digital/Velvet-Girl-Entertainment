@@ -2,6 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { useBookingForm } from "@/hooks/useBookingForm";
 
@@ -37,10 +38,11 @@ export default function ProgressBar() {
 
       {/* Right: Velvet Girls Official Logo */}
       <Link href="/" className="flex items-center group">
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
+        <Image
           src="/velvet-logo.png"
           alt="Velvet Girl Entertainment"
+          width={120}
+          height={119}
           className="h-10 sm:h-12 w-auto group-hover:scale-105 transition-transform"
         />
       </Link>

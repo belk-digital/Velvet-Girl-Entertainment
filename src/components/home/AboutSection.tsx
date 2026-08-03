@@ -3,6 +3,7 @@
 import { useRef } from "react";
 import { ArrowRight, Lock, Gem, ShieldCheck, Crown, Clock } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
@@ -162,10 +163,12 @@ export default function AboutSection() {
 
               {/* Solid Pink Arch Background (Studio Gradient) */}
               <div className="relative w-[92%] aspect-[1/1.6] mx-auto mt-4 rounded-t-[500px] rounded-b-none bg-radial from-[#ff338f] via-[#d2165d] to-[#800040] flex justify-center shadow-inner">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
+                <Image
                   src={ABOUT_IMAGE_URL}
                   alt="Velvet Girl Model"
+                  width={800}
+                  height={1280}
+                  sizes="(max-width: 640px) 90vw, 500px"
                   className="absolute bottom-0 w-[145%] max-w-none h-auto object-contain object-bottom z-20 pointer-events-none drop-shadow-2xl"
                   style={{ transform: "translateY(1%)" }}
                 />

@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
+  --background: #FBFAF8;
   --foreground: #000000;
   --velvet-pink: #740107;
   --velvet-pink-hot: #740107;
@@ -19,6 +19,7 @@
   --font-display: var(--font-display-raw);
   --font-script: var(--font-script-raw);
   --font-body: var(--font-body-raw);
+  --font-sans: var(--font-body-raw);
 }
 
 body {

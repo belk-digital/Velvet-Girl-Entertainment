@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef, useCallback } from "react";
 import dynamic from "next/dynamic";
 import Link from "next/link";
+import Image from "next/image";
 import {
   Star,
   MapPin,
@@ -129,9 +130,9 @@ export default function PerformersCarousel() {
 
       {/* heading */}
       <div className="relative z-10 mb-8 sm:mb-12 text-center">
-        <h2 className="flex items-center justify-center gap-3 sm:gap-6 text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black tracking-widest text-white leading-tight uppercase font-display drop-shadow-[0_4px_20px_rgba(0,0,0,0.5)]">
+        <h2 className="flex items-center justify-center gap-3 sm:gap-6 text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-normal tracking-normal text-white leading-tight font-script drop-shadow-[0_4px_20px_rgba(0,0,0,0.5)]">
           <span className="text-3xl sm:text-5xl md:text-6xl text-white">✦</span>
-          <span>PERFORMERS</span>
+          <span>Our Performers</span>
           <span className="text-3xl sm:text-5xl md:text-6xl text-white">✦</span>
         </h2>
       </div>
@@ -276,11 +277,12 @@ function PerformerCard({ p, center, isMobile }: { p: Performer; center: boolean;
       }}
     >
       {/* Full-bleed image */}
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img
+      <Image
         src={p.image}
         alt={p.name}
-        className="absolute inset-0 h-full w-full object-cover object-top"
+        fill
+        sizes="(max-width: 640px) 90vw, 400px"
+        className="object-cover object-top"
         draggable={false}
       />
       {/* Dark gradient */}

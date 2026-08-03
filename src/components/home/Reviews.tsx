@@ -91,7 +91,7 @@ export default function Reviews() {
   };
 
   return (
-    <section ref={containerRef} className="w-full bg-white py-24 md:py-32 overflow-hidden border-t border-black/10">
+    <section ref={containerRef} className="w-full bg-[#FBFAF8] py-24 md:py-32 overflow-hidden border-t border-black/10">
       <div className="max-w-[120rem] mx-auto px-6 lg:px-12">
         
         {/* Header Section */}
@@ -100,7 +100,7 @@ export default function Reviews() {
             <p className="text-xs md:text-sm font-bold uppercase tracking-widest text-[#740107] mb-3">
               REVIEWS
             </p>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-black leading-tight mb-4 sm:whitespace-nowrap">
+            <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-normal font-script tracking-normal text-black leading-tight mb-4">
               What Our Clients{" "}
               <span className="bg-gradient-to-r from-[#900609] via-[#740107] to-[#4a0004] bg-clip-text text-transparent">
                 Say
@@ -135,7 +135,7 @@ export default function Reviews() {
             {extendedTestimonials.map((t, i) => (
               <div 
                 key={i} 
-                className="review-card w-[320px] sm:w-[380px] md:w-[450px] shrink-0 border border-black/10 bg-white shadow-lg p-8 md:p-12 flex flex-col justify-between min-h-[350px] hover:border-black/30 transition-colors duration-500"
+                className="review-card w-[320px] sm:w-[380px] md:w-[450px] shrink-0 border border-black/10 bg-[#FBFAF8] shadow-lg p-8 md:p-12 flex flex-col justify-between min-h-[350px] hover:border-black/30 transition-colors duration-500"
               >
                 <div className="mb-12">
                   <div className="inline-flex items-center gap-3 border border-black/20 rounded-full px-5 py-2 mb-8">

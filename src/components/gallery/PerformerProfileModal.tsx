@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 import Link from "next/link";
+import Image from "next/image";
 import {
   X,
   Star,
@@ -70,11 +71,12 @@ export default function PerformerProfileModal({
 
         {/* Left Side: Photo & Badges (5 cols) */}
         <div className="md:col-span-6 relative aspect-[3/4] md:aspect-auto md:h-full bg-stone-900 overflow-hidden">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
+          <Image
             src={performer.image}
             alt={performer.name}
-            className="w-full h-full object-cover"
+            fill
+            sizes="(max-width: 768px) 100vw, 50vw"
+            className="object-cover"
           />
 
           {/* Top Left Badges */}

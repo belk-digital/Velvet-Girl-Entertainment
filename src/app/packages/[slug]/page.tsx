@@ -20,13 +20,29 @@ export function generateStaticParams() {
   return packageThemes.map((t) => ({ slug: t.slug }));
 }
 
+const siteUrl = "https://velvetgirlentertainment.com";
+
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const theme = getPackageThemeBySlug(slug);
   if (!theme) return {};
+  const title = `${theme.name} Package | Velvet Girl Entertainment`;
   return {
-    title: `${theme.name} Package | Velvet Girl Entertainment`,
+    title,
     description: theme.heroDescription,
+    alternates: {
+      canonical: `/packages/${theme.slug}`,
+    },
+    openGraph: {
+      title,
+      description: theme.heroDescription,
+      url: `${siteUrl}/packages/${theme.slug}`,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description: theme.heroDescription,
+    },
   };
 }
 
@@ -35,8 +51,39 @@ export default async function PackageThemeDetailPage({ params }: Props) {
   const theme = getPackageThemeBySlug(slug);
   if (!theme) notFound();
 
+  const pageUrl = `${siteUrl}/packages/${theme.slug}`;
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Service",
+        "@id": `${pageUrl}/#service`,
+        name: `${theme.name} Package`,
+        description: theme.heroDescription,
+        url: pageUrl,
+        provider: {
+          "@type": "Organization",
+          "@id": `${siteUrl}/#organization`,
+          name: "Velvet Girl Entertainment",
+        },
+      },
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Home", item: siteUrl },
+          { "@type": "ListItem", position: 2, name: "Packages", item: `${siteUrl}/packages` },
+          { "@type": "ListItem", position: 3, name: `${theme.name} Package`, item: pageUrl },
+        ],
+      },
+    ],
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <PageHero
         eyebrow="PACKAGES"
         title={`${theme.name} Package`}

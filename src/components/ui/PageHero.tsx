@@ -1,6 +1,7 @@
 "use client";
 
 import { ReactNode } from "react";
+import Image from "next/image";
 import { Phone, MessageSquare } from "lucide-react";
 import VelvetCurtains from "@/components/gallery/VelvetCurtains";
 
@@ -42,11 +43,13 @@ export default function PageHero({
       {/* Widescreen Background Photo from gallery images (.webp) */}
       {bgImage && (
         <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
+          <Image
             src={encodeURI(bgImage)}
             alt=""
-            className="w-full h-full object-cover object-center opacity-40 md:opacity-50 scale-105"
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover object-center opacity-40 md:opacity-50 scale-105"
           />
           {/* Editorial Ivory Cream Gradients */}
           <div className="absolute inset-0 bg-gradient-to-r from-[#FAF7F2] via-[#FAF7F2]/90 to-[#FAF7F2]/30" />

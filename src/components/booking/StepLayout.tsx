@@ -51,11 +51,12 @@ export default function StepLayout({
         <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
           {/* Positioned on the right side of the screen - taking up 60% of width on large screens */}
           <div className="absolute right-0 top-0 bottom-0 w-full sm:w-3/4 md:w-2/3 lg:w-3/5 xl:w-[55%] h-full">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
+            <Image
               src={encodeURI(rightImage)}
               alt="Velvet Girl Hero"
-              className="w-full h-full object-cover object-top sm:object-center opacity-95"
+              fill
+              sizes="(max-width: 640px) 100vw, 55vw"
+              className="object-cover object-top sm:object-center opacity-95"
             />
             {/* Smooth left-edge gradient so the photo dissolves into the cream #FAF7F2 background without a harsh border */}
             <div className="absolute inset-y-0 left-0 w-32 sm:w-48 bg-gradient-to-r from-[#FAF7F2] via-[#FAF7F2]/80 to-transparent" />

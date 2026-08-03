@@ -27,7 +27,7 @@ export default function FaqSection({
       } ${
         isCrimson
           ? `bg-[#740107] ${hideBorder ? "" : "border-white/10"}`
-          : `bg-white ${hideBorder ? "" : "border-black/10"}`
+          : `bg-[#FBFAF8] ${hideBorder ? "" : "border-black/10"}`
       }`}
     >
       <div className="max-w-[120rem] mx-auto">
@@ -41,7 +41,7 @@ export default function FaqSection({
             {eyebrow}
           </p>
           <h2
-            className={`text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-tight mb-4 ${
+            className={`text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-normal font-script tracking-normal leading-tight mb-4 ${
               isCrimson ? "text-white" : "text-black"
             }`}
           >

@@ -1,13 +1,57 @@
 "use client";
 
 import Link from "next/link";
+import { useEffect, useRef } from "react";
 import { cities, featuredCitySlugs } from "@/data/cities";
 
 const homeCities = featuredCitySlugs
   .map((slug) => cities.find((c) => c.slug === slug))
   .filter((c): c is NonNullable<typeof c> => Boolean(c));
 
+const SPIN_DURATION_MS = 25000;
+const MAX_BLUR_PX = 5;
+
 export default function CitiesSection() {
+  const containerRef = useRef<HTMLDivElement | null>(null);
+  const itemRefs = useRef<(HTMLDivElement | null)[]>([]);
+
+  useEffect(() => {
+    let rafId: number;
+    const start = performance.now();
+
+    const tick = (now: number) => {
+      const elapsed = now - start;
+      const baseRotation = -((elapsed / SPIN_DURATION_MS) * 360) % 360;
+
+      if (containerRef.current) {
+        containerRef.current.style.transform = `rotateY(${baseRotation}deg)`;
+      }
+
+      homeCities.forEach((city, i) => {
+        const el = itemRefs.current[i];
+        if (!el) return;
+
+        const itemAngle = (360 / homeCities.length) * i;
+        let current = (itemAngle + baseRotation) % 360;
+        if (current > 180) current -= 360;
+        if (current < -180) current += 360;
+
+        // frontFactor: 1 = facing the viewer, -1 = facing directly away
+        const frontFactor = Math.cos((current * Math.PI) / 180);
+        const blur = ((1 - frontFactor) / 2) * MAX_BLUR_PX;
+        const opacity = 0.55 + 0.45 * ((frontFactor + 1) / 2);
+
+        el.style.filter = `blur(${blur.toFixed(2)}px)`;
+        el.style.opacity = `${opacity.toFixed(2)}`;
+      });
+
+      rafId = requestAnimationFrame(tick);
+    };
+
+    rafId = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(rafId);
+  }, []);
+
   return (
     <section className="w-full bg-[#740107] py-20 md:py-32 font-sans border-t border-black/10 overflow-hidden flex flex-col items-center">
       
@@ -41,33 +85,30 @@ export default function CitiesSection() {
         @media (min-width: 1280px) {
           .cities-carousel { --carousel-radius: 700px; }
         }
-        
-        @keyframes spin3d-cities {
-          from { transform: rotateY(0deg); }
-          to { transform: rotateY(-360deg); }
-        }
       `}} />
-      
+
       {/* 3D Carousel Wrapper */}
-      <div 
-        className="cities-carousel relative w-full h-[250px] md:h-[400px] flex items-center justify-center pointer-events-none" 
-        style={{ 
+      <div
+        className="cities-carousel relative w-full h-[250px] md:h-[400px] flex items-center justify-center pointer-events-none"
+        style={{
           perspective: '1200px',
           maskImage: 'linear-gradient(to right, transparent, #740107 15%, #740107 85%, transparent)',
           WebkitMaskImage: 'linear-gradient(to right, transparent, #740107 15%, #740107 85%, transparent)'
         }}
       >
-        
-        {/* The rotating container */}
-        <div 
-          className="relative w-full h-full flex items-center justify-center pointer-events-auto" 
-          style={{ transformStyle: 'preserve-3d', animation: 'spin3d-cities 25s linear infinite' }}
+
+        {/* The rotating container (rotation driven via rAF in useEffect) */}
+        <div
+          ref={containerRef}
+          className="relative w-full h-full flex items-center justify-center pointer-events-auto"
+          style={{ transformStyle: 'preserve-3d' }}
         >
           {homeCities.map((city, i) => {
             const angle = (360 / homeCities.length) * i;
             return (
               <div
                 key={city.slug}
+                ref={(el) => { itemRefs.current[i] = el; }}
                 className="absolute flex items-center justify-center origin-center"
                 style={{
                   transform: `rotateY(${angle}deg) translateZ(var(--carousel-radius))`,
@@ -76,10 +117,9 @@ export default function CitiesSection() {
               >
                 <Link
                   href={`/cities/${city.stateSlug}/${city.slug}`}
-                  className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black uppercase whitespace-nowrap text-white hover:text-white/70 transition-colors"
+                  className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-black uppercase whitespace-nowrap text-white hover:text-white/70 transition-colors"
                   style={{
-                    // Adding a slight text stroke to make the overlapping text pop
-                    WebkitTextStroke: '1px rgba(255,255,255,0.2)'
+                    textShadow: '0 2px 12px rgba(0,0,0,0.35)',
                   }}
                 >
                   {city.name}

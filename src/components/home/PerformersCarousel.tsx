@@ -60,6 +60,26 @@ const performers: Performer[] = [
     verified: true,
     image: encodeURI("/gallery images/KIMMI K.webp"),
   },
+  {
+    name: "SYN",
+    location: "CHARLESTON, SC",
+    role: "Elite Entertainer",
+    rating: 5.0,
+    events: "140+",
+    available: true,
+    verified: true,
+    image: "/images/performers-gallery/SYN.webp",
+  },
+  {
+    name: "HARLEY",
+    location: "CHARLESTON, SC",
+    role: "VIP Entertainer",
+    rating: 5.0,
+    events: "120+",
+    available: true,
+    verified: true,
+    image: "/images/performers-gallery/HARLEY.webp",
+  },
 ];
 
 export default function PerformersCarousel() {

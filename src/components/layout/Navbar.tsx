@@ -80,38 +80,38 @@ export default function Navbar() {
           <div className="hidden md:flex items-center gap-6 lg:gap-8 mr-2 lg:mr-4">
             <Link
               href="/"
-              className="font-heading text-sm font-semibold uppercase tracking-wider text-black/85 hover:text-[#740107] transition-colors"
+              className={`font-heading text-sm font-semibold uppercase tracking-wider transition-colors hover:text-[#740107] ${scrolled ? "text-black/85" : "text-white"}`}
             >
               Home
             </Link>
             <Link
               href="/about"
-              className="font-heading text-sm font-semibold uppercase tracking-wider text-black/85 hover:text-[#740107] transition-colors"
+              className={`font-heading text-sm font-semibold uppercase tracking-wider transition-colors hover:text-[#740107] ${scrolled ? "text-black/85" : "text-white"}`}
             >
               About
             </Link>
             <Link
               href="/girls"
-              className="font-heading text-sm font-semibold uppercase tracking-wider text-black/85 hover:text-[#740107] transition-colors"
+              className={`font-heading text-sm font-semibold uppercase tracking-wider transition-colors hover:text-[#740107] ${scrolled ? "text-black/85" : "text-white"}`}
             >
               Girls
             </Link>
             <Link
               href="/gallery"
-              className="font-heading text-sm font-semibold uppercase tracking-wider text-black/85 hover:text-[#740107] transition-colors"
+              className={`font-heading text-sm font-semibold uppercase tracking-wider transition-colors hover:text-[#740107] ${scrolled ? "text-black/85" : "text-white"}`}
             >
               Gallery
             </Link>
             <Link
               href="/services"
-              className="font-heading text-sm font-semibold uppercase tracking-wider text-black/85 hover:text-[#740107] transition-colors"
+              className={`font-heading text-sm font-semibold uppercase tracking-wider transition-colors hover:text-[#740107] ${scrolled ? "text-black/85" : "text-white"}`}
             >
               Services
             </Link>
           </div>
 
           <div className="ml-2 sm:ml-4">
-            <MultiLevelDrawerMenu primaries={primaries} onOpenChange={setIsMenuOpen} />
+            <MultiLevelDrawerMenu primaries={primaries} onOpenChange={setIsMenuOpen} scrolled={scrolled} />
           </div>
         </div>
       </nav>

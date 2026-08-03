@@ -40,9 +40,10 @@ const secondaryLinks: DrawerLink[] = [
 export interface MultiLevelDrawerMenuProps {
   primaries: DrawerPrimary[];
   onOpenChange?: (isOpen: boolean) => void;
+  scrolled?: boolean;
 }
 
-export default function MultiLevelDrawerMenu({ primaries, onOpenChange }: MultiLevelDrawerMenuProps) {
+export default function MultiLevelDrawerMenu({ primaries, onOpenChange, scrolled }: MultiLevelDrawerMenuProps) {
   const [mounted, setMounted] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
 
@@ -678,6 +679,7 @@ export default function MultiLevelDrawerMenu({ primaries, onOpenChange }: MultiL
       <button
         ref={toggleRef}
         className="mldm_toggle"
+        style={{ color: scrolled || isOpen ? undefined : "#ffffff" }}
         aria-expanded={isOpen}
         aria-controls="mldm_overlay"
         aria-label="Open navigation menu"

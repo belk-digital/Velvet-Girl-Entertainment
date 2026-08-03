@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, Italiana, Montserrat } from "next/font/google";
 import SiteShell from "@/components/layout/SiteShell";
+import GoogleAnalytics from "@/components/GoogleAnalytics";
 import "./globals.css";
 
 const montserratDisplay = Montserrat({
@@ -73,6 +74,7 @@ export default function RootLayout({
       lang="en"
       className={`${montserratDisplay.variable} ${italiana.variable} ${inter.variable} h-full antialiased`}
     >
+      <GoogleAnalytics />
       <body className="min-h-full flex flex-col bg-[#FBFAF8] text-black" suppressHydrationWarning>
         <SiteShell>{children}</SiteShell>
       </body>

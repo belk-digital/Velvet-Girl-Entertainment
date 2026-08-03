@@ -1,14 +1,8 @@
 import type { Metadata } from "next";
-import { Inter, Italiana, Montserrat } from "next/font/google";
+import { Inter, Italiana } from "next/font/google";
 import SiteShell from "@/components/layout/SiteShell";
 import GoogleAnalytics from "@/components/GoogleAnalytics";
 import "./globals.css";
-
-const montserratDisplay = Montserrat({
-  variable: "--font-display-raw",
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700", "800", "900"],
-});
 
 const italiana = Italiana({
   variable: "--font-script-raw",
@@ -72,7 +66,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${montserratDisplay.variable} ${italiana.variable} ${inter.variable} h-full antialiased`}
+      className={`${italiana.variable} ${inter.variable} h-full antialiased`}
     >
       <GoogleAnalytics />
       <body className="min-h-full flex flex-col bg-[#FBFAF8] text-black" suppressHydrationWarning>

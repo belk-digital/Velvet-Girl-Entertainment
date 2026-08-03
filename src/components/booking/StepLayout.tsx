@@ -80,7 +80,6 @@ export default function StepLayout({
 
       {/* Signature Crimson Velvet Curtains on Every Booking Step Page */}
       <VelvetCurtains variant="top-left" />
-      <VelvetCurtains variant="bottom" />
 
       {/* Main Centered Content Area */}
       <div className="mx-auto w-full max-w-[1100px] flex-1 flex flex-col justify-center my-auto z-30 relative">

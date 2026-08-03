@@ -124,6 +124,10 @@ export default function CtaSection() {
                 src="/images/gallery/cta-girl-image.webp"
                 alt="Velvet Girl Entertainer"
                 className="w-[270px] sm:w-[320px] h-auto object-contain drop-shadow-[0_15px_30px_rgba(0,0,0,0.35)]"
+                style={{
+                  maskImage: "linear-gradient(to bottom, black 0%, black 68%, transparent 92%)",
+                  WebkitMaskImage: "linear-gradient(to bottom, black 0%, black 68%, transparent 92%)",
+                }}
                 onError={(e) => {
                   (e.currentTarget as HTMLImageElement).src =
                     "/images/gallery/cta-girl-image.png";

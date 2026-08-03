@@ -65,7 +65,7 @@ export default function StepNavigation({
   }, [isNextDisabled, hideNext, handleNextClick]);
 
   return (
-    <footer className="w-full mt-10 pt-6 border-t border-black/5 flex items-center justify-between sticky bottom-0 bg-white/90 backdrop-blur-md z-30 px-2 py-4">
+    <footer className="w-full mt-10 pt-6 flex items-center justify-between sticky bottom-0 z-30 px-2 py-4">
       <div>
         {!hideBack && (
           <motion.button

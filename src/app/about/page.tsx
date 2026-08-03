@@ -8,7 +8,6 @@ import Reveal from "@/components/ui/Reveal";
 import FaqSection from "@/components/home/FaqSection";
 import WhyChooseUs from "@/components/home/WhyChooseUs";
 import CtaSection from "@/components/home/CtaSection";
-import VelvetCurtains from "@/components/gallery/VelvetCurtains";
 
 
 export const metadata: Metadata = {
@@ -279,8 +278,6 @@ export default function AboutPage() {
         </Reveal>
       </Section>
 
-      {/* Signature Crimson Velvet Curtains Transition */}
-      <VelvetCurtains variant="bottom" />
       <CtaSection />
       <FaqSection />
     </>

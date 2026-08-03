@@ -5,7 +5,6 @@ import PageHero from "@/components/ui/PageHero";
 import Section from "@/components/ui/Section";
 import Reveal from "@/components/ui/Reveal";
 import ApplicationForm from "@/components/forms/ApplicationForm";
-import VelvetCurtains from "@/components/gallery/VelvetCurtains";
 import HowToBookTimeline from "@/components/ui/HowToBookTimeline";
 
 export const metadata: Metadata = {
@@ -201,7 +200,6 @@ export default function JoinTeamPage() {
         </Reveal>
       </div>
 
-      <VelvetCurtains variant="bottom" />
       <Section eyebrow="FAQ" title="Common Questions" theme="muted">
         <div className="mx-auto max-w-3xl space-y-6">
           {faqs.map(({ question, answer }) => (

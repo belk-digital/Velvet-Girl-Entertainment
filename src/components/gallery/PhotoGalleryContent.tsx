@@ -533,9 +533,6 @@ export default function PhotoGalleryContent() {
           </div>
         </div>
       )}
-
-      {/* Bottom Red Velvet Curtain Drapery */}
-      <VelvetCurtains variant="bottom" />
     </div>
   );
 }

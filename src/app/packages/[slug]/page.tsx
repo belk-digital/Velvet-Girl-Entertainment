@@ -7,7 +7,6 @@ import Section from "@/components/ui/Section";
 import Reveal from "@/components/ui/Reveal";
 import FaqSection from "@/components/home/FaqSection";
 import CtaSection from "@/components/home/CtaSection";
-import VelvetCurtains from "@/components/gallery/VelvetCurtains";
 
 import { packageThemes, getPackageThemeBySlug } from "@/data/packages";
 import { homepageFaqs } from "@/data/faqs";
@@ -141,7 +140,6 @@ export default async function PackageThemeDetailPage({ params }: Props) {
         </Reveal>
       </Section>
 
-      <VelvetCurtains variant="bottom" />
       <CtaSection />
       <FaqSection />
     </>

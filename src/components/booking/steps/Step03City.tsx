@@ -15,13 +15,15 @@ export default function Step03City() {
   const [selectedModalPerformer, setSelectedModalPerformer] =
     useState<Performer | null>(null);
 
-  // Filter performers location-wise based on selected event city
+  // Filter performers location-wise based on selected event city.
+  // No fallback to other cities' rosters — showing performers from a
+  // different city as if they were local is misleading to the client.
   const filteredPerformers = useMemo(() => {
     if (!state.city || state.city === "Other / Not listed") {
-      return performers.slice(0, 8);
+      return [];
     }
     const cityName = state.city.split(",")[0].trim().toUpperCase();
-    const matches = performers.filter((p) => {
+    return performers.filter((p) => {
       const pCity = p.city?.toUpperCase() || "";
       const pLoc = p.location?.toUpperCase() || "";
       return (
@@ -30,7 +32,6 @@ export default function Step03City() {
         cityName.includes(pCity)
       );
     });
-    return matches.length > 0 ? matches : performers.slice(0, 8);
   }, [state.city]);
 
   const selectedList = state.selectedPerformers || [];
@@ -95,6 +96,25 @@ export default function Step03City() {
         </div>
 
         {/* Performers Grid */}
+        {!state.city ? (
+          <div className="rounded-2xl border border-dashed border-stone-300 bg-stone-50 px-6 py-10 text-center">
+            <p className="font-body text-sm text-stone-600">
+              Select an event city above to see local entertainers.
+            </p>
+          </div>
+        ) : filteredPerformers.length === 0 ? (
+          <div className="rounded-2xl border border-dashed border-[#740107]/30 bg-[#740107]/5 px-6 py-10 text-center">
+            <p className="font-body text-sm font-semibold text-stone-800">
+              We don&apos;t have a local roster listed for{" "}
+              {state.city.split(",")[0]} yet.
+            </p>
+            <p className="font-body text-sm text-stone-600 mt-1 max-w-md mx-auto">
+              No problem — leave this step unselected and our booking team
+              will confirm available entertainers for your event, including
+              travel to your area.
+            </p>
+          </div>
+        ) : (
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {filteredPerformers.map((performer) => {
             const isSelected = selectedList.includes(performer.id);
@@ -217,6 +237,7 @@ export default function Step03City() {
             );
           })}
         </div>
+        )}
       </div>
 
       {/* Performer Profile Modal */}

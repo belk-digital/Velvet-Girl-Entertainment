@@ -6,7 +6,6 @@ import Section from "@/components/ui/Section";
 import Reveal from "@/components/ui/Reveal";
 import ThemeCard from "@/components/ui/ThemeCard";
 import CtaSection from "@/components/home/CtaSection";
-import VelvetCurtains from "@/components/gallery/VelvetCurtains";
 import { packageThemes } from "@/data/packages";
 
 export const metadata: Metadata = {
@@ -81,7 +80,6 @@ export default function PackagesPage() {
         </Reveal>
       </Section>
 
-      <VelvetCurtains variant="bottom" />
       <CtaSection />
     </>
   );

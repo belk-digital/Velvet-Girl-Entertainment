@@ -6,7 +6,6 @@ import PageHero from "@/components/ui/PageHero";
 import Section from "@/components/ui/Section";
 import Reveal from "@/components/ui/Reveal";
 import CtaSection from "@/components/home/CtaSection";
-import VelvetCurtains from "@/components/gallery/VelvetCurtains";
 import { stateGroups } from "@/data/cities";
 
 export const metadata: Metadata = {
@@ -222,7 +221,6 @@ export default function CitiesIndexPage() {
         </div>
       </Section>
 
-      <VelvetCurtains variant="bottom" />
       <CtaSection />
     </>
   );

@@ -16,7 +16,7 @@
   --color-velvet-pink-hot: var(--velvet-pink-hot);
   --color-velvet-magenta: var(--velvet-magenta);
   --color-velvet-deep: var(--velvet-deep);
-  --font-display: var(--font-display-raw);
+  --font-display: var(--font-script-raw);
   --font-script: var(--font-script-raw);
   --font-body: var(--font-body-raw);
   --font-sans: var(--font-body-raw);

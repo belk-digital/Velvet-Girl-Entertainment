@@ -18,48 +18,48 @@ export default function OptionCard({
   onClick,
 }: OptionCardProps) {
   return (
-    <motion.button
+    <button
       type="button"
       onClick={onClick}
-      whileHover={{ y: -4, scale: 1.02 }}
-      whileTap={{ scale: 0.98 }}
-      animate={selected ? { scale: 1.03 } : { scale: 1 }}
-      transition={{ duration: 0.25, ease: "easeOut" }}
-      className={`relative flex flex-col items-center justify-center p-6 rounded-2xl border text-center transition-all duration-300 cursor-pointer ${
-        selected
-          ? "border-2 border-[#740107] bg-white text-[#740107] shadow-[0_4px_20px_rgba(116,1,7,0.15)]"
-          : "border-black/15 bg-white text-stone-700 hover:border-black/30 hover:shadow-md"
-      }`}
+      className="group flex flex-col items-center justify-start gap-2.5 bg-transparent cursor-pointer"
     >
-      {/* Checkmark icon in top-right when selected */}
-      {selected && (
-        <motion.div
-          initial={{ scale: 0, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1 }}
-          transition={{ duration: 0.2 }}
-          className="absolute top-3 right-3 flex h-5 w-5 items-center justify-center rounded-full bg-[#740107] text-white"
-        >
-          <Check className="h-3 w-3 stroke-[3]" />
-        </motion.div>
-      )}
-
-      {icon && (
+      <motion.div
+        whileHover={{ scale: 1.05 }}
+        whileTap={{ scale: 0.96 }}
+        animate={selected ? { scale: 1.06 } : { scale: 1 }}
+        transition={{ duration: 0.25, ease: "easeOut" }}
+        className="relative"
+      >
         <div
-          className={`mb-3 flex items-center justify-center ${
-            selected ? "text-[#740107]" : "text-stone-700"
+          className={`flex h-16 w-16 sm:h-20 sm:w-20 items-center justify-center rounded-full border-2 transition-all duration-300 ${
+            selected
+              ? "border-[#740107] bg-[#740107]/[0.08] text-[#740107] shadow-[0_6px_18px_rgba(116,1,7,0.25)]"
+              : "border-black/10 bg-white text-stone-400 group-hover:border-[#740107]/40 group-hover:text-[#740107]/70"
           }`}
         >
           {icon}
         </div>
-      )}
+
+        {/* Checkmark badge overlapping the circle's edge when selected */}
+        {selected && (
+          <motion.div
+            initial={{ scale: 0, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{ duration: 0.2 }}
+            className="absolute -top-1 -right-1 flex h-6 w-6 items-center justify-center rounded-full bg-[#740107] text-white ring-2 ring-white"
+          >
+            <Check className="h-3.5 w-3.5 stroke-[3]" />
+          </motion.div>
+        )}
+      </motion.div>
 
       <span
-        className={`font-body text-xs sm:text-sm tracking-wide ${
-          selected ? "font-bold text-[#740107]" : "font-semibold text-stone-800"
+        className={`font-body text-[11px] sm:text-xs font-bold uppercase tracking-wider text-center transition-colors duration-300 ${
+          selected ? "text-[#740107]" : "text-stone-500 group-hover:text-stone-700"
         }`}
       >
         {title}
       </span>
-    </motion.button>
+    </button>
   );
 }

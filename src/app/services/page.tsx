@@ -18,7 +18,6 @@ import {
 import PageHero from "@/components/ui/PageHero";
 import Reveal from "@/components/ui/Reveal";
 import CtaSection from "@/components/home/CtaSection";
-import VelvetCurtains from "@/components/gallery/VelvetCurtains";
 import { services } from "@/data/services";
 
 export const metadata: Metadata = {
@@ -123,7 +122,6 @@ export default function ServicesIndexPage() {
           })}
         </div>
       </div>
-      <VelvetCurtains variant="bottom" />
       <CtaSection />
     </>
   );

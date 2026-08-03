@@ -7,7 +7,6 @@ import Section from "@/components/ui/Section";
 import Reveal from "@/components/ui/Reveal";
 import FaqSection from "@/components/home/FaqSection";
 import CtaSection from "@/components/home/CtaSection";
-import VelvetCurtains from "@/components/gallery/VelvetCurtains";
 import HowToBookTimeline from "@/components/ui/HowToBookTimeline";
 
 import { services, getServiceBySlug } from "@/data/services";
@@ -187,7 +186,6 @@ export default async function ServiceDetailPage({ params }: Props) {
         </Reveal>
       </Section>
 
-      <VelvetCurtains variant="bottom" />
       <CtaSection />
       <FaqSection items={service.faqs} title={`${service.title} FAQ`} />
     </>

@@ -9,7 +9,6 @@ import FaqSection from "@/components/home/FaqSection";
 import PerformerGalleryGrid from "@/components/gallery/PerformerGalleryGrid";
 
 import CtaSection from "@/components/home/CtaSection";
-import VelvetCurtains from "@/components/gallery/VelvetCurtains";
 import { cities, getCityBySlug } from "@/data/cities";
 import { homepageServiceSlugs, services } from "@/data/services";
 import { performers } from "@/data/performers";
@@ -216,7 +215,6 @@ export default async function CityPage({ params }: Props) {
         </Section>
       )}
 
-      <VelvetCurtains variant="bottom" />
       <CtaSection />
       <FaqSection items={cityData.faqs} title={`${cityData.name} FAQ`} />
     </>

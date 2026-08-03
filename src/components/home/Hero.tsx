@@ -6,7 +6,7 @@ import Image from "next/image";
 import gsap from "gsap";
 import { ArrowRight, Phone } from "lucide-react";
 
-const HERO_IMAGE_URL = "/images/velvet-image.jpeg";
+const HERO_IMAGE_URL = "/images/HARLEY.jpg";
 
 export default function Hero() {
   const rootRef = useRef<HTMLDivElement>(null);

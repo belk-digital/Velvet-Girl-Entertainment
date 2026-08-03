@@ -82,10 +82,14 @@ export async function POST(request: Request) {
         html: adminHtml,
       });
 
+      if (result.error) {
+        console.error("[RESEND] Contact form email failed:", result.error);
+      }
+
       return NextResponse.json({
         success: true,
         message: "Message received and notification sent.",
-        data: { emailId: result?.data?.id || null },
+        data: { emailId: result?.data?.id || null, error: result.error || null },
       });
     }
 

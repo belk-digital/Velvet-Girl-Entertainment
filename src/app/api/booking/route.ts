@@ -226,6 +226,13 @@ export async function POST(request: Request) {
         customerPromise,
       ]);
 
+      if (adminResult.error) {
+        console.error("[RESEND] Admin booking email failed:", adminResult.error);
+      }
+      if (customerResult && "error" in customerResult && customerResult.error) {
+        console.error("[RESEND] Customer booking email failed:", customerResult.error);
+      }
+
       return NextResponse.json({
         success: true,
         message: "Booking received and confirmation emails sent.",

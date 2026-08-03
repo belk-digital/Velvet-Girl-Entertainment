@@ -121,6 +121,10 @@ export async function POST(request: Request) {
         attachments: attachments.length > 0 ? attachments : undefined,
       });
 
+      if (result.error) {
+        console.error("[RESEND] Application email failed:", result.error);
+      }
+
       return NextResponse.json({
         success: true,
         message: "Application received and notification sent.",

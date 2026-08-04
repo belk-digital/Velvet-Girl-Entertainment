@@ -73,11 +73,7 @@ export default function Navbar() {
             priority
             className="h-16 w-auto sm:h-20"
           />
-          <span
-            className={`font-script font-normal text-2xl sm:text-3xl transition-colors ${
-              scrolled ? "text-black" : "text-white"
-            }`}
-          >
+          <span className="font-script font-normal text-2xl sm:text-3xl text-[#740107]">
             Velvet Girls
           </span>
         </Link>

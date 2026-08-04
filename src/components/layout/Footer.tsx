@@ -230,13 +230,26 @@ export default function Footer() {
 
       {/* Disclaimer */}
       <div className="relative z-10 w-full max-w-[120rem] mx-auto px-6 lg:px-12 mt-12 flex flex-col sm:flex-row items-center justify-between gap-4 pt-6 border-t border-black/10">
-        <div className="flex items-center gap-2 text-black/40">
-          <span className="relative flex h-5 w-5 items-center justify-center">
-            <Shield className="h-5 w-5" strokeWidth={1.5} />
-            <span className="absolute text-[6px] font-bold">18+</span>
-          </span>
-          <p className="font-body text-xs">
-            © {new Date().getFullYear()} Velvet Girl Entertainment. All Rights Reserved.
+        <div className="flex flex-col gap-1.5">
+          <div className="flex items-center gap-2 text-black/40">
+            <span className="relative flex h-5 w-5 items-center justify-center">
+              <Shield className="h-5 w-5" strokeWidth={1.5} />
+              <span className="absolute text-[6px] font-bold">18+</span>
+            </span>
+            <p className="font-body text-xs">
+              © {new Date().getFullYear()} Velvet Girl Entertainment. All Rights Reserved.
+            </p>
+          </div>
+          <p className="font-body text-xs text-black/40 pl-7">
+            Designed and developed by{" "}
+            <a
+              href="https://belkdigital.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[#740107] hover:underline"
+            >
+              Belk Digital
+            </a>
           </p>
         </div>
         <p className="font-body text-xs text-black/40 text-center sm:text-right">

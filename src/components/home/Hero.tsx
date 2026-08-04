@@ -5,15 +5,19 @@ import Link from "next/link";
 import gsap from "gsap";
 import { ArrowRight, Phone } from "lucide-react";
 
-// Source file is ~83MB. Deliver it through Cloudinary's on-the-fly
-// transforms instead — eco-tier auto quality + auto format + a width cap
-// sized to how large the video ever actually renders on screen.
+// Source file is ~83MB, natively ~1080px wide (c_limit confirmed the same
+// bytes come back for any requested width >= ~1080 — that's the ceiling,
+// a higher-res source would be needed to look sharper on large screens).
+// Deliver through Cloudinary's on-the-fly transforms: request the full
+// native width so nothing is thrown away, with a "good" quality tier
+// (eco/plain auto were soft/artifacted) — quality matters more than
+// shaving a few more MB once we're already capped on resolution.
 const HERO_VIDEO_BASE = "https://res.cloudinary.com/denskvdyt/video/upload";
 const HERO_VIDEO_PATH = "v1785819233/Car_video_1_1_lcq3sc.mp4";
 const heroVideoSrc = (transform: string) =>
   `${HERO_VIDEO_BASE}/${transform}/${HERO_VIDEO_PATH}`;
-const HERO_VIDEO_DESKTOP = heroVideoSrc("q_auto:eco,f_auto,w_1280,c_limit");
-const HERO_VIDEO_MOBILE = heroVideoSrc("q_auto:eco,f_auto,w_780,c_limit");
+const HERO_VIDEO_DESKTOP = heroVideoSrc("q_auto:good,f_auto,w_1080,c_limit");
+const HERO_VIDEO_MOBILE = heroVideoSrc("q_auto:good,f_auto,w_780,c_limit");
 
 export default function Hero() {
   const rootRef = useRef<HTMLDivElement>(null);

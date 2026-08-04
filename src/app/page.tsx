@@ -18,16 +18,16 @@ import CtaSection from "@/components/home/CtaSection";
 import { cities } from "@/data/cities";
 
 export const metadata: Metadata = {
-  title: "Velvet Girl Entertainment | Bachelor Party & Private Event Entertainment",
+  title: "Velvet Girl Entertainment | Exotic Dancer & Stripper Booking Agency",
   description:
-    "Book verified, professional entertainers for bachelor parties, birthdays, and private celebrations nationwide. Real unedited photos, 24/7 booking concierge, 8+ cities served.",
+    "America's premier exotic dancer and stripper booking agency for bachelor parties, birthdays, and private celebrations nationwide. Real unedited photos, 24/7 booking concierge, 8+ cities served.",
   alternates: {
     canonical: "/",
   },
   openGraph: {
-    title: "Velvet Girl Entertainment | Bachelor Party & Private Event Entertainment",
+    title: "Velvet Girl Entertainment | Exotic Dancer & Stripper Booking Agency",
     description:
-      "Book verified, professional entertainers for bachelor parties, birthdays, and private celebrations nationwide.",
+      "Book verified, professional exotic dancers and strippers for bachelor parties, birthdays, and private celebrations nationwide.",
     url: "/",
   },
   twitter: {
@@ -59,7 +59,7 @@ const jsonLd = {
       url: siteUrl,
       logo: `${siteUrl}/velvet-logo.png`,
       description:
-        "Velvet Girl Entertainment books verified, professional entertainers for bachelor parties, birthdays, and private celebrations nationwide.",
+        "Velvet Girl Entertainment is a verified, professional exotic dancer and stripper booking agency for bachelor parties, birthdays, and private celebrations nationwide.",
       sameAs: ["https://www.instagram.com/velvetgirlentertainment"],
       areaServed: cities.map((c) => ({
         "@type": "City",

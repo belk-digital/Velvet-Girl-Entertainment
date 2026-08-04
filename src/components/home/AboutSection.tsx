@@ -130,7 +130,7 @@ export default function AboutSection() {
             
             <div className="mt-12 space-y-6 text-base xl:text-lg text-white/60 max-w-[90%] leading-relaxed font-medium">
               <p className="about-paragraph">
-                Velvet Girl Entertainment is America's most trusted exotic dancer booking agency. We represent only the most stunning, professional performers — artists who bring confidence, elegance, and raw electricity to every private event.
+                Velvet Girl Entertainment is America's most trusted exotic dancer and stripper booking agency. We represent only the most stunning, professional performers — artists who bring confidence, elegance, and raw electricity to every private event.
               </p>
               <p className="about-paragraph">
                 From intimate one-on-one bookings to full-scale bachelor party productions, we handle every detail with precision and discretion. Our standard isn't just high — it's the highest.

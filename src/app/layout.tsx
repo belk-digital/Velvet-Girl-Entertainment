@@ -19,7 +19,7 @@ const inter = Inter({
 const siteUrl = "https://velvetgirlentertainment.com";
 const siteName = "Velvet Girl Entertainment";
 const siteDescription =
-  "Elite exotic entertainment for bachelor parties, private events, and exclusive gatherings — nationwide, discreet, unforgettable.";
+  "Elite exotic dancer and stripper booking for bachelor parties, private events, and exclusive gatherings — nationwide, discreet, unforgettable.";
 const defaultOgImage = "/gallery images/GALLERY(1).webp";
 
 export const metadata: Metadata = {

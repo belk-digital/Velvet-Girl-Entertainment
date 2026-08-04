@@ -25,7 +25,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { state, city } = await params;
   const cityData = getCityBySlug(state, city);
   if (!cityData) return {};
-  const title = `${cityData.name} Entertainment Booking | Velvet Girl Entertainment`;
+  const title = `${cityData.name} Exotic Dancers & Stripper Booking | Velvet Girl Entertainment`;
   const description = cityData.content.intro.slice(0, 155).trim() + "…";
   return {
     title,
@@ -65,6 +65,17 @@ export default async function CityPage({ params }: Props) {
     ? localPerformers
     : nearbyPerformers.slice(0, 4);
 
+  // Real GSC query data shows demand for "stripper" phrasing alongside
+  // "exotic dancer" — append a matching FAQ to every city automatically
+  // rather than hand-editing each city's data entry.
+  const cityFaqs = [
+    ...cityData.faqs,
+    {
+      question: `Do you provide strippers in ${cityData.name}?`,
+      answer: `Yes — Velvet Girl Entertainment is a professional exotic dancer and stripper booking agency serving ${cityData.name} and the surrounding area. Every performer is verified, and every photo on our site is real and unedited, so you know exactly who's showing up to your event.`,
+    },
+  ];
+
   const pageUrl = `https://velvetgirlentertainment.com/cities/${cityData.stateSlug}/${cityData.slug}`;
   const jsonLd = {
     "@context": "https://schema.org",
@@ -97,7 +108,7 @@ export default async function CityPage({ params }: Props) {
       },
       {
         "@type": "FAQPage",
-        mainEntity: cityData.faqs.map(({ question, answer }) => ({
+        mainEntity: cityFaqs.map(({ question, answer }) => ({
           "@type": "Question",
           name: question,
           acceptedAnswer: { "@type": "Answer", text: answer },
@@ -115,8 +126,8 @@ export default async function CityPage({ params }: Props) {
 
       <PageHero
         eyebrow={cityData.stateName}
-        title={`${cityData.name} Entertainment Booking`}
-        subtitle={`Professional entertainers available throughout ${cityData.name} and surrounding areas.`}
+        title={`${cityData.name} Exotic Dancer & Stripper Booking`}
+        subtitle={`Professional exotic dancers and strippers available throughout ${cityData.name} and surrounding areas.`}
         bgImage="/gallery images/BEACH DAY PACKAGE OR BEACH CITY PAGE.webp"
       >
         <nav className="flex flex-wrap items-center justify-center gap-2 font-body text-xs font-semibold uppercase tracking-widest text-stone-500">
@@ -217,7 +228,7 @@ export default async function CityPage({ params }: Props) {
       )}
 
       <CtaSection />
-      <FaqSection items={cityData.faqs} title={`${cityData.name} FAQ`} />
+      <FaqSection items={cityFaqs} title={`${cityData.name} FAQ`} />
     </>
   );
 }

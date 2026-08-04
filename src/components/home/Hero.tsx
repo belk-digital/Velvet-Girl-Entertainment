@@ -2,11 +2,18 @@
 
 import { useEffect, useRef } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import gsap from "gsap";
 import { ArrowRight, Phone } from "lucide-react";
 
-const HERO_IMAGE_URL = "/images/HARLEY.jpg";
+// Source file is ~83MB. Deliver it through Cloudinary's on-the-fly
+// transforms instead — eco-tier auto quality + auto format + a width cap
+// sized to how large the video ever actually renders on screen.
+const HERO_VIDEO_BASE = "https://res.cloudinary.com/denskvdyt/video/upload";
+const HERO_VIDEO_PATH = "v1785819233/Car_video_1_1_lcq3sc.mp4";
+const heroVideoSrc = (transform: string) =>
+  `${HERO_VIDEO_BASE}/${transform}/${HERO_VIDEO_PATH}`;
+const HERO_VIDEO_DESKTOP = heroVideoSrc("q_auto:eco,f_auto,w_1280,c_limit");
+const HERO_VIDEO_MOBILE = heroVideoSrc("q_auto:eco,f_auto,w_780,c_limit");
 
 export default function Hero() {
   const rootRef = useRef<HTMLDivElement>(null);
@@ -46,48 +53,24 @@ export default function Hero() {
   return (
     <div
       ref={rootRef}
-      className="relative overflow-hidden bg-[#FBFAF8] min-h-screen flex"
+      className="relative overflow-hidden min-h-screen flex flex-col lg:flex-row"
     >
 
-      {/* ── MOBILE ONLY: Full background image ── */}
-      <div data-hero-img className="absolute inset-0 opacity-0 lg:hidden">
-        <Image
-          src={HERO_IMAGE_URL}
-          alt=""
-          fill
-          priority
-          sizes="100vw"
-          className="object-cover object-top"
-        />
-        {/* Dark overlay so text is readable */}
-        <div className="absolute inset-0 bg-black/55" />
-        {/* Bottom fade */}
-        <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-black/70 to-transparent" />
-      </div>
-
-      {/* ── LEFT: Text Content ── */}
-      <div className="relative z-10 flex flex-col justify-center flex-1 px-8 sm:px-12 lg:px-16 xl:px-20 pt-28 pb-16 lg:py-0 min-h-screen">
-        {/* Desktop-only subtle glow */}
-        <div className="absolute top-1/2 left-0 -translate-y-1/2 w-[500px] h-[500px] bg-[#740107] rounded-full blur-[280px] opacity-[0.06] pointer-events-none hidden lg:block" />
-
+      {/* ── LEFT: Content panel — transparent overlay on mobile (video shows through), solid red panel on desktop ── */}
+      <div className="relative z-10 flex flex-col justify-center min-h-screen lg:min-h-0 bg-black/45 lg:bg-[#FBFAF8] w-full lg:w-[52%] xl:w-[50%] flex-shrink-0 px-8 sm:px-12 lg:px-14 xl:px-20 pt-28 pb-16 lg:py-0">
         <h1
           data-hero-heading
-          className="relative font-script font-normal leading-[1.1] opacity-0 text-4xl sm:text-5xl lg:text-[3.5rem] xl:text-6xl
-            text-white lg:text-black"
+          className="relative font-script font-normal leading-[1.15] opacity-0 text-4xl sm:text-5xl lg:text-[3.25rem] xl:text-[3.75rem] text-white lg:text-[#AA1417]"
         >
-          Luxury Entertainment.
-          <br />
-          Professional Performers.
-          <br />
-          <span className="font-script mt-1 inline-block text-[#e87d7d] lg:text-[#740107]">
+          Luxury Entertainment. Professional Performers.{" "}
+          <span className="font-script inline-block text-[#e87d7d]">
             Nationwide.
           </span>
         </h1>
 
         <p
           data-hero-sub
-          className="relative mt-8 max-w-lg font-body text-base opacity-0 sm:text-lg font-medium leading-relaxed
-            text-white/85 lg:text-black/70"
+          className="relative mt-8 max-w-lg font-body text-base opacity-0 sm:text-lg font-medium leading-relaxed text-white/85 lg:text-stone-700"
         >
           Elite entertainers for bachelor parties, private celebrations, VIP
           events, and unforgettable nights.
@@ -99,14 +82,14 @@ export default function Hero() {
         >
           <a
             href="tel:8439387377"
-            className="tracking-caps group flex items-center justify-center gap-2 bg-[#740107] hover:bg-[#5c0911] px-5 py-3 sm:px-8 sm:py-5 font-body text-xs sm:text-sm font-bold text-white transition-all duration-300 hover:scale-105 shadow-lg"
+            className="tracking-caps group flex items-center justify-center gap-2 rounded-full bg-white text-[#740107] hover:bg-white/90 lg:bg-[#740107] lg:text-white lg:hover:bg-[#5c0911] px-5 py-3 sm:px-8 sm:py-5 font-body text-xs sm:text-sm font-bold transition-all duration-300 hover:scale-105 shadow-lg"
           >
             <Phone className="h-3.5 w-3.5 sm:h-4 sm:w-4 animate-pulse" />
-            <span>CALL NOW: (843) 938-7377</span>
+            <span>CALL NOW</span>
           </a>
           <Link
             href="/book-now"
-            className="tracking-caps group flex items-center justify-center gap-2 bg-stone-900 hover:bg-black px-5 py-3 sm:px-8 sm:py-5 font-body text-xs sm:text-sm font-bold text-white transition-all duration-300 hover:scale-105 shadow-lg"
+            className="tracking-caps group flex items-center justify-center gap-2 rounded-full bg-stone-900 hover:bg-black px-5 py-3 sm:px-8 sm:py-5 font-body text-xs sm:text-sm font-bold text-white transition-all duration-300 hover:scale-105 shadow-lg"
           >
             <span>BOOK ONLINE</span>
             <ArrowRight className="h-3.5 w-3.5 sm:h-4 sm:w-4 transition-transform duration-300 group-hover:translate-x-1" />
@@ -114,21 +97,22 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* ── RIGHT: Full-height image panel (desktop only) ── */}
+      {/* ── RIGHT: Video — full-bleed background behind content on mobile, right-hand panel on desktop ── */}
       <div
         data-hero-img
-        className="relative opacity-0 hidden lg:block w-[42%] xl:w-[40%] flex-shrink-0"
+        className="absolute inset-0 lg:relative lg:inset-auto lg:flex-1 lg:min-h-screen bg-black overflow-hidden opacity-0"
       >
-        <Image
-          src={HERO_IMAGE_URL}
-          alt="Velvet Girl Entertainment performer"
-          fill
-          priority
-          sizes="40vw"
-          className="object-cover object-center"
-        />
-        {/* Left-side fade so image blends into background */}
-        <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-[#FBFAF8] to-transparent pointer-events-none z-10" />
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="auto"
+          className="absolute inset-0 h-full w-full object-cover object-center"
+        >
+          <source media="(min-width: 1024px)" src={HERO_VIDEO_DESKTOP} type="video/mp4" />
+          <source src={HERO_VIDEO_MOBILE} type="video/mp4" />
+        </video>
       </div>
 
     </div>

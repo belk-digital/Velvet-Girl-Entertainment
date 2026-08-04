@@ -64,7 +64,7 @@ export default function Navbar() {
   return (
     <header className={`fixed top-0 w-full z-[110] transition-all duration-300 pointer-events-none ${hidden && !isMenuOpen ? "-translate-y-full" : "translate-y-0"} ${scrolled && !isMenuOpen ? "bg-[#FBFAF8]/95 backdrop-blur-md shadow-sm" : "bg-transparent"} border-transparent`}>
       <nav className="mx-auto flex max-w-[120rem] items-center justify-between px-6 py-3 lg:px-12">
-        <Link href="/" className="pointer-events-auto flex items-center">
+        <Link href="/" className="pointer-events-auto flex items-center gap-2 sm:gap-3">
           <Image
             src="/velvet-logo.png"
             alt="Velvet Girl Entertainment"
@@ -73,6 +73,13 @@ export default function Navbar() {
             priority
             className="h-16 w-auto sm:h-20"
           />
+          <span
+            className={`font-script font-normal text-2xl sm:text-3xl transition-colors ${
+              scrolled ? "text-black" : "text-white"
+            }`}
+          >
+            Velvet Girls
+          </span>
         </Link>
 
         <div className="flex items-center gap-4 sm:gap-6 pointer-events-auto">

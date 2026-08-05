@@ -9,7 +9,8 @@ interface PackageCardData {
   number: string;
   title: string;
   slug: string;
-  image: string;
+  image?: string;
+  video?: string;
   description: string;
   minDancers: string;
 }
@@ -17,6 +18,14 @@ interface PackageCardData {
 const packageCards: PackageCardData[] = [
   {
     number: "01",
+    title: "Car & Bike Meet",
+    slug: "car-meet",
+    video: "https://res.cloudinary.com/denskvdyt/video/upload/v1785953309/Car_meet_package_page_hn3yep.mov",
+    description: "Rev up your engines with the ultimate car meet experience and stunning company.",
+    minDancers: "2 DANCERS MINIMUM",
+  },
+  {
+    number: "02",
     title: "Private Party",
     slug: "private-party",
     image: "/images/gallery/img1.jpg",
@@ -25,7 +34,7 @@ const packageCards: PackageCardData[] = [
     minDancers: "2 DANCERS MINIMUM",
   },
   {
-    number: "02",
+    number: "03",
     title: "Bachelor Party",
     slug: "bachelor-party",
     image: "/images/services/bachelor.png",
@@ -34,7 +43,7 @@ const packageCards: PackageCardData[] = [
     minDancers: "2 DANCERS MINIMUM",
   },
   {
-    number: "03",
+    number: "04",
     title: "Boat / Pool Party",
     slug: "boat-pool-party",
     image: "/images/services/yacht.png",
@@ -43,7 +52,7 @@ const packageCards: PackageCardData[] = [
     minDancers: "2 DANCERS MINIMUM",
   },
   {
-    number: "04",
+    number: "05",
     title: "Guys Night",
     slug: "guys-night",
     image: "/images/services/vip.png",
@@ -87,8 +96,8 @@ export default function PackagesSection() {
           </Link>
         </div>
 
-        {/* 4 Package Cards Accordion Grid (Reference style) */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-0 border border-black/10 bg-[#FBFAF8] divide-y sm:divide-y-0 sm:divide-x divide-black/10">
+        {/* Package Cards Accordion Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-0 border border-black/10 bg-[#FBFAF8] divide-y sm:divide-y-0 sm:divide-x divide-black/10">
           {packageCards.map((pkg, idx) => {
             const isActive = activeIdx === idx;
             return (
@@ -110,13 +119,24 @@ export default function PackagesSection() {
                       : "-translate-y-full opacity-0"
                   }`}
                 >
-                  <Image
-                    src={pkg.image}
-                    alt={pkg.title}
-                    fill
-                    sizes="(max-width: 1024px) 100vw, 25vw"
-                    className="object-cover scale-105 transition-transform duration-700"
-                  />
+                  {pkg.video ? (
+                    <video
+                      src={pkg.video}
+                      autoPlay
+                      loop
+                      muted
+                      playsInline
+                      className="absolute inset-0 h-full w-full object-cover scale-105 transition-transform duration-700"
+                    />
+                  ) : pkg.image ? (
+                    <Image
+                      src={pkg.image}
+                      alt={pkg.title}
+                      fill
+                      sizes="(max-width: 1024px) 100vw, 25vw"
+                      className="object-cover scale-105 transition-transform duration-700"
+                    />
+                  ) : null}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-black/30" />
                 </div>
 

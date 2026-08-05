@@ -9,6 +9,7 @@ import {
   FlagTriangleRight,
   Spade,
   Utensils,
+  CarFront,
 } from "lucide-react";
 import { useBookingForm } from "@/hooks/useBookingForm";
 import StepLayout from "@/components/booking/StepLayout";
@@ -50,6 +51,11 @@ const EVENT_TYPES = [
     slug: "breakfast-with-babes",
     title: "Breakfast With Babes",
     icon: <Utensils className="w-6 h-6 sm:w-7 sm:h-7" strokeWidth={2.25} />,
+  },
+  {
+    slug: "car-meet",
+    title: "Car & Bike Meet Models",
+    icon: <CarFront className="w-6 h-6 sm:w-7 sm:h-7" strokeWidth={2.25} />,
   },
 ];
 

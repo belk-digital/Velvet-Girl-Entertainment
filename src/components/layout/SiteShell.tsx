@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import type { ReactNode } from "react";
 import { usePathname } from "next/navigation";
 import { MessageCircle } from "lucide-react";
-// import AgeGate from "@/components/AgeGate";
+import AgeGate from "@/components/AgeGate";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import SmoothScroller from "@/components/layout/SmoothScroller";
@@ -31,7 +31,7 @@ export default function SiteShell({ children }: { children: ReactNode }) {
   return (
     <div className="flex min-h-full flex-col bg-black">
       <SmoothScroller />
-      {/* checkedStorage && !verified && <AgeGate onVerified={handleVerified} /> */}
+      {checkedStorage && !verified && <AgeGate onVerified={handleVerified} />}
       {!isBookingFlow && <Navbar />}
       <main className="flex-1">{children}</main>
       {!isBookingFlow && <Footer />}

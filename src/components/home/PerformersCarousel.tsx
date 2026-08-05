@@ -16,6 +16,8 @@ import {
 
 const Silk = dynamic(() => import("@/components/ui/Silk"), { ssr: false });
 
+import { performers as rawPerformers } from "@/data/performers";
+
 const PINK = "#740107";
 
 type Performer = {
@@ -29,58 +31,17 @@ type Performer = {
   image: string;
 };
 
-const performers: Performer[] = [
-  {
-    name: "DIOR",
-    location: "CHARLESTON, SC",
-    role: "Premium Entertainer",
-    rating: 5.0,
-    events: "160+",
-    available: true,
-    verified: true,
-    image: encodeURI("/gallery images/DIOR(3).webp"),
-  },
-  {
-    name: "LOTUS",
-    location: "CHARLESTON, SC",
-    role: "Luxury Entertainer",
-    rating: 5.0,
-    events: "170+",
-    available: true,
-    verified: true,
-    image: encodeURI("/gallery images/LOTUS.webp"),
-  },
-  {
-    name: "KIMMI",
-    location: "CHARLESTON, SC",
-    role: "Party Starter",
-    rating: 5.0,
-    events: "190+",
-    available: true,
-    verified: true,
-    image: encodeURI("/gallery images/KIMMI K.webp"),
-  },
-  {
-    name: "SYN",
-    location: "CHARLESTON, SC",
-    role: "Elite Entertainer",
-    rating: 5.0,
-    events: "140+",
-    available: true,
-    verified: true,
-    image: "/images/performers-gallery/SYN.webp",
-  },
-  {
-    name: "HARLEY",
-    location: "CHARLESTON, SC",
-    role: "VIP Entertainer",
-    rating: 5.0,
-    events: "120+",
-    available: true,
-    verified: true,
-    image: "/images/performers-gallery/HARLEY.webp",
-  },
-];
+const performers: Performer[] = rawPerformers.map((p) => ({
+  name: p.name,
+  location: p.location,
+  role: p.title,
+  rating: p.rating,
+  events: p.eventsCount.replace(/\s*events/i, ""),
+  available: p.availableTonight,
+  verified: p.isVerified,
+  image: p.image,
+}));
+
 
 export default function PerformersCarousel() {
   const n = performers.length;

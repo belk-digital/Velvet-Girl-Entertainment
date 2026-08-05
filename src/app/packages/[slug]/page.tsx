@@ -108,6 +108,21 @@ export default async function PackageThemeDetailPage({ params }: Props) {
         </Reveal>
       </Section>
 
+      {theme.perfectFor && theme.perfectFor.length > 0 && (
+        <Section eyebrow="PERFECT FOR" title="Great fit for">
+          <Reveal className="mx-auto flex max-w-3xl flex-wrap justify-center gap-3">
+            {theme.perfectFor.map((item) => (
+              <span
+                key={item}
+                className="border border-black/15 bg-white px-6 py-3 font-body text-xs font-bold uppercase tracking-widest text-black/85 shadow-sm"
+              >
+                {item}
+              </span>
+            ))}
+          </Reveal>
+        </Section>
+      )}
+
       <Section eyebrow="CUSTOMIZE" title={`Build your ${theme.name} package`} theme="muted">
         <Reveal className="mx-auto max-w-2xl text-center">
           {theme.comingSoon ? (

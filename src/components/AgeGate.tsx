@@ -5,25 +5,17 @@ import Image from "next/image";
 import gsap from "gsap";
 import { ArrowRight, Check, Crown, Shield } from "lucide-react";
 
-const VIDEO_URL =
-  "https://res.cloudinary.com/denskvdyt/video/upload/v1784424144/glamour_model_final_g1nnqh.mp4";
-
-const THUMBNAIL_URL =
-  "https://res.cloudinary.com/denskvdyt/image/upload/v1784424681/ChatGPT_Image_Jul_19_2026_04_25_24_AM_wy31lt.png";
-
-const CARD_REVEAL_TIME = 9;
-
 const confirmations: React.ReactNode[] = [
   "You are 18 years of age or older.",
   "You understand this website contains mature content intended only for adults.",
   "Viewing such material is legal in your location.",
   <>
     You agree to our{" "}
-    <a href="/terms" className="text-velvet-pink hover:underline">
+    <a href="/terms" className="text-[#740107] hover:underline">
       Terms of Service
     </a>{" "}
     &{" "}
-    <a href="/privacy" className="text-velvet-pink hover:underline">
+    <a href="/privacy" className="text-[#740107] hover:underline">
       Privacy Policy
     </a>
     .
@@ -36,16 +28,10 @@ interface AgeGateProps {
 
 export default function AgeGate({ onVerified }: AgeGateProps) {
   const rootRef = useRef<HTMLDivElement>(null);
-  const videoRef = useRef<HTMLVideoElement>(null);
-  const thumbnailRef = useRef<HTMLImageElement>(null);
-  const tlRef = useRef<gsap.core.Timeline | null>(null);
-  const pulseTweenRef = useRef<gsap.core.Tween | null>(null);
-  const hasRevealedRef = useRef(false);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
       const tl = gsap.timeline({
-        paused: true,
         defaults: { ease: "power3.out" },
       });
 
@@ -55,6 +41,12 @@ export default function AgeGate({ onVerified }: AgeGateProps) {
         { opacity: 1, y: 0, scale: 1, duration: 0.9 },
         0
       )
+        .fromTo(
+          "[data-gate-logo]",
+          { opacity: 0, scale: 0.9 },
+          { opacity: 1, scale: 1, duration: 0.6 },
+          0.2
+        )
         .fromTo(
           "[data-gate-heading]",
           { opacity: 0, y: 16 },
@@ -97,51 +89,12 @@ export default function AgeGate({ onVerified }: AgeGateProps) {
           { opacity: 1, duration: 0.5 },
           1.4
         );
-
-      tlRef.current = tl;
     }, rootRef);
 
     return () => ctx.revert();
   }, []);
 
-  useEffect(() => {
-    const video = videoRef.current;
-    if (!video) return;
-
-    const revealCard = () => {
-      if (hasRevealedRef.current) return;
-      hasRevealedRef.current = true;
-      tlRef.current?.play();
-      pulseTweenRef.current = gsap.to("[data-gate-pulse]", {
-        boxShadow:
-          "0 0 34px rgba(255,45,149,0.9), 0 0 76px rgba(255,0,128,0.45)",
-        repeat: -1,
-        yoyo: true,
-        duration: 1.8,
-        ease: "sine.inOut",
-        delay: 1.6,
-      });
-    };
-
-    const onTimeUpdate = () => {
-      if (video.currentTime >= CARD_REVEAL_TIME) revealCard();
-    };
-    const onEnded = () => {
-      revealCard();
-      gsap.to(thumbnailRef.current, { opacity: 1, duration: 0.8 });
-      gsap.to(video, { opacity: 0, duration: 0.8 });
-    };
-
-    video.addEventListener("timeupdate", onTimeUpdate);
-    video.addEventListener("ended", onEnded);
-    return () => {
-      video.removeEventListener("timeupdate", onTimeUpdate);
-      video.removeEventListener("ended", onEnded);
-    };
-  }, []);
-
   const handleEnter = () => {
-    pulseTweenRef.current?.kill();
     gsap.to(rootRef.current, {
       opacity: 0,
       scale: 1.04,
@@ -158,36 +111,34 @@ export default function AgeGate({ onVerified }: AgeGateProps) {
   return (
     <div
       ref={rootRef}
-      className="fixed inset-0 z-50 flex items-center justify-center overflow-hidden bg-black"
+      className="fixed inset-0 z-[9999] flex items-center justify-center overflow-hidden bg-black/80"
     >
-      <video
-        ref={videoRef}
-        className="absolute inset-0 h-full w-full object-cover"
-        src={VIDEO_URL}
-        autoPlay
-        muted
-        playsInline
-      />
-      <Image
-        ref={thumbnailRef}
-        src={THUMBNAIL_URL}
-        alt=""
-        fill
-        priority
-        sizes="100vw"
-        className="object-cover opacity-0"
-      />
+
+      
+      {/* Luxury Red overlay behind the modal */}
+      <div className="absolute inset-0 bg-[#740107]/10 backdrop-blur-[2px]"></div>
+
       <div className="relative z-10 mx-4 w-full max-w-3xl sm:max-w-4xl">
         <div
           data-gate-card
-          className="box-glow-pink rounded-[28px] border border-velvet-pink/40 bg-black/55 px-6 py-5 text-center text-white opacity-0 backdrop-blur-md sm:px-12 sm:py-6"
+          className="rounded-[28px] border border-stone-200 bg-white/95 px-6 py-8 text-center text-stone-800 opacity-0 shadow-[0_8px_40px_rgba(0,0,0,0.12)] backdrop-blur-xl sm:px-12 sm:py-10"
         >
+          <div className="flex justify-center mb-6">
+            <Image
+              src="/velvet-logo.png"
+              alt="Velvet Girl Entertainment Logo"
+              width={160}
+              height={160}
+              className="h-auto w-24 sm:w-32 drop-shadow-sm opacity-0"
+              data-gate-logo
+            />
+          </div>
           <h1
             data-gate-heading
-            className="font-display text-2xl leading-snug opacity-0 sm:text-3xl md:text-[2rem]"
+            className="font-display text-3xl leading-snug opacity-0 sm:text-4xl md:text-[2.2rem]"
           >
             Welcome to{" "}
-            <span className="align-middle font-script text-3xl text-velvet-pink text-glow-pink sm:text-4xl md:text-[2.6rem]">
+            <span className="align-middle font-script text-4xl text-[#740107] sm:text-5xl md:text-[3rem]">
               Velvet Girl
             </span>{" "}
             Entertainment
@@ -195,7 +146,7 @@ export default function AgeGate({ onVerified }: AgeGateProps) {
 
           <p
             data-gate-sub
-            className="mt-1.5 font-body text-xs text-white/60 opacity-0 sm:text-sm"
+            className="mt-3 font-body text-sm font-medium text-stone-600 opacity-0 sm:text-base"
           >
             Premium luxury companionship and exclusive entertainment
             experiences.
@@ -203,37 +154,37 @@ export default function AgeGate({ onVerified }: AgeGateProps) {
 
           <div
             data-gate-divider
-            className="mx-auto mt-3 flex origin-center items-center justify-center gap-3 opacity-0"
+            className="mx-auto mt-5 flex origin-center items-center justify-center gap-3 opacity-0"
           >
-            <span className="h-px w-16 bg-gradient-to-r from-transparent to-velvet-pink/60 sm:w-24" />
-            <Crown className="h-4 w-4 text-velvet-pink" strokeWidth={1.75} />
-            <span className="h-px w-16 bg-gradient-to-l from-transparent to-velvet-pink/60 sm:w-24" />
+            <span className="h-px w-16 bg-gradient-to-r from-transparent to-[#740107]/40 sm:w-24" />
+            <Crown className="h-4 w-4 text-[#740107]" strokeWidth={1.75} />
+            <span className="h-px w-16 bg-gradient-to-l from-transparent to-[#740107]/40 sm:w-24" />
           </div>
 
-          <div data-gate-notice className="opacity-0">
-            <p className="mt-3 font-body text-sm text-white/90 sm:text-base">
+          <div data-gate-notice className="opacity-0 mt-5">
+            <p className="font-body text-sm font-medium text-stone-800 sm:text-base">
               You must be at least{" "}
-              <span className="font-semibold text-velvet-pink">
+              <span className="font-semibold text-[#740107]">
                 18 years
               </span>{" "}
               of age to enter this website.
             </p>
-            <p className="mt-1 font-body text-xs text-white/50">
+            <p className="mt-1 font-body text-xs text-stone-500">
               By entering you confirm that:
             </p>
           </div>
 
-          <div className="mt-4 grid grid-cols-1 gap-x-6 gap-y-2 sm:grid-cols-4">
+          <div className="mt-5 grid grid-cols-1 gap-x-6 gap-y-3 sm:grid-cols-2 md:grid-cols-4">
             {confirmations.map((text, i) => (
               <div
                 key={i}
                 data-gate-item
                 className="flex items-start gap-2 text-left opacity-0"
               >
-                <span className="mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-velvet-pink text-black">
-                  <Check className="h-2.5 w-2.5" strokeWidth={3.5} />
+                <span className="mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-[#740107]/10 text-[#740107]">
+                  <Check className="h-3 w-3" strokeWidth={3} />
                 </span>
-                <p className="font-body text-xs leading-snug text-white/80">
+                <p className="font-body text-xs leading-relaxed text-stone-600">
                   {text}
                 </p>
               </div>
@@ -242,13 +193,12 @@ export default function AgeGate({ onVerified }: AgeGateProps) {
 
           <div
             data-gate-actions
-            className="mt-5 flex flex-col items-center justify-center gap-3 opacity-0 sm:flex-row"
+            className="mt-8 flex flex-col items-center justify-center gap-4 opacity-0 sm:flex-row"
           >
             <button
               type="button"
               onClick={handleEnter}
-              data-gate-pulse
-              className="group box-glow-pink flex w-full items-center justify-center gap-3 rounded-full bg-gradient-to-r from-velvet-pink-hot to-velvet-pink px-8 py-3 font-body text-sm font-semibold tracking-caps text-white transition-transform duration-300 hover:scale-[1.02] sm:w-auto sm:flex-1"
+              className="group flex w-full items-center justify-center gap-2 rounded-full bg-[#740107] px-8 py-3.5 font-body text-sm font-bold tracking-caps text-white transition-all duration-300 hover:scale-[1.02] hover:bg-[#5c0911] hover:shadow-lg sm:w-auto sm:flex-1"
             >
               ENTER SITE
               <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
@@ -256,7 +206,7 @@ export default function AgeGate({ onVerified }: AgeGateProps) {
             <button
               type="button"
               onClick={handleExit}
-              className="w-full rounded-full border border-white/30 px-8 py-3 font-body text-sm font-semibold tracking-caps text-white/80 transition-colors duration-300 hover:border-white/60 hover:text-white sm:w-auto sm:flex-1"
+              className="w-full rounded-full border border-stone-300 bg-white px-8 py-3.5 font-body text-sm font-bold tracking-caps text-stone-600 transition-all duration-300 hover:border-stone-400 hover:bg-stone-50 hover:text-stone-900 sm:w-auto sm:flex-1"
             >
               EXIT
             </button>
@@ -264,15 +214,14 @@ export default function AgeGate({ onVerified }: AgeGateProps) {
 
           <div
             data-gate-footer
-            className="mt-4 flex items-center justify-center gap-2 border-t border-white/10 pt-3 text-white/50 opacity-0"
+            className="mt-6 flex items-center justify-center gap-2 border-t border-stone-200 pt-4 text-stone-400 opacity-0"
           >
-            <span className="relative flex h-5 w-5 items-center justify-center">
+            <span className="relative flex h-5 w-5 items-center justify-center text-stone-400">
               <Shield className="h-5 w-5" strokeWidth={1.5} />
               <span className="absolute text-[6px] font-bold">18+</span>
             </span>
-            <p className="font-body text-[10px]">
-              © {new Date().getFullYear()} Velvet Girl Entertainment. All
-              Rights Reserved.
+            <p className="font-body text-[10px] uppercase tracking-wider">
+              © {new Date().getFullYear()} Velvet Girl Entertainment. All Rights Reserved.
             </p>
           </div>
         </div>

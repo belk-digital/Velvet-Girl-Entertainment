@@ -4,6 +4,7 @@ export interface PackageTheme {
   shortDescription: string;
   heroDescription: string;
   highlights: string[];
+  perfectFor?: string[];
   comingSoon?: boolean;
   image?: string;
 }
@@ -102,6 +103,35 @@ export const packageThemes: PackageTheme[] = [
       "Great pre-party warmup",
     ],
     image: "/gallery images/BREAKFAST WITH BABES.webp",
+  },
+  {
+    slug: "car-meet",
+    name: "Car & Bike Meet Models",
+    shortDescription:
+      "Promotional models who bring energy, style, and social content to car meets, motorcycle rallies, and automotive events.",
+    heroDescription:
+      "Bring great cars and great company together — promotional models who mingle with guests, pose for photos, and keep your car or bike meet lively.",
+    highlights: [
+      "Professional promotional models",
+      "Meet & greet with attendees",
+      "Photos with guests and featured vehicles",
+      "Merchandise and sponsor apparel modeling",
+      "Social media photos and behind-the-scenes content",
+      "Optional promotional car wash demonstrations",
+      "Crowd engagement and event interaction",
+      "Custom outfits available upon request",
+      "Assisting with raffles or other event games",
+    ],
+    perfectFor: [
+      "Car Meets",
+      "Motorcycle Meets",
+      "Cars & Coffee",
+      "Auto Shows",
+      "Dealership Events",
+      "Charity Cruises",
+      "Grand Openings",
+      "Brand Promotions",
+    ],
   },
   {
     slug: "party-bus",

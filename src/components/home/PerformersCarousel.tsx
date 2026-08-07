@@ -13,6 +13,7 @@ import {
   ChevronRight,
   ArrowRight,
 } from "lucide-react";
+import { useRouter } from "next/navigation";
 
 const Silk = dynamic(() => import("@/components/ui/Silk"), { ssr: false });
 
@@ -21,6 +22,7 @@ import { performers as rawPerformers } from "@/data/performers";
 const PINK = "#740107";
 
 type Performer = {
+  slug: string;
   name: string;
   location: string;
   role: string;
@@ -32,6 +34,7 @@ type Performer = {
 };
 
 const performers: Performer[] = rawPerformers.map((p) => ({
+  slug: p.slug || p.id,
   name: p.name,
   location: p.location,
   role: p.title,
@@ -57,6 +60,7 @@ export default function PerformersCarousel({
   const [isMobile, setIsMobile] = useState(false);
   const [touchStart, setTouchStart] = useState<number | null>(null);
   const [touchEnd, setTouchEnd] = useState<number | null>(null);
+  const router = useRouter();
 
   useEffect(() => {
     const handleResize = () => setIsMobile(window.innerWidth < 768);
@@ -188,7 +192,13 @@ export default function PerformersCarousel({
               return (
                 <article
                   key={p.name}
-                  onClick={() => !isCenter && visible && setActive(i)}
+                  onClick={() => {
+                    if (!isCenter && visible) {
+                      setActive(i);
+                    } else if (isCenter) {
+                      router.push(`/girls/${p.slug}`);
+                    }
+                  }}
                   className="absolute left-1/2 top-1/2 w-[280px] sm:w-[340px] md:w-[400px]"
                   style={{
                     transform: `translateY(-50%) ${transform}`,
@@ -344,17 +354,17 @@ function PerformerCard({ p, center, isMobile }: { p: Performer; center: boolean;
           <span className="ml-0.5 text-[10px] text-white/50">({p.events} EVENTS)</span>
         </div>
 
-        {/* BOOK NOW + Heart */}
+        {/* VIEW PROFILE + Heart */}
         <div className="mt-1 flex items-center gap-2">
           <Link
-            href="/book-now"
+            href={`/girls/${p.slug}`}
             onClick={(e) => e.stopPropagation()}
             className="flex flex-1 items-center justify-center gap-1.5 py-2.5 px-4 text-[10px] font-black uppercase tracking-widest text-white transition-colors"
             style={{ backgroundColor: PINK }}
             onMouseEnter={e => (e.currentTarget.style.backgroundColor = "#fff", e.currentTarget.style.color = "#000")}
             onMouseLeave={e => (e.currentTarget.style.backgroundColor = PINK, e.currentTarget.style.color = "#fff")}
           >
-            BOOK NOW <ArrowRight className="h-3 w-3" strokeWidth={3} />
+            VIEW PROFILE <ArrowRight className="h-3 w-3" strokeWidth={3} />
           </Link>
           <button
             type="button"

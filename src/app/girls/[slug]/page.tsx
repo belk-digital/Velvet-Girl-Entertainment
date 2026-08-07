@@ -46,10 +46,15 @@ export default async function PerformerPage({ params }: { params: Promise<{ slug
   const displayReviewsCount = performer.reviewsCount || 48;
   const eventsCount = performer.eventsCount || "160+ EVENTS";
 
-  // Fall back to repeating the primary image if no gallery photos are set yet
+  // Ensure the primary profile image is always the first one in the gallery
+  const allGalleryImages = [performer.image, ...(performer.galleryImages || [])].filter(Boolean);
+  
+  // Remove duplicates in case the primary image is already in the gallery array
+  const uniqueGalleryImages = Array.from(new Set(allGalleryImages));
+
   const galleryImages =
-    performer.galleryImages && performer.galleryImages.length > 0
-      ? performer.galleryImages
+    uniqueGalleryImages.length > 1
+      ? uniqueGalleryImages
       : Array(8).fill(performer.image);
 
   return (

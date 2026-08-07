@@ -113,7 +113,7 @@ export default async function PerformerPage({ params }: { params: Promise<{ slug
             <div className="mb-8">
               <h3 className="text-[#740107] font-bold text-sm mb-3">Attributes:</h3>
               <div className="flex flex-wrap gap-2">
-                {performer.tags?.map((tag) => (
+                {performer.tags?.map((tag: string) => (
                   <span key={tag} className="px-4 py-1.5 rounded-full border border-stone-200 text-stone-600 text-sm font-medium capitalize shadow-sm">
                     {tag}
                   </span>
@@ -131,7 +131,7 @@ export default async function PerformerPage({ params }: { params: Promise<{ slug
               <div className="mb-10">
                 <h3 className="text-[#740107] font-bold text-sm mb-4">Available Specialties:</h3>
                 <div className="flex flex-wrap gap-6 sm:gap-10">
-                  {performer.services.map((service) => {
+                  {performer.services.map((service: string) => {
                     const Icon = SERVICE_ICONS[service.toLowerCase()] ?? PartyPopper;
                     return (
                       <div key={service} className="flex flex-col items-center gap-2 text-[#740107]">

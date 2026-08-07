@@ -71,7 +71,7 @@ import { performers as staticPerformers } from "@/data/performers";
 export async function getPublishedPerformers(): Promise<CmsPerformer[]> {
   try {
     const res = await fetch(`${CMS_API_URL}/api/public/performers`, {
-      next: { revalidate: 300 },
+      next: { revalidate: process.env.NODE_ENV === 'development' ? 0 : 300, tags: ["cms"] },
     });
     if (!res.ok) throw new Error("Failed to fetch");
     const data = (await res.json()) as RawCmsPerformer[];
@@ -92,7 +92,7 @@ export async function getPublishedPerformers(): Promise<CmsPerformer[]> {
 export async function getPerformerBySlugFromCms(slug: string): Promise<CmsPerformer | null> {
   try {
     const res = await fetch(`${CMS_API_URL}/api/public/performers/${slug}`, {
-      next: { revalidate: 300 },
+      next: { revalidate: process.env.NODE_ENV === 'development' ? 0 : 300, tags: ["cms"] },
     });
     if (!res.ok) return null;
     const data = (await res.json()) as RawCmsPerformer;
@@ -112,7 +112,7 @@ export interface CmsSection {
 export async function getPageSections(slug: string): Promise<CmsSection[]> {
   try {
     const res = await fetch(`${CMS_API_URL}/api/public/pages/${slug}`, {
-      next: { revalidate: 60 },
+      next: { revalidate: process.env.NODE_ENV === 'development' ? 0 : 60, tags: ["cms"] },
     });
     if (!res.ok) return [];
     const data = (await res.json()) as { sections: CmsSection[] };

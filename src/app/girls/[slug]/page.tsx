@@ -27,16 +27,34 @@ const SERVICE_ICONS: Record<string, typeof Wine> = {
   afterparty: Music,
 };
 
+import { performers as staticPerformers } from "@/data/performers";
+
 export async function generateStaticParams() {
   const performers = await getPublishedPerformers();
-  return performers.map((p) => ({
+  const allPerformers = performers.length > 0 ? performers : staticPerformers;
+  return allPerformers.map((p) => ({
     slug: p.slug || p.id,
   }));
 }
 
+import { getPerformerBySlug } from "@/data/performers";
+
 export default async function PerformerPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  const performer = await getPerformerBySlugFromCms(slug);
+  let performer: any = await getPerformerBySlugFromCms(slug);
+
+  if (!performer) {
+    const staticPerformer = getPerformerBySlug(slug);
+    if (staticPerformer) {
+      performer = {
+        ...staticPerformer,
+        bio: null,
+        tagline: staticPerformer.tagline || null,
+        videos: [],
+        galleryImages: staticPerformer.galleryImages || [],
+      };
+    }
+  }
 
   if (!performer) {
     notFound();

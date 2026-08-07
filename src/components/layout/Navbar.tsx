@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 import { cities } from "@/data/cities";
 import { packageThemes } from "@/data/packages";
 import MultiLevelDrawerMenu, {
@@ -38,9 +39,14 @@ const primaries: DrawerPrimary[] = [
 
 
 export default function Navbar() {
+  const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [hidden, setHidden] = useState(false);
+  
+  // Force white background on performer profile pages
+  const isPerformerPage = pathname?.startsWith("/girls/") && pathname !== "/girls";
+  const effectiveScrolled = scrolled || isPerformerPage;
 
   useEffect(() => {
     let lastScrollY = window.scrollY;
@@ -62,7 +68,7 @@ export default function Navbar() {
   }, []);
 
   return (
-    <header className={`fixed top-0 w-full z-[110] transition-all duration-300 pointer-events-none ${hidden && !isMenuOpen ? "-translate-y-full" : "translate-y-0"} ${scrolled && !isMenuOpen ? "bg-[#FBFAF8]/95 backdrop-blur-md shadow-sm" : "bg-transparent"} border-transparent`}>
+    <header className={`fixed top-0 w-full z-[110] transition-all duration-300 pointer-events-none ${hidden && !isMenuOpen ? "-translate-y-full" : "translate-y-0"} ${effectiveScrolled && !isMenuOpen ? "bg-[#FBFAF8]/95 backdrop-blur-md shadow-sm" : "bg-transparent"} border-transparent`}>
       <nav className="mx-auto flex max-w-[120rem] items-center justify-between px-6 py-3 lg:px-12">
         <Link href="/" className="pointer-events-auto flex items-center gap-2 sm:gap-3">
           <Image
@@ -83,38 +89,38 @@ export default function Navbar() {
           <div className="hidden md:flex items-center gap-6 lg:gap-8 mr-2 lg:mr-4">
             <Link
               href="/"
-              className={`font-heading text-sm font-semibold uppercase tracking-wider transition-colors hover:text-[#740107] ${scrolled ? "text-black/85" : "text-white"}`}
+              className={`font-heading text-sm font-semibold uppercase tracking-wider transition-colors hover:text-[#740107] ${effectiveScrolled ? "text-black/85" : "text-white"}`}
             >
               Home
             </Link>
             <Link
               href="/about"
-              className={`font-heading text-sm font-semibold uppercase tracking-wider transition-colors hover:text-[#740107] ${scrolled ? "text-black/85" : "text-white"}`}
+              className={`font-heading text-sm font-semibold uppercase tracking-wider transition-colors hover:text-[#740107] ${effectiveScrolled ? "text-black/85" : "text-white"}`}
             >
               About
             </Link>
             <Link
               href="/girls"
-              className={`font-heading text-sm font-semibold uppercase tracking-wider transition-colors hover:text-[#740107] ${scrolled ? "text-black/85" : "text-white"}`}
+              className={`font-heading text-sm font-semibold uppercase tracking-wider transition-colors hover:text-[#740107] ${effectiveScrolled ? "text-black/85" : "text-white"}`}
             >
               Girls
             </Link>
             <Link
               href="/gallery"
-              className={`font-heading text-sm font-semibold uppercase tracking-wider transition-colors hover:text-[#740107] ${scrolled ? "text-black/85" : "text-white"}`}
+              className={`font-heading text-sm font-semibold uppercase tracking-wider transition-colors hover:text-[#740107] ${effectiveScrolled ? "text-black/85" : "text-white"}`}
             >
               Gallery
             </Link>
             <Link
               href="/services"
-              className={`font-heading text-sm font-semibold uppercase tracking-wider transition-colors hover:text-[#740107] ${scrolled ? "text-black/85" : "text-white"}`}
+              className={`font-heading text-sm font-semibold uppercase tracking-wider transition-colors hover:text-[#740107] ${effectiveScrolled ? "text-black/85" : "text-white"}`}
             >
               Services
             </Link>
           </div>
 
           <div className="ml-2 sm:ml-4">
-            <MultiLevelDrawerMenu primaries={primaries} onOpenChange={setIsMenuOpen} scrolled={scrolled} />
+            <MultiLevelDrawerMenu primaries={primaries} onOpenChange={setIsMenuOpen} scrolled={effectiveScrolled} />
           </div>
         </div>
       </nav>

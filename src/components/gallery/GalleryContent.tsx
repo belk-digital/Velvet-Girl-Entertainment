@@ -10,7 +10,7 @@ import {
   MapPin,
   Sparkles,
 } from "lucide-react";
-import { performers } from "@/data/performers";
+import type { CmsPerformer } from "@/lib/cms";
 import VelvetCurtains from "@/components/gallery/VelvetCurtains";
 import PerformerGalleryGrid from "@/components/gallery/PerformerGalleryGrid";
 
@@ -43,7 +43,7 @@ const sortOptions = [
   "Name (A-Z)",
 ];
 
-export default function GalleryContent() {
+export default function GalleryContent({ performers }: { performers: CmsPerformer[] }) {
   const [selectedCity, setSelectedCity] = useState<string>("CHARLESTON");
   const [searchQuery, setSearchQuery] = useState<string>("");
   const [sortBy, setSortBy] = useState<string>("Featured");

@@ -62,7 +62,22 @@ const packageCards: PackageCardData[] = [
   },
 ];
 
-export default function PackagesSection() {
+const DEFAULT_EYEBROW = "PACKAGES";
+const DEFAULT_TITLE = "Choose Your Experience";
+const DEFAULT_DESCRIPTION =
+  "From private gatherings to unforgettable nights out, our packages are designed to deliver the ultimate experience—tailored to your vibe.";
+
+export default function PackagesSection({
+  eyebrow = DEFAULT_EYEBROW,
+  title = DEFAULT_TITLE,
+  description = DEFAULT_DESCRIPTION,
+  sectionId,
+}: {
+  eyebrow?: string;
+  title?: string;
+  description?: string;
+  sectionId?: string | null;
+}) {
   const [activeIdx, setActiveIdx] = useState(0);
 
   return (
@@ -71,19 +86,29 @@ export default function PackagesSection() {
         {/* Top Header Bar */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12 md:mb-16">
           <div>
-            <p className="text-xs md:text-sm font-bold uppercase tracking-widest text-[#740107] mb-3">
-              PACKAGES
+            <p
+              data-cms-section={sectionId ?? undefined}
+              data-cms-type="packages"
+              data-cms-field="eyebrow"
+              className="text-xs md:text-sm font-bold uppercase tracking-widest text-[#740107] mb-3"
+            >
+              {eyebrow}
             </p>
-            <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-normal font-script tracking-normal text-black leading-tight mb-4">
-              Choose Your{" "}
-              <span className="bg-gradient-to-r from-[#900609] via-[#740107] to-[#4a0004] bg-clip-text text-transparent">
-                Experience
-              </span>
+            <h2
+              data-cms-section={sectionId ?? undefined}
+              data-cms-type="packages"
+              data-cms-field="title"
+              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-normal font-script tracking-normal text-black leading-tight mb-4"
+            >
+              {title}
             </h2>
-            <p className="text-black/65 text-base md:text-lg max-w-xl font-body">
-              From private gatherings to unforgettable nights out, our packages
-              are designed to deliver the ultimate experience—tailored to your
-              vibe.
+            <p
+              data-cms-section={sectionId ?? undefined}
+              data-cms-type="packages"
+              data-cms-field="description"
+              className="text-black/65 text-base md:text-lg max-w-xl font-body"
+            >
+              {description}
             </p>
           </div>
 

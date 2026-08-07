@@ -43,7 +43,15 @@ const performers: Performer[] = rawPerformers.map((p) => ({
 }));
 
 
-export default function PerformersCarousel() {
+const DEFAULT_TITLE = "Our Performers";
+
+export default function PerformersCarousel({
+  title = DEFAULT_TITLE,
+  sectionId,
+}: {
+  title?: string;
+  sectionId?: string | null;
+}) {
   const n = performers.length;
   const [active, setActive] = useState(1);
   const [isMobile, setIsMobile] = useState(false);
@@ -113,7 +121,13 @@ export default function PerformersCarousel() {
       <div className="relative z-10 mb-8 sm:mb-12 text-center">
         <h2 className="flex items-center justify-center gap-3 sm:gap-6 text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-normal tracking-normal text-white leading-tight font-script drop-shadow-[0_4px_20px_rgba(0,0,0,0.5)]">
           <span className="text-3xl sm:text-5xl md:text-6xl text-white">✦</span>
-          <span>Our Performers</span>
+          <span
+            data-cms-section={sectionId ?? undefined}
+            data-cms-type="performers"
+            data-cms-field="title"
+          >
+            {title}
+          </span>
           <span className="text-3xl sm:text-5xl md:text-6xl text-white">✦</span>
         </h2>
       </div>

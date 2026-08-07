@@ -4,11 +4,22 @@ import React, { useState } from "react";
 import Image from "next/image";
 import { Heart, MapPin, Star, ArrowRight, Sparkles } from "lucide-react";
 import Reveal from "@/components/ui/Reveal";
-import type { Performer } from "@/data/performers";
-import PerformerProfileModal from "@/components/gallery/PerformerProfileModal";
+import Link from "next/link";
+
+interface GalleryPerformer {
+  id: string;
+  slug?: string;
+  name: string;
+  image: string;
+  city?: string;
+  location?: string;
+  rating: number;
+  reviewsCount?: number;
+  availableTonight?: boolean;
+}
 
 interface PerformerGalleryGridProps {
-  performers: Performer[];
+  performers: GalleryPerformer[];
   emptyStateMessage?: string;
 }
 
@@ -17,7 +28,6 @@ export default function PerformerGalleryGrid({
   emptyStateMessage = "We couldn't find any entertainers matching your selected criteria. Try a different city or check back soon.",
 }: PerformerGalleryGridProps) {
   const [favorites, setFavorites] = useState<Record<string, boolean>>({});
-  const [selectedPerformer, setSelectedPerformer] = useState<Performer | null>(null);
 
   const toggleFavorite = (e: React.MouseEvent, id: string) => {
     e.stopPropagation();
@@ -55,9 +65,9 @@ export default function PerformerGalleryGrid({
             const displayReviewsCount = performer.reviewsCount || 28;
 
             return (
-              <div
+              <Link
                 key={performer.id}
-                onClick={() => setSelectedPerformer(performer)}
+                href={`/girls/${performer.slug || performer.id}`}
                 className="group relative flex flex-col justify-between bg-white rounded-[22px] border border-stone-200/90 overflow-hidden shadow-md hover:shadow-2xl hover:-translate-y-1.5 transition-all duration-300 cursor-pointer"
               >
                 {/* Top Image Area */}
@@ -157,16 +167,11 @@ export default function PerformerGalleryGrid({
                     </div>
                   </div>
                 </div>
-              </div>
+              </Link>
             );
           })}
         </div>
       </Reveal>
-
-      <PerformerProfileModal
-        performer={selectedPerformer}
-        onClose={() => setSelectedPerformer(null)}
-      />
     </>
   );
 }

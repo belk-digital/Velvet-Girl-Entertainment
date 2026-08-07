@@ -31,7 +31,18 @@ const stats: StatItem[] = [
   },
 ];
 
-export default function VelvetDifference() {
+const DEFAULT_EYEBROW = "THE VELVET DIFFERENCE";
+const DEFAULT_TITLE = "Proven Results, Better Outcomes";
+
+export default function VelvetDifference({
+  eyebrow = DEFAULT_EYEBROW,
+  title = DEFAULT_TITLE,
+  sectionId,
+}: {
+  eyebrow?: string;
+  title?: string;
+  sectionId?: string | null;
+}) {
   return (
     <section
       id="velvet-difference"
@@ -55,14 +66,22 @@ export default function VelvetDifference() {
           <div className="lg:col-span-5 flex flex-col justify-center">
             <div className="flex items-center gap-2 mb-4">
               <span className="w-1.5 h-1.5 rounded-full bg-white/70" />
-              <p className="text-xs sm:text-sm font-bold uppercase tracking-widest text-white/70">
-                THE VELVET DIFFERENCE
+              <p
+                data-cms-section={sectionId ?? undefined}
+                data-cms-type="velvetDifference"
+                data-cms-field="eyebrow"
+                className="text-xs sm:text-sm font-bold uppercase tracking-widest text-white/70"
+              >
+                {eyebrow}
               </p>
             </div>
-            <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-normal font-script tracking-normal text-white leading-tight mb-6">
-              Proven Results,
-              <br />
-              Better Outcomes
+            <h2
+              data-cms-section={sectionId ?? undefined}
+              data-cms-type="velvetDifference"
+              data-cms-field="title"
+              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-normal font-script tracking-normal text-white leading-tight mb-6"
+            >
+              {title}
             </h2>
             <p className="text-base sm:text-lg text-white/80 leading-relaxed max-w-lg font-body">
               Transforming your events through verified performers, professional

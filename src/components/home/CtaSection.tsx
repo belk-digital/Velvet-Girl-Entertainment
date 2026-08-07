@@ -12,7 +12,16 @@ if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
 }
 
-export default function CtaSection() {
+const DEFAULT_SUBTITLE =
+  "Contact our booking team today to discuss availability and receive a personalized quote.";
+
+export default function CtaSection({
+  subtitle = DEFAULT_SUBTITLE,
+  sectionId,
+}: {
+  subtitle?: string;
+  sectionId?: string | null;
+}) {
   const sectionRef = useRef<HTMLElement>(null);
   const headingRef = useRef<HTMLHeadingElement>(null);
   const subtitleRef = useRef<HTMLParagraphElement>(null);
@@ -93,10 +102,12 @@ export default function CtaSection() {
 
               <p
                 ref={subtitleRef}
+                data-cms-section={sectionId ?? undefined}
+                data-cms-type="cta"
+                data-cms-field="subtitle"
                 className="mt-4 text-stone-800 text-base sm:text-lg lg:text-[18px] max-w-sm leading-relaxed font-normal"
               >
-                Contact our booking team today to discuss availability and receive a
-                personalized quote.
+                {subtitle}
               </p>
 
               {/* Button with stacked text below it */}

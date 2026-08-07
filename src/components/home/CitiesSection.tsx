@@ -11,7 +11,18 @@ const homeCities = featuredCitySlugs
 const SPIN_DURATION_MS = 25000;
 const MAX_BLUR_PX = 5;
 
-export default function CitiesSection() {
+const DEFAULT_EYEBROW = "MARKETS WE SERVE";
+const DEFAULT_DESCRIPTION = "We're onboarding new markets regularly — more cities coming soon.";
+
+export default function CitiesSection({
+  eyebrow = DEFAULT_EYEBROW,
+  description = DEFAULT_DESCRIPTION,
+  sectionId,
+}: {
+  eyebrow?: string;
+  description?: string;
+  sectionId?: string | null;
+}) {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const itemRefs = useRef<(HTMLDivElement | null)[]>([]);
 
@@ -56,8 +67,13 @@ export default function CitiesSection() {
     <section className="w-full bg-[#740107] py-20 md:py-32 font-sans border-t border-black/10 overflow-hidden flex flex-col items-center">
       
       <div className="mb-12 md:mb-16 text-center px-4 relative z-10">
-        <p className="text-xs md:text-sm font-bold uppercase tracking-widest text-white/70 mb-3">
-          MARKETS WE SERVE
+        <p
+          data-cms-section={sectionId ?? undefined}
+          data-cms-type="cities"
+          data-cms-field="eyebrow"
+          className="text-xs md:text-sm font-bold uppercase tracking-widest text-white/70 mb-3"
+        >
+          {eyebrow}
         </p>
         <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-normal font-script tracking-normal text-white leading-tight mb-4">
           Now Booking in{" "}
@@ -65,8 +81,13 @@ export default function CitiesSection() {
             {homeCities.length} Cities
           </span>
         </h2>
-        <p className="text-white/80 max-w-lg mx-auto font-body">
-          We're onboarding new markets regularly — more cities coming soon.
+        <p
+          data-cms-section={sectionId ?? undefined}
+          data-cms-type="cities"
+          data-cms-field="description"
+          className="text-white/80 max-w-lg mx-auto font-body"
+        >
+          {description}
         </p>
       </div>
 

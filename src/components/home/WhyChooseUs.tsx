@@ -50,7 +50,18 @@ const rightReasons = [
   },
 ];
 
-export default function WhyChooseUs() {
+const DEFAULT_EYEBROW = "WHY US";
+const DEFAULT_TITLE = "Why Choose Velvet Girls";
+
+export default function WhyChooseUs({
+  eyebrow = DEFAULT_EYEBROW,
+  title = DEFAULT_TITLE,
+  sectionId,
+}: {
+  eyebrow?: string;
+  title?: string;
+  sectionId?: string | null;
+}) {
   return (
     <section id="why-choose-us" className="relative w-full min-h-screen overflow-hidden bg-[#740107] flex flex-col justify-between pt-16 sm:pt-24 pb-0">
       {/* Interactive WebGL Animated Silk Background */}
@@ -65,14 +76,24 @@ export default function WhyChooseUs() {
       </div>
 
       <div className="relative z-10 mx-auto max-w-[120rem] px-4 sm:px-6 flex-1 flex flex-col justify-between">
-        
+
         {/* Title */}
         <div className="mb-12 md:mb-16 text-center z-20 relative">
-          <p className="text-xs md:text-sm font-bold uppercase tracking-widest text-white/70 mb-3">
-            WHY US
+          <p
+            data-cms-section={sectionId ?? undefined}
+            data-cms-type="whyChooseUs"
+            data-cms-field="eyebrow"
+            className="text-xs md:text-sm font-bold uppercase tracking-widest text-white/70 mb-3"
+          >
+            {eyebrow}
           </p>
-          <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-normal font-script tracking-normal text-white leading-tight mb-4">
-            Why Choose <span className="text-white">Velvet Girls</span>
+          <h2
+            data-cms-section={sectionId ?? undefined}
+            data-cms-type="whyChooseUs"
+            data-cms-field="title"
+            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-normal font-script tracking-normal text-white leading-tight mb-4"
+          >
+            {title}
           </h2>
         </div>
 

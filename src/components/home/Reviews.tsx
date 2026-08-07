@@ -12,7 +12,22 @@ gsap.registerPlugin(ScrollTrigger);
 // Duplicate testimonials to have enough for a slider experience
 const extendedTestimonials = [...testimonials, ...testimonials, ...testimonials];
 
-export default function Reviews() {
+const DEFAULT_EYEBROW = "REVIEWS";
+const DEFAULT_TITLE = "What Our Clients Say";
+const DEFAULT_DESCRIPTION =
+  "Explore reviews and stories from those who trusted us. Their satisfaction drives our dedication to creating unforgettable experiences.";
+
+export default function Reviews({
+  eyebrow = DEFAULT_EYEBROW,
+  title = DEFAULT_TITLE,
+  description = DEFAULT_DESCRIPTION,
+  sectionId,
+}: {
+  eyebrow?: string;
+  title?: string;
+  description?: string;
+  sectionId?: string | null;
+}) {
   const containerRef = useRef<HTMLElement>(null);
   const sliderRef = useRef<HTMLDivElement>(null);
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -97,17 +112,29 @@ export default function Reviews() {
         {/* Header Section */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12 md:mb-16">
           <div className="review-header-element">
-            <p className="text-xs md:text-sm font-bold uppercase tracking-widest text-[#740107] mb-3">
-              REVIEWS
+            <p
+              data-cms-section={sectionId ?? undefined}
+              data-cms-type="reviews"
+              data-cms-field="eyebrow"
+              className="text-xs md:text-sm font-bold uppercase tracking-widest text-[#740107] mb-3"
+            >
+              {eyebrow}
             </p>
-            <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-normal font-script tracking-normal text-black leading-tight mb-4">
-              What Our Clients{" "}
-              <span className="bg-gradient-to-r from-[#900609] via-[#740107] to-[#4a0004] bg-clip-text text-transparent">
-                Say
-              </span>
+            <h2
+              data-cms-section={sectionId ?? undefined}
+              data-cms-type="reviews"
+              data-cms-field="title"
+              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-normal font-script tracking-normal text-black leading-tight mb-4"
+            >
+              {title}
             </h2>
-            <p className="text-black/65 text-base md:text-lg max-w-xl font-body">
-              Explore reviews and stories from those who trusted us. Their satisfaction drives our dedication to creating unforgettable experiences.
+            <p
+              data-cms-section={sectionId ?? undefined}
+              data-cms-type="reviews"
+              data-cms-field="description"
+              className="text-black/65 text-base md:text-lg max-w-xl font-body"
+            >
+              {description}
             </p>
           </div>
           

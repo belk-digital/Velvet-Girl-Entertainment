@@ -19,7 +19,18 @@ const images = [
   "/images/gallery/img5.jpg"
 ];
 
-export default function ShowcaseGallery() {
+const DEFAULT_EYEBROW = "GALLERY";
+const DEFAULT_TITLE = "Real Moments, No Filters";
+
+export default function ShowcaseGallery({
+  eyebrow = DEFAULT_EYEBROW,
+  title = DEFAULT_TITLE,
+  sectionId,
+}: {
+  eyebrow?: string;
+  title?: string;
+  sectionId?: string | null;
+}) {
   const containerRef = useRef<HTMLElement>(null);
   const scrollWrapperRef = useRef<HTMLDivElement>(null);
   const scrollContentRef = useRef<HTMLDivElement>(null);
@@ -56,14 +67,21 @@ export default function ShowcaseGallery() {
       {/* Top Header Section */}
       <div className="w-full max-w-[120rem] mx-auto px-6 lg:px-12 mb-12 md:mb-16 flex flex-col md:flex-row md:items-end justify-between gap-6">
         <div>
-          <p className="text-xs md:text-sm font-bold uppercase tracking-widest text-[#C5A880] mb-3">
-            GALLERY
+          <p
+            data-cms-section={sectionId ?? undefined}
+            data-cms-type="gallery"
+            data-cms-field="eyebrow"
+            className="text-xs md:text-sm font-bold uppercase tracking-widest text-[#C5A880] mb-3"
+          >
+            {eyebrow}
           </p>
-          <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-normal font-script tracking-normal text-white leading-tight mb-4">
-            Real Moments,{" "}
-            <span className="bg-gradient-to-r from-white via-stone-200 to-stone-400 bg-clip-text text-transparent">
-              No Filters
-            </span>
+          <h2
+            data-cms-section={sectionId ?? undefined}
+            data-cms-type="gallery"
+            data-cms-field="title"
+            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-normal font-script tracking-normal text-white leading-tight mb-4"
+          >
+            {title}
           </h2>
           <p className="text-white/80 text-base md:text-lg max-w-xl font-body">
             Welcome to our exclusive gallery. Take a look behind the scenes and explore a curated collection of our finest moments.

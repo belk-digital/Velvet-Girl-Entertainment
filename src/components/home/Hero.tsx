@@ -19,7 +19,19 @@ const heroVideoSrc = (transform: string) =>
 const HERO_VIDEO_DESKTOP = heroVideoSrc("q_auto:good,f_auto,w_1080,c_limit");
 const HERO_VIDEO_MOBILE = heroVideoSrc("q_auto:good,f_auto,w_780,c_limit");
 
-export default function Hero() {
+const DEFAULT_TITLE = "Luxury Entertainment. Professional Performers. Nationwide.";
+const DEFAULT_SUBTITLE =
+  "Elite entertainers for bachelor parties, private celebrations, VIP events, and unforgettable nights.";
+
+export default function Hero({
+  title = DEFAULT_TITLE,
+  subtitle = DEFAULT_SUBTITLE,
+  sectionId,
+}: {
+  title?: string;
+  subtitle?: string;
+  sectionId?: string | null;
+}) {
   const rootRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -64,20 +76,22 @@ export default function Hero() {
       <div className="relative z-10 flex flex-col justify-center min-h-screen lg:min-h-0 bg-black/45 lg:bg-[#FBFAF8] w-full lg:w-[52%] xl:w-[50%] flex-shrink-0 px-8 sm:px-12 lg:px-14 xl:px-20 pt-28 pb-16 lg:py-0">
         <h1
           data-hero-heading
+          data-cms-section={sectionId ?? undefined}
+          data-cms-type="hero"
+          data-cms-field="title"
           className="relative font-script font-normal leading-[1.15] opacity-0 text-4xl sm:text-5xl lg:text-[3.25rem] xl:text-[3.75rem] text-white lg:text-[#AA1417]"
         >
-          Luxury Entertainment. Professional Performers.{" "}
-          <span className="font-script inline-block text-[#e87d7d]">
-            Nationwide.
-          </span>
+          {title}
         </h1>
 
         <p
           data-hero-sub
+          data-cms-section={sectionId ?? undefined}
+          data-cms-type="hero"
+          data-cms-field="subtitle"
           className="relative mt-8 max-w-lg font-body text-base opacity-0 sm:text-lg font-medium leading-relaxed text-white/85 lg:text-stone-700"
         >
-          Elite entertainers for bachelor parties, private celebrations, VIP
-          events, and unforgettable nights.
+          {subtitle}
         </p>
 
         <div

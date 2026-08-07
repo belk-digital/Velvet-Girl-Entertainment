@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import dynamic from "next/dynamic";
 import Hero from "@/components/home/Hero";
 import TrustStats from "@/components/home/TrustStats";
 import AboutSection from "@/components/home/AboutSection";
@@ -16,6 +17,10 @@ import Reviews from "@/components/home/Reviews";
 import FaqSection from "@/components/home/FaqSection";
 import CtaSection from "@/components/home/CtaSection";
 import { cities } from "@/data/cities";
+import { getPageSections, sectionProps } from "@/lib/cms";
+import { verifyEditToken } from "@/lib/editToken";
+
+const EditBridge = dynamic(() => import("@/components/cms/EditBridge"));
 
 export const metadata: Metadata = {
   title: "Velvet Girl Entertainment | Exotic Dancer & Stripper Booking Agency",
@@ -75,7 +80,57 @@ const jsonLd = {
   ],
 };
 
-export default function Home() {
+export default async function Home({
+  searchParams,
+}: {
+  searchParams: Promise<{ cms_edit_token?: string }>;
+}) {
+  const { cms_edit_token } = await searchParams;
+  const editMode = verifyEditToken(cms_edit_token);
+  const sections = await getPageSections("home");
+  const hero = sectionProps(sections, "hero", {
+    title: "Luxury Entertainment. Professional Performers. Nationwide.",
+    subtitle:
+      "Elite entertainers for bachelor parties, private celebrations, VIP events, and unforgettable nights.",
+  });
+  const cta = sectionProps(sections, "cta", {
+    subtitle:
+      "Contact our booking team today to discuss availability and receive a personalized quote.",
+  });
+  const whyChooseUs = sectionProps(sections, "whyChooseUs", {
+    eyebrow: "WHY US",
+    title: "Why Choose Velvet Girls",
+  });
+  const packages = sectionProps(sections, "packages", {
+    eyebrow: "PACKAGES",
+    title: "Choose Your Experience",
+    description:
+      "From private gatherings to unforgettable nights out, our packages are designed to deliver the ultimate experience—tailored to your vibe.",
+  });
+  const performersSection = sectionProps(sections, "performers", { title: "Our Performers" });
+  const citiesSection = sectionProps(sections, "cities", {
+    eyebrow: "MARKETS WE SERVE",
+    description: "We're onboarding new markets regularly — more cities coming soon.",
+  });
+  const reviews = sectionProps(sections, "reviews", {
+    eyebrow: "REVIEWS",
+    title: "What Our Clients Say",
+    description:
+      "Explore reviews and stories from those who trusted us. Their satisfaction drives our dedication to creating unforgettable experiences.",
+  });
+  const gallery = sectionProps(sections, "gallery", {
+    eyebrow: "GALLERY",
+    title: "Real Moments, No Filters",
+  });
+  const velvetDifference = sectionProps(sections, "velvetDifference", {
+    eyebrow: "THE VELVET DIFFERENCE",
+    title: "Proven Results, Better Outcomes",
+  });
+  const faq = sectionProps(sections, "faq", {
+    eyebrow: "QUESTIONS & ANSWERS",
+    title: "Frequently Asked Questions",
+  });
+
   return (
     <>
       <script
@@ -83,7 +138,7 @@ export default function Home() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
-      <Hero />
+      <Hero title={hero.title} subtitle={hero.subtitle} sectionId={hero.sectionId} />
       {/* <TrustStats /> */}
       <TextMarquee items={[
         "500+ EVENTS BOOKED",
@@ -92,17 +147,40 @@ export default function Home() {
         "100% REAL PHOTOS, NO FILTERS"
       ]} />
       {/* <AboutSection /> */}
-      <WhyChooseUs />
-      <PackagesSection />
+      <WhyChooseUs
+        eyebrow={whyChooseUs.eyebrow}
+        title={whyChooseUs.title}
+        sectionId={whyChooseUs.sectionId}
+      />
+      <PackagesSection
+        eyebrow={packages.eyebrow}
+        title={packages.title}
+        description={packages.description}
+        sectionId={packages.sectionId}
+      />
       {/* <ServicesGrid /> */}
-      <VelvetDifference />
-      <PerformersCarousel />
+      <VelvetDifference
+        eyebrow={velvetDifference.eyebrow}
+        title={velvetDifference.title}
+        sectionId={velvetDifference.sectionId}
+      />
+      <PerformersCarousel title={performersSection.title} sectionId={performersSection.sectionId} />
       {/* <FeaturedPerformers /> */}
-      <CitiesSection />
-      <Reviews />
-      <ShowcaseGallery />
-      <CtaSection />
-      <FaqSection />
+      <CitiesSection
+        eyebrow={citiesSection.eyebrow}
+        description={citiesSection.description}
+        sectionId={citiesSection.sectionId}
+      />
+      <Reviews
+        eyebrow={reviews.eyebrow}
+        title={reviews.title}
+        description={reviews.description}
+        sectionId={reviews.sectionId}
+      />
+      <ShowcaseGallery eyebrow={gallery.eyebrow} title={gallery.title} sectionId={gallery.sectionId} />
+      <CtaSection subtitle={cta.subtitle} sectionId={cta.sectionId} />
+      <FaqSection eyebrow={faq.eyebrow} title={faq.title} sectionId={faq.sectionId} />
+      {editMode && <EditBridge />}
     </>
   );
 }

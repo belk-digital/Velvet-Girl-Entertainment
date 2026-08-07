@@ -9,6 +9,7 @@ interface FaqSectionProps {
   title?: string;
   theme?: "crimson" | "light";
   hideBorder?: boolean;
+  sectionId?: string | null;
 }
 
 export default function FaqSection({
@@ -17,6 +18,7 @@ export default function FaqSection({
   title = "Frequently Asked Questions",
   theme = "crimson",
   hideBorder = false,
+  sectionId,
 }: FaqSectionProps) {
   const isCrimson = theme === "crimson";
 
@@ -34,6 +36,9 @@ export default function FaqSection({
         {/* Title */}
         <div className="mb-12 md:mb-16">
           <p
+            data-cms-section={sectionId ?? undefined}
+            data-cms-type="faq"
+            data-cms-field="eyebrow"
             className={`text-xs md:text-sm font-bold uppercase tracking-widest mb-3 ${
               isCrimson ? "text-white/70" : "text-[#740107]"
             }`}
@@ -41,6 +46,9 @@ export default function FaqSection({
             {eyebrow}
           </p>
           <h2
+            data-cms-section={sectionId ?? undefined}
+            data-cms-type="faq"
+            data-cms-field="title"
             className={`text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-normal font-script tracking-normal leading-tight mb-4 ${
               isCrimson ? "text-white" : "text-black"
             }`}

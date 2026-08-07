@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import Lightbox from "@/components/ui/Lightbox";
 
 interface PerformerCarouselProps {
   images: string[];
@@ -11,29 +12,36 @@ interface PerformerCarouselProps {
 
 export default function PerformerCarousel({ images, name }: PerformerCarouselProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [lightboxOpen, setLightboxOpen] = useState(false);
 
-  const nextSlide = () => {
+  const nextSlide = (e?: React.MouseEvent) => {
+    e?.stopPropagation();
     setCurrentIndex((prev) => (prev + 1) % images.length);
   };
 
-  const prevSlide = () => {
+  const prevSlide = (e?: React.MouseEvent) => {
+    e?.stopPropagation();
     setCurrentIndex((prev) => (prev - 1 + images.length) % images.length);
   };
 
   if (!images || images.length === 0) return null;
 
   return (
-    <div className="relative aspect-[4/5] w-full rounded-xl overflow-hidden bg-stone-100 shadow-2xl group">
-      <Image
-        src={images[currentIndex]}
-        alt={`${name} - Slide ${currentIndex + 1}`}
-        fill
-        className="object-cover object-top transition-all duration-500"
-        priority={currentIndex === 0}
-        sizes="(max-width: 768px) 100vw, 50vw"
-      />
-      
-      {images.length > 1 && (
+    <>
+      <div 
+        className="relative aspect-[4/5] w-full rounded-xl overflow-hidden bg-stone-100 shadow-2xl group cursor-pointer"
+        onClick={() => setLightboxOpen(true)}
+      >
+        <Image
+          src={images[currentIndex]}
+          alt={`${name} - Slide ${currentIndex + 1}`}
+          fill
+          className="object-cover object-top transition-all duration-500"
+          priority={currentIndex === 0}
+          sizes="(max-width: 768px) 100vw, 50vw"
+        />
+        
+        {images.length > 1 && (
         <>
           <button 
             onClick={prevSlide}
@@ -61,6 +69,14 @@ export default function PerformerCarousel({ images, name }: PerformerCarouselPro
           </div>
         </>
       )}
-    </div>
+      </div>
+
+      <Lightbox 
+        images={images} 
+        isOpen={lightboxOpen} 
+        onClose={() => setLightboxOpen(false)} 
+        initialIndex={currentIndex} 
+      />
+    </>
   );
 }

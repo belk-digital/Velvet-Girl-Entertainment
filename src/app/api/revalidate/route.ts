@@ -14,7 +14,7 @@ export async function POST(req: Request) {
     const tag = body.tag || "cms";
 
     // Clear the Next.js fetch cache for the given tag
-    revalidateTag(tag);
+    revalidateTag(tag, { expire: 0 });
     
     return NextResponse.json({ revalidated: true, tag, now: Date.now() });
   } catch (err) {

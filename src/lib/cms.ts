@@ -66,16 +66,26 @@ function normalize(p: RawCmsPerformer): CmsPerformer {
   };
 }
 
+import { performers as staticPerformers } from "@/data/performers";
+
 export async function getPublishedPerformers(): Promise<CmsPerformer[]> {
   try {
     const res = await fetch(`${CMS_API_URL}/api/public/performers`, {
       next: { revalidate: 300 },
     });
-    if (!res.ok) return [];
+    if (!res.ok) throw new Error("Failed to fetch");
     const data = (await res.json()) as RawCmsPerformer[];
     return data.map(normalize);
   } catch {
-    return [];
+    // Fallback to static performers if CMS is unavailable
+    return staticPerformers.map(p => ({
+      ...p,
+      bio: null,
+      tagline: p.tagline || null,
+      videos: [],
+      galleryImages: p.galleryImages || [],
+      tags: p.tags as string[] | undefined,
+    })) as CmsPerformer[];
   }
 }
 

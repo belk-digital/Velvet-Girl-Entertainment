@@ -6,14 +6,12 @@ import { MapPin, Star, Sparkles, Check, Eye } from "lucide-react";
 import { useBookingForm } from "@/hooks/useBookingForm";
 import StepLayout from "@/components/booking/StepLayout";
 import StepNavigation from "@/components/booking/StepNavigation";
+import Link from "next/link";
 import { cities } from "@/data/cities";
 import { performers, type Performer } from "@/data/performers";
-import PerformerProfileModal from "@/components/gallery/PerformerProfileModal";
 
 export default function Step03City() {
   const { state, setField, togglePerformer } = useBookingForm();
-  const [selectedModalPerformer, setSelectedModalPerformer] =
-    useState<Performer | null>(null);
 
   // Filter performers location-wise based on selected event city.
   // No fallback to other cities' rosters — showing performers from a
@@ -130,10 +128,10 @@ export default function Step03City() {
                     : "border-stone-200/90"
                 }`}
               >
-                {/* Top Image Area */}
-                <div
-                  onClick={() => setSelectedModalPerformer(performer)}
-                  className="relative aspect-[3/4] w-full overflow-hidden bg-stone-100 cursor-pointer"
+                <Link
+                  href={`/girls/${performer.slug || performer.id}`}
+                  target="_blank"
+                  className="relative aspect-[3/4] w-full overflow-hidden bg-stone-100 cursor-pointer block"
                 >
                   <Image
                     src={performer.image}
@@ -190,7 +188,7 @@ export default function Step03City() {
                       </span>
                     </div>
                   </div>
-                </div>
+                </Link>
 
                 {/* Bottom Content Area */}
                 <div className="p-4 flex flex-col justify-between flex-grow gap-4">
@@ -239,12 +237,6 @@ export default function Step03City() {
         </div>
         )}
       </div>
-
-      {/* Performer Profile Modal */}
-      <PerformerProfileModal
-        performer={selectedModalPerformer}
-        onClose={() => setSelectedModalPerformer(null)}
-      />
 
       <StepNavigation />
     </StepLayout>

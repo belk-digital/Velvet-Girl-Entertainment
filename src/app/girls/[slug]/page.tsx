@@ -70,10 +70,7 @@ export default async function PerformerPage({ params }: { params: Promise<{ slug
   // Remove duplicates in case the primary image is already in the gallery array
   const uniqueGalleryImages = Array.from(new Set(allGalleryImages));
 
-  const galleryImages =
-    uniqueGalleryImages.length > 1
-      ? uniqueGalleryImages
-      : Array(8).fill(performer.image);
+  const galleryImages = uniqueGalleryImages;
 
   return (
     <main className="min-h-screen bg-[var(--background)] font-body text-stone-900 pb-24 relative overflow-hidden">

@@ -38,6 +38,14 @@ interface RawCmsPerformer {
 }
 
 function normalize(p: RawCmsPerformer): CmsPerformer {
+  const getFullUrl = (url: string | null | undefined) => {
+    if (!url) return "";
+    if (url.startsWith("/")) {
+      return `${CMS_API_URL}${url}`;
+    }
+    return url;
+  };
+
   return {
     id: p.slug,
     slug: p.slug,
@@ -53,9 +61,9 @@ function normalize(p: RawCmsPerformer): CmsPerformer {
     languages: p.languages,
     services: p.services,
     tags: p.tags,
-    image: p.image ?? "",
-    galleryImages: p.galleryImages,
-    videos: p.videos,
+    image: getFullUrl(p.image),
+    galleryImages: p.galleryImages?.map(getFullUrl) || [],
+    videos: p.videos?.map(getFullUrl) || [],
     eventsCount: p.eventsCount ?? "",
     availableTonight: p.availableTonight,
     availableToday: p.availableToday,

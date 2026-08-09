@@ -43,7 +43,7 @@ export default function Step07Costume() {
   const { state, setField } = useBookingForm();
 
   return (
-    <StepLayout stepKey={7} title="Costume preference">
+    <StepLayout stepKey={6} title="Outfit preference">
       <div className="grid grid-cols-2 sm:grid-cols-3 gap-5 my-6">
         {COSTUME_OPTIONS.map((item) => (
           <ImageOptionCard

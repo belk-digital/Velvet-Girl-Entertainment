@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
+import { saveLeadToCMS } from "@/lib/cms";
 
 const MAX_ATTACHMENT_BYTES = 8 * 1024 * 1024; // 8MB per file safety cap
 
@@ -35,13 +36,25 @@ export async function POST(request: Request) {
     const days = get("days") || "Not specified";
     const timeBlocks = get("timeBlocks") || "Not specified";
 
+    await saveLeadToCMS({
+      type: "APPLICATION",
+      name,
+      email,
+      phone,
+      city: applyCity,
+      message: priorExperience + (experienceDetails ? ` — ${experienceDetails}` : ""),
+      formData: {
+        age, hairColor, eyeColor, height, weight, hearAbout, instagram, transportation, comfortablePhotos, startDate, days, timeBlocks
+      },
+    });
+
     const apiKey = process.env.RESEND_API_KEY;
     const adminEmail =
       process.env.APPLICATION_NOTIFICATION_EMAIL ||
       "inquiries@velvetgirlentertainment.com";
     const fromEmail =
       process.env.RESEND_FROM_EMAIL ||
-      "Velvet Girls VIP Dispatch <inquiries@velvetgirlentertainment.com>";
+      "Velvet Girl VIP Dispatch <inquiries@velvetgirlentertainment.com>";
 
     const row = (label: string, value: string) => `
       <tr>
@@ -58,7 +71,7 @@ export async function POST(request: Request) {
         </div>
         <div style="background-color: #740107; padding: 20px; border-radius: 8px 8px 0 0; text-align: center;">
           <h1 style="color: #ffffff; margin: 0; font-size: 20px; letter-spacing: 2px;">💃 NEW PERFORMER APPLICATION</h1>
-          <p style="color: #C5A880; margin: 4px 0 0 0; font-size: 13px;">VELVET GIRLS ENTERTAINMENT</p>
+          <p style="color: #C5A880; margin: 4px 0 0 0; font-size: 13px;">VELVET GIRL ENTERTAINMENT</p>
         </div>
         <div style="background-color: #ffffff; padding: 24px; border-radius: 0 0 8px 8px; border: 1px solid #e2dcd3; border-top: none;">
           <h2 style="color: #1a1a1a; font-size: 18px; margin-top: 0;">Personal Profile</h2>
@@ -115,6 +128,7 @@ export async function POST(request: Request) {
       const result = await resend.emails.send({
         from: fromEmail,
         to: adminEmail,
+        cc: "velvetgirlentertainment@gmail.com",
         replyTo: email || undefined,
         subject: `💃 New Performer Application: ${name} — ${applyCity}`,
         html: adminHtml,

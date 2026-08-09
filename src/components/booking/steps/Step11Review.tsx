@@ -74,7 +74,7 @@ export default function Step11Review() {
     .filter(Boolean);
 
   return (
-    <StepLayout stepKey={11} title="Let's review your booking details">
+    <StepLayout stepKey={10} title="Let's review your booking details">
       <div className="max-w-4xl my-6">
         {/* Selected Performers Visual Display on Review Page */}
         <div className="mb-8 p-6 rounded-2xl bg-white border border-black/10 shadow-sm">

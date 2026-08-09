@@ -352,71 +352,24 @@ export default function BookingForm() {
         {/* STEP 2: PERFORMERS & THEME */}
         {step === 2 && (
           <div className="space-y-6 animate-in fade-in duration-300">
-            <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
-              <div>
-                <label className={labelClass} htmlFor="theme">
-                  Party Theme
-                </label>
-                <select
-                  id="theme"
-                  name="theme"
-                  className={inputClass}
-                  value={formData.theme}
-                  onChange={handleChange}
-                >
-                  <option value="">Select a theme</option>
-                  {bookableThemes.map((t) => (
-                    <option key={t.slug} value={t.slug}>
-                      {t.name}
-                    </option>
-                  ))}
-                </select>
-              </div>
-              <div>
-                <label className={labelClass} htmlFor="costume">
-                  Costume Preference
-                </label>
-                <select
-                  id="costume"
-                  name="costume"
-                  className={inputClass}
-                  value={formData.costume}
-                  onChange={handleChange}
-                >
-                  <option value="">No preference</option>
-                  {costumes.map((c) => (
-                    <option key={c.slug} value={c.slug}>
-                      {c.name}
-                    </option>
-                  ))}
-                </select>
-              </div>
-            </div>
-
-            {/* Quick Theme Selector Cards */}
             <div>
-              <label className="mb-2 block font-body text-xs font-bold uppercase tracking-widest text-black/60">
-                Select Featured Theme
+              <label className={labelClass} htmlFor="costume">
+                Outfit Preference
               </label>
-              <div className="flex flex-wrap gap-2">
-                {bookableThemes.map((t) => {
-                  const isSelected = formData.theme === t.slug;
-                  return (
-                    <button
-                      key={t.slug}
-                      type="button"
-                      onClick={() => setFormData((prev) => ({ ...prev, theme: t.slug }))}
-                      className={`rounded-full border px-4 py-2 font-body text-xs font-bold uppercase tracking-wider transition-all duration-300 ${
-                        isSelected
-                          ? "border-[#740107] bg-[#740107] text-white shadow-sm"
-                          : "border-black/20 bg-white text-black/80 hover:border-[#740107]/60"
-                      }`}
-                    >
-                      {t.name}
-                    </button>
-                  );
-                })}
-              </div>
+              <select
+                id="costume"
+                name="costume"
+                className={inputClass}
+                value={formData.costume}
+                onChange={handleChange}
+              >
+                <option value="">No preference</option>
+                {costumes.map((c) => (
+                  <option key={c.slug} value={c.slug}>
+                    {c.name}
+                  </option>
+                ))}
+              </select>
             </div>
 
             <div>
@@ -586,10 +539,10 @@ export default function BookingForm() {
                   {dancers} Dancers
                 </div>
                 <div>
-                  <span className="font-semibold text-black">Theme:</span>{" "}
-                  {bookableThemes.find((t) => t.slug === formData.theme)?.name ||
-                    formData.theme ||
-                    "Standard"}
+                  <span className="font-semibold text-black">Outfit Preference:</span>{" "}
+                  {costumes.find((c) => c.slug === formData.costume)?.name ||
+                    formData.costume ||
+                    "No preference"}
                 </div>
                 {selectedUpgrades.length > 0 && (
                   <div className="sm:col-span-2">

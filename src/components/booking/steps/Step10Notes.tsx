@@ -16,8 +16,8 @@ export default function Step10Notes() {
   };
 
   return (
-    <StepLayout stepKey={10} title="Anything else we should know?">
-      <div className="max-w-2xl my-8">
+    <StepLayout stepKey={9} rightImage="/gallery images/DSC06322.webp">
+      <div className="py-6 max-w-xl relative z-10">
         <div className="relative">
           <textarea
             value={state.notes}

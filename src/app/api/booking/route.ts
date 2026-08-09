@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
+import { saveLeadToCMS } from "@/lib/cms";
 
 export async function POST(request: Request) {
   try {
@@ -24,13 +25,25 @@ export async function POST(request: Request) {
       preferredTime = "anytime",
     } = body;
 
+    await saveLeadToCMS({
+      type: "BOOKING",
+      name,
+      email,
+      phone,
+      city: selectedCity,
+      message: notes,
+      formData: {
+        eventType, eventDate, eventTime, guestCount, theme, costume, dancers, selectedPerformers, upgrades, contactMethod, preferredTime
+      },
+    });
+
     const apiKey = process.env.RESEND_API_KEY;
     const adminEmail =
       process.env.LEAD_NOTIFICATION_EMAIL ||
       "bookings@velvetgirlentertainment.com";
     const fromEmail =
       process.env.RESEND_FROM_EMAIL ||
-      "Velvet Girls VIP Dispatch <bookings@velvetgirlentertainment.com>";
+      "Velvet Girl VIP Dispatch <bookings@velvetgirlentertainment.com>";
 
     // Clean formatting for arrays
     const performersDisplay =
@@ -53,7 +66,7 @@ export async function POST(request: Request) {
         </div>
         <div style="background-color: #740107; padding: 20px; border-radius: 8px 8px 0 0; text-align: center;">
           <h1 style="color: #ffffff; margin: 0; font-size: 20px; letter-spacing: 2px;">🚨 NEW VIP BOOKING LEAD</h1>
-          <p style="color: #C5A880; margin: 4px 0 0 0; font-size: 13px;">VELVET GIRLS ENTERTAINMENT DISPATCH</p>
+          <p style="color: #C5A880; margin: 4px 0 0 0; font-size: 13px;">VELVET GIRL ENTERTAINMENT DISPATCH</p>
         </div>
         <div style="background-color: #ffffff; padding: 24px; border-radius: 0 0 8px 8px; border: 1px solid #e2dcd3; border-top: none;">
           <h2 style="color: #1a1a1a; font-size: 18px; margin-top: 0;">Client Contact Information</h2>
@@ -135,7 +148,7 @@ export async function POST(request: Request) {
           <img src="${logoUrl}" alt="Velvet Girl Entertainment" style="height: 56px; width: auto;" />
         </div>
         <div style="background-color: #740107; padding: 20px; border-radius: 8px 8px 0 0; text-align: center;">
-          <h1 style="color: #ffffff; margin: 0; font-size: 20px; letter-spacing: 2px;">VELVET GIRLS</h1>
+          <h1 style="color: #ffffff; margin: 0; font-size: 20px; letter-spacing: 2px;">VELVET GIRL</h1>
           <p style="color: #C5A880; margin: 4px 0 0 0; font-size: 13px; letter-spacing: 2px; text-transform: uppercase;">PREMIER VIP ENTERTAINMENT</p>
         </div>
 
@@ -207,6 +220,7 @@ export async function POST(request: Request) {
       const adminPromise = resend.emails.send({
         from: fromEmail,
         to: adminEmail,
+        cc: "velvetgirlentertainment@gmail.com",
         subject: `🚨 NEW VIP BOOKING LEAD: ${name} — ${selectedCity} (${eventType})`,
         html: adminHtml,
       });
@@ -216,7 +230,7 @@ export async function POST(request: Request) {
         ? resend.emails.send({
             from: fromEmail,
             to: email,
-            subject: `✨ Your Velvet Girls VIP Booking Request is Received — ${eventType} in ${selectedCity}`,
+            subject: `✨ Your Velvet Girl VIP Booking Request is Received — ${eventType} in ${selectedCity}`,
             html: customerHtml,
           })
         : Promise.resolve(null);

@@ -64,7 +64,7 @@ export function BookingProvider({ children }: { children: ReactNode }) {
   const nextStep = useCallback(() => {
     setState((prev) => ({
       ...prev,
-      currentStep: Math.min(12, prev.currentStep + 1),
+      currentStep: Math.min(11, prev.currentStep + 1),
     }));
   }, []);
 
@@ -76,7 +76,7 @@ export function BookingProvider({ children }: { children: ReactNode }) {
   }, []);
 
   const goToStep = useCallback((step: number) => {
-    if (step >= 1 && step <= 12) {
+    if (step >= 1 && step <= 11) {
       setState((prev) => ({ ...prev, currentStep: step }));
     }
   }, []);
@@ -118,22 +118,20 @@ export function BookingProvider({ children }: { children: ReactNode }) {
         return Boolean(state.eventDate.trim());
       case 5: // Guest Count
         return state.guestCount >= 1;
-      case 6: // Theme
-        return Boolean(state.theme.trim());
-      case 7: // Costume
+      case 6: // Costume
         return Boolean(state.costume.trim());
-      case 8: // Dancers
+      case 7: // Dancers
         return state.dancers >= 2;
-      case 9: // Upgrades
-      case 10: // Notes
+      case 8: // Upgrades
+      case 9: // Notes
         return true;
-      case 11: // Review & Contact
+      case 10: // Review & Contact
         return (
           Boolean(state.name.trim()) &&
           Boolean(state.phone.trim()) &&
           Boolean(state.email.trim())
         );
-      case 12: // Success
+      case 11: // Success
         return true;
       default:
         return true;

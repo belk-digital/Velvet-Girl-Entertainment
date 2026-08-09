@@ -131,3 +131,17 @@ export function sectionProps<T extends Record<string, string>>(
   if (!section) return { ...fallback, sectionId: null };
   return { ...fallback, ...section.props, sectionId: section.id };
 }
+
+export async function saveLeadToCMS(leadData: any): Promise<boolean> {
+  try {
+    const res = await fetch(`${CMS_API_URL}/api/public/leads`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(leadData),
+    });
+    return res.ok;
+  } catch (error) {
+    console.error("Failed to save lead to CMS:", error);
+    return false;
+  }
+}

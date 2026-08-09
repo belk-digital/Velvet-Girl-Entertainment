@@ -51,7 +51,7 @@ const rightReasons = [
 ];
 
 const DEFAULT_EYEBROW = "WHY US";
-const DEFAULT_TITLE = "Why Choose Velvet Girls";
+const DEFAULT_TITLE = "Why Choose Velvet Girl";
 
 export default function WhyChooseUs({
   eyebrow = DEFAULT_EYEBROW,

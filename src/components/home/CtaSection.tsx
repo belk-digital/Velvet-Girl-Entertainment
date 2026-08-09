@@ -155,32 +155,6 @@ export default function CtaSection({
                 {/* Right-aligned content wrapper on tablet/desktop, full-width on mobile */}
                 <div className="w-full md:max-w-[320px] lg:max-w-[370px] xl:max-w-[410px] 2xl:max-w-[440px] md:ml-auto flex flex-col justify-between h-full min-h-[360px] lg:min-h-[440px] xl:min-h-[480px] z-10 relative">
                   <div ref={quoteRef}>
-                    {/* Shining Silver Heart Icon (Static) */}
-                    <div className="mb-3 inline-flex items-center">
-                      <svg
-                        className="w-7 h-7 sm:w-8 sm:h-8 drop-shadow-[0_0_12px_rgba(255,255,255,0.8)]"
-                        viewBox="0 0 24 24"
-                        fill="url(#shiningSilver)"
-                        stroke="url(#shiningSilverStroke)"
-                        strokeWidth="1"
-                      >
-                        <defs>
-                          <linearGradient id="shiningSilver" x1="0%" y1="0%" x2="100%" y2="100%">
-                            <stop offset="0%" stopColor="#FFFFFF" />
-                            <stop offset="25%" stopColor="#E2E8F0" />
-                            <stop offset="50%" stopColor="#94A3B8" />
-                            <stop offset="75%" stopColor="#F8FAFC" />
-                            <stop offset="100%" stopColor="#CBD5E1" />
-                          </linearGradient>
-                          <linearGradient id="shiningSilverStroke" x1="0%" y1="0%" x2="100%" y2="0%">
-                            <stop offset="0%" stopColor="#FFFFFF" />
-                            <stop offset="50%" stopColor="#94A3B8" />
-                            <stop offset="100%" stopColor="#FFFFFF" />
-                          </linearGradient>
-                        </defs>
-                        <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" />
-                      </svg>
-                    </div>
 
                     <p className="text-white text-xl sm:text-2xl md:text-2xl lg:text-3xl xl:text-[34px] font-normal leading-snug sm:leading-tight">
                       We&apos;re here to make <br />

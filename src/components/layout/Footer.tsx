@@ -139,7 +139,7 @@ export default function Footer() {
               className="h-14 w-auto sm:h-16"
             />
             <span className="font-script font-normal text-4xl sm:text-5xl text-black">
-              Velvet Girls
+              Velvet Girl
             </span>
           </Link>
           <div className="flex items-center gap-4">

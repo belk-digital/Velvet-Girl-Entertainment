@@ -11,7 +11,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const images = [
+const defaultImages = [
   "/images/gallery/img1.jpg",
   "/images/gallery/img2.jpg",
   "/images/gallery/img3.jpg",
@@ -26,10 +26,14 @@ export default function ShowcaseGallery({
   eyebrow = DEFAULT_EYEBROW,
   title = DEFAULT_TITLE,
   sectionId,
+  images = defaultImages,
+  linkHref = "/gallery",
 }: {
   eyebrow?: string;
   title?: string;
   sectionId?: string | null;
+  images?: string[];
+  linkHref?: string;
 }) {
   const containerRef = useRef<HTMLElement>(null);
   const scrollWrapperRef = useRef<HTMLDivElement>(null);
@@ -127,7 +131,7 @@ export default function ShowcaseGallery({
               return isLast ? (
                 <Link
                   key={idx}
-                  href="/gallery"
+                  href={linkHref}
                   className="snap-center relative w-[80vw] sm:w-[450px] md:w-[550px] aspect-[4/3] group overflow-hidden cursor-pointer shrink-0 flex items-center justify-center"
                 >
                   {cardContent}
@@ -153,7 +157,7 @@ export default function ShowcaseGallery({
           <button className="bg-white text-[#740106] w-14 h-14 md:w-16 md:h-16 flex items-center justify-center hover:bg-black hover:text-white transition-colors shrink-0">
             <ArrowLeft className="w-5 h-5 md:w-6 md:h-6" strokeWidth={2.5} />
           </button>
-          <span className="text-white/80 tracking-[0.2em] text-xs md:text-sm font-medium">VELVET GIRLS</span>
+          <span className="text-white/80 tracking-[0.2em] text-xs md:text-sm font-medium">VELVET GIRL</span>
         </div>
 
         <div className="flex-1 w-full max-w-lg items-center px-4 hidden md:flex">
@@ -165,7 +169,7 @@ export default function ShowcaseGallery({
         <div className="flex items-center justify-between w-full md:w-auto gap-6 self-end md:self-auto">
           <span className="text-white/80 tracking-[0.2em] text-xs md:text-sm font-medium">{new Date().getFullYear()}</span>
           <Link
-            href="/gallery"
+            href={linkHref}
             className="border-2 border-white/30 rounded-full w-12 h-12 md:w-14 md:h-14 flex items-center justify-center text-white hover:bg-white hover:text-[#740106] hover:border-white transition-colors shrink-0"
             aria-label="View full gallery"
           >

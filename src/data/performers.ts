@@ -41,7 +41,7 @@ export const performers: Performer[] = [
     availableToday: true,
     isVerified: true,
     hairColor: "Brunette",
-    image: encodeURI("/gallery images/DIOR(3).webp"),
+    image: "/gallery images/DIOR(3).webp",
     galleryImages: [
       "/images/performers%20profile%20images/dior/DIOR.webp",
       "/images/performers%20profile%20images/dior/DIOR(2).webp",
@@ -71,7 +71,7 @@ export const performers: Performer[] = [
     availableToday: true,
     isVerified: true,
     hairColor: "Brunette",
-    image: encodeURI("/gallery images/LOTUS.webp"),
+    image: "/gallery images/LOTUS.webp",
     galleryImages: [
       "/images/performers%20profile%20images/Lotus/LOTUS.webp",
     ],
@@ -95,7 +95,7 @@ export const performers: Performer[] = [
     availableToday: true,
     isVerified: true,
     hairColor: "Blonde",
-    image: encodeURI("/gallery images/KIMMI K.webp"),
+    image: "/gallery images/KIMMI K.webp",
     galleryImages: [
       "/images/performers%20profile%20images/KIMMI%20K/KIMMI%20K%20PROFILE%20PICS.webp",
       "/images/performers%20profile%20images/KIMMI%20K/KIMMI%20K(1).webp",
@@ -155,7 +155,7 @@ export const performers: Performer[] = [
     availableToday: true,
     isVerified: true,
     hairColor: "Blonde",
-    image: encodeURI("/images/performers-gallery/Claire Charleston profile pics.webp"),
+    image: "/images/performers-gallery/Claire Charleston profile pics.webp",
     galleryImages: [
       "/images/performers%20profile%20images/claire/Claire%20Charleston%20profile%20pic.webp",
       "/images/performers%20profile%20images/claire/Claire%20Charleston%20profile%20pics_(1).webp",
@@ -181,7 +181,7 @@ export const performers: Performer[] = [
     availableToday: true,
     isVerified: true,
     hairColor: "Brunette",
-    image: encodeURI("/images/performers-gallery/Frankie Orlando profile pic.webp"),
+    image: "/images/performers-gallery/Frankie Orlando profile pic.webp",
     galleryImages: [
       "/images/performers%20profile%20images/Frankie/Frankie.webp",
       "/images/performers%20profile%20images/Frankie/Frankie%20(2).webp",

@@ -29,6 +29,25 @@ const primaries: DrawerPrimary[] = [
       href: `/cities/${c.stateSlug}/${c.slug}`,
     })),
   },
+  {
+    id: "events",
+    label: "Events",
+    href: "/events",
+    dropdown: [
+      {
+        label: "Myrtle Beach Bike Week 2027",
+        href: "/events/myrtle-beach-bike-week-2027",
+      },
+      {
+        label: "Daytona Bike Week 2027",
+        href: "/events/daytona-bike-week-2027",
+      },
+      {
+        label: "Event Gallery",
+        href: "/events/gallery",
+      },
+    ],
+  },
   { id: "girls", label: "Girls", href: "/girls" },
   { id: "gallery", label: "Gallery", href: "/gallery" },
   { id: "join-team", label: "Join Our Team", href: "/join-team" },
@@ -80,7 +99,7 @@ export default function Navbar() {
             className="h-16 w-auto sm:h-20"
           />
           <span className="font-script font-normal text-2xl sm:text-3xl text-[#740107]">
-            Velvet Girls
+            Velvet Girl
           </span>
         </Link>
 

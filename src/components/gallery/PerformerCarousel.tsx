@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, TouchEvent } from "react";
 import Image from "next/image";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import Lightbox from "@/components/ui/Lightbox";
@@ -13,13 +13,52 @@ interface PerformerCarouselProps {
 export default function PerformerCarousel({ images, name }: PerformerCarouselProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [touchStart, setTouchStart] = useState<number | null>(null);
+  const [touchEnd, setTouchEnd] = useState<number | null>(null);
+  const [isSwiping, setIsSwiping] = useState(false);
 
-  const nextSlide = (e?: React.MouseEvent) => {
+  const minSwipeDistance = 50;
+
+  const onTouchStart = (e: TouchEvent) => {
+    setTouchEnd(null);
+    setTouchStart(e.targetTouches[0].clientX);
+    setIsSwiping(false);
+  };
+
+  const onTouchMove = (e: TouchEvent) => {
+    setTouchEnd(e.targetTouches[0].clientX);
+    if (touchStart && Math.abs(touchStart - e.targetTouches[0].clientX) > 10) {
+      setIsSwiping(true);
+    }
+  };
+
+  const onTouchEnd = (e: TouchEvent) => {
+    if (!touchStart || !touchEnd) return;
+    
+    const distance = touchStart - touchEnd;
+    const isLeftSwipe = distance > minSwipeDistance;
+    const isRightSwipe = distance < -minSwipeDistance;
+
+    if (isLeftSwipe) {
+      nextSlide();
+    }
+    if (isRightSwipe) {
+      prevSlide();
+    }
+  };
+
+  const handleContainerClick = (e: React.MouseEvent) => {
+    if (!isSwiping) {
+      setLightboxOpen(true);
+    }
+  };
+
+  const nextSlide = (e?: React.MouseEvent | TouchEvent) => {
     e?.stopPropagation();
     setCurrentIndex((prev) => (prev + 1) % images.length);
   };
 
-  const prevSlide = (e?: React.MouseEvent) => {
+  const prevSlide = (e?: React.MouseEvent | TouchEvent) => {
     e?.stopPropagation();
     setCurrentIndex((prev) => (prev - 1 + images.length) % images.length);
   };
@@ -30,13 +69,16 @@ export default function PerformerCarousel({ images, name }: PerformerCarouselPro
     <>
       <div 
         className="relative aspect-[4/5] w-full rounded-xl overflow-hidden bg-stone-100 shadow-2xl group cursor-pointer"
-        onClick={() => setLightboxOpen(true)}
+        onClick={handleContainerClick}
+        onTouchStart={onTouchStart}
+        onTouchMove={onTouchMove}
+        onTouchEnd={onTouchEnd}
       >
         <Image
           src={images[currentIndex]}
           alt={`${name} - Slide ${currentIndex + 1}`}
           fill
-          className="object-cover object-top transition-all duration-500"
+          className="object-cover object-top transition-all duration-500 pointer-events-none"
           priority={currentIndex === 0}
           sizes="(max-width: 768px) 100vw, 50vw"
         />
@@ -45,7 +87,7 @@ export default function PerformerCarousel({ images, name }: PerformerCarouselPro
         <>
           <button 
             onClick={prevSlide}
-            className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/90 rounded-full flex items-center justify-center shadow-md hover:bg-white transition-colors opacity-0 group-hover:opacity-100 focus:opacity-100"
+            className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/90 rounded-full flex items-center justify-center shadow-md hover:bg-white transition-colors opacity-100 md:opacity-0 md:group-hover:opacity-100 focus:opacity-100 z-10"
             aria-label="Previous image"
           >
             <ChevronLeft className="w-5 h-5 text-stone-800" />
@@ -53,13 +95,13 @@ export default function PerformerCarousel({ images, name }: PerformerCarouselPro
           
           <button 
             onClick={nextSlide}
-            className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/90 rounded-full flex items-center justify-center shadow-md hover:bg-white transition-colors opacity-0 group-hover:opacity-100 focus:opacity-100"
+            className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/90 rounded-full flex items-center justify-center shadow-md hover:bg-white transition-colors opacity-100 md:opacity-0 md:group-hover:opacity-100 focus:opacity-100 z-10"
             aria-label="Next image"
           >
             <ChevronRight className="w-5 h-5 text-stone-800" />
           </button>
           
-          <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex items-center gap-2">
+          <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex items-center gap-2 z-10">
             {images.slice(0, Math.min(images.length, 5)).map((_, idx) => (
               <div 
                 key={idx} 

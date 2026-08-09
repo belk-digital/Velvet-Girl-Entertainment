@@ -10,7 +10,7 @@ export default function Step08Dancers() {
   const { state, setField } = useBookingForm();
 
   return (
-    <StepLayout stepKey={8} rightImage="/gallery images/Velvet girl.webp">
+    <StepLayout stepKey={7} rightImage="/gallery images/Velvet girl.webp">
       <div className="py-6 max-w-xl relative z-10">
         <h1 className="mb-4 font-display text-2xl sm:text-4xl md:text-5xl font-extrabold text-stone-900 tracking-tight text-center sm:text-left">
           How many dancers would you like?

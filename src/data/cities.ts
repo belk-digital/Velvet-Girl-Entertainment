@@ -312,6 +312,42 @@ const raw: { state: string; stateSlug: string; cities: RawCity[] }[] = [
       },
     ],
   },
+  {
+    state: "Washington DC",
+    stateSlug: "washington-dc",
+    cities: [
+      {
+        name: "Washington DC",
+        slug: "washington-dc",
+        areas: ["Downtown DC", "Georgetown", "Dupont Circle", "Navy Yard", "Arlington"],
+        content: {
+          intro:
+            "Washington DC is a premier destination for luxury bachelor parties, high-profile birthday celebrations, and exclusive private events. Velvet Girl Entertainment is Washington DC's top-rated exotic dancer and stripper booking agency, providing world-class VIP entertainers throughout the District and the DMV area. Whether you are hosting a private gathering in a Georgetown townhome, a bachelor party in a Downtown DC luxury hotel suite, or a discreet VIP event near the Navy Yard, our premium performers deliver an unforgettable, high-end experience tailored to your exact needs.",
+          whyChooseUs:
+            "Booking entertainment in Washington DC requires absolute discretion, professionalism, and reliability. Our elite booking team is highly experienced in coordinating around the strict security and logistical requirements of DC's luxury hotels, private residences, and exclusive venues. We maintain a dedicated, verified roster of the most beautiful and professional exotic dancers active in the Washington DC market. With Velvet Girl Entertainment, the stunning entertainer you book from our gallery is the exact performer who arrives—guaranteeing premium service with zero bait-and-switch.",
+          localScene:
+            "Our Washington DC bookings are primarily concentrated in Downtown DC, Georgetown, and the rapidly expanding Navy Yard district, where luxury hotels and premium short-term rentals are abundant. We also frequently dispatch our VIP entertainers to upscale private residences in Dupont Circle, Adams Morgan, and across the river in Arlington and Alexandria, Virginia. No matter where your event is located in the DMV area, our team ensures seamless, discreet, and punctual coordination.",
+        },
+        faqs: [
+          {
+            question: "Do you book entertainers for Downtown DC hotels?",
+            answer:
+              "Yes, we frequently book events at luxury hotels and suites throughout Downtown DC. Please have your room number and guest access details ready when you book so we can ensure a smooth arrival.",
+          },
+          {
+            question: "Can you send a performer to a private residence in Georgetown or Arlington?",
+            answer:
+              "Absolutely. Our DC roster covers the entire metropolitan area, including private residences in Georgetown, Dupont Circle, and Arlington, Virginia.",
+          },
+          {
+            question: "Is discreet booking available for high-profile events?",
+            answer:
+              "Yes, discretion is our priority. We regularly handle bookings for VIPs and corporate clients who require complete confidentiality.",
+          },
+        ],
+      },
+    ],
+  },
 ];
 
 export const stateGroups: StateGroup[] = raw.map(({ state, stateSlug, cities }) => ({

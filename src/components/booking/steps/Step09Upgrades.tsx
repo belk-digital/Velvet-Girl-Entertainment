@@ -44,8 +44,8 @@ export default function Step09Upgrades() {
   const { state, toggleUpgrade } = useBookingForm();
 
   return (
-    <StepLayout stepKey={9} title="Would you like to add any upgrades?">
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4 my-6">
+    <StepLayout stepKey={8} title="Enhance your experience">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 my-6">
         {UPGRADE_ITEMS.map((up) => (
           <UpgradeCard
             key={up.slug}

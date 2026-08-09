@@ -1,5 +1,5 @@
 export interface BookingState {
-  currentStep: number; // 1 to 12
+  currentStep: number; // 1 to 11
   eventType: string;
   city: string;
   eventDate: string;

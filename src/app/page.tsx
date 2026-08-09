@@ -99,7 +99,7 @@ export default async function Home({
   });
   const whyChooseUs = sectionProps(sections, "whyChooseUs", {
     eyebrow: "WHY US",
-    title: "Why Choose Velvet Girls",
+    title: "Why Choose Velvet Girl",
   });
   const packages = sectionProps(sections, "packages", {
     eyebrow: "PACKAGES",

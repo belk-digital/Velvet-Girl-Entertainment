@@ -9,7 +9,7 @@ import { useBookingForm } from "@/hooks/useBookingForm";
 export default function ProgressBar() {
   const { state } = useBookingForm();
   const currentStep = state.currentStep;
-  const totalSteps = 11; // 1 to 11 are progress steps, 12 is success
+  const totalSteps = 10; // 1 to 10 are progress steps, 11 is success
 
   const progressPercentage =
     currentStep <= totalSteps
@@ -36,7 +36,7 @@ export default function ProgressBar() {
         </div>
       </div>
 
-      {/* Right: Velvet Girls Official Logo */}
+      {/* Right: Velvet Girl Official Logo */}
       <Link href="/" className="flex items-center group">
         <Image
           src="/velvet-logo.png"

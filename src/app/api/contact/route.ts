@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
+import { saveLeadToCMS } from "@/lib/cms";
 
 export async function POST(request: Request) {
   try {
@@ -14,13 +15,24 @@ export async function POST(request: Request) {
       message = "None",
     } = body;
 
+    // Save lead to CMS database
+    await saveLeadToCMS({
+      type: "CONTACT",
+      name,
+      email,
+      phone,
+      city,
+      message,
+      formData: { eventType },
+    });
+
     const apiKey = process.env.RESEND_API_KEY;
     const adminEmail =
       process.env.CONTACT_NOTIFICATION_EMAIL ||
       "inquiries@velvetgirlentertainment.com";
     const fromEmail =
       process.env.RESEND_FROM_EMAIL ||
-      "Velvet Girls VIP Dispatch <inquiries@velvetgirlentertainment.com>";
+      "Velvet Girl VIP Dispatch <inquiries@velvetgirlentertainment.com>";
 
     const logoUrl = "https://velvetgirlentertainment.com/velvet-logo.png";
 
@@ -31,7 +43,7 @@ export async function POST(request: Request) {
         </div>
         <div style="background-color: #740107; padding: 20px; border-radius: 8px 8px 0 0; text-align: center;">
           <h1 style="color: #ffffff; margin: 0; font-size: 20px; letter-spacing: 2px;">📩 NEW CONTACT FORM SUBMISSION</h1>
-          <p style="color: #C5A880; margin: 4px 0 0 0; font-size: 13px;">VELVET GIRLS ENTERTAINMENT</p>
+          <p style="color: #C5A880; margin: 4px 0 0 0; font-size: 13px;">VELVET GIRL ENTERTAINMENT</p>
         </div>
         <div style="background-color: #ffffff; padding: 24px; border-radius: 0 0 8px 8px; border: 1px solid #e2dcd3; border-top: none;">
           <table style="width: 100%; border-collapse: collapse; margin-bottom: 20px;">
@@ -77,6 +89,7 @@ export async function POST(request: Request) {
       const result = await resend.emails.send({
         from: fromEmail,
         to: adminEmail,
+        cc: "velvetgirlentertainment@gmail.com",
         replyTo: email || undefined,
         subject: `📩 New Contact Form: ${name} — ${city}`,
         html: adminHtml,

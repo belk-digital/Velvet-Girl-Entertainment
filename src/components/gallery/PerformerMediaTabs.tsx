@@ -51,7 +51,7 @@ export default function PerformerMediaTabs({ name, images, videos = [] }: Perfor
                   onClick={() => openLightbox(idx)}
                 >
                   <Image
-                    src={src}
+                    src={encodeURI(decodeURI(src))}
                     alt={`${name} gallery ${idx + 1}`}
                     fill
                     sizes="(max-width: 768px) 50vw, 25vw"

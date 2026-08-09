@@ -94,7 +94,7 @@ export default function Lightbox({ images, initialIndex = 0, isOpen, onClose }: 
             onClick={(e) => e.stopPropagation()}
           >
             <Image
-              src={images[currentIndex]}
+              src={encodeURI(decodeURI(images[currentIndex]))}
               alt={`Gallery image ${currentIndex + 1}`}
               fill
               className="object-contain"

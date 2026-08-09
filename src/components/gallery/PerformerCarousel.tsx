@@ -75,7 +75,7 @@ export default function PerformerCarousel({ images, name }: PerformerCarouselPro
         onTouchEnd={onTouchEnd}
       >
         <Image
-          src={images[currentIndex]}
+          src={encodeURI(decodeURI(images[currentIndex]))}
           alt={`${name} - Slide ${currentIndex + 1}`}
           fill
           className="object-cover object-top transition-all duration-500 pointer-events-none"

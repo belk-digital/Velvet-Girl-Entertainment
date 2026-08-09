@@ -73,7 +73,7 @@ export default function PerformerGalleryGrid({
                 {/* Top Image Area */}
                 <div className="relative aspect-[3/4] w-full overflow-hidden bg-stone-100">
                   <Image
-                    src={performer.image}
+                    src={encodeURI(decodeURI(performer.image))}
                     alt={performer.name}
                     fill
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"

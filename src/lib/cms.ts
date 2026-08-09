@@ -46,6 +46,8 @@ function normalize(p: RawCmsPerformer): CmsPerformer {
     return url;
   };
 
+  const staticPerformer = staticPerformers.find(sp => (sp.slug || sp.id) === p.slug);
+
   return {
     id: p.slug,
     slug: p.slug,
@@ -61,8 +63,12 @@ function normalize(p: RawCmsPerformer): CmsPerformer {
     languages: p.languages,
     services: p.services,
     tags: p.tags,
-    image: getFullUrl(p.image),
-    galleryImages: p.galleryImages?.map(getFullUrl) || [],
+    // Use the static image from frontend if available, otherwise use CMS image
+    image: staticPerformer?.image || getFullUrl(p.image),
+    // Use the static gallery from frontend if available, otherwise use CMS gallery
+    galleryImages: (staticPerformer?.galleryImages && staticPerformer.galleryImages.length > 0) 
+      ? staticPerformer.galleryImages 
+      : (p.galleryImages?.map(getFullUrl) || []),
     videos: p.videos?.map(getFullUrl) || [],
     eventsCount: p.eventsCount ?? "",
     availableTonight: p.availableTonight,

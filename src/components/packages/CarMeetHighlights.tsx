@@ -151,13 +151,14 @@ export default function CarMeetHighlights() {
             </div>
           ))}
         </div>
-
-        {/* Bottom Banner */}
-        <div ref={bannerRef} className="relative z-10 mx-auto mt-10 flex max-w-2xl items-center justify-center gap-4 border-t border-white/25 pt-6 text-center">
+      </div>
+      {/* Bottom Banner */}
+      <div className="relative z-10 w-full bg-[#740107] px-6 py-12 lg:py-16">
+        <div ref={bannerRef} className="mx-auto flex max-w-2xl items-center justify-center gap-4 text-center">
           <div className="shrink-0 rounded-full bg-white p-2.5 text-[#740107] shadow-sm">
             <Star className="h-5 w-5" fill="currentColor" />
           </div>
-          <div>
+          <div className="text-left md:text-center">
             <h4 className="text-sm font-bold leading-tight text-white lg:text-base">Elevate your event.</h4>
             <p className="mt-1 text-xs leading-normal text-white/75 lg:text-sm">Let our models help create an unforgettable experience for your brand and guests.</p>
           </div>

@@ -65,7 +65,9 @@ export default function Navbar() {
   
   // Force white background on performer profile pages
   const isPerformerPage = pathname?.startsWith("/girls/") && pathname !== "/girls";
+  const isGalleryPage = pathname === "/gallery";
   const effectiveScrolled = scrolled || isPerformerPage;
+  const isTransparent = isGalleryPage && !effectiveScrolled;
 
   useEffect(() => {
     let lastScrollY = window.scrollY;
@@ -87,7 +89,7 @@ export default function Navbar() {
   }, []);
 
   return (
-    <header className={`fixed top-0 w-full z-[110] transition-all duration-300 pointer-events-none ${hidden && !isMenuOpen ? "-translate-y-full" : "translate-y-0"} ${effectiveScrolled && !isMenuOpen ? "bg-[#FBFAF8]/95 backdrop-blur-md shadow-sm" : "bg-transparent"} border-transparent`}>
+    <header className={`fixed top-0 w-full z-[110] transition-all duration-300 pointer-events-none ${hidden && !isMenuOpen ? "-translate-y-full" : "translate-y-0"} ${isTransparent && !isMenuOpen ? "bg-transparent" : (effectiveScrolled && !isMenuOpen ? "bg-[#FBFAF8]/95 backdrop-blur-md shadow-sm" : "bg-[#FBFAF8]")} border-transparent`}>
       <nav className="mx-auto flex max-w-[120rem] items-center justify-between px-6 py-3 lg:px-12">
         <Link href="/" className="pointer-events-auto flex items-center gap-2 sm:gap-3">
           <Image
@@ -106,40 +108,25 @@ export default function Navbar() {
         <div className="flex items-center gap-4 sm:gap-6 pointer-events-auto">
           {/* Main Navbar Links (not on drawer menu) prior to Text Us */}
           <div className="hidden md:flex items-center gap-6 lg:gap-8 mr-2 lg:mr-4">
-            <Link
-              href="/"
-              className={`font-heading text-sm font-semibold uppercase tracking-wider transition-colors hover:text-[#740107] ${effectiveScrolled ? "text-black/85" : "text-white"}`}
-            >
-              Home
-            </Link>
-            <Link
-              href="/about"
-              className={`font-heading text-sm font-semibold uppercase tracking-wider transition-colors hover:text-[#740107] ${effectiveScrolled ? "text-black/85" : "text-white"}`}
-            >
-              About
-            </Link>
-            <Link
-              href="/girls"
-              className={`font-heading text-sm font-semibold uppercase tracking-wider transition-colors hover:text-[#740107] ${effectiveScrolled ? "text-black/85" : "text-white"}`}
-            >
-              Girls
-            </Link>
-            <Link
-              href="/gallery"
-              className={`font-heading text-sm font-semibold uppercase tracking-wider transition-colors hover:text-[#740107] ${effectiveScrolled ? "text-black/85" : "text-white"}`}
-            >
-              Gallery
-            </Link>
-            <Link
-              href="/services"
-              className={`font-heading text-sm font-semibold uppercase tracking-wider transition-colors hover:text-[#740107] ${effectiveScrolled ? "text-black/85" : "text-white"}`}
-            >
-              Services
-            </Link>
+            {[
+              { label: "Home", href: "/" },
+              { label: "About", href: "/about" },
+              { label: "Girls", href: "/girls" },
+              { label: "Gallery", href: "/gallery" },
+              { label: "Services", href: "/services" },
+            ].map((link) => (
+              <Link
+                key={link.label}
+                href={link.href}
+                className={`font-heading text-sm font-semibold uppercase tracking-wider transition-colors hover:text-[#740107] ${isTransparent && !isMenuOpen ? "text-white/90 drop-shadow-md hover:text-white" : "text-black/85"}`}
+              >
+                {link.label}
+              </Link>
+            ))}
           </div>
 
           <div className="ml-2 sm:ml-4">
-            <MultiLevelDrawerMenu primaries={primaries} onOpenChange={setIsMenuOpen} scrolled={effectiveScrolled} />
+            <MultiLevelDrawerMenu primaries={primaries} onOpenChange={setIsMenuOpen} scrolled={!(isTransparent && !isMenuOpen)} />
           </div>
         </div>
       </nav>

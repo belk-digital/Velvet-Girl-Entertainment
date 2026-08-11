@@ -1,8 +1,13 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import Image from "next/image";
 import { Check } from "lucide-react";
 import PageHero from "@/components/ui/PageHero";
+import CarMeetHero from "@/components/packages/CarMeetHero";
+import CarMeetHighlights from "@/components/packages/CarMeetHighlights";
+import CarMeetPerfectFor from "@/components/packages/CarMeetPerfectFor";
+import CarMeetGallery from "@/components/packages/CarMeetGallery";
 import Section from "@/components/ui/Section";
 import Reveal from "@/components/ui/Reveal";
 import FaqSection from "@/components/home/FaqSection";
@@ -83,44 +88,62 @@ export default async function PackageThemeDetailPage({ params }: Props) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <PageHero
-        eyebrow="PACKAGES"
-        title={`${theme.name} Package`}
-        subtitle={theme.heroDescription}
-        bgImage={theme.image || "/gallery images/BACHELOR PARTY_GUYS NIGHT.webp"}
-      />
+      {slug === "car-meet" ? (
+        <CarMeetHero themeName={theme.name} />
+      ) : (
+        <PageHero
+          eyebrow="PACKAGES"
+          title={`${theme.name} Package`}
+          subtitle={theme.heroDescription}
+          bgImage={theme.image || "/gallery images/BACHELOR PARTY_GUYS NIGHT.webp"}
+        />
+      )}
 
-      <Section eyebrow="HIGHLIGHTS" title="What to expect">
-        <Reveal className="mx-auto max-w-3xl">
-          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-            {theme.highlights.map((item) => (
-              <div
-                key={item}
-                className="flex items-center gap-4 border border-stone-200/80 rounded-xl bg-white p-6 shadow-sm hover:border-[#740107]/50 transition-colors"
-              >
-                <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#740107]/10 text-[#740107]">
-                  <Check className="h-5 w-5" />
+      {slug === "car-meet" ? (
+        <CarMeetHighlights />
+      ) : (
+        <Section eyebrow="HIGHLIGHTS" title="What to expect">
+          <Reveal className="mx-auto max-w-3xl">
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+              {theme.highlights.map((item) => (
+                <div
+                  key={item}
+                  className="flex items-center gap-4 border border-stone-200/80 rounded-xl bg-white p-6 shadow-sm hover:border-[#740107]/50 transition-colors"
+                >
+                  <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#740107]/10 text-[#740107]">
+                    <Check className="h-5 w-5" />
+                  </div>
+                  <span className="font-display text-base font-bold text-stone-900">{item}</span>
                 </div>
-                <span className="font-display text-base font-bold text-stone-900">{item}</span>
-              </div>
-            ))}
-          </div>
-        </Reveal>
-      </Section>
-
-      {theme.perfectFor && theme.perfectFor.length > 0 && (
-        <Section eyebrow="PERFECT FOR" title="Great fit for">
-          <Reveal className="mx-auto flex max-w-3xl flex-wrap justify-center gap-3">
-            {theme.perfectFor.map((item) => (
-              <span
-                key={item}
-                className="border border-black/15 bg-white px-6 py-3 font-body text-xs font-bold uppercase tracking-widest text-black/85 shadow-sm"
-              >
-                {item}
-              </span>
-            ))}
+              ))}
+            </div>
           </Reveal>
         </Section>
+      )}
+
+      {theme.perfectFor && theme.perfectFor.length > 0 && (
+        slug === "car-meet" ? (
+          <CarMeetPerfectFor items={theme.perfectFor} />
+        ) : (
+          <Section eyebrow="PERFECT FOR" title="Great fit for">
+            <Reveal className="mx-auto max-w-4xl">
+              <div className="flex flex-wrap justify-center gap-3">
+                {theme.perfectFor.map((item) => (
+                  <div
+                    key={item}
+                    className="rounded-full bg-stone-100 px-6 py-3 font-display text-sm font-semibold tracking-wide text-stone-900 transition-colors hover:bg-stone-200"
+                  >
+                    {item}
+                  </div>
+                ))}
+              </div>
+            </Reveal>
+          </Section>
+        )
+      )}
+
+      {slug === "car-meet" && (
+        <CarMeetGallery />
       )}
 
       <Section eyebrow="CUSTOMIZE" title={`Build your ${theme.name} package`} theme="muted">

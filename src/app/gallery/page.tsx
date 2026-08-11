@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import PhotoGalleryContent from "@/components/gallery/PhotoGalleryContent";
+import GalleryHero from "@/components/gallery/GalleryHero";
 import FaqSection from "@/components/home/FaqSection";
 import CtaSection from "@/components/home/CtaSection";
 import { performers } from "@/data/performers";
@@ -105,6 +106,9 @@ export default function GalleryPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
+
+      {/* Hero Section */}
+      <GalleryHero />
 
       {/* Complete Editorial Reference Design Photo Gallery Section */}
       <PhotoGalleryContent />

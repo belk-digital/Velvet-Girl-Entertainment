@@ -132,6 +132,7 @@ export const packageThemes: PackageTheme[] = [
       "Grand Openings",
       "Brand Promotions",
     ],
+    image: "/images/paclages-image/car-bike-meet-package.webp",
   },
   {
     slug: "party-bus",

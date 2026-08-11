@@ -4,18 +4,12 @@ import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import {
-  Sparkles,
-  Search,
   X,
   ChevronLeft,
   ChevronRight,
-  Maximize2,
-  Phone,
-  MessageSquare,
-  ShieldCheck,
+  Maximize,
+  Minimize
 } from "lucide-react";
-import VelvetCurtains from "@/components/gallery/VelvetCurtains";
-import Reveal from "@/components/ui/Reveal";
 
 interface GalleryPhoto {
   id: string;
@@ -256,51 +250,101 @@ const categories = [
 
 export default function PhotoGalleryContent() {
   const [selectedCategory, setSelectedCategory] = useState<string>("All");
-  const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
-
+  
   const filteredPhotos =
     selectedCategory === "All"
       ? galleryPhotos
       : galleryPhotos.filter((photo) => photo.category === selectedCategory);
 
-  const activePhoto =
-    lightboxIndex !== null ? filteredPhotos[lightboxIndex] : null;
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [selectedIndex, setSelectedIndex] = useState(0);
+  const [isFullscreen, setIsFullscreen] = useState(false);
+
+  const lightboxRef = useRef<HTMLDivElement>(null);
+  const thumbnailsContainerRef = useRef<HTMLDivElement>(null);
 
   const openLightbox = (index: number) => {
-    setLightboxIndex(index);
+    setSelectedIndex(index);
+    setLightboxOpen(true);
   };
 
   const closeLightbox = () => {
-    setLightboxIndex(null);
+    if (document.fullscreenElement) {
+      document.exitFullscreen().catch(() => {});
+    }
+    setLightboxOpen(false);
+    setIsFullscreen(false);
   };
 
-  const nextPhoto = () => {
-    if (lightboxIndex !== null) {
-      setLightboxIndex((prev) =>
-        prev !== null ? (prev + 1) % filteredPhotos.length : null
-      );
+  const nextImage = () => {
+    setSelectedIndex((prev) => (prev < filteredPhotos.length - 1 ? prev + 1 : 0));
+  };
+
+  const prevImage = () => {
+    setSelectedIndex((prev) => (prev > 0 ? prev - 1 : filteredPhotos.length - 1));
+  };
+
+  const toggleFullscreen = () => {
+    if (!document.fullscreenElement) {
+      lightboxRef.current?.requestFullscreen().then(() => {
+        setIsFullscreen(true);
+      }).catch(err => {
+        console.error("Error attempting to enable fullscreen:", err);
+      });
+    } else {
+      document.exitFullscreen().then(() => {
+        setIsFullscreen(false);
+      });
     }
   };
 
-  const prevPhoto = () => {
-    if (lightboxIndex !== null) {
-      setLightboxIndex((prev) =>
-        prev !== null
-          ? (prev - 1 + filteredPhotos.length) % filteredPhotos.length
-          : null
-      );
+  const touchStartX = useRef(0);
+  const touchEndX = useRef(0);
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.changedTouches[0].screenX;
+  };
+
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    touchEndX.current = e.changedTouches[0].screenX;
+    handleSwipe();
+  };
+
+  const handleSwipe = () => {
+    const swipeThreshold = 50;
+    if (touchEndX.current < touchStartX.current - swipeThreshold) {
+      nextImage();
+    }
+    if (touchEndX.current > touchStartX.current + swipeThreshold) {
+      prevImage();
     }
   };
 
   useEffect(() => {
+    if (lightboxOpen && thumbnailsContainerRef.current) {
+      const activeThumbnail = thumbnailsContainerRef.current.children[selectedIndex] as HTMLElement;
+      if (activeThumbnail) {
+        const containerWidth = thumbnailsContainerRef.current.clientWidth;
+        const thumbnailOffset = activeThumbnail.offsetLeft;
+        const thumbnailWidth = activeThumbnail.clientWidth;
+        
+        thumbnailsContainerRef.current.scrollTo({
+          left: thumbnailOffset - (containerWidth / 2) + (thumbnailWidth / 2),
+          behavior: 'smooth'
+        });
+      }
+    }
+  }, [selectedIndex, lightboxOpen]);
+
+  useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (lightboxIndex === null) return;
+      if (!lightboxOpen) return;
       if (e.key === "Escape") closeLightbox();
-      if (e.key === "ArrowRight") nextPhoto();
-      if (e.key === "ArrowLeft") prevPhoto();
+      if (e.key === "ArrowRight") nextImage();
+      if (e.key === "ArrowLeft") prevImage();
     };
     window.addEventListener("keydown", handleKeyDown);
-    if (lightboxIndex !== null) {
+    if (lightboxOpen) {
       document.body.style.overflow = "hidden";
     } else {
       document.body.style.overflow = "unset";
@@ -309,67 +353,15 @@ export default function PhotoGalleryContent() {
       window.removeEventListener("keydown", handleKeyDown);
       document.body.style.overflow = "unset";
     };
-  }, [lightboxIndex, filteredPhotos.length]);
+  }, [lightboxOpen, filteredPhotos.length]);
 
   return (
-    <div className="relative w-full min-h-screen bg-[#FAF7F2] text-stone-900 overflow-hidden font-body pb-28 sm:pb-36">
-      {/* Top Left Red Velvet Curtain Drapery */}
-      <VelvetCurtains variant="top-left" />
-
-      {/* HERO SECTION WITH FULL-WIDTH BACKGROUND IMAGE */}
-      <section className="relative z-10 w-full overflow-hidden py-20 sm:py-28 md:py-36 border-b border-stone-200/80">
-        <div className="absolute inset-0 z-0">
-          <Image
-            src={encodeURI("/gallery images/IMG_9368.webp")}
-            alt="Velvet Girl Photo Gallery Hero Background"
-            fill
-            priority
-            sizes="100vw"
-            className="object-cover object-center"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#FAF7F2] via-[#FAF7F2]/90 to-[#FAF7F2]/40" />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#FAF7F2] via-[#FAF7F2]/40 to-transparent opacity-95" />
-        </div>
-
-        <div className="relative z-30 max-w-7xl mx-auto px-6 sm:px-12 lg:px-16">
-          <Reveal>
-            <div className="max-w-3xl flex flex-col items-center lg:items-start text-center lg:text-left pl-0 sm:pl-12 md:pl-24 lg:pl-32 xl:pl-36">
-              <div className="flex items-center gap-3 mb-4">
-                <Sparkles className="h-5 w-5 text-[#740107]" />
-                <span className="font-body text-xs font-bold uppercase tracking-widest text-[#740107]">
-                  EXCLUSIVE VIP PORTFOLIO
-                </span>
-                <span className="h-[1px] w-8 sm:w-12 bg-[#C5A880]" />
-              </div>
-
-              <h1
-                className="font-display text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-extrabold tracking-tight text-[#740107] mb-6 drop-shadow-sm"
-                style={{ fontFamily: "var(--font-display)" }}
-              >
-                GALLERY
-              </h1>
-
-              <p className="font-body text-base sm:text-lg text-stone-800 max-w-xl leading-relaxed mb-8 drop-shadow-sm">
-                Real moments. No filters. Authentic energy.
-                <br />
-                <span className="font-bold text-stone-900">
-                  Every photo below showcases the elegance and atmosphere of our VIP gatherings.
-                </span>
-              </p>
-
-              <div className="inline-flex items-center gap-2 bg-white/90 border border-stone-200 px-4 py-2.5 rounded-full text-xs font-semibold text-stone-700 shadow-sm">
-                <ShieldCheck className="w-4 h-4 text-[#740107]" />
-                <span>100% Verified Non-Stock Event Photography</span>
-              </div>
-            </div>
-          </Reveal>
-        </div>
-      </section>
-
-      {/* FILTER TABS & COUNT */}
-      <section className="relative z-20 max-w-[120rem] mx-auto px-5 sm:px-6 lg:px-12 py-8 border-b border-stone-200/80 bg-[#FAF7F2]/95 backdrop-blur-md sticky top-0">
+    <>
+      <div className="w-full bg-[#FAF7F2] pb-24 relative z-20">
+        {/* FILTER TABS & COUNT */}
+      <section className="relative z-30 max-w-[120rem] mx-auto px-4 sm:px-6 lg:px-12 py-6 bg-[#FAF7F2]/95 backdrop-blur-md sticky top-0 border-b border-stone-200/50 shadow-sm">
         <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-          <div className="flex items-center gap-2 overflow-x-auto w-full md:w-auto pb-2 md:pb-0 scrollbar-none">
+          <div className="flex items-center gap-2 overflow-x-auto w-full md:w-auto pb-2 md:pb-0 scrollbar-none hide-scrollbar">
             {categories.map((cat) => {
               const active = selectedCategory === cat;
               return (
@@ -377,7 +369,6 @@ export default function PhotoGalleryContent() {
                   key={cat}
                   onClick={() => {
                     setSelectedCategory(cat);
-                    setLightboxIndex(null);
                   }}
                   className={`px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider whitespace-nowrap transition-all duration-300 ${
                     active
@@ -398,141 +389,119 @@ export default function PhotoGalleryContent() {
         </div>
       </section>
 
-      {/* MASONRY PHOTO GRID */}
-      <section className="relative z-10 max-w-[120rem] mx-auto px-5 sm:px-6 lg:px-12 py-12">
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-          {filteredPhotos.map((photo, index) => (
-            <div
-              key={photo.id}
-              onClick={() => openLightbox(index)}
-              className={`group relative overflow-hidden rounded-2xl bg-stone-100 border border-stone-200/80 shadow-md hover:shadow-2xl transition-all duration-500 cursor-pointer ${
-                photo.aspect || "aspect-[3/4]"
-              }`}
-            >
-              <Image
-                src={encodeURI(photo.src)}
-                alt={photo.title}
-                fill
-                sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
-                className="object-cover object-center group-hover:scale-110 transition-transform duration-700 ease-out"
-              />
-
-              {/* Editorial Gradient Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-
-              {/* Caption Tag on Hover */}
-              <div className="absolute bottom-0 left-0 right-0 p-5 translate-y-4 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-end justify-between">
-                <div>
-                  <span className="inline-block px-2.5 py-1 rounded-md bg-[#740107] text-white text-[10px] font-bold uppercase tracking-widest mb-1.5 shadow-sm">
-                    {photo.category}
-                  </span>
-                  <h3 className="font-display text-white text-base sm:text-lg font-bold tracking-tight">
-                    {photo.title}
-                  </h3>
+      {/* GALLERY GRID */}
+      <section className="max-w-[120rem] mx-auto px-4 sm:px-6 lg:px-12 mt-12">
+        {filteredPhotos.length === 0 ? (
+          <div className="text-center py-20 text-stone-500">No photos found in this category.</div>
+        ) : (
+          <div className="grid grid-flow-dense grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-2 md:gap-4 auto-rows-[150px] sm:auto-rows-[200px] md:auto-rows-[250px] lg:auto-rows-[300px]">
+            {filteredPhotos.map((photo, index) => {
+              // Feature a few images throughout the gallery based on the index in the current view
+              const isFeatured = index === 0 || index === 7 || index === 14 || index === 21;
+              
+              return (
+                <div 
+                  key={photo.id}
+                  onClick={() => openLightbox(index)}
+                  className={`relative w-full h-full overflow-hidden bg-stone-200 group cursor-pointer ${
+                    isFeatured 
+                      ? "col-span-2 row-span-2" 
+                      : "col-span-1 row-span-1"
+                  }`}
+                >
+                  <Image
+                    src={encodeURI(photo.src)}
+                    alt={photo.title}
+                    fill
+                    className="object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
+                  />
+                  {/* Subtle category tag on hover */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none flex flex-col justify-end p-4 sm:p-6">
+                     <span className="text-white/90 text-[10px] font-bold uppercase tracking-widest mb-1">{photo.category}</span>
+                     <span className="text-white font-display text-base sm:text-lg leading-tight truncate drop-shadow-md">{photo.title}</span>
+                  </div>
                 </div>
-                <div className="w-9 h-9 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white shrink-0">
-                  <Maximize2 className="w-4 h-4" />
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
+              );
+            })}
+          </div>
+        )}
       </section>
+      </div>
 
-      {/* FULLSCREEN LIGHTBOX MODAL */}
-      {activePhoto && (
-        <div
-          className="fixed inset-0 z-[99999] bg-black/95 backdrop-blur-md flex items-center justify-center p-4 sm:p-8 animate-in fade-in duration-300"
-          onClick={closeLightbox}
-        >
-          {/* Top Header Bar */}
-          <div
-            className="absolute top-0 left-0 right-0 p-6 flex items-center justify-between z-10"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <div>
-              <span className="inline-block px-3 py-1 rounded-full bg-[#740107] text-white text-xs font-bold uppercase tracking-widest">
-                {activePhoto.category}
-              </span>
-              <h3 className="text-white font-display text-lg sm:text-2xl font-bold mt-1">
-                {activePhoto.title}
-              </h3>
-            </div>
-
-            <div className="flex items-center gap-4">
-              <span className="text-white/60 text-xs sm:text-sm font-bold">
-                {lightboxIndex! + 1} / {filteredPhotos.length}
-              </span>
-              <button
-                onClick={closeLightbox}
-                className="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-colors"
-                aria-label="Close Lightbox"
-              >
-                <X className="w-6 h-6" />
-              </button>
-            </div>
+      {/* Lightbox Modal */}
+      {lightboxOpen && filteredPhotos[selectedIndex] && (
+        <div ref={lightboxRef} className="fixed inset-0 z-[99999] flex items-center justify-center bg-black/95 backdrop-blur-xl transition-all duration-300">
+          
+          {/* Top Right Controls */}
+          <div className="absolute top-6 right-6 flex items-center gap-3 z-50">
+            <button 
+              onClick={toggleFullscreen}
+              className="text-white/60 hover:text-white bg-white/5 hover:bg-white/10 rounded-full p-2.5 transition-colors"
+            >
+              {isFullscreen ? <Minimize className="w-4 h-4" /> : <Maximize className="w-4 h-4" />}
+            </button>
+            <button 
+              onClick={closeLightbox}
+              className="text-white/60 hover:text-white bg-white/5 hover:bg-white/10 rounded-full p-2.5 transition-colors"
+            >
+              <X className="w-4 h-4" />
+            </button>
           </div>
 
-          {/* Previous Arrow */}
-          <button
-            onClick={(e) => {
-              e.stopPropagation();
-              prevPhoto();
-            }}
-            className="absolute left-4 sm:left-8 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white/10 hover:bg-white/25 text-white flex items-center justify-center transition-all hover:scale-105 z-10"
-            aria-label="Previous Photo"
+          {/* Left Arrow */}
+          <button 
+            onClick={(e) => { e.stopPropagation(); prevImage(); }}
+            className="absolute left-4 sm:left-8 top-1/2 -translate-y-1/2 text-white/50 hover:text-white bg-white/5 hover:bg-white/10 rounded-full p-3 sm:p-4 transition-colors z-50"
           >
-            <ChevronLeft className="w-7 h-7" />
+            <ChevronLeft className="w-6 h-6 sm:w-8 sm:h-8" />
           </button>
 
-          {/* Main Displayed Image */}
-          <div
-            className="relative max-w-5xl max-h-[80vh] w-full h-full flex items-center justify-center"
-            onClick={(e) => e.stopPropagation()}
+          {/* Right Arrow */}
+          <button 
+            onClick={(e) => { e.stopPropagation(); nextImage(); }}
+            className="absolute right-4 sm:right-8 top-1/2 -translate-y-1/2 text-white/50 hover:text-white bg-white/5 hover:bg-white/10 rounded-full p-3 sm:p-4 transition-colors z-50"
+          >
+            <ChevronRight className="w-6 h-6 sm:w-8 sm:h-8" />
+          </button>
+
+          {/* Main Image */}
+          <div 
+            className="relative w-full h-[60vh] sm:h-[70vh] max-w-7xl px-4 sm:px-16 touch-pan-y"
+            onTouchStart={handleTouchStart}
+            onTouchEnd={handleTouchEnd}
           >
             <Image
-              src={encodeURI(activePhoto.src)}
-              alt={activePhoto.title}
+              src={encodeURI(filteredPhotos[selectedIndex].src)}
+              alt={filteredPhotos[selectedIndex].title}
               fill
-              sizes="(max-width: 1024px) 100vw, 1024px"
-              className="object-contain rounded-xl shadow-2xl animate-in zoom-in-95 duration-300"
+              className="object-contain pointer-events-none sm:pointer-events-auto"
+              priority
             />
           </div>
 
-          {/* Next Arrow */}
-          <button
-            onClick={(e) => {
-              e.stopPropagation();
-              nextPhoto();
-            }}
-            className="absolute right-4 sm:right-8 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white/10 hover:bg-white/25 text-white flex items-center justify-center transition-all hover:scale-105 z-10"
-            aria-label="Next Photo"
-          >
-            <ChevronRight className="w-7 h-7" />
-          </button>
-
-          {/* Bottom CTA Bar */}
-          <div
-            className="absolute bottom-6 left-1/2 -translate-x-1/2 flex items-center gap-3 z-10"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <Link
-              href="/book-now"
-              onClick={closeLightbox}
-              className="px-6 py-3 rounded-full bg-[#740107] hover:bg-[#590105] text-white text-xs sm:text-sm font-bold uppercase tracking-wider shadow-lg transition-all"
+          {/* Thumbnails Strip */}
+          <div className="absolute bottom-6 sm:bottom-8 left-0 w-full px-4 sm:px-16 flex justify-center">
+            <div 
+              ref={thumbnailsContainerRef}
+              className="flex gap-2 sm:gap-3 overflow-x-auto snap-x py-4 no-scrollbar hide-scrollbar w-full max-w-3xl"
             >
-              Book For Your Event
-            </Link>
-            <a
-              href="tel:8439387377"
-              className="px-6 py-3 rounded-full bg-white/15 hover:bg-white/25 text-white border border-white/30 text-xs sm:text-sm font-bold uppercase tracking-wider transition-all hidden sm:inline-flex items-center gap-2"
-            >
-              <Phone className="w-4 h-4" />
-              <span>(843) 938-7377</span>
-            </a>
+              {filteredPhotos.map((photo, i) => (
+                <button
+                  key={i}
+                  onClick={(e) => { e.stopPropagation(); setSelectedIndex(i); }}
+                  className={`relative w-16 h-12 sm:w-20 sm:h-14 shrink-0 rounded-md overflow-hidden transition-all duration-300 snap-center ${
+                    i === selectedIndex 
+                      ? "ring-2 ring-white opacity-100 scale-110 shadow-lg z-10" 
+                      : "opacity-40 hover:opacity-100"
+                  }`}
+                >
+                  <Image src={encodeURI(photo.src)} alt="thumbnail" fill className="object-cover" />
+                </button>
+              ))}
+            </div>
           </div>
         </div>
       )}
-    </div>
+    </>
   );
 }

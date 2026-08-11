@@ -137,6 +137,16 @@ export default async function PackageThemeDetailPage({ params }: Props) {
         </Section>
       )}
 
+      {slug === "car-meet" && (
+        <CarMeetGallery />
+      )}
+      {slug === "boat-pool-party" && (
+        <BoatPartyGallery />
+      )}
+      {slug === "breakfast-with-babes" && (
+        <BreakfastGallery />
+      )}
+
       {theme.perfectFor && theme.perfectFor.length > 0 && (
         slug === "car-meet" ? (
           <CarMeetPerfectFor items={theme.perfectFor} />
@@ -160,16 +170,6 @@ export default async function PackageThemeDetailPage({ params }: Props) {
             </Reveal>
           </Section>
         )
-      )}
-
-      {slug === "car-meet" && (
-        <CarMeetGallery />
-      )}
-      {slug === "boat-pool-party" && (
-        <BoatPartyGallery />
-      )}
-      {slug === "breakfast-with-babes" && (
-        <BreakfastGallery />
       )}
 
       <Section eyebrow="CUSTOMIZE" title={`Build your ${theme.name} package`} theme="muted">

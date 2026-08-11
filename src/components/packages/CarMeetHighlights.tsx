@@ -13,47 +13,47 @@ if (typeof window !== "undefined") {
 export default function CarMeetHighlights() {
   const features = [
     {
-      icon: <ShieldCheck className="h-8 w-8 text-red-500" strokeWidth={1.5} />,
+      icon: <ShieldCheck className="h-8 w-8 text-white" strokeWidth={1.5} />,
       title: "PROFESSIONAL",
       desc: "Promotional models",
     },
     {
-      icon: <Handshake className="h-8 w-8 text-red-500" strokeWidth={1.5} />,
+      icon: <Handshake className="h-8 w-8 text-white" strokeWidth={1.5} />,
       title: "MEET & GREET",
       desc: "with attendees",
     },
     {
-      icon: <Camera className="h-8 w-8 text-red-500" strokeWidth={1.5} />,
+      icon: <Camera className="h-8 w-8 text-white" strokeWidth={1.5} />,
       title: "PHOTOS",
       desc: "with guests and featured vehicles",
     },
     {
-      icon: <Shirt className="h-8 w-8 text-red-500" strokeWidth={1.5} />,
+      icon: <Shirt className="h-8 w-8 text-white" strokeWidth={1.5} />,
       title: "MERCHANDISE",
       desc: "and sponsor apparel modeling",
     },
     {
-      icon: <Smartphone className="h-8 w-8 text-red-500" strokeWidth={1.5} />,
+      icon: <Smartphone className="h-8 w-8 text-white" strokeWidth={1.5} />,
       title: "SOCIAL MEDIA",
       desc: "photos and behind-the-scenes content",
     },
     {
-      icon: <Car className="h-8 w-8 text-red-500" strokeWidth={1.5} />,
+      icon: <Car className="h-8 w-8 text-white" strokeWidth={1.5} />,
       title: "CAR WASH",
       desc: "optional promotional demonstrations",
     },
     {
-      icon: <Users className="h-8 w-8 text-red-500" strokeWidth={1.5} />,
+      icon: <Users className="h-8 w-8 text-white" strokeWidth={1.5} />,
       title: "CROWD ENGAGEMENT",
       desc: "and event interaction",
     },
     {
-      icon: <Sparkles className="h-8 w-8 text-red-500" strokeWidth={1.5} />,
+      icon: <Sparkles className="h-8 w-8 text-white" strokeWidth={1.5} />,
       title: "CUSTOM OUTFITS",
       desc: "available upon request",
     },
     {
-      icon: <Ticket className="h-8 w-8 text-red-500" strokeWidth={1.5} />,
+      icon: <Ticket className="h-8 w-8 text-white" strokeWidth={1.5} />,
       title: "RAFFLES & GAMES",
       desc: "assisting with raffles or other event games",
     },
@@ -158,7 +158,7 @@ export default function CarMeetHighlights() {
           </div>
           <div>
             <h4 className="text-sm font-bold leading-tight text-white lg:text-base">Elevate your event.</h4>
-            <p className="mt-1 text-xs leading-normal text-white/75 lg:text-sm">Let our models help create an unforgettable experience for your brand and guests.</p>
+            <p className="mt-1 text-xs leading-normal text-white/80 lg:text-sm">Let our models help create an unforgettable experience for your brand and guests.</p>
           </div>
         </div>
       </div>

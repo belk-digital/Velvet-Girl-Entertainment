@@ -13,47 +13,47 @@ if (typeof window !== "undefined") {
 export default function CarMeetHighlights() {
   const features = [
     {
-      icon: <ShieldCheck className="h-8 w-8 text-white" strokeWidth={1.5} />,
+      icon: <ShieldCheck className="h-8 w-8 text-red-500" strokeWidth={1.5} />,
       title: "PROFESSIONAL",
       desc: "Promotional models",
     },
     {
-      icon: <Handshake className="h-8 w-8 text-white" strokeWidth={1.5} />,
+      icon: <Handshake className="h-8 w-8 text-red-500" strokeWidth={1.5} />,
       title: "MEET & GREET",
       desc: "with attendees",
     },
     {
-      icon: <Camera className="h-8 w-8 text-white" strokeWidth={1.5} />,
+      icon: <Camera className="h-8 w-8 text-red-500" strokeWidth={1.5} />,
       title: "PHOTOS",
       desc: "with guests and featured vehicles",
     },
     {
-      icon: <Shirt className="h-8 w-8 text-white" strokeWidth={1.5} />,
+      icon: <Shirt className="h-8 w-8 text-red-500" strokeWidth={1.5} />,
       title: "MERCHANDISE",
       desc: "and sponsor apparel modeling",
     },
     {
-      icon: <Smartphone className="h-8 w-8 text-white" strokeWidth={1.5} />,
+      icon: <Smartphone className="h-8 w-8 text-red-500" strokeWidth={1.5} />,
       title: "SOCIAL MEDIA",
       desc: "photos and behind-the-scenes content",
     },
     {
-      icon: <Car className="h-8 w-8 text-white" strokeWidth={1.5} />,
+      icon: <Car className="h-8 w-8 text-red-500" strokeWidth={1.5} />,
       title: "CAR WASH",
       desc: "optional promotional demonstrations",
     },
     {
-      icon: <Users className="h-8 w-8 text-white" strokeWidth={1.5} />,
+      icon: <Users className="h-8 w-8 text-red-500" strokeWidth={1.5} />,
       title: "CROWD ENGAGEMENT",
       desc: "and event interaction",
     },
     {
-      icon: <Sparkles className="h-8 w-8 text-white" strokeWidth={1.5} />,
+      icon: <Sparkles className="h-8 w-8 text-red-500" strokeWidth={1.5} />,
       title: "CUSTOM OUTFITS",
       desc: "available upon request",
     },
     {
-      icon: <Ticket className="h-8 w-8 text-white" strokeWidth={1.5} />,
+      icon: <Ticket className="h-8 w-8 text-red-500" strokeWidth={1.5} />,
       title: "RAFFLES & GAMES",
       desc: "assisting with raffles or other event games",
     },
@@ -133,7 +133,6 @@ export default function CarMeetHighlights() {
           playsInline
           className="absolute inset-0 h-full w-full object-cover object-center"
         />
-        <div className="absolute inset-0 bg-black/30" />
 
         {/* Icons Grid */}
         <div ref={gridRef} className="relative z-10 mx-auto grid max-w-5xl grid-cols-2 gap-3 md:grid-cols-3 lg:gap-5">
@@ -151,14 +150,13 @@ export default function CarMeetHighlights() {
             </div>
           ))}
         </div>
-      </div>
-      {/* Bottom Banner */}
-      <div className="relative z-10 w-full bg-[#740107] px-6 py-12 lg:py-16">
-        <div ref={bannerRef} className="mx-auto flex max-w-2xl items-center justify-center gap-4 text-center">
+
+        {/* Bottom Banner */}
+        <div ref={bannerRef} className="relative z-10 mx-auto mt-10 flex max-w-2xl items-center justify-center gap-4 border-t border-white/25 pt-6 text-center">
           <div className="shrink-0 rounded-full bg-white p-2.5 text-[#740107] shadow-sm">
             <Star className="h-5 w-5" fill="currentColor" />
           </div>
-          <div className="text-left md:text-center">
+          <div>
             <h4 className="text-sm font-bold leading-tight text-white lg:text-base">Elevate your event.</h4>
             <p className="mt-1 text-xs leading-normal text-white/75 lg:text-sm">Let our models help create an unforgettable experience for your brand and guests.</p>
           </div>

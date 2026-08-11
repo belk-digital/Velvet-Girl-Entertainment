@@ -59,22 +59,24 @@ export default function CarMeetPerfectFor({ items }: CarMeetPerfectForProps) {
         className="object-cover object-center"
         sizes="100vw"
       />
-      <div className="absolute inset-0 bg-[#3d0306]/75" />
+      {/* Elegant dark gradient overlay for text readability without the red tint */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/30 to-black/80" />
+      
       {/* Header Area */}
       <div ref={headerRef} className="relative z-10 mx-auto mb-16 flex max-w-6xl flex-col items-start justify-between gap-8 md:flex-row md:items-end">
         <div>
           <div className="flex items-center gap-3 mb-6">
-            <div className="w-3.5 h-3.5 rounded-full border border-white/50"></div>
-            <p className="text-white/70 text-xs font-bold tracking-widest uppercase">
+            <div className="w-3.5 h-3.5 rounded-full border border-white/50 shadow-sm"></div>
+            <p className="text-white/90 text-xs font-bold tracking-widest uppercase drop-shadow-md">
               PERFECT FOR
             </p>
           </div>
-          <h2 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-[#FAF7F2] uppercase tracking-wide">
+          <h2 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-white uppercase tracking-wide drop-shadow-lg">
             GREAT FIT FOR
           </h2>
         </div>
         <div className="max-w-xs md:text-right">
-          <p className="text-white/60 text-[10px] md:text-xs font-bold tracking-wider uppercase leading-relaxed">
+          <p className="text-white/80 text-[10px] md:text-xs font-bold tracking-wider uppercase leading-relaxed drop-shadow-md">
             Tailored experiences, built for every automotive event.
           </p>
         </div>
@@ -88,13 +90,13 @@ export default function CarMeetPerfectFor({ items }: CarMeetPerfectForProps) {
             return (
               <li 
                 key={index} 
-                className="flex items-center justify-between py-6 md:py-8 lg:py-10 border-t border-white/20 px-2 md:px-6 -mx-2 md:-mx-6"
+                className="flex items-center justify-between py-6 md:py-8 lg:py-10 border-t border-white/20 px-2 md:px-6 -mx-2 md:-mx-6 hover:bg-white/5 transition-colors duration-300"
               >
                 <div className="flex items-center gap-6 md:gap-12 lg:gap-16">
-                  <span className="text-white/50 text-xs md:text-sm font-mono">
+                  <span className="text-white/60 text-xs md:text-sm font-mono drop-shadow-sm">
                     {num}
                   </span>
-                  <span className="text-white/80 text-xl sm:text-2xl md:text-3xl lg:text-4xl font-semibold uppercase tracking-wide">
+                  <span className="text-white text-xl sm:text-2xl md:text-3xl lg:text-4xl font-semibold uppercase tracking-wide drop-shadow-md">
                     {item}
                   </span>
                 </div>

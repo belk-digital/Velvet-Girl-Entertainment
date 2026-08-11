@@ -133,12 +133,12 @@ export default function CarMeetHighlights() {
           playsInline
           className="absolute inset-0 h-full w-full object-cover object-center"
         />
-        <div className="absolute inset-0 bg-[#2b0305]/75" />
+        <div className="absolute inset-0 bg-black/30" />
 
         {/* Icons Grid */}
         <div ref={gridRef} className="relative z-10 mx-auto grid max-w-5xl grid-cols-2 gap-3 md:grid-cols-3 lg:gap-5">
           {features.map((feat, i) => (
-            <div key={i} className="group flex min-h-40 flex-col items-center justify-center bg-transparent p-4 text-center backdrop-blur-[2px] transition-colors duration-300 hover:bg-white/10">
+            <div key={i} className={`group flex min-h-40 flex-col items-center justify-center bg-transparent p-4 text-center backdrop-blur-[2px] transition-colors duration-300 hover:bg-white/10 ${i === features.length - 1 ? "col-span-2 md:col-span-1" : ""}`}>
               <div className="mb-3 flex justify-center transition-transform duration-300 group-hover:scale-110 lg:mb-4">
                 {/* Clone element to override icon size on mobile */}
                 <div className="[&>svg]:w-6 [&>svg]:h-6 sm:[&>svg]:w-8 sm:[&>svg]:h-8">

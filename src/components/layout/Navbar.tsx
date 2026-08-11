@@ -67,9 +67,11 @@ export default function Navbar() {
   const isPerformerPage = pathname?.startsWith("/girls/") && pathname !== "/girls";
   const isGalleryPage = pathname === "/gallery";
   const isCarMeetPage = pathname === "/packages/car-meet";
+  const isHomePage = pathname === "/";
   const effectiveScrolled = scrolled || isPerformerPage;
-  const isTransparent = (isGalleryPage || isCarMeetPage) && !effectiveScrolled;
-  const useTransparentNavBranding = isTransparent && !isMenuOpen;
+  const isTransparent = (isGalleryPage || isCarMeetPage || isHomePage) && !effectiveScrolled;
+  const useTransparentNavBranding = isTransparent && !isMenuOpen && !isHomePage;
+  const useTransparentNavLinks = isTransparent && !isMenuOpen;
 
   useEffect(() => {
     let lastScrollY = window.scrollY;
@@ -120,7 +122,7 @@ export default function Navbar() {
               <Link
                 key={link.label}
                 href={link.href}
-                className={`font-heading text-sm font-semibold uppercase tracking-wider transition-colors hover:text-[#740107] ${useTransparentNavBranding ? "text-white/90 drop-shadow-md hover:text-white" : "text-black/85"}`}
+                className={`font-heading text-sm font-semibold uppercase tracking-wider transition-colors hover:text-[#740107] ${useTransparentNavLinks ? "text-white/90 drop-shadow-md hover:text-white" : "text-black/85"}`}
               >
                 {link.label}
               </Link>
@@ -128,7 +130,7 @@ export default function Navbar() {
           </div>
 
           <div className="ml-2 sm:ml-4">
-            <MultiLevelDrawerMenu primaries={primaries} onOpenChange={setIsMenuOpen} scrolled={!useTransparentNavBranding} />
+            <MultiLevelDrawerMenu primaries={primaries} onOpenChange={setIsMenuOpen} scrolled={!useTransparentNavLinks} />
           </div>
         </div>
       </nav>

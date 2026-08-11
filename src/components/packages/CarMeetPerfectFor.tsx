@@ -59,6 +59,8 @@ export default function CarMeetPerfectFor({ items }: CarMeetPerfectForProps) {
         className="object-cover object-center"
         sizes="100vw"
       />
+      {/* Subtle dark overlay for text readability */}
+      <div className="absolute inset-0 bg-black/40" />
       
       {/* Header Area */}
       <div ref={headerRef} className="relative z-10 mx-auto mb-16 flex max-w-6xl flex-col items-start justify-between gap-8 md:flex-row md:items-end">

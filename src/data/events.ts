@@ -31,7 +31,7 @@ export const events: EventData[] = [
     subtitle: "World-Class Entertainment for the World's Largest Rally",
     seoTitle: "Daytona Bike Week 2027 | Hire Girls | Velvet Girl Entertainment",
     seoDescription: "Hire premium VIP Velvet Girl entertainers for Daytona Bike Week 2027. Make your rally experience unforgettable. Book girls or apply to work Daytona Bike Week.",
-    heroImage: "/gallery images/GALLERY(1).webp", // Example existing image
+    heroImage: "/images/Bike week pages .jpg", // New custom hero image
     overview: "Daytona Bike Week 2027 brings the world's most passionate riders together. Elevate your Daytona experience with Velvet Girl Entertainment. From high-energy events to exclusive private hosting, our team delivers a world-class VIP experience.",
     bullets: [
       "Premium hospitality for the Daytona rally",

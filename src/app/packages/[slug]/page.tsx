@@ -8,6 +8,14 @@ import CarMeetHero from "@/components/packages/CarMeetHero";
 import CarMeetHighlights from "@/components/packages/CarMeetHighlights";
 import CarMeetPerfectFor from "@/components/packages/CarMeetPerfectFor";
 import CarMeetGallery from "@/components/packages/CarMeetGallery";
+import BoatPartyHero from "@/components/packages/BoatPartyHero";
+import BoatPartyHighlights from "@/components/packages/BoatPartyHighlights";
+import BoatPartyPerfectFor from "@/components/packages/BoatPartyPerfectFor";
+import BoatPartyGallery from "@/components/packages/BoatPartyGallery";
+import BreakfastHero from "@/components/packages/BreakfastHero";
+import BreakfastHighlights from "@/components/packages/BreakfastHighlights";
+import BreakfastPerfectFor from "@/components/packages/BreakfastPerfectFor";
+import BreakfastGallery from "@/components/packages/BreakfastGallery";
 import Section from "@/components/ui/Section";
 import Reveal from "@/components/ui/Reveal";
 import FaqSection from "@/components/home/FaqSection";
@@ -90,6 +98,10 @@ export default async function PackageThemeDetailPage({ params }: Props) {
       />
       {slug === "car-meet" ? (
         <CarMeetHero themeName={theme.name} />
+      ) : slug === "boat-pool-party" ? (
+        <BoatPartyHero themeName={theme.name} />
+      ) : slug === "breakfast-with-babes" ? (
+        <BreakfastHero themeName={theme.name} />
       ) : (
         <PageHero
           eyebrow="PACKAGES"
@@ -101,6 +113,10 @@ export default async function PackageThemeDetailPage({ params }: Props) {
 
       {slug === "car-meet" ? (
         <CarMeetHighlights />
+      ) : slug === "boat-pool-party" ? (
+        <BoatPartyHighlights />
+      ) : slug === "breakfast-with-babes" ? (
+        <BreakfastHighlights />
       ) : (
         <Section eyebrow="HIGHLIGHTS" title="What to expect">
           <Reveal className="mx-auto max-w-3xl">
@@ -124,6 +140,10 @@ export default async function PackageThemeDetailPage({ params }: Props) {
       {theme.perfectFor && theme.perfectFor.length > 0 && (
         slug === "car-meet" ? (
           <CarMeetPerfectFor items={theme.perfectFor} />
+        ) : slug === "boat-pool-party" ? (
+          <BoatPartyPerfectFor items={theme.perfectFor} />
+        ) : slug === "breakfast-with-babes" ? (
+          <BreakfastPerfectFor items={theme.perfectFor} />
         ) : (
           <Section eyebrow="PERFECT FOR" title="Great fit for">
             <Reveal className="mx-auto max-w-4xl">
@@ -145,6 +165,12 @@ export default async function PackageThemeDetailPage({ params }: Props) {
       {slug === "car-meet" && (
         <CarMeetGallery />
       )}
+      {slug === "boat-pool-party" && (
+        <BoatPartyGallery />
+      )}
+      {slug === "breakfast-with-babes" && (
+        <BreakfastGallery />
+      )}
 
       <Section eyebrow="CUSTOMIZE" title={`Build your ${theme.name} package`} theme="muted">
         <Reveal className="mx-auto max-w-2xl text-center">
@@ -157,7 +183,7 @@ export default async function PackageThemeDetailPage({ params }: Props) {
               </p>
               <Link
                 href="/contact"
-                className="mt-8 inline-flex items-center gap-2 bg-white px-8 py-4 font-body text-xs font-bold uppercase tracking-widest text-[#740107] transition-all duration-300 hover:scale-105 border border-white shadow-md"
+                className="mt-8 inline-flex items-center gap-2 bg-white px-8 py-4 font-body text-xs font-bold uppercase tracking-widest text-[#740107] transition-all duration-300 hover:scale-105 border border-white shadow-md rounded-full"
               >
                 <span>NOTIFY ME</span>
               </Link>
@@ -169,7 +195,7 @@ export default async function PackageThemeDetailPage({ params }: Props) {
               </p>
               <Link
                 href={`/book-now?theme=${theme.slug}`}
-                className="mt-8 inline-flex items-center gap-2 bg-white px-8 py-4 font-body text-xs font-bold uppercase tracking-widest text-[#740107] transition-all duration-300 hover:scale-105 border border-white shadow-md"
+                className="mt-8 inline-flex items-center gap-2 bg-white px-8 py-4 font-body text-xs font-bold uppercase tracking-widest text-[#740107] transition-all duration-300 hover:scale-105 border border-white shadow-md rounded-full"
               >
                 <span>CUSTOMIZE & BOOK THIS PACKAGE</span>
               </Link>

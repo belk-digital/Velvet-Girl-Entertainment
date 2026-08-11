@@ -2,6 +2,7 @@ import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getEventBySlug, events } from "@/data/events";
 import PageHero from "@/components/ui/PageHero";
+import EventParallaxHero from "@/components/events/EventParallaxHero";
 import EventDualCTA from "@/components/events/EventDualCTA";
 import ShowcaseGallery from "@/components/home/ShowcaseGallery";
 import { CheckCircle2 } from "lucide-react";
@@ -43,11 +44,15 @@ export default async function EventPage({ params }: { params: Promise<{ slug: st
 
   return (
     <main className="min-h-screen bg-[#FBFAF8]">
-      <PageHero
-        title={event.title}
-        subtitle={event.subtitle}
-        bgImage={event.heroImage}
-      />
+      {slug === "daytona-bike-week-2027" ? (
+        <EventParallaxHero title={event.title} imageSrc={event.heroImage} />
+      ) : (
+        <PageHero
+          title={event.title}
+          subtitle={event.subtitle}
+          bgImage={event.heroImage}
+        />
+      )}
 
       <section className="py-16 md:py-24 max-w-[120rem] mx-auto px-6 lg:px-12">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">

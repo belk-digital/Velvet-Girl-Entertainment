@@ -2,6 +2,7 @@
 
 import { useRef } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
@@ -17,21 +18,9 @@ interface CarMeetHeroProps {
 export default function CarMeetHero({ themeName }: CarMeetHeroProps) {
   const container = useRef<HTMLDivElement>(null);
   const imageRef = useRef<HTMLImageElement>(null);
-  const textRef = useRef<HTMLHeadingElement>(null);
+  const textRef = useRef<HTMLDivElement>(null);
 
   useGSAP(() => {
-    // Parallax effect on the image
-    gsap.to(imageRef.current, {
-      yPercent: 20,
-      ease: "none",
-      scrollTrigger: {
-        trigger: container.current,
-        start: "top top",
-        end: "bottom top",
-        scrub: true,
-      },
-    });
-
     // Initial load animation for text
     gsap.from(textRef.current, {
       y: 50,
@@ -45,26 +34,30 @@ export default function CarMeetHero({ themeName }: CarMeetHeroProps) {
   return (
     <div 
       ref={container}
-      className="relative w-full h-[60vh] md:h-[80vh] flex items-center justify-center overflow-hidden bg-[#FAF7F2]"
+      className="relative flex h-[65vh] min-h-[500px] md:h-screen md:min-h-[640px] w-full items-center justify-center overflow-hidden bg-black"
     >
-      <div className="absolute inset-0 z-0 overflow-hidden h-[120%] -top-[10%]">
+      <div className="absolute inset-0 z-0 overflow-hidden">
         <Image
           ref={imageRef}
-          src="/images/paclages-image/car-bike-meet-package.webp"
+          src="/images/performers profile images/Harley/HARLEY(1).webp"
           alt={themeName}
           fill
           priority
-          className="object-cover object-[center_80%]"
+          sizes="100vw"
+          className="object-cover object-[22%_85%] md:object-top"
         />
-        <div className="absolute inset-0 bg-black/40 pointer-events-none" />
+        <div className="absolute inset-0 bg-black/30 pointer-events-none" />
       </div>
-      <div className="relative z-10 w-full px-6 text-center">
-        <h1 
-          ref={textRef}
-          className="font-display text-4xl md:text-5xl lg:text-7xl text-white font-normal leading-none tracking-wide drop-shadow-md"
-        >
+      <div ref={textRef} className="relative z-10 w-full px-6 text-center">
+        <h1 className="font-display text-4xl md:text-5xl lg:text-7xl text-white font-normal leading-none tracking-wide drop-shadow-md">
           {themeName}
         </h1>
+        <Link
+          href="/book-now?theme=car-meet"
+          className="mt-8 inline-flex items-center justify-center bg-transparent border border-white px-8 py-4 font-body text-xs font-bold uppercase tracking-widest text-white transition-all duration-300 hover:scale-105 hover:bg-white/10 shadow-lg rounded-full"
+        >
+          Book Now
+        </Link>
       </div>
     </div>
   );

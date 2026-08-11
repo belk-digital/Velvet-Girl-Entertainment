@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -10,11 +9,11 @@ if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
 }
 
-interface CarMeetPerfectForProps {
+interface BoatPartyPerfectForProps {
   items: string[];
 }
 
-export default function CarMeetPerfectFor({ items }: CarMeetPerfectForProps) {
+export default function BoatPartyPerfectFor({ items }: BoatPartyPerfectForProps) {
   const [isExpanded, setIsExpanded] = useState(false);
   const container = useRef<HTMLElement>(null);
   const listRef = useRef<HTMLUListElement>(null);
@@ -51,17 +50,9 @@ export default function CarMeetPerfectFor({ items }: CarMeetPerfectForProps) {
 
   return (
     <section ref={container} className="w-full bg-[#FAF7F2]">
-      <div className="relative mx-auto max-w-[120rem] overflow-hidden px-6 py-20 lg:px-12 lg:py-32">
-      <Image
-        src="/images/event gallery/IMG_4361.webp"
-        alt=""
-        fill
-        className="object-cover object-center"
-        sizes="100vw"
-      />
-      <div className="absolute inset-0 bg-[#3d0306]/75" />
+      <div className="max-w-[120rem] mx-auto bg-[#5C0005] py-20 lg:py-32 px-6 lg:px-12 rounded-none">
       {/* Header Area */}
-      <div ref={headerRef} className="relative z-10 mx-auto mb-16 flex max-w-6xl flex-col items-start justify-between gap-8 md:flex-row md:items-end">
+      <div ref={headerRef} className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-start md:items-end mb-16 gap-8">
         <div>
           <div className="flex items-center gap-3 mb-6">
             <div className="w-3.5 h-3.5 rounded-full border border-white/50"></div>
@@ -75,13 +66,13 @@ export default function CarMeetPerfectFor({ items }: CarMeetPerfectForProps) {
         </div>
         <div className="max-w-xs md:text-right">
           <p className="text-white/60 text-[10px] md:text-xs font-bold tracking-wider uppercase leading-relaxed">
-            Tailored experiences, built for every automotive event.
+            Tailored experiences, built for every water event.
           </p>
         </div>
       </div>
 
       {/* List Area */}
-      <div className="relative z-10 mx-auto max-w-6xl">
+      <div className="max-w-6xl mx-auto">
         <ul ref={listRef} className="flex flex-col border-b border-white/20">
           {visibleItems.map((item, index) => {
             const num = (index + 1).toString().padStart(2, "0");

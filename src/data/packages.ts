@@ -49,8 +49,22 @@ export const packageThemes: PackageTheme[] = [
       "Daytime & evening availability",
       "Swimwear-friendly performances",
       "Great for larger groups",
+      "Interactive crowd engagement",
+      "High energy atmosphere",
+      "Custom outfits available upon request",
+      "Memorable photos with guests",
     ],
-    image: "/gallery images/BOAT_ POOL PARTY_.webp",
+    perfectFor: [
+      "Yacht Parties",
+      "Poolside Birthdays",
+      "Bachelor Weekends",
+      "Summer Kickoffs",
+      "Sandbar Tie-ups",
+      "Lake Days",
+      "Private Estate Pool Parties",
+      "Resort Celebrations"
+    ],
+    image: "/images/BOAT_ POOL PARTY_.jpg",
   },
   {
     slug: "guys-night",
@@ -101,8 +115,20 @@ export const packageThemes: PackageTheme[] = [
       "Daytime booking",
       "Casual, playful format",
       "Great pre-party warmup",
+      "Themed matching outfits",
+      "Interactive breakfast service",
+      "Morning energy boost",
+      "Perfect for group photos"
     ],
-    image: "/gallery images/BREAKFAST WITH BABES.webp",
+    perfectFor: [
+      "Bachelor Party Mornings",
+      "Golf Trip Kickoffs",
+      "Birthday Breakfasts",
+      "Weekend Getaways",
+      "Pre-Game Warmups",
+      "Hangover Recovery Brunches"
+    ],
+    image: "/images/Breakfast with babes.jpg",
   },
   {
     slug: "car-meet",

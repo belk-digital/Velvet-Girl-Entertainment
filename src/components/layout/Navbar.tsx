@@ -66,8 +66,10 @@ export default function Navbar() {
   // Force white background on performer profile pages
   const isPerformerPage = pathname?.startsWith("/girls/") && pathname !== "/girls";
   const isGalleryPage = pathname === "/gallery";
+  const isCarMeetPage = pathname === "/packages/car-meet";
   const effectiveScrolled = scrolled || isPerformerPage;
-  const isTransparent = isGalleryPage && !effectiveScrolled;
+  const isTransparent = (isGalleryPage || isCarMeetPage) && !effectiveScrolled;
+  const useTransparentNavBranding = isTransparent && !isMenuOpen;
 
   useEffect(() => {
     let lastScrollY = window.scrollY;
@@ -93,14 +95,14 @@ export default function Navbar() {
       <nav className="mx-auto flex max-w-[120rem] items-center justify-between px-6 py-3 lg:px-12">
         <Link href="/" className="pointer-events-auto flex items-center gap-2 sm:gap-3">
           <Image
-            src="/velvet-logo.png"
+            src={useTransparentNavBranding ? "/velvet-logo-transparent-navbar.png" : "/velvet-logo.png"}
             alt="Velvet Girl Entertainment"
             width={160}
             height={159}
             priority
             className="h-16 w-auto sm:h-20"
           />
-          <span className="font-script font-normal text-2xl sm:text-3xl text-[#740107]">
+          <span className={`font-script font-normal text-2xl sm:text-3xl transition-colors duration-300 ${useTransparentNavBranding ? "text-white drop-shadow-md" : "text-[#740107]"}`}>
             Velvet Girl
           </span>
         </Link>
@@ -118,7 +120,7 @@ export default function Navbar() {
               <Link
                 key={link.label}
                 href={link.href}
-                className={`font-heading text-sm font-semibold uppercase tracking-wider transition-colors hover:text-[#740107] ${isTransparent && !isMenuOpen ? "text-white/90 drop-shadow-md hover:text-white" : "text-black/85"}`}
+                className={`font-heading text-sm font-semibold uppercase tracking-wider transition-colors hover:text-[#740107] ${useTransparentNavBranding ? "text-white/90 drop-shadow-md hover:text-white" : "text-black/85"}`}
               >
                 {link.label}
               </Link>
@@ -126,7 +128,7 @@ export default function Navbar() {
           </div>
 
           <div className="ml-2 sm:ml-4">
-            <MultiLevelDrawerMenu primaries={primaries} onOpenChange={setIsMenuOpen} scrolled={!(isTransparent && !isMenuOpen)} />
+            <MultiLevelDrawerMenu primaries={primaries} onOpenChange={setIsMenuOpen} scrolled={!useTransparentNavBranding} />
           </div>
         </div>
       </nav>

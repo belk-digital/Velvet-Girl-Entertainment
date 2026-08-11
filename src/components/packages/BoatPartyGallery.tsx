@@ -12,32 +12,13 @@ if (typeof window !== "undefined") {
 }
 
 const images = [
-  "/images/event gallery/Car & bike meet models_(6).jpg",
-  "/images/event gallery/KIMMI K(1).webp",
-  "/images/event gallery/Car & bike meet models_(2).jpg",
-  "/images/event gallery/Claire Charleston profile pics_(1).webp",
-  "/images/event gallery/Car & bike meet models_(1).jpg",
-  "/images/event gallery/IMG_4350.webp",
-  "/images/event gallery/KIMMI K(2).jpg",
-  "/images/event gallery/Claire Charleston profile pics_.webp",
-  "/images/event gallery/Car & bike meet models.jpg",
-  "/images/event gallery/IMG_4352.webp",
-  "/images/event gallery/Car & bike meet models_(5).jpg",
-  "/images/event gallery/IMG_4353.webp",
-  "/images/event gallery/Car meet models package_.jpg",
-  "/images/event gallery/IMG_4354.webp",
-  "/images/event gallery/Car & bike meet models_(3).jpg",
-  "/images/event gallery/IMG_4356.webp",
-  "/images/event gallery/Car & bike meet models_.jpg",
-  "/images/event gallery/IMG_4357.webp",
-  "/images/event gallery/IMG_4359.webp",
-  "/images/event gallery/IMG_4360.webp",
-  "/images/event gallery/IMG_4361.webp",
-  "/images/event gallery/IMG_4362.webp",
-  "/images/event gallery/IMG_4363.webp",
+  "/images/BOAT_ POOL PARTY_.jpg",
+  "/gallery images/MYRTLE BEACH.webp",
+  "/images/BEACH DAY PACKAGE OR BEACH CITY PAGE.jpg",
+  "/gallery images/BOAT_ POOL PARTY_.webp",
 ];
 
-export default function CarMeetGallery() {
+export default function BoatPartyGallery() {
   const container = useRef<HTMLElement>(null);
   const gridRef = useRef<HTMLDivElement>(null);
   const headerRef = useRef<HTMLDivElement>(null);
@@ -160,12 +141,12 @@ export default function CarMeetGallery() {
               </p>
             </div>
             <h2 className="font-display text-4xl sm:text-5xl md:text-6xl text-stone-900 uppercase tracking-wide">
-              MOMENTS CAPTURED
+              MOMENTS BY THE WATER
             </h2>
           </div>
           <div className="max-w-xs md:text-right hidden sm:block">
             <p className="text-stone-500 text-[10px] md:text-xs font-bold tracking-wider uppercase leading-relaxed">
-              Explore the highlights and best moments from our car & bike meet events.
+              Explore the highlights and best moments from our pool and boat parties.
             </p>
           </div>
         </div>
@@ -173,25 +154,18 @@ export default function CarMeetGallery() {
         {/* Gallery Grid */}
         <div 
           ref={gridRef}
-          className="grid grid-flow-dense grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-2 md:gap-4 auto-rows-[150px] sm:auto-rows-[200px] md:auto-rows-[250px] lg:auto-rows-[300px]"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 auto-rows-[300px]"
         >
           {images.map((src, index) => {
-            // Feature a few images throughout the gallery
-            const isFeatured = index === 1 || index === 8 || index === 13 || index === 20;
-            
             return (
               <div 
                 key={index}
                 onClick={() => openLightbox(index)}
-                className={`relative w-full h-full overflow-hidden bg-stone-200 group cursor-pointer ${
-                  isFeatured 
-                    ? "col-span-2 row-span-2" 
-                    : "col-span-1 row-span-1"
-                }`}
+                className="relative w-full h-full overflow-hidden bg-stone-200 group cursor-pointer"
               >
                 <Image
                   src={src}
-                  alt={`Car Meet Gallery Image ${index + 1}`}
+                  alt={`Boat Party Gallery Image ${index + 1}`}
                   fill
                   className="object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
                 />

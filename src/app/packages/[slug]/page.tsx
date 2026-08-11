@@ -137,15 +137,45 @@ export default async function PackageThemeDetailPage({ params }: Props) {
         </Section>
       )}
 
-      {slug === "car-meet" && (
-        <CarMeetGallery />
-      )}
-      {slug === "boat-pool-party" && (
-        <BoatPartyGallery />
-      )}
-      {slug === "breakfast-with-babes" && (
-        <BreakfastGallery />
-      )}
+      <section className="relative w-full overflow-hidden bg-[#5C0005]">
+        <div className="relative z-10 mx-auto flex max-w-5xl flex-col items-center px-6 py-16 text-center lg:py-24">
+          <p className="mb-4 inline-block border-t-2 border-white/70 pt-2 text-xs font-bold uppercase tracking-widest text-white/80 md:text-base">
+            CUSTOMIZE
+          </p>
+          <h2 className="mb-6 font-display text-[40px] font-bold uppercase leading-none tracking-wide text-white sm:text-5xl md:text-6xl lg:text-7xl">
+            Build your {theme.name} package
+          </h2>
+          <Reveal className="mx-auto max-w-3xl text-center mt-2">
+            {theme.comingSoon ? (
+              <>
+                <p className="text-base leading-relaxed text-white/85 sm:text-lg md:text-xl">
+                  {theme.name} isn&rsquo;t live yet, but we&rsquo;re rolling it
+                  out to select cities soon. Reach out to be the first to know
+                  when it launches near you.
+                </p>
+                <Link
+                  href="/contact"
+                  className="mt-10 inline-flex items-center gap-2 bg-white px-8 py-4 font-body text-xs font-bold uppercase tracking-widest text-[#5C0005] transition-all duration-300 hover:scale-105 border border-white shadow-md rounded-full"
+                >
+                  <span>NOTIFY ME</span>
+                </Link>
+              </>
+            ) : (
+              <>
+                <p className="text-base leading-relaxed text-white/85 sm:text-lg md:text-xl">
+                  Launch our interactive booking wizard with {theme.name} pre-selected to choose verified VIP entertainers, costumes, and upgrades.
+                </p>
+                <Link
+                  href={`/book-now?theme=${theme.slug}`}
+                  className="mt-10 inline-flex items-center gap-2 bg-white px-8 py-4 font-body text-xs font-bold uppercase tracking-widest text-[#5C0005] transition-all duration-300 hover:scale-105 border border-white shadow-md rounded-full"
+                >
+                  <span>CUSTOMIZE & BOOK THIS PACKAGE</span>
+                </Link>
+              </>
+            )}
+          </Reveal>
+        </div>
+      </section>
 
       {theme.perfectFor && theme.perfectFor.length > 0 && (
         slug === "car-meet" ? (
@@ -172,37 +202,16 @@ export default async function PackageThemeDetailPage({ params }: Props) {
         )
       )}
 
-      <Section eyebrow="CUSTOMIZE" title={`Build your ${theme.name} package`} theme="muted">
-        <Reveal className="mx-auto max-w-2xl text-center">
-          {theme.comingSoon ? (
-            <>
-              <p className="font-body text-base sm:text-lg text-white/85 font-medium leading-relaxed">
-                {theme.name} isn&rsquo;t live yet, but we&rsquo;re rolling it
-                out to select cities soon. Reach out to be the first to know
-                when it launches near you.
-              </p>
-              <Link
-                href="/contact"
-                className="mt-8 inline-flex items-center gap-2 bg-white px-8 py-4 font-body text-xs font-bold uppercase tracking-widest text-[#740107] transition-all duration-300 hover:scale-105 border border-white shadow-md rounded-full"
-              >
-                <span>NOTIFY ME</span>
-              </Link>
-            </>
-          ) : (
-            <>
-              <p className="font-body text-base sm:text-lg text-white/85 font-medium leading-relaxed">
-                Launch our interactive booking wizard with {theme.name} pre-selected to choose verified VIP entertainers, costumes, and upgrades.
-              </p>
-              <Link
-                href={`/book-now?theme=${theme.slug}`}
-                className="mt-8 inline-flex items-center gap-2 bg-white px-8 py-4 font-body text-xs font-bold uppercase tracking-widest text-[#740107] transition-all duration-300 hover:scale-105 border border-white shadow-md rounded-full"
-              >
-                <span>CUSTOMIZE & BOOK THIS PACKAGE</span>
-              </Link>
-            </>
-          )}
-        </Reveal>
-      </Section>
+      {slug === "car-meet" && (
+        <CarMeetGallery />
+      )}
+      {slug === "boat-pool-party" && (
+        <BoatPartyGallery />
+      )}
+      {slug === "breakfast-with-babes" && (
+        <BreakfastGallery />
+      )}
+
 
       <CtaSection />
       <FaqSection />

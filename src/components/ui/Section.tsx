@@ -33,7 +33,7 @@ export default function Section({
           : isDark
           ? "bg-[#0f0f11] text-white"
           : isMuted
-          ? "bg-[#5c0105] text-white border-y border-black/10 shadow-xs"
+          ? "bg-[#5C0005] text-white border-y border-black/10 shadow-xs"
           : "bg-[#FAF7F2] text-stone-900"
       } ${className}`}
     >

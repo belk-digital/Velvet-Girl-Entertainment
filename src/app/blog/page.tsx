@@ -60,7 +60,7 @@ export default function BlogIndexPage() {
               <Reveal key={post.slug} delay={(i % 2) * 0.1}>
                 <Link
                   href={`/blog/${post.slug}`}
-                  className="group flex h-full flex-col justify-between overflow-hidden rounded-2xl border border-stone-200/80 bg-white transition-all duration-500 hover:border-[#740107]/60 hover:shadow-2xl transform hover:-translate-y-1"
+                  className="group flex h-full flex-col justify-between overflow-hidden rounded-2xl border border-stone-200/80 bg-white transition-all duration-500 hover:border-[#5C0005]/60 hover:shadow-2xl transform hover:-translate-y-1"
                 >
                   <div>
                     <div className="relative aspect-[16/9] w-full overflow-hidden bg-stone-900">
@@ -73,14 +73,14 @@ export default function BlogIndexPage() {
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
                       <div className="absolute bottom-4 left-4 right-4 flex items-center gap-2 text-white">
-                        <Calendar className="h-4 w-4 text-[#740107]" />
+                        <Calendar className="h-4 w-4 text-[#5C0005]" />
                         <span className="font-body text-xs font-semibold uppercase tracking-wider text-white">
                           {formatDate(post.publishedAt)} &middot; {post.readTime}
                         </span>
                       </div>
                     </div>
                     <div className="p-8">
-                      <h2 className="font-display text-xl font-bold uppercase tracking-wide text-stone-900 group-hover:text-[#740107] transition-colors">
+                      <h2 className="font-display text-xl font-bold uppercase tracking-wide text-stone-900 group-hover:text-[#5C0005] transition-colors">
                         {post.title}
                       </h2>
                       <p className="mt-3 font-body text-sm text-stone-600 leading-relaxed font-medium">
@@ -88,7 +88,7 @@ export default function BlogIndexPage() {
                       </p>
                     </div>
                   </div>
-                  <div className="mx-8 mb-8 pt-4 border-t border-stone-200/80 flex items-center justify-between font-body text-xs font-bold uppercase tracking-widest text-[#740107] group-hover:translate-x-1 transition-transform">
+                  <div className="mx-8 mb-8 pt-4 border-t border-stone-200/80 flex items-center justify-between font-body text-xs font-bold uppercase tracking-widest text-[#5C0005] group-hover:translate-x-1 transition-transform">
                     <span>Read article</span>
                     <ArrowRight className="h-4 w-4" />
                   </div>

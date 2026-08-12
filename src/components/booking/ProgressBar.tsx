@@ -19,7 +19,7 @@ export default function ProgressBar() {
   return (
     <header className="w-full px-6 py-4 sm:px-12 flex items-center justify-between border-b border-black/5 bg-[#FAF7F2]/80 backdrop-blur-md sticky top-0 z-40">
       {/* Left: 01 of 11 indicator */}
-      <div className="font-display text-sm sm:text-base font-bold uppercase tracking-widest text-[#740107]">
+      <div className="font-display text-sm sm:text-base font-bold uppercase tracking-widest text-[#5C0005]">
         {String(Math.min(currentStep, totalSteps)).padStart(2, "0")}
         <span className="text-black/40 font-normal"> of {totalSteps}</span>
       </div>
@@ -28,7 +28,7 @@ export default function ProgressBar() {
       <div className="hidden sm:flex items-center gap-2 flex-1 max-w-xl mx-8 relative">
         <div className="relative w-full h-1.5 bg-black/10 rounded-full overflow-hidden">
           <motion.div
-            className="h-full bg-gradient-to-r from-[#740107] to-[#a30008] rounded-full"
+            className="h-full bg-gradient-to-r from-[#5C0005] to-[#a30008] rounded-full"
             initial={{ width: 0 }}
             animate={{ width: `${progressPercentage}%` }}
             transition={{ duration: 0.5, ease: "easeInOut" }}

@@ -592,7 +592,7 @@ export default function MultiLevelDrawerMenu({ primaries, onOpenChange, scrolled
               <Link
                 href="/book-now"
                 onClick={closeMenu}
-                className="flex items-center justify-center w-full px-6 py-4 bg-[#740107] hover:bg-[#5c0911] text-white font-body text-sm font-bold uppercase tracking-widest transition-colors duration-200"
+                className="flex items-center justify-center w-full px-6 py-4 bg-[#5C0005] hover:bg-[#5c0911] text-white font-body text-sm font-bold uppercase tracking-widest transition-colors duration-200"
               >
                 Book Now
               </Link>

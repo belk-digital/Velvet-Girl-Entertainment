@@ -63,7 +63,7 @@ export default function PerformerProfileModal({
         {/* Close Button */}
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 z-30 w-10 h-10 rounded-full bg-black/50 hover:bg-[#740107] text-white flex items-center justify-center transition-colors shadow-md backdrop-blur-sm"
+          className="absolute top-4 right-4 z-30 w-10 h-10 rounded-full bg-black/50 hover:bg-[#5C0005] text-white flex items-center justify-center transition-colors shadow-md backdrop-blur-sm"
           aria-label="Close modal"
         >
           <X className="w-5 h-5" />
@@ -88,7 +88,7 @@ export default function PerformerProfileModal({
               </span>
             )}
             {performer.isVerified && (
-              <span className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-[#740107]/90 backdrop-blur-md text-[11px] font-bold uppercase tracking-wider text-white shadow-sm">
+              <span className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-[#5C0005]/90 backdrop-blur-md text-[11px] font-bold uppercase tracking-wider text-white shadow-sm">
                 <CheckCircle2 className="w-3.5 h-3.5" />
                 Verified Entertainer
               </span>
@@ -109,12 +109,12 @@ export default function PerformerProfileModal({
             {/* Header info */}
             <div className="hidden md:block">
               <div className="flex items-center justify-between gap-2">
-                <h2 className="font-display text-3xl sm:text-4xl font-bold tracking-tight text-[#740107]">
+                <h2 className="font-display text-3xl sm:text-4xl font-bold tracking-tight text-[#5C0005]">
                   {performer.name}
                 </h2>
               </div>
               <p className="mt-1 font-body text-xs font-bold uppercase tracking-widest text-stone-500 flex items-center gap-1">
-                <MapPin className="w-3.5 h-3.5 text-[#740107]" />
+                <MapPin className="w-3.5 h-3.5 text-[#5C0005]" />
                 {performer.location || performer.city || "United States"}
               </p>
             </div>
@@ -122,7 +122,7 @@ export default function PerformerProfileModal({
             {/* Mobile Header info */}
             <div className="md:hidden mb-4">
               <p className="font-body text-xs font-bold uppercase tracking-widest text-stone-500 flex items-center gap-1">
-                <MapPin className="w-3.5 h-3.5 text-[#740107]" />
+                <MapPin className="w-3.5 h-3.5 text-[#5C0005]" />
                 {performer.location || performer.city || "United States"}
               </p>
             </div>
@@ -172,7 +172,7 @@ export default function PerformerProfileModal({
             {/* Specialties / Services */}
             <div className="mt-6">
               <h4 className="font-body text-xs font-bold uppercase tracking-widest text-stone-400 mb-2 flex items-center gap-1.5">
-                <Sparkles className="w-3.5 h-3.5 text-[#740107]" />
+                <Sparkles className="w-3.5 h-3.5 text-[#5C0005]" />
                 Available Specialties
               </h4>
               <div className="grid grid-cols-2 gap-2">
@@ -188,7 +188,7 @@ export default function PerformerProfileModal({
                     key={idx}
                     className="flex items-center gap-2 text-xs font-medium text-stone-700 bg-stone-50 px-3 py-2 rounded-lg border border-stone-150"
                   >
-                    <div className="w-1.5 h-1.5 rounded-full bg-[#740107] flex-shrink-0" />
+                    <div className="w-1.5 h-1.5 rounded-full bg-[#5C0005] flex-shrink-0" />
                     <span className="truncate">{service}</span>
                   </div>
                 ))}
@@ -210,7 +210,7 @@ export default function PerformerProfileModal({
           <div className="mt-8 pt-6 border-t border-stone-200/80 flex flex-col gap-2.5 w-full">
             <a
               href="tel:8439387377"
-              className="w-full inline-flex items-center justify-center gap-2.5 bg-[#740107] hover:bg-[#5c0911] text-white px-6 py-3.5 rounded-full text-xs sm:text-sm font-bold uppercase tracking-wider transition-all duration-300 shadow-md hover:shadow-lg hover:scale-[1.01] whitespace-nowrap"
+              className="w-full inline-flex items-center justify-center gap-2.5 bg-[#5C0005] hover:bg-[#5c0911] text-white px-6 py-3.5 rounded-full text-xs sm:text-sm font-bold uppercase tracking-wider transition-all duration-300 shadow-md hover:shadow-lg hover:scale-[1.01] whitespace-nowrap"
             >
               <Phone className="w-4 h-4 shrink-0" />
               <span>CALL: (843) 938-7377</span>

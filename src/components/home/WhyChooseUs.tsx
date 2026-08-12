@@ -63,7 +63,7 @@ export default function WhyChooseUs({
   sectionId?: string | null;
 }) {
   return (
-    <section id="why-choose-us" className="relative w-full min-h-screen overflow-hidden bg-[#740107] flex flex-col justify-between pt-16 sm:pt-24 pb-0">
+    <section id="why-choose-us" className="relative w-full min-h-screen overflow-hidden bg-[#5C0005] flex flex-col justify-between pt-16 sm:pt-24 pb-0">
       {/* Interactive WebGL Animated Silk Background */}
       <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
         <Silk

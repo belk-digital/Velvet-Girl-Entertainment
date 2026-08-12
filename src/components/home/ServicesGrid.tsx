@@ -29,19 +29,19 @@ export default function ServicesGrid() {
       {/* Custom Left-Aligned Stacked Heading */}
       <div className="mb-20 md:mb-32 w-full">
         <div className="relative">
-          <h2 className="text-6xl sm:text-8xl md:text-[9rem] font-black uppercase text-[#740107] leading-[0.9] tracking-tighter relative z-30">
+          <h2 className="text-6xl sm:text-8xl md:text-[9rem] font-black uppercase text-[#5C0005] leading-[0.9] tracking-tighter relative z-30">
             OUR <br className="md:hidden" /> SERVICES
           </h2>
           <h2 
             className="text-6xl sm:text-8xl md:text-[9rem] font-black uppercase text-black leading-[0.9] tracking-tighter absolute top-3 sm:top-5 md:top-6 left-0 z-20"
-            style={{ WebkitTextStroke: '2px #740107' }}
+            style={{ WebkitTextStroke: '2px #5C0005' }}
             aria-hidden="true"
           >
             OUR <br className="md:hidden" /> SERVICES
           </h2>
           <h2 
             className="text-6xl sm:text-8xl md:text-[9rem] font-black uppercase text-black leading-[0.9] tracking-tighter absolute top-6 sm:top-10 md:top-12 left-0 z-10"
-            style={{ WebkitTextStroke: '2px #740107', opacity: 0.4 }}
+            style={{ WebkitTextStroke: '2px #5C0005', opacity: 0.4 }}
             aria-hidden="true"
           >
             OUR <br className="md:hidden" /> SERVICES
@@ -74,7 +74,7 @@ export default function ServicesGrid() {
         .menu__item-link {
           display: inline-block;
           position: relative;
-          -webkit-text-stroke: 1px #740107;
+          -webkit-text-stroke: 1px #5C0005;
           color: white;
           transition: opacity 0.4s;
           white-space: normal;
@@ -88,7 +88,7 @@ export default function ServicesGrid() {
         }
         @media (min-width: 768px) {
           .menu__item-link {
-            -webkit-text-stroke: 2px #740107;
+            -webkit-text-stroke: 2px #5C0005;
             white-space: nowrap;
             padding: 0 1vw;
           }
@@ -102,7 +102,7 @@ export default function ServicesGrid() {
           pointer-events: none;
           font-size: 1rem;
           -webkit-text-stroke: 0px;
-          color: #740107;
+          color: #5C0005;
           font-family: monospace;
           opacity: 0.8;
         }
@@ -209,7 +209,7 @@ export default function ServicesGrid() {
       <div className="mt-4 text-center">
         <Link
           href="/services"
-          className="tracking-caps inline-flex items-center gap-2 border border-black/25 px-8 py-3.5 font-body text-xs font-semibold text-black/85 transition-colors duration-300 hover:border-[#740107] hover:text-[#740107]"
+          className="tracking-caps inline-flex items-center gap-2 border border-black/25 px-8 py-3.5 font-body text-xs font-semibold text-black/85 transition-colors duration-300 hover:border-[#5C0005] hover:text-[#5C0005]"
         >
           VIEW ALL SERVICES
         </Link>

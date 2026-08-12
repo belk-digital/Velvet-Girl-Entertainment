@@ -24,7 +24,7 @@ export default function Step10Notes() {
             onChange={handleChange}
             placeholder="Location details, dancer preferences, special requests..."
             rows={5}
-            className="w-full rounded-2xl border border-black/20 bg-white p-5 font-body text-base text-stone-800 placeholder-stone-400 outline-none transition-all duration-300 focus:border-[#740107] focus:ring-2 focus:ring-[#740107]/20 shadow-sm resize-none"
+            className="w-full rounded-2xl border border-black/20 bg-white p-5 font-body text-base text-stone-800 placeholder-stone-400 outline-none transition-all duration-300 focus:border-[#5C0005] focus:ring-2 focus:ring-[#5C0005]/20 shadow-sm resize-none"
           />
           <div className="mt-2 text-right font-body text-xs text-stone-400 font-medium">
             {state.notes.length} / {maxLength}

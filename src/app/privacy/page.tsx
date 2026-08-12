@@ -38,7 +38,7 @@ export default function PrivacyPage() {
             our website, booking platform, and related services (collectively, the
             &ldquo;Services&rdquo;). This Policy is incorporated by reference into, and should be
             read together with, our{" "}
-            <a href="/terms" className="text-[#740107] font-bold underline">
+            <a href="/terms" className="text-[#5C0005] font-bold underline">
               Terms of Service
             </a>
             . By using the Services, you acknowledge and agree to the practices described below.
@@ -62,7 +62,7 @@ export default function PrivacyPage() {
                 government-issued photographic identification (e.g., driver&rsquo;s license,
                 passport, or state ID), collected from Customers and Entertainers to confirm that
                 all parties are at least eighteen (18) years of age, consistent with our{" "}
-                <a href="/terms" className="text-[#740107] font-bold underline">
+                <a href="/terms" className="text-[#5C0005] font-bold underline">
                   Terms of Service
                 </a>
                 .
@@ -245,7 +245,7 @@ export default function PrivacyPage() {
               can be sent to{" "}
               <a
                 href="mailto:inquiries@velvetgirlentertainment.com"
-                className="text-[#740107] font-bold underline"
+                className="text-[#5C0005] font-bold underline"
               >
                 inquiries@velvetgirlentertainment.com
               </a>

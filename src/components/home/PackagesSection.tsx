@@ -90,7 +90,7 @@ export default function PackagesSection({
               data-cms-section={sectionId ?? undefined}
               data-cms-type="packages"
               data-cms-field="eyebrow"
-              className="text-xs md:text-sm font-bold uppercase tracking-widest text-[#740107] mb-3"
+              className="text-xs md:text-sm font-bold uppercase tracking-widest text-[#5C0005] mb-3"
             >
               {eyebrow}
             </p>
@@ -114,10 +114,10 @@ export default function PackagesSection({
 
           <Link
             href="/packages"
-            className="flex items-center gap-2 font-bold text-xs md:text-sm uppercase tracking-widest text-black hover:text-[#740107] transition-colors group shrink-0"
+            className="flex items-center gap-2 font-bold text-xs md:text-sm uppercase tracking-widest text-black hover:text-[#5C0005] transition-colors group shrink-0"
           >
             <span>VIEW ALL PACKAGES</span>
-            <ArrowRight className="w-4 h-4 md:w-5 md:h-5 text-[#740107] group-hover:translate-x-1 transition-transform" />
+            <ArrowRight className="w-4 h-4 md:w-5 md:h-5 text-[#5C0005] group-hover:translate-x-1 transition-transform" />
           </Link>
         </div>
 
@@ -221,10 +221,10 @@ export default function PackagesSection({
           <div className="h-[1px] bg-black/15 w-16 sm:w-32 md:w-48"></div>
           <Link
             href="/packages"
-            className="flex items-center gap-2 font-bold text-xs sm:text-sm uppercase tracking-widest text-black hover:text-[#740107] transition-colors group"
+            className="flex items-center gap-2 font-bold text-xs sm:text-sm uppercase tracking-widest text-black hover:text-[#5C0005] transition-colors group"
           >
             <span>EXPLORE MORE PACKAGES</span>
-            <ArrowRight className="w-4 h-4 text-[#740107] group-hover:translate-x-1 transition-transform" />
+            <ArrowRight className="w-4 h-4 text-[#5C0005] group-hover:translate-x-1 transition-transform" />
           </Link>
           <div className="h-[1px] bg-black/15 w-16 sm:w-32 md:w-48"></div>
         </div>

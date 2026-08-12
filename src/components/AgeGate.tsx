@@ -11,11 +11,11 @@ const confirmations: React.ReactNode[] = [
   "Viewing such material is legal in your location.",
   <>
     You agree to our{" "}
-    <a href="/terms" className="text-[#740107] hover:underline">
+    <a href="/terms" className="text-[#5C0005] hover:underline">
       Terms of Service
     </a>{" "}
     &{" "}
-    <a href="/privacy" className="text-[#740107] hover:underline">
+    <a href="/privacy" className="text-[#5C0005] hover:underline">
       Privacy Policy
     </a>
     .
@@ -116,7 +116,7 @@ export default function AgeGate({ onVerified }: AgeGateProps) {
 
       
       {/* Luxury Red overlay behind the modal */}
-      <div className="absolute inset-0 bg-[#740107]/10 backdrop-blur-[2px]"></div>
+      <div className="absolute inset-0 bg-[#5C0005]/10 backdrop-blur-[2px]"></div>
 
       <div className="relative z-10 mx-4 w-full max-w-3xl sm:max-w-4xl">
         <div
@@ -138,7 +138,7 @@ export default function AgeGate({ onVerified }: AgeGateProps) {
             className="font-display text-3xl leading-snug opacity-0 sm:text-4xl md:text-[2.2rem]"
           >
             Welcome to{" "}
-            <span className="align-middle font-script text-4xl text-[#740107] sm:text-5xl md:text-[3rem]">
+            <span className="align-middle font-script text-4xl text-[#5C0005] sm:text-5xl md:text-[3rem]">
               Velvet Girl
             </span>{" "}
             Entertainment
@@ -156,15 +156,15 @@ export default function AgeGate({ onVerified }: AgeGateProps) {
             data-gate-divider
             className="mx-auto mt-5 flex origin-center items-center justify-center gap-3 opacity-0"
           >
-            <span className="h-px w-16 bg-gradient-to-r from-transparent to-[#740107]/40 sm:w-24" />
-            <Crown className="h-4 w-4 text-[#740107]" strokeWidth={1.75} />
-            <span className="h-px w-16 bg-gradient-to-l from-transparent to-[#740107]/40 sm:w-24" />
+            <span className="h-px w-16 bg-gradient-to-r from-transparent to-[#5C0005]/40 sm:w-24" />
+            <Crown className="h-4 w-4 text-[#5C0005]" strokeWidth={1.75} />
+            <span className="h-px w-16 bg-gradient-to-l from-transparent to-[#5C0005]/40 sm:w-24" />
           </div>
 
           <div data-gate-notice className="opacity-0 mt-5">
             <p className="font-body text-sm font-medium text-stone-800 sm:text-base">
               You must be at least{" "}
-              <span className="font-semibold text-[#740107]">
+              <span className="font-semibold text-[#5C0005]">
                 18 years
               </span>{" "}
               of age to enter this website.
@@ -181,7 +181,7 @@ export default function AgeGate({ onVerified }: AgeGateProps) {
                 data-gate-item
                 className="flex items-start gap-2 text-left opacity-0"
               >
-                <span className="mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-[#740107]/10 text-[#740107]">
+                <span className="mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-[#5C0005]/10 text-[#5C0005]">
                   <Check className="h-3 w-3" strokeWidth={3} />
                 </span>
                 <p className="font-body text-xs leading-relaxed text-stone-600">
@@ -198,7 +198,7 @@ export default function AgeGate({ onVerified }: AgeGateProps) {
             <button
               type="button"
               onClick={handleEnter}
-              className="group flex w-full items-center justify-center gap-2 rounded-full bg-[#740107] px-8 py-3.5 font-body text-sm font-bold tracking-caps text-white transition-all duration-300 hover:scale-[1.02] hover:bg-[#5c0911] hover:shadow-lg sm:w-auto sm:flex-1"
+              className="group flex w-full items-center justify-center gap-2 rounded-full bg-[#5C0005] px-8 py-3.5 font-body text-sm font-bold tracking-caps text-white transition-all duration-300 hover:scale-[1.02] hover:bg-[#5c0911] hover:shadow-lg sm:w-auto sm:flex-1"
             >
               ENTER SITE
               <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />

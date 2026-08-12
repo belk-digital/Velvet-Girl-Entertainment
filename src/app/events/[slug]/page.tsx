@@ -58,7 +58,7 @@ export default async function EventPage({ params }: { params: Promise<{ slug: st
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           <div>
             <h2 className="font-sans font-bold text-3xl sm:text-4xl lg:text-5xl text-stone-900 tracking-tight leading-[1.1] mb-6">
-              Experience <span className="text-[#740107]">{event.title}</span> Like Never Before
+              Experience <span className="text-[#5C0005]">{event.title}</span> Like Never Before
             </h2>
             <p className="text-stone-700 text-lg md:text-xl font-medium leading-relaxed mb-8">
               {event.overview}
@@ -66,7 +66,7 @@ export default async function EventPage({ params }: { params: Promise<{ slug: st
             <div className="space-y-4">
               {event.bullets.map((bullet, idx) => (
                 <div key={idx} className="flex items-start gap-4">
-                  <CheckCircle2 className="w-6 h-6 text-[#740107] shrink-0 mt-0.5" />
+                  <CheckCircle2 className="w-6 h-6 text-[#5C0005] shrink-0 mt-0.5" />
                   <p className="text-stone-800 text-base md:text-lg font-medium">
                     {bullet}
                   </p>

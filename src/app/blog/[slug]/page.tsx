@@ -118,7 +118,7 @@ export default async function BlogPostPage({ params }: Props) {
           {post.sections.map((section, i) => (
             <div key={i} className="space-y-6">
               {section.heading && (
-                <h2 className="font-display text-2xl sm:text-3xl font-bold text-stone-900 border-l-4 border-[#740107] pl-5 py-1 uppercase tracking-wide">
+                <h2 className="font-display text-2xl sm:text-3xl font-bold text-stone-900 border-l-4 border-[#5C0005] pl-5 py-1 uppercase tracking-wide">
                   {section.heading}
                 </h2>
               )}

@@ -154,7 +154,7 @@ export default function ContactPage() {
         <HowToBookTimeline steps={bookingSteps} />
         <p className="mt-8 text-center font-body text-sm text-stone-600 font-medium">
           Not sure which package fits your event? Browse our{" "}
-          <Link href="/packages" className="font-bold text-[#740107] hover:underline">
+          <Link href="/packages" className="font-bold text-[#5C0005] hover:underline">
             entertainment packages
           </Link>{" "}
           to get a feel for pricing before you reach out.
@@ -167,8 +167,8 @@ export default function ContactPage() {
             <div className="space-y-4">
               {infoItems.map(({ icon: Icon, label, value, href }) => {
                 const content = (
-                  <div className="flex items-start gap-4 border border-stone-200/80 rounded-xl bg-white p-6 shadow-sm hover:border-[#740107]/50 transition-colors duration-300">
-                    <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[#740107]/10 text-[#740107]">
+                  <div className="flex items-start gap-4 border border-stone-200/80 rounded-xl bg-white p-6 shadow-sm hover:border-[#5C0005]/50 transition-colors duration-300">
+                    <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[#5C0005]/10 text-[#5C0005]">
                       <Icon className="h-5 w-5" />
                     </span>
                     <div>
@@ -194,7 +194,7 @@ export default function ContactPage() {
 
           <Reveal className="lg:col-span-3" delay={0.15}>
             <div className="border border-stone-200/80 rounded-2xl bg-white p-8 sm:p-12 shadow-xl">
-              <h2 className="font-display text-2xl font-bold uppercase tracking-wider text-[#740107]">
+              <h2 className="font-display text-2xl font-bold uppercase tracking-wider text-[#5C0005]">
                 Send a Booking Inquiry
               </h2>
               <p className="mt-2 font-body text-sm text-stone-600 font-medium">

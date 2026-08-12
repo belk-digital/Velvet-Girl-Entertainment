@@ -31,7 +31,7 @@ export default function PageHero({
     <div
       className={`relative overflow-hidden px-6 py-24 sm:py-32 md:py-36 border-b border-stone-200/80 transition-colors duration-300 ${
         isCrimson
-          ? "bg-[#740107] text-white"
+          ? "bg-[#5C0005] text-white"
           : isDark
           ? "bg-[#0f0f11] text-white"
           : "bg-[#FAF7F2] text-stone-900"
@@ -60,7 +60,7 @@ export default function PageHero({
       {/* Subtle luxury backdrop glow */}
       <div
         className={`absolute -top-40 left-1/2 -translate-x-1/2 w-[800px] h-[400px] rounded-full blur-[140px] pointer-events-none opacity-20 ${
-          isCrimson ? "bg-black" : "bg-[#740107]"
+          isCrimson ? "bg-black" : "bg-[#5C0005]"
         }`}
       />
 
@@ -69,7 +69,7 @@ export default function PageHero({
           <div className="inline-flex items-center gap-2 mb-4">
             <span
               className={`h-[1px] w-8 ${
-                isCrimson ? "bg-white/40" : "bg-[#740107]"
+                isCrimson ? "bg-white/40" : "bg-[#5C0005]"
               }`}
             />
             <p
@@ -78,21 +78,21 @@ export default function PageHero({
                   ? "text-white/90"
                   : isDark
                   ? "text-[#C5A880]"
-                  : "text-[#740107]"
+                  : "text-[#5C0005]"
               }`}
             >
               {eyebrow}
             </p>
             <span
               className={`h-[1px] w-8 ${
-                isCrimson ? "bg-white/40" : "bg-[#740107]"
+                isCrimson ? "bg-white/40" : "bg-[#5C0005]"
               }`}
             />
           </div>
         )}
         <h1
           className={`font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-wider uppercase leading-tight ${
-            isCrimson || isDark ? "text-white" : "text-[#740107]"
+            isCrimson || isDark ? "text-white" : "text-[#5C0005]"
           }`}
         >
           {title}
@@ -115,7 +115,7 @@ export default function PageHero({
         <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
           <a
             href="tel:8439387377"
-            className="inline-flex items-center justify-center gap-2 bg-[#740107] hover:bg-[#5c0911] text-white px-6 py-3.5 rounded-full text-xs font-bold uppercase tracking-wider shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-0.5"
+            className="inline-flex items-center justify-center gap-2 bg-[#5C0005] hover:bg-[#5c0911] text-white px-6 py-3.5 rounded-full text-xs font-bold uppercase tracking-wider shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-0.5"
           >
             <Phone className="w-4 h-4 animate-pulse" />
             <span>Call: (843) 938-7377</span>

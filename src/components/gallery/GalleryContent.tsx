@@ -150,7 +150,7 @@ export default function GalleryContent({ performers }: { performers: CmsPerforme
 
             {/* Crimson Serif Main Title */}
             <h1
-              className="font-display text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-extrabold tracking-tight text-[#740107] mb-6 drop-shadow-sm"
+              className="font-display text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-extrabold tracking-tight text-[#5C0005] mb-6 drop-shadow-sm"
               style={{ fontFamily: "var(--font-display)" }}
             >
               GIRLS
@@ -167,9 +167,9 @@ export default function GalleryContent({ performers }: { performers: CmsPerforme
 
             {/* Search Input Pill */}
             <div className="relative w-full max-w-md">
-              <div className="relative flex items-center w-full rounded-full bg-white/95 backdrop-blur-md border border-stone-300 shadow-lg focus-within:border-[#740107] focus-within:ring-2 focus-within:ring-[#740107]/20 transition-all duration-300">
+              <div className="relative flex items-center w-full rounded-full bg-white/95 backdrop-blur-md border border-stone-300 shadow-lg focus-within:border-[#5C0005] focus-within:ring-2 focus-within:ring-[#5C0005]/20 transition-all duration-300">
                 <div className="pl-5 pr-2 py-3.5 text-stone-400">
-                  <Search className="w-5 h-5 text-[#740107]" />
+                  <Search className="w-5 h-5 text-[#5C0005]" />
                 </div>
                 <input
                   type="text"
@@ -184,7 +184,7 @@ export default function GalleryContent({ performers }: { performers: CmsPerforme
                 {searchQuery && (
                   <button
                     onClick={() => setSearchQuery("")}
-                    className="pr-5 text-xs font-bold text-[#740107] hover:underline"
+                    className="pr-5 text-xs font-bold text-[#5C0005] hover:underline"
                   >
                     Clear
                   </button>
@@ -196,7 +196,7 @@ export default function GalleryContent({ performers }: { performers: CmsPerforme
             <div className="flex flex-wrap items-center justify-center lg:justify-start gap-3 mt-6 w-full max-w-md">
               <a
                 href="tel:8439387377"
-                className="flex-1 min-w-[170px] inline-flex items-center justify-center gap-2 bg-[#740107] hover:bg-[#5c0911] text-white px-5 py-3.5 rounded-full text-xs font-bold uppercase tracking-wider shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-0.5"
+                className="flex-1 min-w-[170px] inline-flex items-center justify-center gap-2 bg-[#5C0005] hover:bg-[#5c0911] text-white px-5 py-3.5 rounded-full text-xs font-bold uppercase tracking-wider shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-0.5"
               >
                 <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping" />
                 <span>Call: (843) 938-7377</span>
@@ -241,7 +241,7 @@ export default function GalleryContent({ performers }: { performers: CmsPerforme
                   }}
                   className={`flex-shrink-0 px-6 py-2.5 rounded-full text-xs sm:text-sm font-bold uppercase tracking-wider transition-all duration-300 shadow-sm ${
                     isActive
-                      ? "bg-[#740107] text-white shadow-md scale-[1.02]"
+                      ? "bg-[#5C0005] text-white shadow-md scale-[1.02]"
                       : "bg-white/90 hover:bg-white text-stone-700 hover:text-stone-950 border border-stone-200/90"
                   }`}
                 >
@@ -287,7 +287,7 @@ export default function GalleryContent({ performers }: { performers: CmsPerforme
                     }}
                     className={`w-full text-left px-4 py-2.5 text-xs font-semibold transition-colors ${
                       sortBy === option
-                        ? "bg-[#740107]/10 text-[#740107] font-bold"
+                        ? "bg-[#5C0005]/10 text-[#5C0005] font-bold"
                         : "text-stone-700 hover:bg-stone-100"
                     }`}
                   >
@@ -311,11 +311,11 @@ export default function GalleryContent({ performers }: { performers: CmsPerforme
         </div>
 
         <h2
-          className="font-display text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-wide text-[#740107] flex items-center justify-center gap-1.5"
+          className="font-display text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-wide text-[#5C0005] flex items-center justify-center gap-1.5"
           style={{ fontFamily: "var(--font-display)" }}
         >
           <span>{displayCityHeader}</span>
-          <MapPin className="w-6 h-6 sm:w-8 sm:h-8 text-[#740107] inline-block" />
+          <MapPin className="w-6 h-6 sm:w-8 sm:h-8 text-[#5C0005] inline-block" />
         </h2>
       </section>
 
@@ -324,7 +324,7 @@ export default function GalleryContent({ performers }: { performers: CmsPerforme
         {sortedPerformers.length === 0 ? (
           /* Empty State */
           <div className="bg-white rounded-3xl p-12 text-center border border-stone-200 shadow-sm max-w-xl mx-auto my-12">
-            <Sparkles className="w-12 h-12 text-[#740107] mx-auto mb-4 opacity-75" />
+            <Sparkles className="w-12 h-12 text-[#5C0005] mx-auto mb-4 opacity-75" />
             <h3 className="font-display text-2xl font-bold text-stone-900 mb-2">
               No Entertainers Found
             </h3>
@@ -337,7 +337,7 @@ export default function GalleryContent({ performers }: { performers: CmsPerforme
                 setSelectedCity("ALL CITIES");
                 setSearchQuery("");
               }}
-              className="px-6 py-3 bg-[#740107] hover:bg-[#5c0911] text-white rounded-full text-xs font-bold uppercase tracking-wider transition-colors shadow-sm"
+              className="px-6 py-3 bg-[#5C0005] hover:bg-[#5c0911] text-white rounded-full text-xs font-bold uppercase tracking-wider transition-colors shadow-sm"
             >
               Reset Location Filter
             </button>

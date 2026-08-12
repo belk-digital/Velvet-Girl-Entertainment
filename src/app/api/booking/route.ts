@@ -64,7 +64,7 @@ export async function POST(request: Request) {
         <div style="text-align: center; padding-bottom: 16px;">
           <img src="${logoUrl}" alt="Velvet Girl Entertainment" style="height: 56px; width: auto;" />
         </div>
-        <div style="background-color: #740107; padding: 20px; border-radius: 8px 8px 0 0; text-align: center;">
+        <div style="background-color: #5C0005; padding: 20px; border-radius: 8px 8px 0 0; text-align: center;">
           <h1 style="color: #ffffff; margin: 0; font-size: 20px; letter-spacing: 2px;">🚨 NEW VIP BOOKING LEAD</h1>
           <p style="color: #C5A880; margin: 4px 0 0 0; font-size: 13px;">VELVET GIRL ENTERTAINMENT DISPATCH</p>
         </div>
@@ -78,7 +78,7 @@ export async function POST(request: Request) {
             <tr>
               <td style="padding: 8px 0; border-bottom: 1px solid #f0eee9; color: #666; font-size: 14px;"><strong>Phone Number:</strong></td>
               <td style="padding: 8px 0; border-bottom: 1px solid #f0eee9; color: #1a1a1a; font-size: 14px; text-align: right;">
-                <a href="tel:${phone}" style="color: #740107; font-weight: bold;">${phone}</a>
+                <a href="tel:${phone}" style="color: #5C0005; font-weight: bold;">${phone}</a>
               </td>
             </tr>
             <tr>
@@ -99,7 +99,7 @@ export async function POST(request: Request) {
             </tr>
             <tr>
               <td style="padding: 8px 0; border-bottom: 1px solid #f0eee9; color: #666; font-size: 14px;"><strong>City / Market:</strong></td>
-              <td style="padding: 8px 0; border-bottom: 1px solid #f0eee9; color: #740107; font-size: 14px; text-align: right; font-weight: bold;">${selectedCity}</td>
+              <td style="padding: 8px 0; border-bottom: 1px solid #f0eee9; color: #5C0005; font-size: 14px; text-align: right; font-weight: bold;">${selectedCity}</td>
             </tr>
             <tr>
               <td style="padding: 8px 0; border-bottom: 1px solid #f0eee9; color: #666; font-size: 14px;"><strong>Event Date & Time:</strong></td>
@@ -133,7 +133,7 @@ export async function POST(request: Request) {
           </div>
 
           <div style="margin-top: 24px; text-align: center;">
-            <a href="tel:${phone}" style="display: inline-block; background-color: #740107; color: #ffffff; padding: 12px 24px; border-radius: 6px; text-decoration: none; font-weight: bold; font-size: 14px;">
+            <a href="tel:${phone}" style="display: inline-block; background-color: #5C0005; color: #ffffff; padding: 12px 24px; border-radius: 6px; text-decoration: none; font-weight: bold; font-size: 14px;">
               CALL CLIENT NOW
             </a>
           </div>
@@ -147,7 +147,7 @@ export async function POST(request: Request) {
         <div style="text-align: center; padding-bottom: 16px;">
           <img src="${logoUrl}" alt="Velvet Girl Entertainment" style="height: 56px; width: auto;" />
         </div>
-        <div style="background-color: #740107; padding: 20px; border-radius: 8px 8px 0 0; text-align: center;">
+        <div style="background-color: #5C0005; padding: 20px; border-radius: 8px 8px 0 0; text-align: center;">
           <h1 style="color: #ffffff; margin: 0; font-size: 20px; letter-spacing: 2px;">VELVET GIRL</h1>
           <p style="color: #C5A880; margin: 4px 0 0 0; font-size: 13px; letter-spacing: 2px; text-transform: uppercase;">PREMIER VIP ENTERTAINMENT</p>
         </div>
@@ -160,7 +160,7 @@ export async function POST(request: Request) {
           </p>
 
           <div style="background-color: #f7f5f0; border: 1px solid #e2dcd3; border-radius: 8px; padding: 20px; margin: 24px 0;">
-            <h3 style="color: #740107; font-size: 14px; text-transform: uppercase; letter-spacing: 1.5px; margin-top: 0; margin-bottom: 16px; border-bottom: 1px solid #e2dcd3; padding-bottom: 8px;">
+            <h3 style="color: #5C0005; font-size: 14px; text-transform: uppercase; letter-spacing: 1.5px; margin-top: 0; margin-bottom: 16px; border-bottom: 1px solid #e2dcd3; padding-bottom: 8px;">
               Your Package Summary
             </h3>
             <table style="width: 100%; border-collapse: collapse;">
@@ -178,7 +178,7 @@ export async function POST(request: Request) {
               </tr>
               <tr>
                 <td style="padding: 6px 0; color: #666666; font-size: 14px;">Performers:</td>
-                <td style="padding: 6px 0; color: #740107; font-size: 14px; text-align: right; font-weight: bold;">${dancers} Entertainers (${performersDisplay})</td>
+                <td style="padding: 6px 0; color: #5C0005; font-size: 14px; text-align: right; font-weight: bold;">${dancers} Entertainers (${performersDisplay})</td>
               </tr>
               <tr>
                 <td style="padding: 6px 0; color: #666666; font-size: 14px;">VIP Upgrades:</td>
@@ -199,7 +199,7 @@ export async function POST(request: Request) {
               Need immediate assistance or have changes to your party?
             </p>
             <p style="margin: 8px 0 0 0;">
-              <a href="tel:8439387377" style="color: #740107; font-weight: bold; text-decoration: none; font-size: 16px;">
+              <a href="tel:8439387377" style="color: #5C0005; font-weight: bold; text-decoration: none; font-size: 16px;">
                 CALL VIP DISPATCH: (843) 938-7377
               </a>
             </p>

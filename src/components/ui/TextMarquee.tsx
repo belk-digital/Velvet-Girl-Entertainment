@@ -13,7 +13,7 @@ export default function TextMarquee({ items }: TextMarqueeProps) {
       <div className="flex w-max animate-marquee-fast">
         {repeatedItems.map((item, idx) => (
           <div key={idx} className="flex items-center shrink-0">
-            <span className="text-[#740107] font-black text-2xl md:text-3xl uppercase tracking-widest px-8">
+            <span className="text-[#5C0005] font-black text-2xl md:text-3xl uppercase tracking-widest px-8">
               {item}
             </span>
             <span className="text-black/20 text-xl px-4">•</span>
@@ -22,7 +22,7 @@ export default function TextMarquee({ items }: TextMarqueeProps) {
         {/* Duplicate set for seamless loop */}
         {repeatedItems.map((item, idx) => (
           <div key={`dup-${idx}`} className="flex items-center shrink-0">
-            <span className="text-[#740107] font-black text-2xl md:text-3xl uppercase tracking-widest px-8">
+            <span className="text-[#5C0005] font-black text-2xl md:text-3xl uppercase tracking-widest px-8">
               {item}
             </span>
             <span className="text-black/20 text-xl px-4">•</span>

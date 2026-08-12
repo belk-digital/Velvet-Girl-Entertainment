@@ -21,8 +21,8 @@ export default function DisclaimerPage() {
       <PageHero eyebrow="LEGAL" title="18+ Disclaimer" />
       <div className="px-6 py-20 sm:py-28 bg-white">
         <div className="mx-auto max-w-3xl space-y-8">
-          <div className="flex items-start gap-4 border border-[#740107]/30 bg-[#740107]/5 p-6 shadow-sm">
-            <ShieldAlert className="mt-1 h-6 w-6 shrink-0 text-[#740107]" />
+          <div className="flex items-start gap-4 border border-[#5C0005]/30 bg-[#5C0005]/5 p-6 shadow-sm">
+            <ShieldAlert className="mt-1 h-6 w-6 shrink-0 text-[#5C0005]" />
             <p className="font-body text-base leading-relaxed text-black/85 font-medium">
               This website is intended solely for adults 18 years of age or
               older. By accessing or using this site, you confirm that you
@@ -47,7 +47,7 @@ export default function DisclaimerPage() {
               For questions about this disclaimer, contact us at{" "}
               <a
                 href="mailto:inquiries@velvetgirlentertainment.com"
-                className="text-[#740107] font-bold underline"
+                className="text-[#5C0005] font-bold underline"
               >
                 inquiries@velvetgirlentertainment.com
               </a>

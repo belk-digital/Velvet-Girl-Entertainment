@@ -19,7 +19,7 @@ const Silk = dynamic(() => import("@/components/ui/Silk"), { ssr: false });
 
 import { performers as rawPerformers } from "@/data/performers";
 
-const PINK = "#740107";
+const PINK = "#5C0005";
 
 type Performer = {
   slug: string;
@@ -109,7 +109,7 @@ export default function PerformersCarousel({
   };
 
   return (
-    <section id="performers-section" className="relative overflow-hidden bg-[#740107] py-16 sm:py-24 min-h-screen flex flex-col justify-between">
+    <section id="performers-section" className="relative overflow-hidden bg-[#5C0005] py-16 sm:py-24 min-h-screen flex flex-col justify-between">
       {/* Interactive WebGL Animated Silk Background */}
       <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
         <Silk

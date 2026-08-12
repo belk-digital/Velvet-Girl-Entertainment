@@ -53,7 +53,7 @@ export default function NumberStepper({
           className={`flex h-14 w-14 sm:h-16 sm:w-16 items-center justify-center rounded-2xl border text-xl font-bold transition-all duration-300 ${
             value <= min
               ? "border-black/10 bg-stone-100 text-stone-300 cursor-not-allowed shadow-none"
-              : "border-black/20 bg-white text-stone-800 hover:border-[#740107] hover:bg-[#740107] hover:text-white cursor-pointer shadow-sm"
+              : "border-black/20 bg-white text-stone-800 hover:border-[#5C0005] hover:bg-[#5C0005] hover:text-white cursor-pointer shadow-sm"
           }`}
         >
           <Minus className="h-6 w-6" />
@@ -77,7 +77,7 @@ export default function NumberStepper({
           className={`flex h-14 w-14 sm:h-16 sm:w-16 items-center justify-center rounded-2xl border text-xl font-bold transition-all duration-300 ${
             value >= max
               ? "border-black/10 bg-stone-100 text-stone-300 cursor-not-allowed shadow-none"
-              : "border-black/20 bg-white text-stone-800 hover:border-[#740107] hover:bg-[#740107] hover:text-white cursor-pointer shadow-sm"
+              : "border-black/20 bg-white text-stone-800 hover:border-[#5C0005] hover:bg-[#5C0005] hover:text-white cursor-pointer shadow-sm"
           }`}
         >
           <Plus className="h-6 w-6" />

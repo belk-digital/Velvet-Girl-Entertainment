@@ -69,7 +69,7 @@ export async function POST(request: Request) {
         <div style="text-align: center; padding-bottom: 16px;">
           <img src="${logoUrl}" alt="Velvet Girl Entertainment" style="height: 56px; width: auto;" />
         </div>
-        <div style="background-color: #740107; padding: 20px; border-radius: 8px 8px 0 0; text-align: center;">
+        <div style="background-color: #5C0005; padding: 20px; border-radius: 8px 8px 0 0; text-align: center;">
           <h1 style="color: #ffffff; margin: 0; font-size: 20px; letter-spacing: 2px;">💃 NEW PERFORMER APPLICATION</h1>
           <p style="color: #C5A880; margin: 4px 0 0 0; font-size: 13px;">VELVET GIRL ENTERTAINMENT</p>
         </div>
@@ -78,7 +78,7 @@ export async function POST(request: Request) {
           <table style="width: 100%; border-collapse: collapse; margin-bottom: 20px;">
             ${row("Name", name)}
             ${row("Age", age)}
-            ${row("Phone", `<a href="tel:${phone}" style="color:#740107;font-weight:bold;">${phone}</a>`)}
+            ${row("Phone", `<a href="tel:${phone}" style="color:#5C0005;font-weight:bold;">${phone}</a>`)}
             ${row("Email", email)}
             ${row("Hair / Eye Color", `${hairColor} / ${eyeColor}`)}
             ${row("Height / Weight", `${height} / ${weight}`)}
@@ -104,7 +104,7 @@ export async function POST(request: Request) {
           <p style="color: #666; font-size: 13px;">Headshot / full-body photos are attached to this email, if provided.</p>
 
           <div style="margin-top: 24px; text-align: center;">
-            <a href="tel:${phone}" style="display: inline-block; background-color: #740107; color: #ffffff; padding: 12px 24px; border-radius: 6px; text-decoration: none; font-weight: bold; font-size: 14px;">
+            <a href="tel:${phone}" style="display: inline-block; background-color: #5C0005; color: #ffffff; padding: 12px 24px; border-radius: 6px; text-decoration: none; font-weight: bold; font-size: 14px;">
               CALL APPLICANT NOW
             </a>
           </div>

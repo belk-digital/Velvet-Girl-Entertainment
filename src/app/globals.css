@@ -3,9 +3,9 @@
 :root {
   --background: #FBFAF8;
   --foreground: #000000;
-  --velvet-pink: #740107;
-  --velvet-pink-hot: #740107;
-  --velvet-magenta: #740107;
+  --velvet-pink: #5C0005;
+  --velvet-pink-hot: #5C0005;
+  --velvet-magenta: #5C0005;
   --velvet-deep: #4a0105;
 }
 
@@ -30,14 +30,14 @@ body {
 
 .text-glow-pink {
   text-shadow:
-    0 0 10px rgba(116, 1, 7, 0.8),
-    0 0 24px rgba(116, 1, 7, 0.5);
+    0 0 10px rgba(92, 0, 5, 0.8),
+    0 0 24px rgba(92, 0, 5, 0.5);
 }
 
 .box-glow-pink {
   box-shadow:
-    0 0 16px rgba(116, 1, 7, 0.55),
-    0 0 40px rgba(116, 1, 7, 0.25);
+    0 0 16px rgba(92, 0, 5, 0.55),
+    0 0 40px rgba(92, 0, 5, 0.25);
 }
 
 .tracking-caps {

@@ -93,7 +93,7 @@ export default function CtaSection({
                 className="font-sans font-bold text-[26px] sm:text-3xl md:text-4xl lg:text-[38px] xl:text-[42px] text-stone-900 tracking-tight leading-[1.2]"
               >
                 Ready to Plan <br />
-                <span className="font-script font-normal text-[#740107] text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-none block sm:inline my-1">
+                <span className="font-script font-normal text-[#5C0005] text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-none block sm:inline my-1">
                   Your Event?
                 </span>{" "}
                 <br />
@@ -114,7 +114,7 @@ export default function CtaSection({
               <div ref={leftBtnRef} className="mt-6 flex flex-col items-start gap-3.5">
                 <Link
                   href="/book-now"
-                  className="inline-flex items-center justify-center bg-[#740107] hover:bg-[#590105] text-white font-bold text-sm tracking-widest uppercase px-8 py-3.5 rounded-full shadow-[0_10px_25px_rgba(116,1,7,0.35)] hover:shadow-[0_15px_30px_rgba(116,1,7,0.5)] transition-all duration-300 hover:scale-105"
+                  className="inline-flex items-center justify-center bg-[#5C0005] hover:bg-[#590105] text-white font-bold text-sm tracking-widest uppercase px-8 py-3.5 rounded-full shadow-[0_10px_25px_rgba(92, 0, 5,0.35)] hover:shadow-[0_15px_30px_rgba(92, 0, 5,0.5)] transition-all duration-300 hover:scale-105"
                 >
                   BOOK ONLINE
                 </Link>
@@ -148,7 +148,7 @@ export default function CtaSection({
 
             {/* Right Column (col-span-6 = 50% to 100% width): Deep Burgundy Card starting from model elbow */}
             <div className="md:col-span-6 xl:col-span-6 z-10 md:ml-4 lg:ml-8 xl:ml-12 2xl:ml-16">
-              <div className="bg-[#740107] text-white rounded-xl py-8 sm:py-10 lg:py-12 pr-6 sm:pr-8 lg:pr-12 pl-6 sm:pl-8 md:pl-14 lg:pl-20 xl:pl-24 min-h-[440px] lg:min-h-[500px] xl:min-h-[560px] 2xl:min-h-[600px] shadow-2xl relative overflow-hidden border border-white/10 flex flex-col justify-between">
+              <div className="bg-[#5C0005] text-white rounded-xl py-8 sm:py-10 lg:py-12 pr-6 sm:pr-8 lg:pr-12 pl-6 sm:pl-8 md:pl-14 lg:pl-20 xl:pl-24 min-h-[440px] lg:min-h-[500px] xl:min-h-[560px] 2xl:min-h-[600px] shadow-2xl relative overflow-hidden border border-white/10 flex flex-col justify-between">
                 {/* Subtle Background Glow Inside Card */}
                 <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full blur-3xl pointer-events-none" />
 

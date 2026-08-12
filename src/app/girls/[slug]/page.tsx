@@ -96,19 +96,19 @@ export default async function PerformerPage({ params }: { params: Promise<{ slug
             </div>
 
             <div className="flex flex-wrap items-center gap-3 text-sm font-semibold mb-8">
-              <div className="flex items-center gap-1.5 text-[#740107]">
+              <div className="flex items-center gap-1.5 text-[#5C0005]">
                 <Star className="w-4 h-4 fill-current" />
                 <span className="text-stone-800">{displayRating}</span>
               </div>
               <span className="text-stone-300">|</span>
               <span className="text-stone-600">{displayReviewsCount} Verified Client Reviews</span>
               <span className="text-stone-300">|</span>
-              <span className="text-[#740107] uppercase">{eventsCount}</span>
+              <span className="text-[#5C0005] uppercase">{eventsCount}</span>
             </div>
 
             {/* Attributes */}
             <div className="mb-8">
-              <h3 className="text-[#740107] font-bold text-sm mb-3">Attributes:</h3>
+              <h3 className="text-[#5C0005] font-bold text-sm mb-3">Attributes:</h3>
               <div className="flex flex-wrap gap-2">
                 {performer.tags?.map((tag: string) => (
                   <span key={tag} className="px-4 py-1.5 rounded-full border border-stone-200 text-stone-600 text-sm font-medium capitalize shadow-sm">
@@ -126,12 +126,12 @@ export default async function PerformerPage({ params }: { params: Promise<{ slug
             {/* Specialties */}
             {performer.services && performer.services.length > 0 && (
               <div className="mb-10">
-                <h3 className="text-[#740107] font-bold text-sm mb-4">Available Specialties:</h3>
+                <h3 className="text-[#5C0005] font-bold text-sm mb-4">Available Specialties:</h3>
                 <div className="flex flex-wrap gap-6 sm:gap-10">
                   {performer.services.map((service: string) => {
                     const Icon = SERVICE_ICONS[service.toLowerCase()] ?? PartyPopper;
                     return (
-                      <div key={service} className="flex flex-col items-center gap-2 text-[#740107]">
+                      <div key={service} className="flex flex-col items-center gap-2 text-[#5C0005]">
                         <Icon className="w-8 h-8 stroke-1" />
                         <span className="text-xs font-semibold text-stone-700 text-center max-w-[80px]">{service}</span>
                       </div>
@@ -144,7 +144,7 @@ export default async function PerformerPage({ params }: { params: Promise<{ slug
             {/* About */}
             {(performer.tagline || performer.bio) && (
               <div className="mb-10">
-                <h3 className="text-[#740107] font-bold text-sm mb-3">About</h3>
+                <h3 className="text-[#5C0005] font-bold text-sm mb-3">About</h3>
                 {performer.tagline && (
                   <p className="text-stone-800 font-semibold mb-2">{performer.tagline}</p>
                 )}
@@ -156,11 +156,11 @@ export default async function PerformerPage({ params }: { params: Promise<{ slug
 
             {/* CTA Buttons */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <a href="tel:8439387377" className="flex items-center justify-center gap-2 bg-[#740107] hover:bg-[#5c0911] text-white py-4 rounded-md font-bold text-sm tracking-widest transition-colors shadow-sm">
+              <a href="tel:8439387377" className="flex items-center justify-center gap-2 bg-[#5C0005] hover:bg-[#5c0911] text-white py-4 rounded-md font-bold text-sm tracking-widest transition-colors shadow-sm">
                 <Phone className="w-4 h-4" />
                 CALL / TEXT
               </a>
-              <Link href={`/book-now?performer=${performer.slug || performer.id}`} className="flex items-center justify-center gap-2 bg-white hover:bg-stone-50 text-[#740107] border border-stone-200 py-4 rounded-md font-bold text-sm tracking-widest transition-colors shadow-sm">
+              <Link href={`/book-now?performer=${performer.slug || performer.id}`} className="flex items-center justify-center gap-2 bg-white hover:bg-stone-50 text-[#5C0005] border border-stone-200 py-4 rounded-md font-bold text-sm tracking-widest transition-colors shadow-sm">
                 <Calendar className="w-4 h-4" />
                 BOOK ONLINE
               </Link>

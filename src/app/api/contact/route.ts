@@ -41,7 +41,7 @@ export async function POST(request: Request) {
         <div style="text-align: center; padding-bottom: 16px;">
           <img src="${logoUrl}" alt="Velvet Girl Entertainment" style="height: 56px; width: auto;" />
         </div>
-        <div style="background-color: #740107; padding: 20px; border-radius: 8px 8px 0 0; text-align: center;">
+        <div style="background-color: #5C0005; padding: 20px; border-radius: 8px 8px 0 0; text-align: center;">
           <h1 style="color: #ffffff; margin: 0; font-size: 20px; letter-spacing: 2px;">📩 NEW CONTACT FORM SUBMISSION</h1>
           <p style="color: #C5A880; margin: 4px 0 0 0; font-size: 13px;">VELVET GIRL ENTERTAINMENT</p>
         </div>
@@ -54,7 +54,7 @@ export async function POST(request: Request) {
             <tr>
               <td style="padding: 8px 0; border-bottom: 1px solid #f0eee9; color: #666; font-size: 14px;"><strong>Phone:</strong></td>
               <td style="padding: 8px 0; border-bottom: 1px solid #f0eee9; color: #1a1a1a; font-size: 14px; text-align: right;">
-                <a href="tel:${phone}" style="color: #740107; font-weight: bold;">${phone}</a>
+                <a href="tel:${phone}" style="color: #5C0005; font-weight: bold;">${phone}</a>
               </td>
             </tr>
             <tr>
@@ -75,7 +75,7 @@ export async function POST(request: Request) {
             <p style="margin: 8px 0 0 0; color: #1a1a1a; font-size: 14px; font-style: italic;">"${message}"</p>
           </div>
           <div style="margin-top: 24px; text-align: center;">
-            <a href="tel:${phone}" style="display: inline-block; background-color: #740107; color: #ffffff; padding: 12px 24px; border-radius: 6px; text-decoration: none; font-weight: bold; font-size: 14px;">
+            <a href="tel:${phone}" style="display: inline-block; background-color: #5C0005; color: #ffffff; padding: 12px 24px; border-radius: 6px; text-decoration: none; font-weight: bold; font-size: 14px;">
               CALL CLIENT NOW
             </a>
           </div>

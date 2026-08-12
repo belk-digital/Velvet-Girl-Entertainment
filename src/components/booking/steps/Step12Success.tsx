@@ -23,9 +23,9 @@ export default function Step12Success() {
             damping: 20,
             duration: 0.6,
           }}
-          className="relative mb-8 flex h-24 w-24 sm:h-28 sm:w-28 items-center justify-center rounded-full bg-gradient-to-tr from-[#740107]/15 to-[#740107]/5 border-2 border-[#740107]/30 shadow-xl"
+          className="relative mb-8 flex h-24 w-24 sm:h-28 sm:w-28 items-center justify-center rounded-full bg-gradient-to-tr from-[#5C0005]/15 to-[#5C0005]/5 border-2 border-[#5C0005]/30 shadow-xl"
         >
-          <div className="flex h-16 w-16 sm:h-20 sm:w-20 items-center justify-center rounded-full bg-[#740107] text-white shadow-lg">
+          <div className="flex h-16 w-16 sm:h-20 sm:w-20 items-center justify-center rounded-full bg-[#5C0005] text-white shadow-lg">
             <Check className="h-10 w-10 stroke-[3]" />
           </div>
         </motion.div>
@@ -58,7 +58,7 @@ export default function Step12Success() {
           <button
             type="button"
             disabled
-            className="w-full inline-flex items-center justify-center gap-2 bg-[#740107] text-white px-8 py-4 rounded-2xl font-body text-base font-bold tracking-wide shadow-lg opacity-95 cursor-default mb-4"
+            className="w-full inline-flex items-center justify-center gap-2 bg-[#5C0005] text-white px-8 py-4 rounded-2xl font-body text-base font-bold tracking-wide shadow-lg opacity-95 cursor-default mb-4"
           >
             <span>Request Booking</span>
             <Lock className="w-4 h-4" />
@@ -71,7 +71,7 @@ export default function Step12Success() {
           <Link
             href="/"
             onClick={resetBooking}
-            className="inline-flex items-center gap-2 text-stone-600 hover:text-[#740107] font-body text-sm font-semibold transition-colors"
+            className="inline-flex items-center gap-2 text-stone-600 hover:text-[#5C0005] font-body text-sm font-semibold transition-colors"
           >
             <RefreshCw className="w-3.5 h-3.5" />
             <span>Return to Home &amp; Start Another</span>

@@ -7,9 +7,9 @@ export const config = {
   pages: 4.5,
   zoom: 75,
   background: "#ffffff", // white field
-  stripeColor: "#740107", // accent bands
+  stripeColor: "#5C0005", // accent bands
   headlineColor: "#000000",
-  headerColor: "#740107",
+  headerColor: "#5C0005",
   numberColor: "#000000",
 };
 
@@ -64,8 +64,8 @@ export const outro = {
 
 // Slim diagonal accent bands on the field.
 export const stripes = [
-  { offset: 0, height: 4, color: "#740107" }, // small accent (intro)
-  { offset: 3.5, height: 4, color: "#740107" }, // small accent (end)
+  { offset: 0, height: 4, color: "#5C0005" }, // small accent (intro)
+  { offset: 3.5, height: 4, color: "#5C0005" }, // small accent (end)
 ];
 
 export const diamonds = [

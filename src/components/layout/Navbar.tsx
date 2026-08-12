@@ -107,8 +107,8 @@ export default function Navbar() {
                 priority
                 className="h-16 w-auto sm:h-20 lg:hidden"
               />
-              <span className="font-script font-normal text-2xl sm:text-3xl transition-colors duration-300 text-white drop-shadow-md lg:hidden">
-                Velvet Girl
+              <span className="font-script font-normal text-lg sm:text-xl transition-colors duration-300 text-white drop-shadow-md lg:hidden">
+                Velvet Girl Entertainment
               </span>
               {/* Desktop: Red (White background panel) */}
               <Image
@@ -119,8 +119,8 @@ export default function Navbar() {
                 priority
                 className="hidden lg:block h-16 w-auto sm:h-20"
               />
-              <span className="hidden lg:block font-script font-normal text-2xl sm:text-3xl transition-colors duration-300 text-[#740107]">
-                Velvet Girl
+              <span className="hidden lg:block font-script font-normal text-2xl lg:text-3xl transition-colors duration-300 text-[#5C0005]">
+                Velvet Girl Entertainment
               </span>
             </>
           ) : (
@@ -133,8 +133,8 @@ export default function Navbar() {
                 priority
                 className="h-16 w-auto sm:h-20"
               />
-              <span className={`font-script font-normal text-2xl sm:text-3xl transition-colors duration-300 ${useTransparentNavBranding ? "text-white drop-shadow-md" : "text-[#740107]"}`}>
-                Velvet Girl
+              <span className={`font-script font-normal text-lg sm:text-xl lg:text-3xl transition-colors duration-300 ${useTransparentNavBranding ? "text-white drop-shadow-md" : "text-[#5C0005]"}`}>
+                Velvet Girl Entertainment
               </span>
             </>
           )}
@@ -153,7 +153,7 @@ export default function Navbar() {
               <Link
                 key={link.label}
                 href={link.href}
-                className={`font-heading text-sm font-semibold uppercase tracking-wider transition-colors hover:text-[#740107] ${useTransparentNavLinks ? "text-white/90 drop-shadow-md hover:text-white" : "text-black/85"}`}
+                className={`font-heading text-sm font-semibold uppercase tracking-wider transition-colors hover:text-[#5C0005] ${useTransparentNavLinks ? "text-white/90 drop-shadow-md hover:text-white" : "text-black/85"}`}
               >
                 {link.label}
               </Link>

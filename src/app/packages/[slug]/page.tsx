@@ -124,9 +124,9 @@ export default async function PackageThemeDetailPage({ params }: Props) {
               {theme.highlights.map((item) => (
                 <div
                   key={item}
-                  className="flex items-center gap-4 border border-stone-200/80 rounded-xl bg-white p-6 shadow-sm hover:border-[#740107]/50 transition-colors"
+                  className="flex items-center gap-4 border border-stone-200/80 rounded-xl bg-white p-6 shadow-sm hover:border-[#5C0005]/50 transition-colors"
                 >
-                  <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#740107]/10 text-[#740107]">
+                  <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#5C0005]/10 text-[#5C0005]">
                     <Check className="h-5 w-5" />
                   </div>
                   <span className="font-display text-base font-bold text-stone-900">{item}</span>

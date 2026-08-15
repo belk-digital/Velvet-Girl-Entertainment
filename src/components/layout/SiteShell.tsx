@@ -41,7 +41,7 @@ export default function SiteShell({ children }: { children: ReactNode }) {
         <div className="fixed bottom-3 right-3 sm:bottom-6 sm:right-6 z-[100] flex flex-row items-center gap-1.5 sm:gap-2.5 bg-[#111]/90 backdrop-blur-md p-1 sm:p-2 rounded-full shadow-[0_8px_30px_rgba(0,0,0,0.35)] border border-white/10">
         <a
           href="tel:8439387377"
-          className="flex items-center gap-1.5 sm:gap-2 rounded-full bg-[#540403] hover:bg-[#5c0911] text-white px-3 sm:px-5 py-2 sm:py-3 text-[10px] sm:text-sm font-bold uppercase tracking-wider shadow-md transition-all duration-300 hover:scale-105"
+          className="flex items-center gap-1.5 sm:gap-2 rounded-full bg-[#4C0C0A] hover:bg-[#5c0911] text-white px-3 sm:px-5 py-2 sm:py-3 text-[10px] sm:text-sm font-bold uppercase tracking-wider shadow-md transition-all duration-300 hover:scale-105"
           aria-label="Call (843) 938-7377"
           title="Call Now: (843) 938-7377"
         >

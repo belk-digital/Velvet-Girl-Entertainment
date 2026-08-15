@@ -6,7 +6,7 @@ import type { PackageTheme } from "@/data/packages";
 export default function ThemeCard({ theme }: { theme: PackageTheme }) {
   const content = (
     <>
-      <div className="relative flex aspect-[4/3] items-center justify-center overflow-hidden bg-[#540403]">
+      <div className="relative flex aspect-[4/3] items-center justify-center overflow-hidden bg-[#4C0C0A]">
         {theme.image ? (
           <>
             <Image
@@ -35,7 +35,7 @@ export default function ThemeCard({ theme }: { theme: PackageTheme }) {
       </div>
       <div className="p-6 flex flex-col flex-1 justify-between bg-black border-t border-stone-100">
         <div>
-          <h3 className="font-display text-xl font-bold text-white group-hover:text-[#540403] transition-colors uppercase tracking-wide">
+          <h3 className="font-display text-xl font-bold text-white group-hover:text-[#4C0C0A] transition-colors uppercase tracking-wide">
             {theme.name}
           </h3>
           <p className="mt-2 font-body text-sm text-stone-300 leading-relaxed">
@@ -43,7 +43,7 @@ export default function ThemeCard({ theme }: { theme: PackageTheme }) {
           </p>
         </div>
         {!theme.comingSoon && (
-          <div className="mt-6 pt-4 border-t border-white/10 flex items-center justify-between font-body text-xs font-semibold uppercase tracking-widest text-[#540403] group-hover:translate-x-1 transition-transform">
+          <div className="mt-6 pt-4 border-t border-white/10 flex items-center justify-between font-body text-xs font-semibold uppercase tracking-widest text-[#4C0C0A] group-hover:translate-x-1 transition-transform">
             <span>View Details</span>
             <ArrowRight className="h-4 w-4" />
           </div>
@@ -63,7 +63,7 @@ export default function ThemeCard({ theme }: { theme: PackageTheme }) {
   return (
     <Link
       href={`/packages/${theme.slug}`}
-      className="group flex h-full flex-col overflow-hidden rounded-2xl border border-white/10 bg-black transition-all duration-500 hover:border-[#540403]/60 hover:shadow-2xl transform hover:-translate-y-1"
+      className="group flex h-full flex-col overflow-hidden rounded-2xl border border-white/10 bg-black transition-all duration-500 hover:border-[#4C0C0A]/60 hover:shadow-2xl transform hover:-translate-y-1"
     >
       {content}
     </Link>

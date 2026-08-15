@@ -14,7 +14,7 @@ export default function Step01Welcome() {
       <div className="flex flex-col items-center sm:items-start text-center sm:text-left py-12 sm:py-24 max-w-2xl relative z-10">
         <h1 className="font-display text-4xl sm:text-6xl md:text-7xl font-extrabold text-white tracking-tight leading-[1.08] mb-6">
           Let&rsquo;s plan <br />
-          <span className="text-[#540403]">your perfect night.</span>
+          <span className="text-[#4C0C0A]">your perfect night.</span>
         </h1>
 
         <p className="font-body text-base sm:text-xl text-stone-300 max-w-lg mb-10 leading-relaxed font-normal">
@@ -27,7 +27,7 @@ export default function Step01Welcome() {
           onClick={nextStep}
           whileHover={{ y: -3, scale: 1.03 }}
           whileTap={{ scale: 0.97 }}
-          className="inline-flex items-center gap-3 bg-[#540403] hover:bg-[#8e020a] text-white px-10 py-5 rounded-full font-body text-sm sm:text-base font-bold uppercase tracking-widest transition-all duration-300 shadow-[0_10px_30px_rgba(92, 0, 5,0.3)] cursor-pointer"
+          className="inline-flex items-center gap-3 bg-[#4C0C0A] hover:bg-[#8e020a] text-white px-10 py-5 rounded-full font-body text-sm sm:text-base font-bold uppercase tracking-widest transition-all duration-300 shadow-[0_10px_30px_rgba(92, 0, 5,0.3)] cursor-pointer"
         >
           <span>Continue</span>
           <ArrowRight className="w-5 h-5" />

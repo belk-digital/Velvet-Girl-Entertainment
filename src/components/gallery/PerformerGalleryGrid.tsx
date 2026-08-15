@@ -40,7 +40,7 @@ export default function PerformerGalleryGrid({
   if (performers.length === 0) {
     return (
       <div className="bg-black rounded-3xl p-12 text-center border border-white/10 shadow-sm max-w-xl mx-auto my-12">
-        <Sparkles className="w-12 h-12 text-[#540403] mx-auto mb-4 opacity-75" />
+        <Sparkles className="w-12 h-12 text-[#4C0C0A] mx-auto mb-4 opacity-75" />
         <h3 className="font-display text-2xl font-bold text-white mb-2">
           No Entertainers Found
         </h3>
@@ -68,7 +68,7 @@ export default function PerformerGalleryGrid({
               <Link
                 key={performer.id}
                 href={`/girls/${performer.slug || performer.id}`}
-                className="group flex h-full flex-col overflow-hidden rounded-[2rem] border border-white/10 bg-black transition-all duration-300 hover:border-[#540403]/60 hover:shadow-[0_0_30px_rgba(84,4,3,0.15)]"
+                className="group flex h-full flex-col overflow-hidden rounded-[2rem] border border-white/10 bg-black transition-all duration-300 hover:border-[#4C0C0A]/60 hover:shadow-[0_0_30px_rgba(84,4,3,0.15)]"
               >
                 {/* Image Section */}
                 <div className="relative aspect-[3/4] w-full overflow-hidden bg-[#111]">
@@ -101,7 +101,7 @@ export default function PerformerGalleryGrid({
                 {/* Content Section */}
                 <div className="flex flex-1 flex-col justify-between p-6">
                   <div className="text-center">
-                    <h3 className="font-display text-2xl font-normal tracking-[0.2em] uppercase text-white transition-colors group-hover:text-[#540403]">
+                    <h3 className="font-display text-2xl font-normal tracking-[0.2em] uppercase text-white transition-colors group-hover:text-[#4C0C0A]">
                       {performer.name}
                     </h3>
                     
@@ -120,7 +120,7 @@ export default function PerformerGalleryGrid({
                   </div>
 
                   <div className="mt-6 flex flex-col gap-3">
-                    <div className="flex w-full items-center justify-center gap-2 rounded-full bg-[#540403] py-3.5 font-body text-[10px] font-bold uppercase tracking-widest text-white transition-colors hover:bg-[#5c0911]">
+                    <div className="flex w-full items-center justify-center gap-2 rounded-full bg-[#4C0C0A] py-3.5 font-body text-[10px] font-bold uppercase tracking-widest text-white transition-colors hover:bg-[#5c0911]">
                       <span>View Profile</span>
                       <ArrowRight className="h-3.5 w-3.5" />
                     </div>

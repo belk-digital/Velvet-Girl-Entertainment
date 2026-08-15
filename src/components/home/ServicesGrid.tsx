@@ -29,19 +29,19 @@ export default function ServicesGrid() {
       {/* Custom Left-Aligned Stacked Heading */}
       <div className="mb-20 md:mb-32 w-full">
         <div className="relative">
-          <h2 className="text-6xl sm:text-8xl md:text-[9rem] font-black uppercase text-[#540403] leading-[0.9] tracking-tighter relative z-30">
+          <h2 className="text-6xl sm:text-8xl md:text-[9rem] font-black uppercase text-[#4C0C0A] leading-[0.9] tracking-tighter relative z-30">
             OUR <br className="md:hidden" /> SERVICES
           </h2>
           <h2 
             className="text-6xl sm:text-8xl md:text-[9rem] font-black uppercase text-transparent leading-[0.9] tracking-tighter absolute top-3 sm:top-5 md:top-6 left-0 z-20"
-            style={{ WebkitTextStroke: '2px #540403' }}
+            style={{ WebkitTextStroke: '2px #4C0C0A' }}
             aria-hidden="true"
           >
             OUR <br className="md:hidden" /> SERVICES
           </h2>
           <h2 
             className="text-6xl sm:text-8xl md:text-[9rem] font-black uppercase text-transparent leading-[0.9] tracking-tighter absolute top-6 sm:top-10 md:top-12 left-0 z-10"
-            style={{ WebkitTextStroke: '2px #540403', opacity: 0.4 }}
+            style={{ WebkitTextStroke: '2px #4C0C0A', opacity: 0.4 }}
             aria-hidden="true"
           >
             OUR <br className="md:hidden" /> SERVICES
@@ -74,7 +74,7 @@ export default function ServicesGrid() {
         .menu__item-link {
           display: inline-block;
           position: relative;
-          -webkit-text-stroke: 1px #540403;
+          -webkit-text-stroke: 1px #4C0C0A;
           color: white;
           transition: opacity 0.4s;
           white-space: normal;
@@ -88,7 +88,7 @@ export default function ServicesGrid() {
         }
         @media (min-width: 768px) {
           .menu__item-link {
-            -webkit-text-stroke: 2px #540403;
+            -webkit-text-stroke: 2px #4C0C0A;
             white-space: nowrap;
             padding: 0 1vw;
           }
@@ -102,7 +102,7 @@ export default function ServicesGrid() {
           pointer-events: none;
           font-size: 1rem;
           -webkit-text-stroke: 0px;
-          color: #540403;
+          color: #4C0C0A;
           font-family: monospace;
           opacity: 0.8;
         }

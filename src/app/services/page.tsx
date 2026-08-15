@@ -85,7 +85,7 @@ export default function ServicesIndexPage() {
               <Reveal key={service.slug} delay={(i % 3) * 0.08}>
                 <Link
                   href={`/services/${service.slug}`}
-                  className="group flex h-full flex-col justify-between overflow-hidden rounded-2xl border border-stone-800 bg-black transition-all duration-500 hover:border-[#540403]/60 hover:shadow-2xl transform hover:-translate-y-1"
+                  className="group flex h-full flex-col justify-between overflow-hidden rounded-2xl border border-stone-800 bg-black transition-all duration-500 hover:border-[#4C0C0A]/60 hover:shadow-2xl transform hover:-translate-y-1"
                 >
                   <div>
                     <div className="relative aspect-[16/10] w-full overflow-hidden bg-stone-900">
@@ -98,7 +98,7 @@ export default function ServicesIndexPage() {
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
                       <div className="absolute bottom-4 left-4 flex items-center gap-2 text-white">
-                        <span className="flex h-10 w-10 items-center justify-center rounded-full bg-[#540403] text-white shadow-md">
+                        <span className="flex h-10 w-10 items-center justify-center rounded-full bg-[#4C0C0A] text-white shadow-md">
                           <Icon className="h-5 w-5" strokeWidth={2} />
                         </span>
                         <h2 className="font-display text-xl font-bold uppercase tracking-wider text-white">
@@ -112,7 +112,7 @@ export default function ServicesIndexPage() {
                       </p>
                     </div>
                   </div>
-                  <div className="mx-6 mb-6 pt-4 border-t border-white/10 flex items-center justify-between font-body text-xs font-bold uppercase tracking-widest text-[#540403] group-hover:translate-x-1 transition-transform">
+                  <div className="mx-6 mb-6 pt-4 border-t border-white/10 flex items-center justify-between font-body text-xs font-bold uppercase tracking-widest text-[#4C0C0A] group-hover:translate-x-1 transition-transform">
                     <span>Learn more</span>
                     <ArrowRight className="h-4 w-4" />
                   </div>

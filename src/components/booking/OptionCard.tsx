@@ -33,8 +33,8 @@ export default function OptionCard({
         <div
           className={`flex h-16 w-16 sm:h-20 sm:w-20 items-center justify-center rounded-full border-2 transition-all duration-300 ${
             selected
-              ? "border-[#540403] bg-[#540403]/[0.08] text-[#540403] shadow-[0_6px_18px_rgba(92, 0, 5,0.25)]"
-              : "border-white/10 bg-black text-stone-400 group-hover:border-[#540403]/40 group-hover:text-[#540403]/70"
+              ? "border-[#4C0C0A] bg-[#4C0C0A]/[0.08] text-[#4C0C0A] shadow-[0_6px_18px_rgba(92, 0, 5,0.25)]"
+              : "border-white/10 bg-black text-stone-400 group-hover:border-[#4C0C0A]/40 group-hover:text-[#4C0C0A]/70"
           }`}
         >
           {icon}
@@ -46,7 +46,7 @@ export default function OptionCard({
             initial={{ scale: 0, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 0.2 }}
-            className="absolute -top-1 -right-1 flex h-6 w-6 items-center justify-center rounded-full bg-[#540403] text-white ring-2 ring-white"
+            className="absolute -top-1 -right-1 flex h-6 w-6 items-center justify-center rounded-full bg-[#4C0C0A] text-white ring-2 ring-white"
           >
             <Check className="h-3.5 w-3.5 stroke-[3]" />
           </motion.div>
@@ -55,7 +55,7 @@ export default function OptionCard({
 
       <span
         className={`font-body text-[11px] sm:text-xs font-bold uppercase tracking-wider text-center transition-colors duration-300 ${
-          selected ? "text-[#540403]" : "text-stone-400 group-hover:text-stone-300"
+          selected ? "text-[#4C0C0A]" : "text-stone-400 group-hover:text-stone-300"
         }`}
       >
         {title}

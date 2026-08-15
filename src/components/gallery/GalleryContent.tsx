@@ -150,7 +150,7 @@ export default function GalleryContent({ performers }: { performers: CmsPerforme
 
             {/* Crimson Serif Main Title */}
             <h1
-              className="font-display text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-extrabold tracking-tight text-[#540403] mb-6 drop-shadow-sm"
+              className="font-display text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-extrabold tracking-tight text-[#4C0C0A] mb-6 drop-shadow-sm"
               style={{ fontFamily: "var(--font-display)" }}
             >
               GIRLS
@@ -167,7 +167,7 @@ export default function GalleryContent({ performers }: { performers: CmsPerforme
 
             {/* Search Input Pill */}
             <div className="relative w-full max-w-md">
-              <div className="relative flex items-center w-full rounded-full bg-[#111] backdrop-blur-md border border-white/10 shadow-lg focus-within:border-[#540403] focus-within:ring-2 focus-within:ring-[#540403]/20 transition-all duration-300">
+              <div className="relative flex items-center w-full rounded-full bg-[#111] backdrop-blur-md border border-white/10 shadow-lg focus-within:border-[#4C0C0A] focus-within:ring-2 focus-within:ring-[#4C0C0A]/20 transition-all duration-300">
                 <div className="pl-5 pr-2 py-3.5 text-stone-400">
                   <Search className="w-5 h-5 text-white/50" />
                 </div>
@@ -184,7 +184,7 @@ export default function GalleryContent({ performers }: { performers: CmsPerforme
                 {searchQuery && (
                   <button
                     onClick={() => setSearchQuery("")}
-                    className="pr-5 text-xs font-bold text-[#540403] hover:underline"
+                    className="pr-5 text-xs font-bold text-[#4C0C0A] hover:underline"
                   >
                     Clear
                   </button>
@@ -196,7 +196,7 @@ export default function GalleryContent({ performers }: { performers: CmsPerforme
             <div className="flex flex-wrap items-center justify-center lg:justify-start gap-3 mt-6 w-full max-w-md">
               <a
                 href="tel:8439387377"
-                className="flex-1 min-w-[170px] inline-flex items-center justify-center gap-2 bg-[#540403] hover:bg-[#5c0911] text-white px-5 py-3.5 rounded-full text-xs font-bold uppercase tracking-wider shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-0.5"
+                className="flex-1 min-w-[170px] inline-flex items-center justify-center gap-2 bg-[#4C0C0A] hover:bg-[#5c0911] text-white px-5 py-3.5 rounded-full text-xs font-bold uppercase tracking-wider shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-0.5"
               >
                 <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping" />
                 <span>Call: (843) 938-7377</span>
@@ -241,7 +241,7 @@ export default function GalleryContent({ performers }: { performers: CmsPerforme
                   }}
                   className={`flex-shrink-0 px-6 py-2.5 rounded-full text-xs sm:text-sm font-bold uppercase tracking-wider transition-all duration-300 shadow-sm ${
                     isActive
-                      ? "bg-[#540403] text-white shadow-md scale-[1.02]"
+                      ? "bg-[#4C0C0A] text-white shadow-md scale-[1.02]"
                       : "bg-[#111] hover:bg-[#222] text-stone-400 hover:text-white border border-white/10"
                   }`}
                 >
@@ -287,7 +287,7 @@ export default function GalleryContent({ performers }: { performers: CmsPerforme
                     }}
                     className={`w-full text-left px-4 py-2.5 text-xs font-semibold transition-colors ${
                       sortBy === option
-                        ? "bg-[#540403]/10 text-[#540403] font-bold"
+                        ? "bg-[#4C0C0A]/10 text-[#4C0C0A] font-bold"
                         : "text-stone-300 hover:bg-[#111]"
                     }`}
                   >
@@ -311,11 +311,11 @@ export default function GalleryContent({ performers }: { performers: CmsPerforme
         </div>
 
         <h2
-          className="font-display text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-wide text-[#540403] flex items-center justify-center gap-1.5"
+          className="font-display text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-wide text-[#4C0C0A] flex items-center justify-center gap-1.5"
           style={{ fontFamily: "var(--font-display)" }}
         >
           <span>{displayCityHeader}</span>
-          <MapPin className="w-6 h-6 sm:w-8 sm:h-8 text-[#540403] inline-block" />
+          <MapPin className="w-6 h-6 sm:w-8 sm:h-8 text-[#4C0C0A] inline-block" />
         </h2>
       </section>
 
@@ -324,7 +324,7 @@ export default function GalleryContent({ performers }: { performers: CmsPerforme
         {sortedPerformers.length === 0 ? (
           /* Empty State */
           <div className="bg-black rounded-3xl p-12 text-center border border-white/10 shadow-sm max-w-xl mx-auto my-12">
-            <Sparkles className="w-12 h-12 text-[#540403] mx-auto mb-4 opacity-75" />
+            <Sparkles className="w-12 h-12 text-[#4C0C0A] mx-auto mb-4 opacity-75" />
             <h3 className="font-display text-2xl font-bold text-white mb-2">
               No Entertainers Found
             </h3>
@@ -337,7 +337,7 @@ export default function GalleryContent({ performers }: { performers: CmsPerforme
                 setSelectedCity("ALL CITIES");
                 setSearchQuery("");
               }}
-              className="px-6 py-3 bg-[#540403] hover:bg-[#5c0911] text-white rounded-full text-xs font-bold uppercase tracking-wider transition-colors shadow-sm"
+              className="px-6 py-3 bg-[#4C0C0A] hover:bg-[#5c0911] text-white rounded-full text-xs font-bold uppercase tracking-wider transition-colors shadow-sm"
             >
               Reset Location Filter
             </button>

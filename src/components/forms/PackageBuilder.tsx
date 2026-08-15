@@ -83,7 +83,7 @@ export default function PackageBuilder() {
           <button
             type="button"
             onClick={() => setDancers((d) => Math.max(2, d - 1))}
-            className="flex h-11 w-11 items-center justify-center border border-white/10 bg-black text-white transition-all hover:border-[#540403] hover:bg-[#540403] hover:text-white"
+            className="flex h-11 w-11 items-center justify-center border border-white/10 bg-black text-white transition-all hover:border-[#4C0C0A] hover:bg-[#4C0C0A] hover:text-white"
             aria-label="Decrease dancer count"
           >
             <Minus className="h-4 w-4" />
@@ -94,7 +94,7 @@ export default function PackageBuilder() {
           <button
             type="button"
             onClick={() => setDancers((d) => d + 1)}
-            className="flex h-11 w-11 items-center justify-center border border-white/10 bg-black text-white transition-all hover:border-[#540403] hover:bg-[#540403] hover:text-white"
+            className="flex h-11 w-11 items-center justify-center border border-white/10 bg-black text-white transition-all hover:border-[#4C0C0A] hover:bg-[#4C0C0A] hover:text-white"
             aria-label="Increase dancer count"
           >
             <Plus className="h-4 w-4" />
@@ -112,15 +112,15 @@ export default function PackageBuilder() {
                 key={u.slug}
                 className={`flex items-start gap-3 border px-4 py-3.5 font-body text-xs cursor-pointer transition-all duration-300 ${
                   isChecked
-                    ? "border-[#540403] bg-[#540403]/5 text-white font-semibold"
-                    : "border-white/10 bg-black text-white/80 hover:border-[#540403]/40"
+                    ? "border-[#4C0C0A] bg-[#4C0C0A]/5 text-white font-semibold"
+                    : "border-white/10 bg-black text-white/80 hover:border-[#4C0C0A]/40"
                 }`}
               >
                 <input
                   type="checkbox"
                   checked={isChecked}
                   onChange={() => toggleUpgrade(u.slug)}
-                  className="mt-0.5 h-4 w-4 accent-[#540403] cursor-pointer"
+                  className="mt-0.5 h-4 w-4 accent-[#4C0C0A] cursor-pointer"
                 />
                 <span>
                   <span className="text-sm font-semibold block">{u.label}</span>
@@ -139,7 +139,7 @@ export default function PackageBuilder() {
       <button
         type="button"
         onClick={handleContinue}
-        className="tracking-caps mt-8 w-full bg-[#540403] px-8 py-4 font-body text-sm font-bold uppercase tracking-widest text-white transition-all duration-300 hover:scale-[1.01] hover:bg-[#5a0105] border border-[#540403] shadow-md cursor-pointer"
+        className="tracking-caps mt-8 w-full bg-[#4C0C0A] px-8 py-4 font-body text-sm font-bold uppercase tracking-widest text-white transition-all duration-300 hover:scale-[1.01] hover:bg-[#5a0105] border border-[#4C0C0A] shadow-md cursor-pointer"
       >
         CONTINUE TO BOOKING
       </button>

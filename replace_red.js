@@ -11,7 +11,7 @@ function walkDir(dir, callback) {
 }
 
 function replaceRed(content) {
-  return content.replace(/#5C0005/gi, '#540403');
+  return content.replace(/#5C0005/gi, '#4C0C0A');
 }
 
 let count = 0;

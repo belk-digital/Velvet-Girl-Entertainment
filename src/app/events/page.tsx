@@ -22,7 +22,7 @@ export default function EventsHubPage() {
       <section className="py-20 md:py-32 max-w-7xl mx-auto px-6 lg:px-12">
         <div className="text-center max-w-3xl mx-auto mb-16 md:mb-24">
           <h2 className="font-sans font-bold text-3xl md:text-5xl text-white tracking-tight leading-tight">
-            Upcoming <span className="text-[#540403]">Rallies & Events</span>
+            Upcoming <span className="text-[#4C0C0A]">Rallies & Events</span>
           </h2>
           <p className="mt-6 text-stone-300 text-lg font-medium leading-relaxed">
             Velvet Girl Entertainment brings world-class hospitality to the nation's most anticipated events. Browse our upcoming calendar and secure your VIP experience.
@@ -44,20 +44,20 @@ export default function EventsHubPage() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-80" />
                 <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm text-white px-4 py-2 rounded-full flex items-center gap-2 text-sm font-bold uppercase tracking-wider">
-                  <CalendarDays className="w-4 h-4 text-[#540403]" />
+                  <CalendarDays className="w-4 h-4 text-[#4C0C0A]" />
                   2027 Event
                 </div>
               </div>
               
               <div className="p-8 md:p-10 flex-1 flex flex-col">
-                <h3 className="font-display font-bold text-2xl md:text-3xl text-[#540403] mb-3">
+                <h3 className="font-display font-bold text-2xl md:text-3xl text-[#4C0C0A] mb-3">
                   {event.title}
                 </h3>
                 <p className="text-stone-300 font-medium text-lg mb-6 leading-relaxed flex-1">
                   {event.subtitle}
                 </p>
                 
-                <div className="inline-flex items-center gap-2 text-white font-bold uppercase tracking-widest text-sm group-hover:text-[#540403] transition-colors mt-auto pt-4 border-t border-stone-100">
+                <div className="inline-flex items-center gap-2 text-white font-bold uppercase tracking-widest text-sm group-hover:text-[#4C0C0A] transition-colors mt-auto pt-4 border-t border-stone-100">
                   <span>View Event Details</span>
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </div>

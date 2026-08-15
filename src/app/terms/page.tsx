@@ -179,7 +179,7 @@ export default function TermsPage() {
                 Cancellations by the Customer must be submitted in writing to{" "}
                 <a
                   href="mailto:velvetgirlentertainment@gmail.com"
-                  className="text-[#540403] font-bold underline"
+                  className="text-[#4C0C0A] font-bold underline"
                 >
                   velvetgirlentertainment@gmail.com
                 </a>
@@ -496,7 +496,7 @@ export default function TermsPage() {
                 as follows:{" "}
                 <a
                   href="mailto:velvetgirlentertainment@gmail.com"
-                  className="text-[#540403] font-bold underline"
+                  className="text-[#4C0C0A] font-bold underline"
                 >
                   velvetgirlentertainment@gmail.com
                 </a>
@@ -531,7 +531,7 @@ export default function TermsPage() {
               For a comprehensive explanation of our data practices, including how we collect,
               use, store, and share your personal data, and your rights with respect to your
               data, please review our full{" "}
-              <a href="/privacy" className="text-[#540403] font-bold underline">
+              <a href="/privacy" className="text-[#4C0C0A] font-bold underline">
                 Privacy Policy
               </a>
               .
@@ -680,7 +680,7 @@ export default function TermsPage() {
               at{" "}
               <a
                 href="mailto:inquiries@velvetgirlentertainment.com"
-                className="text-[#540403] font-bold underline"
+                className="text-[#4C0C0A] font-bold underline"
               >
                 inquiries@velvetgirlentertainment.com
               </a>

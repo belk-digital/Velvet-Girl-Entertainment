@@ -44,14 +44,14 @@ export default function Step03City() {
           Event City
         </label>
         <div className="relative">
-          <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-4 text-[#540403]">
+          <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-4 text-[#4C0C0A]">
             <MapPin className="h-5 w-5" />
           </div>
           <select
             id="city-select"
             value={state.city}
             onChange={(e) => setField("city", e.target.value)}
-            className="w-full appearance-none rounded-2xl border border-white/10 bg-black pl-12 pr-10 py-4 font-body text-base font-semibold text-white outline-none transition-all duration-300 focus:border-[#540403] focus:ring-2 focus:ring-[#540403]/20 shadow-sm cursor-pointer"
+            className="w-full appearance-none rounded-2xl border border-white/10 bg-black pl-12 pr-10 py-4 font-body text-base font-semibold text-white outline-none transition-all duration-300 focus:border-[#4C0C0A] focus:ring-2 focus:ring-[#4C0C0A]/20 shadow-sm cursor-pointer"
           >
             <option value="" disabled>
               Select city
@@ -70,7 +70,7 @@ export default function Step03City() {
       <div className="mt-12 mb-10 border-t border-white/10 pt-10">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
           <div>
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#540403]/10 text-[#540403] text-xs font-bold uppercase tracking-wider mb-2">
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#4C0C0A]/10 text-[#4C0C0A] text-xs font-bold uppercase tracking-wider mb-2">
               <Sparkles className="w-3.5 h-3.5" />
               <span>Location Dispatch</span>
             </div>
@@ -86,7 +86,7 @@ export default function Step03City() {
           </div>
 
           {selectedList.length > 0 && (
-            <div className="flex items-center gap-2 bg-[#540403] text-white px-4 py-2 rounded-full font-bold text-xs sm:text-sm shadow-md">
+            <div className="flex items-center gap-2 bg-[#4C0C0A] text-white px-4 py-2 rounded-full font-bold text-xs sm:text-sm shadow-md">
               <Check className="w-4 h-4" />
               <span>{selectedList.length} Selected</span>
             </div>
@@ -101,7 +101,7 @@ export default function Step03City() {
             </p>
           </div>
         ) : filteredPerformers.length === 0 ? (
-          <div className="rounded-2xl border border-dashed border-[#540403]/30 bg-[#540403]/5 px-6 py-10 text-center">
+          <div className="rounded-2xl border border-dashed border-[#4C0C0A]/30 bg-[#4C0C0A]/5 px-6 py-10 text-center">
             <p className="font-body text-sm font-semibold text-white">
               We don&apos;t have a local roster listed for{" "}
               {state.city.split(",")[0]} yet.
@@ -124,7 +124,7 @@ export default function Step03City() {
                 key={performer.id}
                 className={`group relative flex flex-col justify-between bg-black rounded-[22px] border transition-all duration-300 overflow-hidden shadow-md hover:shadow-2xl hover:-translate-y-1.5 ${
                   isSelected
-                    ? "border-[#540403] ring-2 ring-[#540403]/30 bg-red-50/20"
+                    ? "border-[#4C0C0A] ring-2 ring-[#4C0C0A]/30 bg-red-50/20"
                     : "border-white/10/90"
                 }`}
               >
@@ -154,7 +154,7 @@ export default function Step03City() {
                   {/* Selected Check Overlay Badge */}
                   {isSelected && (
                     <div className="absolute top-3.5 right-3.5 z-10">
-                      <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-[#540403] text-white shadow-lg">
+                      <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-[#4C0C0A] text-white shadow-lg">
                         <Check className="w-5 h-5 stroke-[3]" />
                       </span>
                     </div>
@@ -163,7 +163,7 @@ export default function Step03City() {
                   {/* View Photos Hover Indicator */}
                   <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                     <span className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-white/90 backdrop-blur-md text-xs font-bold text-white shadow-lg">
-                      <Eye className="w-3.5 h-3.5 text-[#540403]" />
+                      <Eye className="w-3.5 h-3.5 text-[#4C0C0A]" />
                       View Photos & Bio
                     </span>
                   </div>
@@ -194,7 +194,7 @@ export default function Step03City() {
                 <div className="p-4 flex flex-col justify-between flex-grow gap-4">
                   <div className="flex items-center justify-between text-xs text-stone-300">
                     <div className="flex items-center gap-1">
-                      <MapPin className="w-3.5 h-3.5 text-[#540403]" />
+                      <MapPin className="w-3.5 h-3.5 text-[#4C0C0A]" />
                       <span className="font-semibold uppercase tracking-wider">
                         {performer.location}
                       </span>
@@ -215,8 +215,8 @@ export default function Step03City() {
                     }}
                     className={`w-full py-2.5 px-4 rounded-xl font-body text-xs font-bold uppercase tracking-wider transition-all duration-300 flex items-center justify-center gap-2 shadow-sm ${
                       isSelected
-                        ? "bg-[#540403] text-white shadow-md hover:bg-[#8B0000]"
-                        : "bg-stone-900 text-white hover:bg-[#540403]"
+                        ? "bg-[#4C0C0A] text-white shadow-md hover:bg-[#8B0000]"
+                        : "bg-stone-900 text-white hover:bg-[#4C0C0A]"
                     }`}
                   >
                     {isSelected ? (

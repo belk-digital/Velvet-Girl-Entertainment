@@ -93,7 +93,7 @@ export default function CtaSection({
                 className="font-sans font-bold text-[26px] sm:text-3xl md:text-4xl lg:text-[38px] xl:text-[42px] text-white tracking-tight leading-[1.2]"
               >
                 Ready to Plan <br />
-                <span className="font-script font-normal text-[#380605] text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-none block sm:inline my-1">
+                <span className="font-script font-normal text-white text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-none block sm:inline my-1">
                   Your Event?
                 </span>{" "}
                 <br />

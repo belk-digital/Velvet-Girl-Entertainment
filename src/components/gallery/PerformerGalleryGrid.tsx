@@ -68,101 +68,79 @@ export default function PerformerGalleryGrid({
               <Link
                 key={performer.id}
                 href={`/girls/${performer.slug || performer.id}`}
-                className="group relative flex flex-col justify-between bg-black rounded-[22px] border border-white/10/90 overflow-hidden shadow-md hover:shadow-2xl hover:-translate-y-1.5 transition-all duration-300 cursor-pointer"
+                className="group flex h-full flex-col overflow-hidden rounded-[2rem] border border-white/10 bg-black transition-all duration-300 hover:border-[#540403]/60 hover:shadow-[0_0_30px_rgba(84,4,3,0.15)]"
               >
-                {/* Top Image Area */}
+                {/* Image Section */}
                 <div className="relative aspect-[3/4] w-full overflow-hidden bg-[#111]">
                   <Image
                     src={encodeURI(decodeURI(performer.image))}
                     alt={performer.name}
                     fill
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                    className="object-cover object-top group-hover:scale-105 transition-transform duration-700"
+                    className="object-cover transition-transform duration-700 group-hover:scale-105"
                   />
 
-                  {/* Top Left Badge: Available Tonight */}
+                  {/* Top Left: Available Pill */}
                   {performer.availableTonight && (
-                    <div className="absolute top-3.5 left-3.5 z-10">
-                      <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/85 backdrop-blur-md text-[11px] font-bold text-white shadow-sm border border-white/50">
-                        <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-                        Available Tonight
-                      </span>
+                    <div className="absolute left-4 top-4 flex items-center gap-2 rounded-full bg-black/90 px-3 py-1.5 backdrop-blur-md border border-white/10 z-10">
+                      <div className="h-2 w-2 rounded-full bg-green-500 shadow-[0_0_8px_rgba(34,197,94,0.8)] animate-pulse" />
+                      <span className="font-body text-[10px] font-bold text-white">Available Tonight</span>
                     </div>
                   )}
 
-                  {/* Top Right Heart Favorite Button */}
+                  {/* Top Right: Favorite Button */}
                   <button
                     onClick={(e) => toggleFavorite(e, performer.id)}
-                    className={`absolute top-3.5 right-3.5 z-10 w-8 h-8 rounded-full flex items-center justify-center transition-all duration-200 shadow-sm border border-white/50 backdrop-blur-md ${
-                      isFav
-                        ? "bg-black text-red-500 scale-110"
-                        : "bg-white/70 hover:bg-black text-stone-300 hover:text-red-500"
-                    }`}
+                    className="absolute right-4 top-4 flex h-8 w-8 items-center justify-center rounded-full bg-white text-black shadow-lg transition-transform hover:scale-110 active:scale-95 z-10"
                     aria-label="Save to favorites"
                   >
-                    <Heart
-                      className={`w-4 h-4 transition-colors ${
-                        isFav ? "fill-red-500 text-red-500" : ""
-                      }`}
-                    />
+                    <Heart className={`h-4 w-4 transition-colors ${isFav ? "fill-red-500 text-red-500" : ""}`} />
                   </button>
-
-                  {/* Subtle hover gradient at bottom of image */}
-                  <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </div>
 
-                {/* Bottom Card Footer Section */}
-                <div className="p-5 flex flex-col items-center justify-between flex-1 bg-black text-center">
-                  <div>
-                    {/* Name in Crimson Serif */}
-                    <h3
-                      className="font-display text-xl font-bold tracking-wide text-[#540403] group-hover:text-[#4a0105] transition-colors"
-                      style={{ fontFamily: "var(--font-display)" }}
-                    >
+                {/* Content Section */}
+                <div className="flex flex-1 flex-col justify-between p-6">
+                  <div className="text-center">
+                    <h3 className="font-display text-2xl font-normal tracking-[0.2em] uppercase text-white transition-colors group-hover:text-[#540403]">
                       {performer.name}
                     </h3>
-
-                    {/* Location Pin + City */}
-                    <p className="mt-1 font-body text-xs text-stone-400 font-semibold flex items-center justify-center gap-1">
-                      <MapPin className="w-3.5 h-3.5 text-[#540403]" />
-                      <span>{performer.city || performer.location}</span>
-                    </p>
-
-                    {/* Star Rating & Review Count */}
-                    <div className="mt-2.5 flex items-center justify-center gap-1 text-xs">
-                      <span className="font-bold text-white text-sm">
-                        {displayRating}
+                    
+                    <div className="mt-2 flex items-center justify-center gap-1.5 text-white/70">
+                      <MapPin className="h-3.5 w-3.5" />
+                      <span className="font-body text-xs font-semibold tracking-wide">
+                        {performer.city || performer.location}
                       </span>
-                      <Star className="w-3.5 h-3.5 text-amber-500 fill-amber-500 mx-0.5" />
-                      <span className="text-stone-400 font-medium">
-                        ({displayReviewsCount})
-                      </span>
+                    </div>
+                    
+                    <div className="mt-2.5 flex items-center justify-center gap-1.5">
+                      <span className="font-body text-sm font-bold text-white">{displayRating}</span>
+                      <Star className="h-3.5 w-3.5 fill-[#f59e0b] text-[#f59e0b]" />
+                      <span className="font-body text-xs font-medium text-white/50">({displayReviewsCount})</span>
                     </div>
                   </div>
 
-                  {/* Crimson VIEW PROFILE Pill Button & Quick Contact */}
-                  <div className="w-full mt-4 flex flex-col gap-2">
-                    <span className="w-full inline-flex items-center justify-center gap-2 bg-[#540403] group-hover:bg-[#5c0911] text-white rounded-full py-2.5 px-4 text-xs font-bold uppercase tracking-wider shadow-sm transition-all duration-300">
-                      <span>VIEW PROFILE</span>
-                      <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
-                    </span>
-                    <div
-                      className="flex items-center gap-2 pt-1"
-                      onClick={(e) => e.stopPropagation()}
-                    >
+                  <div className="mt-6 flex flex-col gap-3">
+                    <div className="flex w-full items-center justify-center gap-2 rounded-full bg-[#540403] py-3.5 font-body text-[10px] font-bold uppercase tracking-widest text-white transition-colors hover:bg-[#5c0911]">
+                      <span>View Profile</span>
+                      <ArrowRight className="h-3.5 w-3.5" />
+                    </div>
+                    
+                    <div className="grid grid-cols-2 gap-3" onClick={(e) => e.preventDefault()}>
                       <a
                         href="tel:8439387377"
-                        className="flex-1 inline-flex items-center justify-center gap-1.5 bg-[#111] hover:bg-[#540403] text-white hover:text-white rounded-full py-2 px-3 text-[11px] font-bold uppercase tracking-wider transition-colors border border-white/10 shadow-xs"
-                        title="Call (843) 938-7377 to book"
+                        className="flex items-center justify-center gap-2 rounded-full border border-white/5 bg-[#111] py-3 font-body text-[10px] font-bold uppercase tracking-widest text-white/90 transition-colors hover:bg-[#222]"
+                        title="Call to book"
                       >
-                        <span>📞 Call</span>
+                        <span className="text-sm">📞</span>
+                        <span>Call</span>
                       </a>
                       <a
                         href={`sms:8439387377?body=Hi! I would like to book ${performer.name} in ${performer.city || performer.location}`}
-                        className="flex-1 inline-flex items-center justify-center gap-1.5 bg-[#111] hover:bg-stone-900 text-white hover:text-white rounded-full py-2 px-3 text-[11px] font-bold uppercase tracking-wider transition-colors border border-white/10 shadow-xs"
+                        className="flex items-center justify-center gap-2 rounded-full border border-white/5 bg-[#111] py-3 font-body text-[10px] font-bold uppercase tracking-widest text-white/90 transition-colors hover:bg-[#222]"
                         title="Text to book"
                       >
-                        <span>💬 Text</span>
+                        <span className="text-sm">💬</span>
+                        <span>Text</span>
                       </a>
                     </div>
                   </div>

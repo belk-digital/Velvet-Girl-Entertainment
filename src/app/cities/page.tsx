@@ -107,13 +107,13 @@ export default function CitiesIndexPage() {
       />
 
       <div className="px-6 pt-12 bg-black">
-        <Reveal className="mx-auto flex max-w-3xl items-start gap-4 border border-[#5C0005]/30 bg-[#5C0005]/5 p-6 text-left shadow-sm">
-          <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#5C0005] text-white">
+        <Reveal className="mx-auto flex max-w-3xl items-start gap-4 border border-[#540403]/30 bg-[#540403]/5 p-6 text-left shadow-sm">
+          <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#540403] text-white">
             <ShieldCheck className="h-5 w-5" />
           </div>
           <p className="font-body text-sm sm:text-base leading-relaxed text-stone-300 font-medium">
             We&rsquo;re one of the only booking agencies that posts{" "}
-            <span className="text-[#5C0005] font-bold">real, unedited photos</span> of
+            <span className="text-[#540403] font-bold">real, unedited photos</span> of
             our dancers on every city page. No bait-and-switch — you know
             exactly who&rsquo;s showing up.
           </p>
@@ -134,10 +134,10 @@ export default function CitiesIndexPage() {
                   <Link
                     key={city.slug}
                     href={`/cities/${city.stateSlug}/${city.slug}`}
-                    className="group flex items-center justify-between border border-white/10 bg-black px-6 py-5 font-body text-base font-bold text-white transition-all duration-300 hover:border-[#5C0005] hover:bg-[#5C0005] hover:text-white hover:shadow-md"
+                    className="group flex items-center justify-between border border-white/10 bg-black px-6 py-5 font-body text-base font-bold text-white transition-all duration-300 hover:border-[#540403] hover:bg-[#540403] hover:text-white hover:shadow-md"
                   >
                     <div className="flex items-center gap-3">
-                      <MapPin className="h-5 w-5 shrink-0 text-[#5C0005] group-hover:text-white transition-colors" />
+                      <MapPin className="h-5 w-5 shrink-0 text-[#540403] group-hover:text-white transition-colors" />
                       <span>{city.name}</span>
                     </div>
                     <ArrowRight className="h-4 w-4 shrink-0 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all" />
@@ -169,7 +169,7 @@ export default function CitiesIndexPage() {
           <div className="mt-8">
             <Link
               href="/contact"
-              className="tracking-caps inline-flex items-center gap-2 bg-white text-[#5C0005] px-9 py-4 font-body text-sm font-semibold transition-transform duration-300 hover:scale-105"
+              className="tracking-caps inline-flex items-center gap-2 bg-white text-[#540403] px-9 py-4 font-body text-sm font-semibold transition-transform duration-300 hover:scale-105"
             >
               Inquire About a Destination Booking
             </Link>

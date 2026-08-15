@@ -68,8 +68,8 @@ export default function ContactForm() {
 
   if (submitted) {
     return (
-      <div className="border border-[#5C0005]/30 bg-[#5C0005]/5 p-8 text-center animate-in fade-in duration-500">
-        <CheckCircle2 className="mx-auto h-12 w-12 text-[#5C0005]" />
+      <div className="border border-[#540403]/30 bg-[#540403]/5 p-8 text-center animate-in fade-in duration-500">
+        <CheckCircle2 className="mx-auto h-12 w-12 text-[#540403]" />
         <h3 className="mt-4 font-display text-2xl font-bold text-white">
           Thanks — we got it.
         </h3>
@@ -117,8 +117,8 @@ export default function ContactForm() {
                       }}
                       className={`rounded-full border px-4 py-2 font-body text-xs font-bold uppercase tracking-wider transition-all duration-300 ${
                         isSelected
-                          ? "border-[#5C0005] bg-[#5C0005] text-white shadow-sm"
-                          : "border-white/10 bg-black text-white/80 hover:border-[#5C0005]/60"
+                          ? "border-[#540403] bg-[#540403] text-white shadow-sm"
+                          : "border-white/10 bg-black text-white/80 hover:border-[#540403]/60"
                       }`}
                     >
                       {s.title}
@@ -144,7 +144,7 @@ export default function ContactForm() {
 
             <div>
               <label className={labelClass} htmlFor="city">
-                City <span className="text-[#5C0005]">*</span>
+                City <span className="text-[#540403]">*</span>
               </label>
               <input
                 id="city"
@@ -176,7 +176,7 @@ export default function ContactForm() {
               <button
                 type="button"
                 onClick={handleNext}
-                className="flex w-full items-center justify-center gap-2 bg-[#5C0005] px-8 py-4 font-body text-sm font-bold uppercase tracking-widest text-white transition-all duration-300 hover:scale-[1.01] hover:bg-[#5a0105] shadow-md cursor-pointer"
+                className="flex w-full items-center justify-center gap-2 bg-[#540403] px-8 py-4 font-body text-sm font-bold uppercase tracking-widest text-white transition-all duration-300 hover:scale-[1.01] hover:bg-[#5a0105] shadow-md cursor-pointer"
               >
                 <span>Next: Your Details</span>
                 <ArrowRight className="h-4 w-4" />
@@ -190,7 +190,7 @@ export default function ContactForm() {
             <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
               <div>
                 <label className={labelClass} htmlFor="name">
-                  Full Name <span className="text-[#5C0005]">*</span>
+                  Full Name <span className="text-[#540403]">*</span>
                 </label>
                 <input
                   id="name"
@@ -204,7 +204,7 @@ export default function ContactForm() {
               </div>
               <div>
                 <label className={labelClass} htmlFor="phone">
-                  Phone <span className="text-[#5C0005]">*</span>
+                  Phone <span className="text-[#540403]">*</span>
                 </label>
                 <input
                   id="phone"
@@ -221,7 +221,7 @@ export default function ContactForm() {
 
             <div>
               <label className={labelClass} htmlFor="email">
-                Email <span className="text-[#5C0005]">*</span>
+                Email <span className="text-[#540403]">*</span>
               </label>
               <input
                 id="email"

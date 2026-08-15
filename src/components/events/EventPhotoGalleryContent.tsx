@@ -91,15 +91,15 @@ export default function EventPhotoGalleryContent() {
           <Reveal>
             <div className="max-w-3xl flex flex-col items-center lg:items-start text-center lg:text-left pl-0 sm:pl-12 md:pl-24 lg:pl-32 xl:pl-36">
               <div className="flex items-center gap-3 mb-4">
-                <Sparkles className="h-5 w-5 text-[#5C0005]" />
-                <span className="font-body text-xs font-bold uppercase tracking-widest text-[#5C0005]">
+                <Sparkles className="h-5 w-5 text-[#540403]" />
+                <span className="font-body text-xs font-bold uppercase tracking-widest text-[#540403]">
                   EXCLUSIVE EVENT PORTFOLIO
                 </span>
                 <span className="h-[1px] w-8 sm:w-12 bg-[#C5A880]" />
               </div>
 
               <h1
-                className="font-display text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-extrabold tracking-tight text-[#5C0005] mb-6 drop-shadow-sm"
+                className="font-display text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-extrabold tracking-tight text-[#540403] mb-6 drop-shadow-sm"
                 style={{ fontFamily: "var(--font-display)" }}
               >
                 EVENT GALLERY
@@ -114,7 +114,7 @@ export default function EventPhotoGalleryContent() {
               </p>
 
               <div className="inline-flex items-center gap-2 bg-white/90 border border-white/10 px-4 py-2.5 rounded-full text-xs font-semibold text-stone-300 shadow-sm">
-                <ShieldCheck className="w-4 h-4 text-[#5C0005]" />
+                <ShieldCheck className="w-4 h-4 text-[#540403]" />
                 <span>100% Verified Event Photography</span>
               </div>
             </div>
@@ -126,13 +126,13 @@ export default function EventPhotoGalleryContent() {
       <section className="relative z-20 max-w-[120rem] mx-auto px-5 sm:px-6 lg:px-12 py-8 border-b border-white/10 bg-black/95 backdrop-blur-md sticky top-0">
         <div className="flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-2 overflow-x-auto w-full md:w-auto pb-2 md:pb-0 scrollbar-none">
-            <button className="px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider whitespace-nowrap transition-all duration-300 bg-[#5C0005] text-white shadow-md scale-105">
+            <button className="px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider whitespace-nowrap transition-all duration-300 bg-[#540403] text-white shadow-md scale-105">
               Event Photos
             </button>
           </div>
 
           <div className="text-xs font-bold uppercase tracking-wider text-stone-400 self-end md:self-center">
-            Showing <span className="text-[#5C0005]">{eventGalleryImages.length}</span>{" "}
+            Showing <span className="text-[#540403]">{eventGalleryImages.length}</span>{" "}
             {eventGalleryImages.length === 1 ? "Photo" : "Photos"}
           </div>
         </div>
@@ -161,7 +161,7 @@ export default function EventPhotoGalleryContent() {
               {/* Caption Tag on Hover */}
               <div className="absolute bottom-0 left-0 right-0 p-5 translate-y-4 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-end justify-between">
                 <div>
-                  <span className="inline-block px-2.5 py-1 rounded-md bg-[#5C0005] text-white text-[10px] font-bold uppercase tracking-widest mb-1.5 shadow-sm">
+                  <span className="inline-block px-2.5 py-1 rounded-md bg-[#540403] text-white text-[10px] font-bold uppercase tracking-widest mb-1.5 shadow-sm">
                     Events
                   </span>
                   <h3 className="font-display text-white text-base sm:text-lg font-bold tracking-tight">
@@ -189,7 +189,7 @@ export default function EventPhotoGalleryContent() {
             onClick={(e) => e.stopPropagation()}
           >
             <div>
-              <span className="inline-block px-3 py-1 rounded-full bg-[#5C0005] text-white text-xs font-bold uppercase tracking-widest">
+              <span className="inline-block px-3 py-1 rounded-full bg-[#540403] text-white text-xs font-bold uppercase tracking-widest">
                 Events
               </span>
               <h3 className="text-white font-display text-lg sm:text-2xl font-bold mt-1">
@@ -257,7 +257,7 @@ export default function EventPhotoGalleryContent() {
             <Link
               href="/book-now"
               onClick={closeLightbox}
-              className="px-6 py-3 rounded-full bg-[#5C0005] hover:bg-[#590105] text-white text-xs sm:text-sm font-bold uppercase tracking-wider shadow-lg transition-all"
+              className="px-6 py-3 rounded-full bg-[#540403] hover:bg-[#590105] text-white text-xs sm:text-sm font-bold uppercase tracking-wider shadow-lg transition-all"
             >
               Book For Your Event
             </Link>

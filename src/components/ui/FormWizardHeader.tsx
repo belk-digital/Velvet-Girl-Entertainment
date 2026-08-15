@@ -22,7 +22,7 @@ export default function FormWizardHeader({
       {/* Top Status & Title */}
       <div className="mb-4 flex items-center justify-between">
         <div className="flex items-center gap-2">
-          <span className="inline-flex h-6 items-center justify-center rounded-full bg-[#5C0005] px-2.5 font-body text-[10px] font-bold uppercase tracking-wider text-white shadow-sm">
+          <span className="inline-flex h-6 items-center justify-center rounded-full bg-[#540403] px-2.5 font-body text-[10px] font-bold uppercase tracking-wider text-white shadow-sm">
             Step {currentStep} of {steps.length}
           </span>
           <h4 className="font-display text-sm sm:text-base font-bold text-white tracking-wide">
@@ -37,7 +37,7 @@ export default function FormWizardHeader({
       {/* Progress Bar Track */}
       <div className="relative mb-6 h-1.5 w-full overflow-hidden rounded-full bg-black/10">
         <div
-          className="h-full bg-gradient-to-r from-[#5C0005] to-[#a30008] transition-all duration-500 ease-out"
+          className="h-full bg-gradient-to-r from-[#540403] to-[#a30008] transition-all duration-500 ease-out"
           style={{ width: `${progressPercentage}%` }}
         />
       </div>
@@ -58,18 +58,18 @@ export default function FormWizardHeader({
               onClick={() => isClickable && onStepClick?.(stepNumber)}
               className={`group flex items-center gap-2.5 rounded-xl border px-3 py-2.5 text-left transition-all duration-300 ${
                 isCurrent
-                  ? "border-[#5C0005] bg-[#5C0005]/5 shadow-sm"
+                  ? "border-[#540403] bg-[#540403]/5 shadow-sm"
                   : isCompleted
-                  ? "border-white/10 bg-black hover:border-[#5C0005]/40 cursor-pointer"
+                  ? "border-white/10 bg-black hover:border-[#540403]/40 cursor-pointer"
                   : "border-white/10 bg-black/[0.02] opacity-60 cursor-not-allowed"
               }`}
             >
               <span
                 className={`flex h-6 w-6 shrink-0 items-center justify-center rounded-full text-xs font-bold transition-all duration-300 ${
                   isCompleted
-                    ? "bg-[#5C0005] text-white group-hover:scale-105"
+                    ? "bg-[#540403] text-white group-hover:scale-105"
                     : isCurrent
-                    ? "border-2 border-[#5C0005] bg-white text-[#5C0005]"
+                    ? "border-2 border-[#540403] bg-white text-[#540403]"
                     : "border border-black/25 bg-black text-white/50"
                 }`}
               >

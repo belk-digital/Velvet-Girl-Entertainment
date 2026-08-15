@@ -372,8 +372,8 @@ export default function PhotoGalleryContent() {
                   }}
                   className={`px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider whitespace-nowrap transition-all duration-300 ${
                     active
-                      ? "bg-[#5C0005] text-white shadow-md scale-105"
-                      : "bg-black text-stone-300 border border-white/10 hover:border-[#5C0005] hover:text-[#5C0005]"
+                      ? "bg-[#540403] text-white shadow-md scale-105"
+                      : "bg-black text-stone-300 border border-white/10 hover:border-[#540403] hover:text-[#540403]"
                   }`}
                 >
                   {cat}
@@ -383,7 +383,7 @@ export default function PhotoGalleryContent() {
           </div>
 
           <div className="text-xs font-bold uppercase tracking-wider text-stone-400 self-end md:self-center">
-            Showing <span className="text-[#5C0005]">{filteredPhotos.length}</span>{" "}
+            Showing <span className="text-[#540403]">{filteredPhotos.length}</span>{" "}
             {filteredPhotos.length === 1 ? "Photo" : "Photos"}
           </div>
         </div>

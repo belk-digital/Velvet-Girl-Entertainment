@@ -109,7 +109,7 @@ export default function CarMeetPerfectFor({ items }: CarMeetPerfectForProps) {
           <div className="mt-8 flex justify-center lg:justify-start">
             <button
               onClick={() => setIsExpanded(!isExpanded)}
-              className="text-xs font-bold uppercase tracking-widest text-[#5C0005] bg-white hover:bg-black transition-colors py-3 px-8 rounded-full shadow-md"
+              className="text-xs font-bold uppercase tracking-widest text-[#540403] bg-white hover:bg-black transition-colors py-3 px-8 rounded-full shadow-md"
             >
               {isExpanded ? "Show Less" : "View All"}
             </button>

@@ -174,11 +174,11 @@ export default function AboutPage() {
             {standards.map((item, idx) => (
               <li
                 key={item}
-                className={`flex items-start gap-4 border border-white/10 bg-black p-6 transition-all duration-300 hover:border-[#5C0005]/50 hover:shadow-md ${
+                className={`flex items-start gap-4 border border-white/10 bg-black p-6 transition-all duration-300 hover:border-[#540403]/50 hover:shadow-md ${
                   idx === standards.length - 1 ? "md:col-span-2" : ""
                 }`}
               >
-                <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#5C0005]/10 text-[#5C0005]">
+                <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#540403]/10 text-[#540403]">
                   <ShieldCheck className="h-5 w-5" />
                 </div>
                 <span className="font-body text-base text-white/85 font-medium">
@@ -198,7 +198,7 @@ export default function AboutPage() {
             is real, and every booking is backed by a team that actually answers
             the phone. That&rsquo;s the whole promise.&rdquo;
           </p>
-          <p className="mt-4 font-body text-sm font-bold uppercase tracking-widest text-[#5C0005]">
+          <p className="mt-4 font-body text-sm font-bold uppercase tracking-widest text-[#540403]">
             — The Velvet Girl Entertainment Team
           </p>
         </Reveal>
@@ -215,7 +215,7 @@ export default function AboutPage() {
             (step, i) => (
               <Reveal key={step} delay={i * 0.08}>
                 <div className="h-full border border-white/10 bg-black p-8 text-center shadow-sm hover:shadow-lg transition-all duration-300 group">
-                  <span className="font-display text-4xl font-bold text-[#5C0005] group-hover:scale-110 inline-block transition-transform">
+                  <span className="font-display text-4xl font-bold text-[#540403] group-hover:scale-110 inline-block transition-transform">
                     {String(i + 1).padStart(2, "0")}
                   </span>
                   <p className="mt-4 font-body text-base font-bold text-white uppercase tracking-wider">
@@ -234,8 +234,8 @@ export default function AboutPage() {
         title="Your privacy commitment"
       >
         <Reveal className="mx-auto max-w-3xl">
-          <div className="border border-[#5C0005]/30 bg-[#5C0005]/5 p-10 text-center shadow-sm">
-            <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-[#5C0005] text-white shadow-md">
+          <div className="border border-[#540403]/30 bg-[#540403]/5 p-10 text-center shadow-sm">
+            <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-[#540403] text-white shadow-md">
               <Lock className="h-7 w-7" />
             </div>
             <p className="mt-6 font-body text-base sm:text-lg leading-relaxed text-white/85 font-medium">
@@ -245,7 +245,7 @@ export default function AboutPage() {
               what&rsquo;s required to fulfill your booking. Read our full{" "}
               <Link
                 href="/privacy"
-                className="text-[#5C0005] font-semibold underline underline-offset-4 hover:text-[#4a0105]"
+                className="text-[#540403] font-semibold underline underline-offset-4 hover:text-[#4a0105]"
               >
                 Privacy Policy
               </Link>{" "}
@@ -271,7 +271,7 @@ export default function AboutPage() {
           </p>
           <Link
             href="/cities"
-            className="mt-8 inline-flex items-center gap-2 bg-white text-[#5C0005] px-8 py-4 font-body text-xs font-bold uppercase tracking-widest transition-all duration-300 hover:scale-105 border border-white shadow-md group"
+            className="mt-8 inline-flex items-center gap-2 bg-white text-[#540403] px-8 py-4 font-body text-xs font-bold uppercase tracking-widest transition-all duration-300 hover:scale-105 border border-white shadow-md group"
           >
             <span>VIEW ALL CITIES</span>
             <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />

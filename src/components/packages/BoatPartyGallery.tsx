@@ -135,8 +135,8 @@ export default function BoatPartyGallery() {
         <div ref={headerRef} className="mb-10 lg:mb-16 flex flex-col md:flex-row justify-between items-start md:items-end gap-6">
           <div>
             <div className="flex items-center gap-3 mb-4 lg:mb-6">
-              <div className="w-3.5 h-3.5 rounded-full border border-[#5C0005]/50"></div>
-              <p className="text-[#5C0005] text-xs font-bold tracking-widest uppercase">
+              <div className="w-3.5 h-3.5 rounded-full border border-[#540403]/50"></div>
+              <p className="text-[#540403] text-xs font-bold tracking-widest uppercase">
                 GALLERY
               </p>
             </div>

@@ -73,8 +73,8 @@ export default function StepLayout({
       {/* Subtle luxury red silk ambient glow decorations in corners */}
       {!bgImage && (
         <>
-          <div className="pointer-events-none absolute -left-32 -bottom-32 h-96 w-96 rounded-full bg-gradient-to-tr from-[#5C0005]/15 to-transparent blur-3xl" />
-          <div className="pointer-events-none absolute -right-32 -top-32 h-96 w-96 rounded-full bg-gradient-to-bl from-[#5C0005]/10 to-transparent blur-3xl" />
+          <div className="pointer-events-none absolute -left-32 -bottom-32 h-96 w-96 rounded-full bg-gradient-to-tr from-[#540403]/15 to-transparent blur-3xl" />
+          <div className="pointer-events-none absolute -right-32 -top-32 h-96 w-96 rounded-full bg-gradient-to-bl from-[#540403]/10 to-transparent blur-3xl" />
         </>
       )}
 

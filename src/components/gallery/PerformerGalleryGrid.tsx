@@ -40,7 +40,7 @@ export default function PerformerGalleryGrid({
   if (performers.length === 0) {
     return (
       <div className="bg-black rounded-3xl p-12 text-center border border-white/10 shadow-sm max-w-xl mx-auto my-12">
-        <Sparkles className="w-12 h-12 text-[#5C0005] mx-auto mb-4 opacity-75" />
+        <Sparkles className="w-12 h-12 text-[#540403] mx-auto mb-4 opacity-75" />
         <h3 className="font-display text-2xl font-bold text-white mb-2">
           No Entertainers Found
         </h3>
@@ -116,7 +116,7 @@ export default function PerformerGalleryGrid({
                   <div>
                     {/* Name in Crimson Serif */}
                     <h3
-                      className="font-display text-xl font-bold tracking-wide text-[#5C0005] group-hover:text-[#4a0105] transition-colors"
+                      className="font-display text-xl font-bold tracking-wide text-[#540403] group-hover:text-[#4a0105] transition-colors"
                       style={{ fontFamily: "var(--font-display)" }}
                     >
                       {performer.name}
@@ -124,7 +124,7 @@ export default function PerformerGalleryGrid({
 
                     {/* Location Pin + City */}
                     <p className="mt-1 font-body text-xs text-stone-400 font-semibold flex items-center justify-center gap-1">
-                      <MapPin className="w-3.5 h-3.5 text-[#5C0005]" />
+                      <MapPin className="w-3.5 h-3.5 text-[#540403]" />
                       <span>{performer.city || performer.location}</span>
                     </p>
 
@@ -142,7 +142,7 @@ export default function PerformerGalleryGrid({
 
                   {/* Crimson VIEW PROFILE Pill Button & Quick Contact */}
                   <div className="w-full mt-4 flex flex-col gap-2">
-                    <span className="w-full inline-flex items-center justify-center gap-2 bg-[#5C0005] group-hover:bg-[#5c0911] text-white rounded-full py-2.5 px-4 text-xs font-bold uppercase tracking-wider shadow-sm transition-all duration-300">
+                    <span className="w-full inline-flex items-center justify-center gap-2 bg-[#540403] group-hover:bg-[#5c0911] text-white rounded-full py-2.5 px-4 text-xs font-bold uppercase tracking-wider shadow-sm transition-all duration-300">
                       <span>VIEW PROFILE</span>
                       <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
                     </span>
@@ -152,7 +152,7 @@ export default function PerformerGalleryGrid({
                     >
                       <a
                         href="tel:8439387377"
-                        className="flex-1 inline-flex items-center justify-center gap-1.5 bg-[#111] hover:bg-[#5C0005] text-white hover:text-white rounded-full py-2 px-3 text-[11px] font-bold uppercase tracking-wider transition-colors border border-white/10 shadow-xs"
+                        className="flex-1 inline-flex items-center justify-center gap-1.5 bg-[#111] hover:bg-[#540403] text-white hover:text-white rounded-full py-2 px-3 text-[11px] font-bold uppercase tracking-wider transition-colors border border-white/10 shadow-xs"
                         title="Call (843) 938-7377 to book"
                       >
                         <span>📞 Call</span>

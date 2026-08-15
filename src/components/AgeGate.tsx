@@ -116,12 +116,12 @@ export default function AgeGate({ onVerified }: AgeGateProps) {
 
       
       {/* Luxury Red overlay behind the modal */}
-      <div className="absolute inset-0 bg-[#5C0005]/10 backdrop-blur-[2px]"></div>
+      <div className="absolute inset-0 bg-[#540403]/10 backdrop-blur-[2px]"></div>
 
       <div className="relative z-10 mx-4 w-full max-w-3xl sm:max-w-4xl">
         <div
           data-gate-card
-          className="rounded-[28px] border border-white/10 bg-[#5C0005]/95 px-5 py-6 text-center text-white opacity-0 shadow-[0_8px_40px_rgba(0,0,0,0.5)] backdrop-blur-xl sm:px-12 sm:py-10"
+          className="rounded-[28px] border border-white/10 bg-[#540403]/95 px-5 py-6 text-center text-white opacity-0 shadow-[0_8px_40px_rgba(0,0,0,0.5)] backdrop-blur-xl sm:px-12 sm:py-10"
         >
           <div className="flex justify-center mb-4 sm:mb-6">
             <Image
@@ -198,7 +198,7 @@ export default function AgeGate({ onVerified }: AgeGateProps) {
             <button
               type="button"
               onClick={handleEnter}
-              className="group flex w-full items-center justify-center gap-2 rounded-full bg-white px-8 py-2.5 sm:py-3.5 font-body text-sm font-bold tracking-caps text-[#5C0005] transition-all duration-300 hover:scale-[1.02] hover:bg-[#111] hover:shadow-lg sm:w-auto sm:flex-1"
+              className="group flex w-full items-center justify-center gap-2 rounded-full bg-white px-8 py-2.5 sm:py-3.5 font-body text-sm font-bold tracking-caps text-[#540403] transition-all duration-300 hover:scale-[1.02] hover:bg-[#111] hover:shadow-lg sm:w-auto sm:flex-1"
             >
               ENTER SITE
               <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />

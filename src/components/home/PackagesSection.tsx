@@ -90,7 +90,7 @@ export default function PackagesSection({
               data-cms-section={sectionId ?? undefined}
               data-cms-type="packages"
               data-cms-field="eyebrow"
-              className="text-xs md:text-sm font-bold uppercase tracking-widest text-[#5C0005] mb-3"
+              className="text-xs md:text-sm font-bold uppercase tracking-widest text-[#540403] mb-3"
             >
               {eyebrow}
             </p>

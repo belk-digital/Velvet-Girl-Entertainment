@@ -31,8 +31,8 @@ function YesNo({
           key={opt}
           className={`flex-1 cursor-pointer border px-4 py-3 text-center font-body text-xs uppercase tracking-wider transition-all duration-300 rounded-xl ${
             value === opt
-              ? "border-[#5C0005] bg-[#5C0005] text-white font-bold shadow-sm"
-              : "border-white/10 bg-black text-white/80 hover:border-[#5C0005] font-semibold"
+              ? "border-[#540403] bg-[#540403] text-white font-bold shadow-sm"
+              : "border-white/10 bg-black text-white/80 hover:border-[#540403] font-semibold"
           }`}
         >
           <input
@@ -71,9 +71,9 @@ function FileField({
       </label>
       <label
         htmlFor={id}
-        className="flex cursor-pointer items-center gap-3 border border-dashed border-black/25 bg-black px-4 py-4 font-body text-xs text-white/70 transition-colors hover:border-[#5C0005] rounded-xl"
+        className="flex cursor-pointer items-center gap-3 border border-dashed border-black/25 bg-black px-4 py-4 font-body text-xs text-white/70 transition-colors hover:border-[#540403] rounded-xl"
       >
-        <Upload className="h-4 w-4 shrink-0 text-[#5C0005]" />
+        <Upload className="h-4 w-4 shrink-0 text-[#540403]" />
         <span className="flex-1 truncate font-medium">{fileName || hint}</span>
       </label>
       <input
@@ -201,8 +201,8 @@ export default function ApplicationForm() {
 
   if (submitted) {
     return (
-      <div className="border border-[#5C0005]/30 bg-[#5C0005]/5 p-8 text-center animate-in fade-in duration-500 rounded-2xl">
-        <CheckCircle2 className="mx-auto h-12 w-12 text-[#5C0005]" />
+      <div className="border border-[#540403]/30 bg-[#540403]/5 p-8 text-center animate-in fade-in duration-500 rounded-2xl">
+        <CheckCircle2 className="mx-auto h-12 w-12 text-[#540403]" />
         <h3 className="mt-4 font-display text-2xl font-bold text-white">
           Application received.
         </h3>
@@ -237,7 +237,7 @@ export default function ApplicationForm() {
             <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
               <div>
                 <label className={labelClass} htmlFor="name">
-                  Full Name <span className="text-[#5C0005]">*</span>
+                  Full Name <span className="text-[#540403]">*</span>
                 </label>
                 <input
                   id="name"
@@ -251,7 +251,7 @@ export default function ApplicationForm() {
               </div>
               <div>
                 <label className={labelClass} htmlFor="age">
-                  Age <span className="text-[#5C0005]">*</span>
+                  Age <span className="text-[#540403]">*</span>
                 </label>
                 <input
                   id="age"
@@ -270,7 +270,7 @@ export default function ApplicationForm() {
             <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
               <div>
                 <label className={labelClass} htmlFor="phone">
-                  Phone <span className="text-[#5C0005]">*</span>
+                  Phone <span className="text-[#540403]">*</span>
                 </label>
                 <input
                   id="phone"
@@ -285,7 +285,7 @@ export default function ApplicationForm() {
               </div>
               <div>
                 <label className={labelClass} htmlFor="email">
-                  Email <span className="text-[#5C0005]">*</span>
+                  Email <span className="text-[#540403]">*</span>
                 </label>
                 <input
                   id="email"
@@ -341,7 +341,7 @@ export default function ApplicationForm() {
               </div>
               <div>
                 <label className={labelClass} htmlFor="height">
-                  Height <span className="text-[#5C0005]">*</span>
+                  Height <span className="text-[#540403]">*</span>
                 </label>
                 <input
                   id="height"
@@ -355,7 +355,7 @@ export default function ApplicationForm() {
               </div>
               <div>
                 <label className={labelClass} htmlFor="weight">
-                  Weight <span className="text-[#5C0005]">*</span>
+                  Weight <span className="text-[#540403]">*</span>
                 </label>
                 <input
                   id="weight"
@@ -376,7 +376,7 @@ export default function ApplicationForm() {
               <button
                 type="button"
                 onClick={handleNextToStep2}
-                className="flex w-full items-center justify-center gap-2 bg-[#5C0005] px-8 py-4 font-body text-sm font-bold uppercase tracking-widest text-white transition-all duration-300 hover:scale-[1.01] hover:bg-[#5a0105] shadow-md cursor-pointer rounded-xl"
+                className="flex w-full items-center justify-center gap-2 bg-[#540403] px-8 py-4 font-body text-sm font-bold uppercase tracking-widest text-white transition-all duration-300 hover:scale-[1.01] hover:bg-[#5a0105] shadow-md cursor-pointer rounded-xl"
               >
                 <span>Next: Experience &amp; Location</span>
                 <ArrowRight className="h-4 w-4" />
@@ -391,7 +391,7 @@ export default function ApplicationForm() {
             <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
               <div>
                 <label className={labelClass} htmlFor="applyCity">
-                  City &amp; State Applying For <span className="text-[#5C0005]">*</span>
+                  City &amp; State Applying For <span className="text-[#540403]">*</span>
                 </label>
                 <input
                   id="applyCity"
@@ -483,7 +483,7 @@ export default function ApplicationForm() {
               <button
                 type="button"
                 onClick={handleNextToStep3}
-                className="flex w-full sm:w-2/3 items-center justify-center gap-2 bg-[#5C0005] px-8 py-4 font-body text-sm font-bold uppercase tracking-widest text-white transition-all duration-300 hover:scale-[1.01] hover:bg-[#5a0105] shadow-md cursor-pointer rounded-xl"
+                className="flex w-full sm:w-2/3 items-center justify-center gap-2 bg-[#540403] px-8 py-4 font-body text-sm font-bold uppercase tracking-widest text-white transition-all duration-300 hover:scale-[1.01] hover:bg-[#5a0105] shadow-md cursor-pointer rounded-xl"
               >
                 <span>Next: Availability &amp; Photos</span>
                 <ArrowRight className="h-4 w-4" />
@@ -509,8 +509,8 @@ export default function ApplicationForm() {
                       onClick={() => toggle(days, setDays, d)}
                       className={`border px-4 py-2.5 font-body text-xs font-bold uppercase tracking-wider transition-all duration-300 rounded-xl ${
                         active
-                          ? "border-[#5C0005] bg-[#5C0005] text-white shadow-sm"
-                          : "border-white/10 bg-black text-white/80 hover:border-[#5C0005]"
+                          ? "border-[#540403] bg-[#540403] text-white shadow-sm"
+                          : "border-white/10 bg-black text-white/80 hover:border-[#540403]"
                       }`}
                     >
                       {d}
@@ -532,8 +532,8 @@ export default function ApplicationForm() {
                       onClick={() => toggle(timeBlocks, setTimeBlocks, t)}
                       className={`border px-4 py-2.5 font-body text-xs font-bold uppercase tracking-wider transition-all duration-300 rounded-xl ${
                         active
-                          ? "border-[#5C0005] bg-[#5C0005] text-white shadow-sm"
-                          : "border-white/10 bg-black text-white/80 hover:border-[#5C0005]"
+                          ? "border-[#540403] bg-[#540403] text-white shadow-sm"
+                          : "border-white/10 bg-black text-white/80 hover:border-[#540403]"
                       }`}
                     >
                       {t}

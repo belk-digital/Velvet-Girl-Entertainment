@@ -80,13 +80,13 @@ export default function Step11Review() {
         <div className="mb-8 p-6 rounded-2xl bg-black border border-white/10 shadow-sm">
           <div className="flex items-center justify-between mb-4 flex-wrap gap-2">
             <h3 className="font-display text-base sm:text-lg font-bold text-white flex items-center gap-2">
-              <Sparkles className="w-4 h-4 text-[#5C0005]" />
+              <Sparkles className="w-4 h-4 text-[#540403]" />
               <span>Selected VIP Entertainers</span>
             </h3>
             <button
               type="button"
               onClick={() => goToStep(3)}
-              className="text-xs font-bold uppercase tracking-wider text-[#5C0005] hover:underline"
+              className="text-xs font-bold uppercase tracking-wider text-[#540403] hover:underline"
             >
               Edit Selection
             </button>
@@ -99,7 +99,7 @@ export default function Step11Review() {
                   key={p!.id}
                   className="flex items-center gap-3 p-3 rounded-xl border border-white/10 bg-black shadow-sm"
                 >
-                  <div className="relative w-14 h-14 rounded-full overflow-hidden bg-stone-200 shrink-0 border-2 border-[#5C0005]/20">
+                  <div className="relative w-14 h-14 rounded-full overflow-hidden bg-stone-200 shrink-0 border-2 border-[#540403]/20">
                     <Image
                       src={p!.image}
                       alt={p!.name}
@@ -112,7 +112,7 @@ export default function Step11Review() {
                     <span className="block font-display text-sm font-bold text-white truncate">
                       {p!.name}
                     </span>
-                    <span className="block text-[11px] font-semibold text-[#5C0005] uppercase truncate">
+                    <span className="block text-[11px] font-semibold text-[#540403] uppercase truncate">
                       {p!.location}
                     </span>
                     <div className="flex items-center gap-1 text-[11px] text-stone-400 font-medium mt-0.5">
@@ -127,7 +127,7 @@ export default function Step11Review() {
             <div className="p-4 rounded-xl bg-black border border-white/10 text-stone-300 text-sm flex items-center justify-between flex-wrap gap-3">
               <div>
                 <p className="font-semibold text-white flex items-center gap-1.5">
-                  <CheckCircle2 className="w-4 h-4 text-[#5C0005]" />
+                  <CheckCircle2 className="w-4 h-4 text-[#540403]" />
                   <span>Agency Director Choice (Top Rated Available)</span>
                 </p>
                 <p className="text-xs text-stone-300 mt-0.5">
@@ -139,7 +139,7 @@ export default function Step11Review() {
               <button
                 type="button"
                 onClick={() => goToStep(3)}
-                className="px-4 py-2 rounded-xl bg-stone-900 text-white text-xs font-bold uppercase tracking-wider hover:bg-[#5C0005] transition-all"
+                className="px-4 py-2 rounded-xl bg-stone-900 text-white text-xs font-bold uppercase tracking-wider hover:bg-[#540403] transition-all"
               >
                 Choose Specific Performers
               </button>
@@ -153,7 +153,7 @@ export default function Step11Review() {
         {/* Contact Info Capture Container */}
         <div className="mt-8 p-6 rounded-2xl bg-black border border-white/10 shadow-sm">
           <h3 className="font-display text-base sm:text-lg font-bold text-white mb-4 flex items-center gap-2">
-            <Lock className="w-4 h-4 text-[#5C0005]" />
+            <Lock className="w-4 h-4 text-[#540403]" />
             <span>Contact Information for Specialist Confirmation</span>
           </h3>
 
@@ -174,7 +174,7 @@ export default function Step11Review() {
               </label>
               <div className="relative">
                 <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3.5 text-stone-400">
-                  <User className="h-4 w-4 text-[#5C0005]" />
+                  <User className="h-4 w-4 text-[#540403]" />
                 </div>
                 <input
                   id="booking-name"
@@ -183,7 +183,7 @@ export default function Step11Review() {
                   value={state.name}
                   onChange={(e) => setField("name", e.target.value)}
                   placeholder="John Doe"
-                  className="w-full rounded-xl border border-white/10 bg-black pl-10 pr-4 py-3 font-body text-sm font-semibold text-white placeholder-stone-400 outline-none transition-all focus:border-[#5C0005] focus:ring-2 focus:ring-[#5C0005]/20"
+                  className="w-full rounded-xl border border-white/10 bg-black pl-10 pr-4 py-3 font-body text-sm font-semibold text-white placeholder-stone-400 outline-none transition-all focus:border-[#540403] focus:ring-2 focus:ring-[#540403]/20"
                 />
               </div>
             </div>
@@ -198,7 +198,7 @@ export default function Step11Review() {
               </label>
               <div className="relative">
                 <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3.5 text-stone-400">
-                  <Phone className="h-4 w-4 text-[#5C0005]" />
+                  <Phone className="h-4 w-4 text-[#540403]" />
                 </div>
                 <input
                   id="booking-phone"
@@ -207,7 +207,7 @@ export default function Step11Review() {
                   value={state.phone}
                   onChange={(e) => setField("phone", e.target.value)}
                   placeholder="(555) 000-0000"
-                  className="w-full rounded-xl border border-white/10 bg-black pl-10 pr-4 py-3 font-body text-sm font-semibold text-white placeholder-stone-400 outline-none transition-all focus:border-[#5C0005] focus:ring-2 focus:ring-[#5C0005]/20"
+                  className="w-full rounded-xl border border-white/10 bg-black pl-10 pr-4 py-3 font-body text-sm font-semibold text-white placeholder-stone-400 outline-none transition-all focus:border-[#540403] focus:ring-2 focus:ring-[#540403]/20"
                 />
               </div>
             </div>
@@ -222,7 +222,7 @@ export default function Step11Review() {
               </label>
               <div className="relative">
                 <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3.5 text-stone-400">
-                  <Mail className="h-4 w-4 text-[#5C0005]" />
+                  <Mail className="h-4 w-4 text-[#540403]" />
                 </div>
                 <input
                   id="booking-email"
@@ -231,7 +231,7 @@ export default function Step11Review() {
                   value={state.email}
                   onChange={(e) => setField("email", e.target.value)}
                   placeholder="john@example.com"
-                  className="w-full rounded-xl border border-white/10 bg-black pl-10 pr-4 py-3 font-body text-sm font-semibold text-white placeholder-stone-400 outline-none transition-all focus:border-[#5C0005] focus:ring-2 focus:ring-[#5C0005]/20"
+                  className="w-full rounded-xl border border-white/10 bg-black pl-10 pr-4 py-3 font-body text-sm font-semibold text-white placeholder-stone-400 outline-none transition-all focus:border-[#540403] focus:ring-2 focus:ring-[#540403]/20"
                 />
               </div>
             </div>

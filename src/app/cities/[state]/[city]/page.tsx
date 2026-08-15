@@ -131,12 +131,12 @@ export default async function CityPage({ params }: Props) {
         bgImage="/gallery images/BEACH DAY PACKAGE OR BEACH CITY PAGE.webp"
       >
         <nav className="flex flex-wrap items-center justify-center gap-2 font-body text-xs font-semibold uppercase tracking-widest text-stone-400">
-          <Link href="/cities" className="hover:text-[#5C0005] transition-colors">
+          <Link href="/cities" className="hover:text-[#540403] transition-colors">
             Cities
           </Link>
-          <span className="text-[#5C0005]">/</span>
+          <span className="text-[#540403]">/</span>
           <span className="text-white">{cityData.stateName}</span>
-          <span className="text-[#5C0005]">/</span>
+          <span className="text-[#540403]">/</span>
           <span className="text-white">{cityData.name}</span>
         </nav>
       </PageHero>
@@ -175,9 +175,9 @@ export default async function CityPage({ params }: Props) {
             <Reveal key={service.slug} delay={(i % 3) * 0.08}>
               <Link
                 href={`/services/${service.slug}`}
-                className="group block h-full border border-white/10 bg-black p-8 transition-all duration-300 hover:border-[#5C0005]/60 hover:shadow-xl"
+                className="group block h-full border border-white/10 bg-black p-8 transition-all duration-300 hover:border-[#540403]/60 hover:shadow-xl"
               >
-                <h3 className="font-display text-2xl font-bold text-white group-hover:text-[#5C0005] transition-colors">
+                <h3 className="font-display text-2xl font-bold text-white group-hover:text-[#540403] transition-colors">
                   {service.title}
                 </h3>
                 <p className="mt-3 font-body text-sm text-stone-300 leading-relaxed font-medium">
@@ -211,8 +211,8 @@ export default async function CityPage({ params }: Props) {
           eyebrow="REAL PHOTOS, REAL DANCERS"
           title={`Dancers Available in ${cityData.name}`}
         >
-          <Reveal className="mx-auto mb-10 flex max-w-3xl items-start gap-4 border border-[#5C0005]/30 bg-[#5C0005]/5 p-6 text-left shadow-sm">
-            <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#5C0005] text-white">
+          <Reveal className="mx-auto mb-10 flex max-w-3xl items-start gap-4 border border-[#540403]/30 bg-[#540403]/5 p-6 text-left shadow-sm">
+            <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#540403] text-white">
               <ShieldCheck className="h-5 w-5" />
             </div>
             <p className="font-body text-sm sm:text-base leading-relaxed text-stone-300 font-medium">

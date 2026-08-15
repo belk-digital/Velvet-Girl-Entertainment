@@ -122,7 +122,7 @@ export default function Navbar() {
               <Link
                 key={link.label}
                 href={link.href}
-                className={`font-heading text-sm font-semibold uppercase tracking-wider transition-colors hover:text-[#5C0005] ${useTransparentNavLinks ? "text-white/90 drop-shadow-md hover:text-white" : "text-white/85"}`}
+                className={`font-heading text-sm font-semibold uppercase tracking-wider transition-colors hover:text-[#540403] ${useTransparentNavLinks ? "text-white/90 drop-shadow-md hover:text-white" : "text-white/85"}`}
               >
                 {link.label}
               </Link>

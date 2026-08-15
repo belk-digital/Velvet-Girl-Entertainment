@@ -138,8 +138,8 @@ export default function JoinTeamPage() {
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-5">
           {benefits.map(({ icon: Icon, title }, i) => (
             <Reveal key={title} delay={i * 0.08}>
-              <div className="h-full border border-white/10 rounded-xl bg-black p-8 text-center shadow-sm hover:border-[#5C0005]/50 hover:shadow-md transition-all">
-                <span className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-[#5C0005]/10 text-[#5C0005]">
+              <div className="h-full border border-white/10 rounded-xl bg-black p-8 text-center shadow-sm hover:border-[#540403]/50 hover:shadow-md transition-all">
+                <span className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-[#540403]/10 text-[#540403]">
                   <Icon className="h-6 w-6" strokeWidth={1.75} />
                 </span>
                 <h3 className="mt-5 font-display text-lg font-bold text-white">
@@ -188,7 +188,7 @@ export default function JoinTeamPage() {
       <div className="border-t border-white/10 bg-black px-6 py-20 sm:py-28">
         <Reveal className="mx-auto max-w-3xl">
           <div className="text-center">
-            <p className="tracking-caps mb-3 font-body text-xs font-bold uppercase text-[#5C0005]">
+            <p className="tracking-caps mb-3 font-body text-xs font-bold uppercase text-[#540403]">
               APPLICATION
             </p>
             <h2 className="font-display text-3xl font-bold uppercase tracking-wider text-white sm:text-4xl">

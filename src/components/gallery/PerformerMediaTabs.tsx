@@ -26,14 +26,14 @@ export default function PerformerMediaTabs({ name, images, videos = [] }: Perfor
       <div className="flex mb-6 rounded-md overflow-hidden border border-white/10 shadow-sm">
         <button 
           onClick={() => setActiveTab("images")}
-          className={`flex-1 flex items-center justify-center gap-2 py-4 font-bold text-sm tracking-widest transition-colors ${activeTab === "images" ? "bg-[#5C0005] text-white" : "bg-black text-white hover:bg-black"}`}
+          className={`flex-1 flex items-center justify-center gap-2 py-4 font-bold text-sm tracking-widest transition-colors ${activeTab === "images" ? "bg-[#540403] text-white" : "bg-black text-white hover:bg-black"}`}
         >
           <ImageIcon className="w-4 h-4" />
           IMAGES
         </button>
         <button 
           onClick={() => setActiveTab("videos")}
-          className={`flex-1 flex items-center justify-center gap-2 py-4 font-bold text-sm tracking-widest transition-colors border-l border-white/10 ${activeTab === "videos" ? "bg-[#5C0005] text-white" : "bg-black text-white hover:bg-black"}`}
+          className={`flex-1 flex items-center justify-center gap-2 py-4 font-bold text-sm tracking-widest transition-colors border-l border-white/10 ${activeTab === "videos" ? "bg-[#540403] text-white" : "bg-black text-white hover:bg-black"}`}
         >
           <PlayCircle className="w-4 h-4" />
           VIDEOS

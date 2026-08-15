@@ -137,7 +137,7 @@ export default async function PackageThemeDetailPage({ params }: Props) {
         </Section>
       )}
 
-      <section className="relative w-full overflow-hidden bg-[#540403]">
+      <section className="relative w-full overflow-hidden bg-[#3b0003]">
         <div className="relative z-10 mx-auto flex max-w-5xl flex-col items-center px-6 py-16 text-center lg:py-24">
           <p className="mb-4 inline-block border-t-2 border-white/70 pt-2 text-xs font-bold uppercase tracking-widest text-white/80 md:text-base">
             CUSTOMIZE

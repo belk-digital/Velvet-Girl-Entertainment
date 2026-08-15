@@ -79,7 +79,7 @@ export default function Hero({
           data-cms-section={sectionId ?? undefined}
           data-cms-type="hero"
           data-cms-field="title"
-          className="relative font-script font-normal leading-[1.15] opacity-0 text-4xl sm:text-5xl lg:text-[3.25rem] xl:text-[3.75rem] text-white lg:text-[#380605]"
+          className="relative font-script font-normal leading-[1.15] opacity-0 text-4xl sm:text-5xl lg:text-[3.25rem] xl:text-[3.75rem] text-white"
         >
           {title}
         </h1>

@@ -73,7 +73,7 @@ export default function Hero({
     >
 
       {/* ── LEFT: Content panel — transparent overlay on mobile (video shows through), solid red panel on desktop ── */}
-      <div className="relative z-10 flex flex-col justify-center min-h-screen lg:min-h-0 bg-black/45 lg:bg-[#FBFAF8] w-full lg:w-[52%] xl:w-[50%] flex-shrink-0 px-8 sm:px-12 lg:px-14 xl:px-20 pt-28 pb-16 lg:py-0">
+      <div className="relative z-10 flex flex-col justify-center min-h-screen lg:min-h-0 bg-black/45 lg:bg-black w-full lg:w-[52%] xl:w-[50%] flex-shrink-0 px-8 sm:px-12 lg:px-14 xl:px-20 pt-28 pb-16 lg:py-0">
         <h1
           data-hero-heading
           data-cms-section={sectionId ?? undefined}
@@ -89,7 +89,7 @@ export default function Hero({
           data-cms-section={sectionId ?? undefined}
           data-cms-type="hero"
           data-cms-field="subtitle"
-          className="relative mt-8 max-w-lg font-body text-base opacity-0 sm:text-lg font-medium leading-relaxed text-white/85 lg:text-stone-700"
+          className="relative mt-8 max-w-lg font-body text-base opacity-0 sm:text-lg font-medium leading-relaxed text-white/85 lg:text-stone-300"
         >
           {subtitle}
         </p>

@@ -46,7 +46,7 @@ export default function EventParallaxHero({ title, imageSrc }: EventParallaxHero
   return (
     <div 
       ref={container}
-      className="relative w-full h-[60vh] md:h-[80vh] flex items-center justify-center overflow-hidden bg-[#FAF7F2]"
+      className="relative w-full h-[60vh] md:h-[80vh] flex items-center justify-center overflow-hidden bg-black"
     >
       <div className="absolute inset-0 z-0 overflow-hidden h-[120%] -top-[10%]">
         <Image

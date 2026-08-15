@@ -107,18 +107,18 @@ export default async function ServiceDetailPage({ params }: Props) {
         subtitle={service.heroDescription}
         bgImage="/gallery images/DIOR.webp"
       >
-        <nav className="flex flex-wrap items-center justify-center gap-2 font-body text-xs font-semibold uppercase tracking-widest text-stone-500">
+        <nav className="flex flex-wrap items-center justify-center gap-2 font-body text-xs font-semibold uppercase tracking-widest text-stone-400">
           <Link href="/services" className="hover:text-[#5C0005] transition-colors">
             Services
           </Link>
           <span className="text-[#5C0005]">/</span>
-          <span className="text-stone-800">{service.title}</span>
+          <span className="text-white">{service.title}</span>
         </nav>
       </PageHero>
 
       <Section eyebrow="OVERVIEW" title={`About ${service.title}`}>
         <Reveal className="mx-auto max-w-3xl text-center">
-          <p className="font-body text-base leading-relaxed text-stone-700 sm:text-lg font-medium">
+          <p className="font-body text-base leading-relaxed text-stone-300 sm:text-lg font-medium">
             {service.content.intro}
           </p>
         </Reveal>
@@ -138,12 +138,12 @@ export default async function ServiceDetailPage({ params }: Props) {
             {service.whatsIncluded.map((item) => (
               <div
                 key={item}
-                className="flex items-center gap-4 border border-stone-200/80 rounded-xl bg-white p-6 shadow-sm hover:border-[#5C0005]/50 transition-colors"
+                className="flex items-center gap-4 border border-white/10 rounded-xl bg-black p-6 shadow-sm hover:border-[#5C0005]/50 transition-colors"
               >
                 <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#5C0005]/10 text-[#5C0005]">
                   <Check className="h-5 w-5" />
                 </div>
-                <span className="font-display text-base font-bold text-stone-900">
+                <span className="font-display text-base font-bold text-white">
                   {item}
                 </span>
               </div>
@@ -178,7 +178,7 @@ export default async function ServiceDetailPage({ params }: Props) {
             <Link
               key={city.slug}
               href={`/cities/${city.stateSlug}/${city.slug}`}
-              className="border border-stone-200/80 rounded-full bg-white px-6 py-3 font-body text-xs font-bold uppercase tracking-widest text-stone-800 transition-all duration-300 hover:border-[#5C0005] hover:bg-[#5C0005] hover:text-white shadow-sm"
+              className="border border-white/10 rounded-full bg-black px-6 py-3 font-body text-xs font-bold uppercase tracking-widest text-white transition-all duration-300 hover:border-[#5C0005] hover:bg-[#5C0005] hover:text-white shadow-sm"
             >
               {city.name}
             </Link>

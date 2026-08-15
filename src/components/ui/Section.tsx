@@ -22,7 +22,7 @@ export default function Section({
   const isCrimson = theme === "crimson";
   const isDark = theme === "dark";
   const isMuted = theme === "muted";
-  const isDeepText = isCrimson || isDark || isMuted;
+  const isDeepText = true; // All backgrounds are now dark
 
   return (
     <section
@@ -33,8 +33,8 @@ export default function Section({
           : isDark
           ? "bg-[#0f0f11] text-white"
           : isMuted
-          ? "bg-[#5C0005] text-white border-y border-black/10 shadow-xs"
-          : "bg-[#FAF7F2] text-stone-900"
+          ? "bg-[#5C0005] text-white border-y border-white/10 shadow-xs"
+          : "bg-black text-white"
       } ${className}`}
     >
       <div className="mx-auto max-w-[120rem] lg:px-6">
@@ -65,7 +65,7 @@ export default function Section({
                     ? "text-white/90"
                     : isDark || isMuted
                     ? "text-white/70"
-                    : "text-stone-700"
+                    : "text-stone-300"
                 }`}
               >
                 {subtitle}

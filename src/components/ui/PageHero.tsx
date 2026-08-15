@@ -29,12 +29,12 @@ export default function PageHero({
 
   return (
     <div
-      className={`relative overflow-hidden px-6 py-24 sm:py-32 md:py-36 border-b border-stone-200/80 transition-colors duration-300 ${
+      className={`relative overflow-hidden px-6 py-24 sm:py-32 md:py-36 border-b border-white/10 transition-colors duration-300 ${
         isCrimson
           ? "bg-[#5C0005] text-white"
           : isDark
           ? "bg-[#0f0f11] text-white"
-          : "bg-[#FAF7F2] text-stone-900"
+          : "bg-black text-white"
       } ${className}`}
     >
       {/* Top Left Red Velvet Curtain Drapery */}
@@ -104,7 +104,7 @@ export default function PageHero({
                 ? "text-white/90"
                 : isDark
                 ? "text-white/70"
-                : "text-stone-800"
+                : "text-white"
             }`}
           >
             {subtitle}

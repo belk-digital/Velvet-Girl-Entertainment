@@ -12,22 +12,7 @@ gsap.registerPlugin(ScrollTrigger);
 // Duplicate testimonials to have enough for a slider experience
 const extendedTestimonials = [...testimonials, ...testimonials, ...testimonials];
 
-const DEFAULT_EYEBROW = "REVIEWS";
-const DEFAULT_TITLE = "What Our Clients Say";
-const DEFAULT_DESCRIPTION =
-  "Explore reviews and stories from those who trusted us. Their satisfaction drives our dedication to creating unforgettable experiences.";
-
-export default function Reviews({
-  eyebrow = DEFAULT_EYEBROW,
-  title = DEFAULT_TITLE,
-  description = DEFAULT_DESCRIPTION,
-  sectionId,
-}: {
-  eyebrow?: string;
-  title?: string;
-  description?: string;
-  sectionId?: string | null;
-}) {
+export default function Reviews() {
   const containerRef = useRef<HTMLElement>(null);
   const sliderRef = useRef<HTMLDivElement>(null);
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -106,50 +91,38 @@ export default function Reviews({
   };
 
   return (
-    <section ref={containerRef} className="w-full bg-[#FBFAF8] py-24 md:py-32 overflow-hidden border-t border-black/10">
+    <section ref={containerRef} className="w-full bg-black py-24 md:py-32 overflow-hidden border-t border-white/10">
       <div className="max-w-[120rem] mx-auto px-6 lg:px-12">
         
         {/* Header Section */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12 md:mb-16">
-          <div className="review-header-element">
-            <p
-              data-cms-section={sectionId ?? undefined}
-              data-cms-type="reviews"
-              data-cms-field="eyebrow"
-              className="text-xs md:text-sm font-bold uppercase tracking-widest text-[#740107] mb-3"
-            >
-              {eyebrow}
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-10 mb-16 md:mb-24">
+          
+          {/* Left: Heading & Description */}
+          <div className="review-header-element max-w-2xl">
+            <p className="text-xs md:text-sm font-bold uppercase tracking-widest text-[#5C0005] mb-3">
+              REVIEWS
             </p>
-            <h2
-              data-cms-section={sectionId ?? undefined}
-              data-cms-type="reviews"
-              data-cms-field="title"
-              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-normal font-script tracking-normal text-black leading-tight mb-4"
-            >
-              {title}
+            <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-normal font-script tracking-normal text-white leading-tight mb-4">
+              What Our Clients Say
             </h2>
-            <p
-              data-cms-section={sectionId ?? undefined}
-              data-cms-type="reviews"
-              data-cms-field="description"
-              className="text-black/65 text-base md:text-lg max-w-xl font-body"
-            >
-              {description}
+            <p className="text-white/65 text-base md:text-lg max-w-xl font-body">
+              Explore reviews and stories from those who trusted us. Their satisfaction drives our dedication to creating unforgettable experiences.
             </p>
           </div>
           
-          <div className="review-header-element flex items-center gap-4 shrink-0">
+          {/* Right: Arrows */}
+          <div className="review-header-element flex items-center gap-4 shrink-0 pb-2">
             <button 
               onClick={handlePrev}
               disabled={currentIndex === 0}
-              className="w-14 h-14 bg-[#740107] flex items-center justify-center text-white hover:bg-[#5a0105] transition-colors disabled:opacity-30 disabled:hover:bg-[#740107] cursor-pointer disabled:cursor-not-allowed group"
+              className="w-14 h-14 bg-[#5C0005] flex items-center justify-center text-white hover:bg-[#5c0911] transition-colors disabled:opacity-30 disabled:hover:bg-[#5C0005] cursor-pointer disabled:cursor-not-allowed group"
             >
               <ArrowLeft className="w-6 h-6 transition-transform group-hover:-translate-x-1" strokeWidth={2} />
             </button>
             <button 
               onClick={handleNext}
               disabled={currentIndex === maxIndex}
-              className="w-14 h-14 bg-[#740107] flex items-center justify-center text-white hover:bg-[#5a0105] transition-colors disabled:opacity-30 disabled:hover:bg-[#740107] cursor-pointer disabled:cursor-not-allowed group"
+              className="w-14 h-14 bg-[#5C0005] flex items-center justify-center text-white hover:bg-[#5c0911] transition-colors disabled:opacity-30 disabled:hover:bg-[#5C0005] cursor-pointer disabled:cursor-not-allowed group"
             >
               <ArrowRight className="w-6 h-6 transition-transform group-hover:translate-x-1" strokeWidth={2} />
             </button>
@@ -162,19 +135,19 @@ export default function Reviews({
             {extendedTestimonials.map((t, i) => (
               <div 
                 key={i} 
-                className="review-card w-[320px] sm:w-[380px] md:w-[450px] shrink-0 border border-black/10 bg-[#FBFAF8] shadow-lg p-8 md:p-12 flex flex-col justify-between min-h-[350px] hover:border-black/30 transition-colors duration-500"
+                className="review-card w-[320px] sm:w-[380px] md:w-[450px] shrink-0 border border-white/10 bg-[#070707] p-8 md:p-12 flex flex-col justify-between min-h-[350px] hover:border-white/30 transition-colors duration-500"
               >
                 <div className="mb-12">
-                  <div className="inline-flex items-center gap-3 border border-black/20 rounded-full px-5 py-2 mb-8">
-                    <div className="w-2 h-2 rounded-full bg-[#740107]"></div>
-                    <span className="text-xs font-bold text-black/80 uppercase tracking-widest">{t.name}</span>
+                  <div className="inline-flex items-center gap-3 border border-white/20 rounded-full px-5 py-2 mb-8">
+                    <div className="w-2 h-2 rounded-full bg-[#5C0005]"></div>
+                    <span className="text-xs font-bold text-white/80 uppercase tracking-widest">{t.name}</span>
                   </div>
-                  <p className="text-xl md:text-2xl font-semibold text-black/95 leading-relaxed tracking-tight">
+                  <p className="text-xl md:text-2xl font-semibold text-white/95 leading-relaxed tracking-tight">
                     "{t.quote}"
                   </p>
                 </div>
                 
-                <div className="flex items-center justify-between text-xs font-bold text-black/40 uppercase tracking-widest mt-auto">
+                <div className="flex items-center justify-between text-xs font-bold text-white/40 uppercase tracking-widest mt-auto">
                   <span>Client</span>
                   <span>{t.location}</span>
                 </div>

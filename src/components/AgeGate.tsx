@@ -198,7 +198,7 @@ export default function AgeGate({ onVerified }: AgeGateProps) {
             <button
               type="button"
               onClick={handleEnter}
-              className="group flex w-full items-center justify-center gap-2 rounded-full bg-white px-8 py-2.5 sm:py-3.5 font-body text-sm font-bold tracking-caps text-[#5C0005] transition-all duration-300 hover:scale-[1.02] hover:bg-stone-100 hover:shadow-lg sm:w-auto sm:flex-1"
+              className="group flex w-full items-center justify-center gap-2 rounded-full bg-white px-8 py-2.5 sm:py-3.5 font-body text-sm font-bold tracking-caps text-[#5C0005] transition-all duration-300 hover:scale-[1.02] hover:bg-[#111] hover:shadow-lg sm:w-auto sm:flex-1"
             >
               ENTER SITE
               <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />

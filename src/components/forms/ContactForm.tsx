@@ -70,10 +70,10 @@ export default function ContactForm() {
     return (
       <div className="border border-[#5C0005]/30 bg-[#5C0005]/5 p-8 text-center animate-in fade-in duration-500">
         <CheckCircle2 className="mx-auto h-12 w-12 text-[#5C0005]" />
-        <h3 className="mt-4 font-display text-2xl font-bold text-black">
+        <h3 className="mt-4 font-display text-2xl font-bold text-white">
           Thanks — we got it.
         </h3>
-        <p className="mt-2 font-body text-sm text-black/70 font-medium">
+        <p className="mt-2 font-body text-sm text-white/70 font-medium">
           A booking specialist will reach out shortly to confirm details.
         </p>
       </div>
@@ -118,7 +118,7 @@ export default function ContactForm() {
                       className={`rounded-full border px-4 py-2 font-body text-xs font-bold uppercase tracking-wider transition-all duration-300 ${
                         isSelected
                           ? "border-[#5C0005] bg-[#5C0005] text-white shadow-sm"
-                          : "border-black/20 bg-white text-black/80 hover:border-[#5C0005]/60"
+                          : "border-white/10 bg-black text-white/80 hover:border-[#5C0005]/60"
                       }`}
                     >
                       {s.title}
@@ -236,8 +236,8 @@ export default function ContactForm() {
             </div>
 
             {/* Step Summary Box */}
-            <div className="rounded-xl border border-black/10 bg-black/[0.02] p-4 font-body text-xs text-black/80">
-              <div className="mb-1 font-bold uppercase tracking-wider text-black">
+            <div className="rounded-xl border border-white/10 bg-black/[0.02] p-4 font-body text-xs text-white/80">
+              <div className="mb-1 font-bold uppercase tracking-wider text-white">
                 Event Overview
               </div>
               <div>
@@ -256,7 +256,7 @@ export default function ContactForm() {
               <button
                 type="button"
                 onClick={handleBack}
-                className="flex w-full sm:w-1/3 items-center justify-center gap-2 border border-black/25 bg-white px-6 py-4 font-body text-sm font-bold uppercase tracking-widest text-black/80 transition-all duration-300 hover:border-black/50 hover:bg-black/5 cursor-pointer"
+                className="flex w-full sm:w-1/3 items-center justify-center gap-2 border border-black/25 bg-black px-6 py-4 font-body text-sm font-bold uppercase tracking-widest text-white/80 transition-all duration-300 hover:border-black/50 hover:bg-black/5 cursor-pointer"
               >
                 <ArrowLeft className="h-4 w-4" />
                 <span>Back</span>

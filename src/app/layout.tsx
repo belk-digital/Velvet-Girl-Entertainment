@@ -69,7 +69,7 @@ export default function RootLayout({
       className={`${italiana.variable} ${inter.variable} h-full antialiased`}
     >
       <GoogleAnalytics />
-      <body className="min-h-full flex flex-col bg-[#FBFAF8] text-black" suppressHydrationWarning>
+      <body className="min-h-full flex flex-col bg-black text-white" suppressHydrationWarning>
         <SiteShell>{children}</SiteShell>
       </body>
 

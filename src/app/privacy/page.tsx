@@ -14,16 +14,16 @@ export const metadata: Metadata = {
   },
 };
 
-const h2 = "font-display text-2xl font-bold text-black";
-const h3 = "font-display text-lg font-bold text-black";
+const h2 = "font-display text-2xl font-bold text-white";
+const h3 = "font-display text-lg font-bold text-white";
 
 export default function PrivacyPage() {
   return (
     <>
       <PageHero eyebrow="LEGAL" title="Privacy Policy" />
-      <div className="px-6 py-20 sm:py-28 bg-white">
-        <div className="mx-auto max-w-3xl space-y-8 font-body text-base leading-relaxed text-black/80 font-normal">
-          <p className="text-black/40 text-sm font-semibold">
+      <div className="px-6 py-20 sm:py-28 bg-black">
+        <div className="mx-auto max-w-3xl space-y-8 font-body text-base leading-relaxed text-stone-300 font-normal">
+          <p className="text-stone-400 text-sm font-semibold">
             Velvet Girl Entertainment LLC d/b/a Velvet Girl Entertainment
             <br />
             inquiries@velvetgirlentertainment.com

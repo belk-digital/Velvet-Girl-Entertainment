@@ -223,7 +223,7 @@ export default function PerformersCarousel({
           type="button"
           aria-label="Previous performer"
           onClick={() => go(-1)}
-          className="hidden sm:flex absolute left-2 sm:left-6 top-1/2 z-[200] h-12 w-12 sm:h-14 sm:w-14 -translate-y-1/2 items-center justify-center rounded-full bg-white text-black shadow-xl border border-black/10 transition-transform hover:scale-110"
+          className="hidden sm:flex absolute left-2 sm:left-6 top-1/2 z-[200] h-12 w-12 sm:h-14 sm:w-14 -translate-y-1/2 items-center justify-center rounded-full bg-black text-white shadow-xl border border-white/10 transition-transform hover:scale-110"
         >
           <ChevronLeft className="h-6 w-6 sm:h-7 sm:w-7" />
         </button>
@@ -231,7 +231,7 @@ export default function PerformersCarousel({
           type="button"
           aria-label="Next performer"
           onClick={() => go(1)}
-          className="hidden sm:flex absolute right-2 sm:right-6 top-1/2 z-[200] h-12 w-12 sm:h-14 sm:w-14 -translate-y-1/2 items-center justify-center rounded-full bg-white text-black shadow-xl border border-black/10 transition-transform hover:scale-110"
+          className="hidden sm:flex absolute right-2 sm:right-6 top-1/2 z-[200] h-12 w-12 sm:h-14 sm:w-14 -translate-y-1/2 items-center justify-center rounded-full bg-black text-white shadow-xl border border-white/10 transition-transform hover:scale-110"
         >
           <ChevronRight className="h-6 w-6 sm:h-7 sm:w-7" />
         </button>

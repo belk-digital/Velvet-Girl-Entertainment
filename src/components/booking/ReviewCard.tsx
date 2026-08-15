@@ -123,7 +123,7 @@ export default function ReviewCard() {
           <div
             key={sec.label}
             onClick={() => goToStep(sec.step)}
-            className="group relative flex items-start gap-3 p-4 rounded-xl border border-black/10 bg-white/90 hover:border-[#5C0005]/40 hover:bg-[#5C0005]/[0.02] transition-all cursor-pointer shadow-sm"
+            className="group relative flex items-start gap-3 p-4 rounded-xl border border-white/10 bg-white/90 hover:border-[#5C0005]/40 hover:bg-[#5C0005]/[0.02] transition-all cursor-pointer shadow-sm"
           >
             <div className="p-2 rounded-lg bg-[#5C0005]/5 mt-0.5 shrink-0">
               {sec.icon}
@@ -132,7 +132,7 @@ export default function ReviewCard() {
               <span className="block font-body text-[11px] font-bold uppercase tracking-widest text-stone-400 mb-0.5">
                 {sec.label}
               </span>
-              <span className="block font-body text-sm font-semibold text-stone-800 break-words">
+              <span className="block font-body text-sm font-semibold text-white break-words">
                 {sec.value}
               </span>
             </div>

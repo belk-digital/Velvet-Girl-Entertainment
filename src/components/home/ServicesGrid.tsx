@@ -23,7 +23,7 @@ const imageMapping: Record<string, string> = {
 export default function ServicesGrid() {
   return (
     <Section
-      className="bg-white overflow-hidden"
+      className="bg-black overflow-hidden"
     >
       
       {/* Custom Left-Aligned Stacked Heading */}
@@ -33,14 +33,14 @@ export default function ServicesGrid() {
             OUR <br className="md:hidden" /> SERVICES
           </h2>
           <h2 
-            className="text-6xl sm:text-8xl md:text-[9rem] font-black uppercase text-black leading-[0.9] tracking-tighter absolute top-3 sm:top-5 md:top-6 left-0 z-20"
+            className="text-6xl sm:text-8xl md:text-[9rem] font-black uppercase text-transparent leading-[0.9] tracking-tighter absolute top-3 sm:top-5 md:top-6 left-0 z-20"
             style={{ WebkitTextStroke: '2px #5C0005' }}
             aria-hidden="true"
           >
             OUR <br className="md:hidden" /> SERVICES
           </h2>
           <h2 
-            className="text-6xl sm:text-8xl md:text-[9rem] font-black uppercase text-black leading-[0.9] tracking-tighter absolute top-6 sm:top-10 md:top-12 left-0 z-10"
+            className="text-6xl sm:text-8xl md:text-[9rem] font-black uppercase text-transparent leading-[0.9] tracking-tighter absolute top-6 sm:top-10 md:top-12 left-0 z-10"
             style={{ WebkitTextStroke: '2px #5C0005', opacity: 0.4 }}
             aria-hidden="true"
           >
@@ -170,7 +170,7 @@ export default function ServicesGrid() {
           font-weight: 900;
           line-height: 1.15;
           font-style: italic;
-          color: black;
+          color: white;
         }
         @keyframes marquee {
           0% { transform: translate3d(var(--move-initial), 0, 0); }
@@ -209,7 +209,7 @@ export default function ServicesGrid() {
       <div className="mt-4 text-center">
         <Link
           href="/services"
-          className="tracking-caps inline-flex items-center gap-2 border border-black/25 px-8 py-3.5 font-body text-xs font-semibold text-black/85 transition-colors duration-300 hover:border-[#5C0005] hover:text-[#5C0005]"
+          className="tracking-caps inline-flex items-center gap-2 border border-white/25 px-8 py-3.5 font-body text-xs font-semibold text-white/85 transition-colors duration-300 hover:border-white hover:text-white"
         >
           VIEW ALL SERVICES
         </Link>

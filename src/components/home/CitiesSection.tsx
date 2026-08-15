@@ -64,7 +64,7 @@ export default function CitiesSection({
   }, []);
 
   return (
-    <section className="w-full bg-[#5C0005] py-20 md:py-32 font-sans border-t border-black/10 overflow-hidden flex flex-col items-center">
+    <section className="w-full bg-[#5C0005] py-20 md:py-32 font-sans border-t border-white/10 overflow-hidden flex flex-col items-center">
       
       <div className="mb-12 md:mb-16 text-center px-4 relative z-10">
         <p
@@ -155,7 +155,7 @@ export default function CitiesSection({
       <div className="mt-12 md:mt-16 text-center z-10 relative">
         <Link
           href="/cities"
-          className="inline-flex items-center gap-2 border border-white/20 bg-white px-8 py-4 font-body text-sm font-semibold uppercase tracking-widest text-black transition-colors duration-300 hover:border-white hover:bg-white/90 shadow-lg"
+          className="inline-flex items-center gap-2 border border-white/20 bg-black px-8 py-4 font-body text-sm font-semibold uppercase tracking-widest text-white transition-colors duration-300 hover:border-white hover:bg-white/90 shadow-lg"
         >
           VIEW ALL CITIES
         </Link>

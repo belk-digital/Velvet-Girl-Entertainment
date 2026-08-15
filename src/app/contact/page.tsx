@@ -152,7 +152,7 @@ export default function ContactPage() {
 
       <Section eyebrow="HOW IT WORKS" title="The Booking Process">
         <HowToBookTimeline steps={bookingSteps} />
-        <p className="mt-8 text-center font-body text-sm text-stone-600 font-medium">
+        <p className="mt-8 text-center font-body text-sm text-stone-300 font-medium">
           Not sure which package fits your event? Browse our{" "}
           <Link href="/packages" className="font-bold text-[#5C0005] hover:underline">
             entertainment packages
@@ -161,13 +161,13 @@ export default function ContactPage() {
         </p>
       </Section>
 
-      <div className="px-6 py-20 sm:py-28 bg-[#FAF7F2]">
+      <div className="px-6 py-20 sm:py-28 bg-black">
         <div className="mx-auto grid max-w-7xl grid-cols-1 gap-10 lg:grid-cols-5">
           <Reveal className="lg:col-span-2">
             <div className="space-y-4">
               {infoItems.map(({ icon: Icon, label, value, href }) => {
                 const content = (
-                  <div className="flex items-start gap-4 border border-stone-200/80 rounded-xl bg-white p-6 shadow-sm hover:border-[#5C0005]/50 transition-colors duration-300">
+                  <div className="flex items-start gap-4 border border-white/10 rounded-xl bg-black p-6 shadow-sm hover:border-[#5C0005]/50 transition-colors duration-300">
                     <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[#5C0005]/10 text-[#5C0005]">
                       <Icon className="h-5 w-5" />
                     </span>
@@ -175,7 +175,7 @@ export default function ContactPage() {
                       <p className="tracking-widest font-body text-[11px] font-bold uppercase text-stone-400">
                         {label}
                       </p>
-                      <p className="mt-1 font-display text-base font-bold text-stone-900">
+                      <p className="mt-1 font-display text-base font-bold text-white">
                         {value}
                       </p>
                     </div>
@@ -193,11 +193,11 @@ export default function ContactPage() {
           </Reveal>
 
           <Reveal className="lg:col-span-3" delay={0.15}>
-            <div className="border border-stone-200/80 rounded-2xl bg-white p-8 sm:p-12 shadow-xl">
+            <div className="border border-white/10 rounded-2xl bg-black p-8 sm:p-12 shadow-xl">
               <h2 className="font-display text-2xl font-bold uppercase tracking-wider text-[#5C0005]">
                 Send a Booking Inquiry
               </h2>
-              <p className="mt-2 font-body text-sm text-stone-600 font-medium">
+              <p className="mt-2 font-body text-sm text-stone-300 font-medium">
                 Fill out the form and a booking specialist will follow up.
               </p>
               <div className="mt-8">
@@ -215,9 +215,9 @@ export default function ContactPage() {
         <div className="mx-auto max-w-3xl space-y-6">
           {faqs.map(({ question, answer }) => (
             <Reveal key={question}>
-              <div className="border border-stone-200/80 rounded-xl bg-white p-6 shadow-sm">
-                <h3 className="font-display text-lg font-bold text-stone-900">{question}</h3>
-                <p className="mt-2 font-body text-sm text-stone-600 font-medium leading-relaxed">
+              <div className="border border-white/10 rounded-xl bg-black p-6 shadow-sm">
+                <h3 className="font-display text-lg font-bold text-white">{question}</h3>
+                <p className="mt-2 font-body text-sm text-stone-300 font-medium leading-relaxed">
                   {answer}
                 </p>
               </div>

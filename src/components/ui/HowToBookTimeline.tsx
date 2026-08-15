@@ -122,7 +122,7 @@ export default function HowToBookTimeline({
   return (
     <div className={`relative overflow-hidden rounded-3xl border border-[#5C0005]/20 p-8 sm:p-12 lg:p-16 shadow-2xl ${className}`}>
       {/* Ambient Velvet Crimson & Ruby Spotlight Aurora Background (replacing gray and blue with red!) */}
-      <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden bg-[#FAF7F2]">
+      <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden bg-black">
         {/* Subtle top light wash */}
         <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-[#FAF7F2] via-[#FAF7F2]/80 to-transparent" />
 
@@ -167,7 +167,7 @@ export default function HowToBookTimeline({
                   />
 
                   {/* Circular Node Dot */}
-                  <div className="relative z-10 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-white border-[3px] border-[#5C0005] ring-4 ring-[#5C0005]/15 shadow-sm group-hover:scale-125 transition-transform duration-300" />
+                  <div className="relative z-10 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-black border-[3px] border-[#5C0005] ring-4 ring-[#5C0005]/15 shadow-sm group-hover:scale-125 transition-transform duration-300" />
 
                   {/* Right arrowhead terminating the roadmap */}
                   {isLast && (
@@ -177,7 +177,7 @@ export default function HowToBookTimeline({
 
                 {/* 3. Step Title, Subtitle, & Description */}
                 <div className="mt-5 pr-6 xl:pr-10">
-                  <h3 className="font-display text-xl font-bold uppercase tracking-wider text-stone-900 group-hover:text-[#5C0005] transition-colors duration-300">
+                  <h3 className="font-display text-xl font-bold uppercase tracking-wider text-white group-hover:text-[#5C0005] transition-colors duration-300">
                     {item.title}
                   </h3>
                   {item.subtitle && (
@@ -185,7 +185,7 @@ export default function HowToBookTimeline({
                       {item.subtitle}
                     </p>
                   )}
-                  <p className="mt-3 font-body text-sm xl:text-base text-stone-600 leading-relaxed font-medium">
+                  <p className="mt-3 font-body text-sm xl:text-base text-stone-300 leading-relaxed font-medium">
                     {item.description}
                   </p>
                 </div>
@@ -209,7 +209,7 @@ export default function HowToBookTimeline({
                 )}
 
                 {/* Circular Node Dot */}
-                <div className="relative z-10 mt-1 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-white border-[3px] border-[#5C0005] ring-4 ring-[#5C0005]/15 shadow-sm group-hover:scale-125 transition-transform duration-300" />
+                <div className="relative z-10 mt-1 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-black border-[3px] border-[#5C0005] ring-4 ring-[#5C0005]/15 shadow-sm group-hover:scale-125 transition-transform duration-300" />
 
                 {/* Right content column */}
                 <div className="flex-1 pb-2">
@@ -224,11 +224,11 @@ export default function HowToBookTimeline({
                     )}
                   </div>
 
-                  <h3 className="mt-3 font-display text-lg sm:text-xl font-bold uppercase tracking-wider text-stone-900 group-hover:text-[#5C0005] transition-colors duration-300">
+                  <h3 className="mt-3 font-display text-lg sm:text-xl font-bold uppercase tracking-wider text-white group-hover:text-[#5C0005] transition-colors duration-300">
                     {item.title}
                   </h3>
 
-                  <p className="mt-2 font-body text-sm sm:text-base text-stone-600 leading-relaxed font-medium">
+                  <p className="mt-2 font-body text-sm sm:text-base text-stone-300 leading-relaxed font-medium">
                     {item.description}
                   </p>
                 </div>

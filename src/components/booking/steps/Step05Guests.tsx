@@ -13,7 +13,7 @@ export default function Step05Guests() {
   return (
     <StepLayout stepKey={5} title="How many guests are coming?">
       <div className="flex flex-col items-center justify-center my-6">
-        <div className="mb-4 text-stone-500">
+        <div className="mb-4 text-stone-400">
           <Users className="w-8 h-8" />
         </div>
 

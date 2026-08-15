@@ -25,11 +25,11 @@ export default function FormWizardHeader({
           <span className="inline-flex h-6 items-center justify-center rounded-full bg-[#5C0005] px-2.5 font-body text-[10px] font-bold uppercase tracking-wider text-white shadow-sm">
             Step {currentStep} of {steps.length}
           </span>
-          <h4 className="font-display text-sm sm:text-base font-bold text-black tracking-wide">
+          <h4 className="font-display text-sm sm:text-base font-bold text-white tracking-wide">
             {steps[currentStep - 1]}
           </h4>
         </div>
-        <span className="font-body text-xs font-semibold uppercase tracking-wider text-black/50">
+        <span className="font-body text-xs font-semibold uppercase tracking-wider text-white/50">
           {Math.round(progressPercentage)}% Complete
         </span>
       </div>
@@ -60,8 +60,8 @@ export default function FormWizardHeader({
                 isCurrent
                   ? "border-[#5C0005] bg-[#5C0005]/5 shadow-sm"
                   : isCompleted
-                  ? "border-black/15 bg-white hover:border-[#5C0005]/40 cursor-pointer"
-                  : "border-black/10 bg-black/[0.02] opacity-60 cursor-not-allowed"
+                  ? "border-white/10 bg-black hover:border-[#5C0005]/40 cursor-pointer"
+                  : "border-white/10 bg-black/[0.02] opacity-60 cursor-not-allowed"
               }`}
             >
               <span
@@ -70,7 +70,7 @@ export default function FormWizardHeader({
                     ? "bg-[#5C0005] text-white group-hover:scale-105"
                     : isCurrent
                     ? "border-2 border-[#5C0005] bg-white text-[#5C0005]"
-                    : "border border-black/25 bg-white text-black/50"
+                    : "border border-black/25 bg-black text-white/50"
                 }`}
               >
                 {isCompleted ? (
@@ -82,10 +82,10 @@ export default function FormWizardHeader({
               <span
                 className={`truncate font-body text-xs uppercase tracking-wider ${
                   isCurrent
-                    ? "font-bold text-black"
+                    ? "font-bold text-white"
                     : isCompleted
-                    ? "font-semibold text-black/80"
-                    : "font-medium text-black/50"
+                    ? "font-semibold text-white/80"
+                    : "font-medium text-white/50"
                 }`}
               >
                 {stepTitle}

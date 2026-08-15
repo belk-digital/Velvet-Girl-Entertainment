@@ -689,8 +689,8 @@ export default function MultiLevelDrawerMenu({ primaries, onOpenChange, scrolled
     <>
       <button
         ref={toggleRef}
-        className="mldm_toggle"
-        style={{ color: scrolled || isOpen ? undefined : "#ffffff" }}
+        className="mldm_toggle text-white"
+        style={{ color: "#ffffff" }}
         aria-expanded={isOpen}
         aria-controls="mldm_overlay"
         aria-label="Open navigation menu"

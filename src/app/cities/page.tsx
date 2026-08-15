@@ -106,12 +106,12 @@ export default function CitiesIndexPage() {
         bgImage="/gallery images/MYRTLE BEACH.webp"
       />
 
-      <div className="px-6 pt-12 bg-[#FAF7F2]">
+      <div className="px-6 pt-12 bg-black">
         <Reveal className="mx-auto flex max-w-3xl items-start gap-4 border border-[#5C0005]/30 bg-[#5C0005]/5 p-6 text-left shadow-sm">
           <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#5C0005] text-white">
             <ShieldCheck className="h-5 w-5" />
           </div>
-          <p className="font-body text-sm sm:text-base leading-relaxed text-black/85 font-medium">
+          <p className="font-body text-sm sm:text-base leading-relaxed text-stone-300 font-medium">
             We&rsquo;re one of the only booking agencies that posts{" "}
             <span className="text-[#5C0005] font-bold">real, unedited photos</span> of
             our dancers on every city page. No bait-and-switch — you know
@@ -120,12 +120,12 @@ export default function CitiesIndexPage() {
         </Reveal>
       </div>
 
-      <div className="px-6 py-20 sm:py-28 bg-[#FAF7F2]">
+      <div className="px-6 py-20 sm:py-28 bg-black">
         <div className="mx-auto max-w-7xl space-y-16">
           {stateGroups.map((group, gi) => (
             <Reveal key={group.slug} delay={(gi % 4) * 0.06}>
-              <div className="border-b border-black/10 pb-4 mb-6">
-                <h2 className="font-display text-3xl sm:text-4xl font-bold text-black uppercase tracking-tight">
+              <div className="border-b border-white/10 pb-4 mb-6">
+                <h2 className="font-display text-3xl sm:text-4xl font-bold text-white uppercase tracking-tight">
                   {group.name}
                 </h2>
               </div>
@@ -134,7 +134,7 @@ export default function CitiesIndexPage() {
                   <Link
                     key={city.slug}
                     href={`/cities/${city.stateSlug}/${city.slug}`}
-                    className="group flex items-center justify-between border border-black/15 bg-white px-6 py-5 font-body text-base font-bold text-black transition-all duration-300 hover:border-[#5C0005] hover:bg-[#5C0005] hover:text-white hover:shadow-md"
+                    className="group flex items-center justify-between border border-white/10 bg-black px-6 py-5 font-body text-base font-bold text-white transition-all duration-300 hover:border-[#5C0005] hover:bg-[#5C0005] hover:text-white hover:shadow-md"
                   >
                     <div className="flex items-center gap-3">
                       <MapPin className="h-5 w-5 shrink-0 text-[#5C0005] group-hover:text-white transition-colors" />
@@ -177,7 +177,7 @@ export default function CitiesIndexPage() {
 
           {/* Destination Showcase Photo Grid (.webp) */}
           <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 gap-6 pt-6 text-left">
-            <div className="relative overflow-hidden rounded-2xl shadow-xl border border-stone-200/80 aspect-[16/10] group">
+            <div className="relative overflow-hidden rounded-2xl shadow-xl border border-white/10 aspect-[16/10] group">
               <Image
                 src={encodeURI("/gallery images/BEACH DAY PACKAGE OR BEACH CITY PAGE.webp")}
                 alt="Beach Day VIP Destination Package"
@@ -190,7 +190,7 @@ export default function CitiesIndexPage() {
                 Beach House &amp; Coastal Getaways
               </p>
             </div>
-            <div className="relative overflow-hidden rounded-2xl shadow-xl border border-stone-200/80 aspect-[16/10] group">
+            <div className="relative overflow-hidden rounded-2xl shadow-xl border border-white/10 aspect-[16/10] group">
               <Image
                 src={encodeURI("/gallery images/BOAT_ POOL PARTY_.webp")}
                 alt="Boat and Pool Party Destinations"
@@ -211,9 +211,9 @@ export default function CitiesIndexPage() {
         <div className="mx-auto max-w-3xl space-y-6">
           {faqs.map(({ question, answer }) => (
             <Reveal key={question}>
-              <div className="border border-stone-200/80 rounded-xl bg-white p-6 shadow-sm">
-                <h3 className="font-display text-lg font-bold text-stone-900">{question}</h3>
-                <p className="mt-2 font-body text-sm text-stone-600 font-medium leading-relaxed">
+              <div className="border border-white/10 rounded-xl bg-black p-6 shadow-sm">
+                <h3 className="font-display text-lg font-bold text-white">{question}</h3>
+                <p className="mt-2 font-body text-sm text-stone-300 font-medium leading-relaxed">
                   {answer}
                 </p>
               </div>

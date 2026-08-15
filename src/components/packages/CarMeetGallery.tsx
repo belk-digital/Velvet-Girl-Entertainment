@@ -148,7 +148,7 @@ export default function CarMeetGallery() {
   }, { scope: container });
 
   return (
-    <section ref={container} className="w-full bg-[#FAF7F2] py-16 lg:py-24">
+    <section ref={container} className="w-full bg-black py-16 lg:py-24">
       <div className="max-w-[120rem] mx-auto px-4 sm:px-6 lg:px-12">
         {/* Header */}
         <div ref={headerRef} className="mb-10 lg:mb-16 flex flex-col md:flex-row justify-between items-start md:items-end gap-6">
@@ -159,12 +159,12 @@ export default function CarMeetGallery() {
                 GALLERY
               </p>
             </div>
-            <h2 className="font-display text-4xl sm:text-5xl md:text-6xl text-stone-900 uppercase tracking-wide">
+            <h2 className="font-display text-4xl sm:text-5xl md:text-6xl text-white uppercase tracking-wide">
               MOMENTS CAPTURED
             </h2>
           </div>
           <div className="max-w-xs md:text-right hidden sm:block">
-            <p className="text-stone-500 text-[10px] md:text-xs font-bold tracking-wider uppercase leading-relaxed">
+            <p className="text-stone-400 text-[10px] md:text-xs font-bold tracking-wider uppercase leading-relaxed">
               Explore the highlights and best moments from our car & bike meet events.
             </p>
           </div>

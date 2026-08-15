@@ -113,12 +113,12 @@ export default async function BlogPostPage({ params }: Props) {
         bgImage={bgImg}
       />
 
-      <div className="px-6 py-20 sm:py-28 bg-[#FAF7F2]">
-        <Reveal className="mx-auto max-w-3xl space-y-12 bg-white p-8 sm:p-12 rounded-2xl border border-stone-200/80 shadow-xl">
+      <div className="px-6 py-20 sm:py-28 bg-black">
+        <Reveal className="mx-auto max-w-3xl space-y-12 bg-black p-8 sm:p-12 rounded-2xl border border-white/10 shadow-xl">
           {post.sections.map((section, i) => (
             <div key={i} className="space-y-6">
               {section.heading && (
-                <h2 className="font-display text-2xl sm:text-3xl font-bold text-stone-900 border-l-4 border-[#5C0005] pl-5 py-1 uppercase tracking-wide">
+                <h2 className="font-display text-2xl sm:text-3xl font-bold text-white border-l-4 border-[#5C0005] pl-5 py-1 uppercase tracking-wide">
                   {section.heading}
                 </h2>
               )}
@@ -126,7 +126,7 @@ export default async function BlogPostPage({ params }: Props) {
                 {section.body.map((paragraph, j) => (
                   <p
                     key={j}
-                    className="font-body text-base sm:text-lg leading-relaxed text-stone-700 font-normal"
+                    className="font-body text-base sm:text-lg leading-relaxed text-stone-300 font-normal"
                   >
                     {paragraph}
                   </p>

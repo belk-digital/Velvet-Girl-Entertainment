@@ -32,7 +32,7 @@ function YesNo({
           className={`flex-1 cursor-pointer border px-4 py-3 text-center font-body text-xs uppercase tracking-wider transition-all duration-300 rounded-xl ${
             value === opt
               ? "border-[#5C0005] bg-[#5C0005] text-white font-bold shadow-sm"
-              : "border-black/20 bg-white text-black/80 hover:border-[#5C0005] font-semibold"
+              : "border-white/10 bg-black text-white/80 hover:border-[#5C0005] font-semibold"
           }`}
         >
           <input
@@ -71,7 +71,7 @@ function FileField({
       </label>
       <label
         htmlFor={id}
-        className="flex cursor-pointer items-center gap-3 border border-dashed border-black/25 bg-white px-4 py-4 font-body text-xs text-black/70 transition-colors hover:border-[#5C0005] rounded-xl"
+        className="flex cursor-pointer items-center gap-3 border border-dashed border-black/25 bg-black px-4 py-4 font-body text-xs text-white/70 transition-colors hover:border-[#5C0005] rounded-xl"
       >
         <Upload className="h-4 w-4 shrink-0 text-[#5C0005]" />
         <span className="flex-1 truncate font-medium">{fileName || hint}</span>
@@ -203,10 +203,10 @@ export default function ApplicationForm() {
     return (
       <div className="border border-[#5C0005]/30 bg-[#5C0005]/5 p-8 text-center animate-in fade-in duration-500 rounded-2xl">
         <CheckCircle2 className="mx-auto h-12 w-12 text-[#5C0005]" />
-        <h3 className="mt-4 font-display text-2xl font-bold text-black">
+        <h3 className="mt-4 font-display text-2xl font-bold text-white">
           Application received.
         </h3>
-        <p className="mt-2 font-body text-sm text-black/70 font-medium">
+        <p className="mt-2 font-body text-sm text-white/70 font-medium">
           Our team reviews every application and will reach out if it looks
           like a fit.
         </p>
@@ -368,7 +368,7 @@ export default function ApplicationForm() {
                 />
               </div>
             </div>
-            <p className="-mt-3 font-body text-[11px] text-black/60 font-medium">
+            <p className="-mt-3 font-body text-[11px] text-white/60 font-medium">
               All body types are welcome — this just helps us match you with your ideal clients.
             </p>
 
@@ -475,7 +475,7 @@ export default function ApplicationForm() {
               <button
                 type="button"
                 onClick={() => handleBack(1)}
-                className="flex w-full sm:w-1/3 items-center justify-center gap-2 border border-black/25 bg-white px-6 py-4 font-body text-sm font-bold uppercase tracking-widest text-black/80 transition-all duration-300 hover:border-black/50 hover:bg-black/5 cursor-pointer rounded-xl"
+                className="flex w-full sm:w-1/3 items-center justify-center gap-2 border border-black/25 bg-black px-6 py-4 font-body text-sm font-bold uppercase tracking-widest text-white/80 transition-all duration-300 hover:border-black/50 hover:bg-black/5 cursor-pointer rounded-xl"
               >
                 <ArrowLeft className="h-4 w-4" />
                 <span>Back</span>
@@ -510,7 +510,7 @@ export default function ApplicationForm() {
                       className={`border px-4 py-2.5 font-body text-xs font-bold uppercase tracking-wider transition-all duration-300 rounded-xl ${
                         active
                           ? "border-[#5C0005] bg-[#5C0005] text-white shadow-sm"
-                          : "border-black/20 bg-white text-black/80 hover:border-[#5C0005]"
+                          : "border-white/10 bg-black text-white/80 hover:border-[#5C0005]"
                       }`}
                     >
                       {d}
@@ -533,7 +533,7 @@ export default function ApplicationForm() {
                       className={`border px-4 py-2.5 font-body text-xs font-bold uppercase tracking-wider transition-all duration-300 rounded-xl ${
                         active
                           ? "border-[#5C0005] bg-[#5C0005] text-white shadow-sm"
-                          : "border-black/20 bg-white text-black/80 hover:border-[#5C0005]"
+                          : "border-white/10 bg-black text-white/80 hover:border-[#5C0005]"
                       }`}
                     >
                       {t}
@@ -578,7 +578,7 @@ export default function ApplicationForm() {
               <button
                 type="button"
                 onClick={() => handleBack(2)}
-                className="flex w-full sm:w-1/3 items-center justify-center gap-2 border border-black/25 bg-white px-6 py-4 font-body text-sm font-bold uppercase tracking-widest text-black/80 transition-all duration-300 hover:border-black/50 hover:bg-black/5 cursor-pointer rounded-xl"
+                className="flex w-full sm:w-1/3 items-center justify-center gap-2 border border-black/25 bg-black px-6 py-4 font-body text-sm font-bold uppercase tracking-widest text-white/80 transition-all duration-300 hover:border-black/50 hover:bg-black/5 cursor-pointer rounded-xl"
               >
                 <ArrowLeft className="h-4 w-4" />
                 <span>Back</span>

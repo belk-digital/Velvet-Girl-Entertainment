@@ -23,17 +23,17 @@ export default function PerformerMediaTabs({ name, images, videos = [] }: Perfor
 
   return (
     <div className="mt-16 md:mt-24">
-      <div className="flex mb-6 rounded-md overflow-hidden border border-stone-200 shadow-sm">
+      <div className="flex mb-6 rounded-md overflow-hidden border border-white/10 shadow-sm">
         <button 
           onClick={() => setActiveTab("images")}
-          className={`flex-1 flex items-center justify-center gap-2 py-4 font-bold text-sm tracking-widest transition-colors ${activeTab === "images" ? "bg-[#5C0005] text-white" : "bg-white text-stone-900 hover:bg-stone-50"}`}
+          className={`flex-1 flex items-center justify-center gap-2 py-4 font-bold text-sm tracking-widest transition-colors ${activeTab === "images" ? "bg-[#5C0005] text-white" : "bg-black text-white hover:bg-black"}`}
         >
           <ImageIcon className="w-4 h-4" />
           IMAGES
         </button>
         <button 
           onClick={() => setActiveTab("videos")}
-          className={`flex-1 flex items-center justify-center gap-2 py-4 font-bold text-sm tracking-widest transition-colors border-l border-stone-200 ${activeTab === "videos" ? "bg-[#5C0005] text-white" : "bg-white text-stone-900 hover:bg-stone-50"}`}
+          className={`flex-1 flex items-center justify-center gap-2 py-4 font-bold text-sm tracking-widest transition-colors border-l border-white/10 ${activeTab === "videos" ? "bg-[#5C0005] text-white" : "bg-black text-white hover:bg-black"}`}
         >
           <PlayCircle className="w-4 h-4" />
           VIDEOS
@@ -47,7 +47,7 @@ export default function PerformerMediaTabs({ name, images, videos = [] }: Perfor
               {images.map((src, idx) => (
                 <div 
                   key={idx} 
-                  className="relative aspect-[4/5] rounded-xl overflow-hidden bg-stone-100 shadow-sm group cursor-pointer"
+                  className="relative aspect-[4/5] rounded-xl overflow-hidden bg-[#111] shadow-sm group cursor-pointer"
                   onClick={() => openLightbox(idx)}
                 >
                   <Image
@@ -61,7 +61,7 @@ export default function PerformerMediaTabs({ name, images, videos = [] }: Perfor
               ))}
             </div>
           ) : (
-            <div className="flex flex-col items-center justify-center h-64 bg-white rounded-xl border border-stone-200 text-stone-500 animate-in fade-in duration-300">
+            <div className="flex flex-col items-center justify-center h-64 bg-black rounded-xl border border-white/10 text-stone-400 animate-in fade-in duration-300">
               <ImageOff className="w-12 h-12 mb-4 opacity-50" />
               <p className="font-semibold text-lg">No photos available</p>
               <p className="text-sm">There are no photos available for this performer yet.</p>
@@ -79,7 +79,7 @@ export default function PerformerMediaTabs({ name, images, videos = [] }: Perfor
               ))}
             </div>
           ) : (
-            <div className="flex flex-col items-center justify-center h-64 bg-white rounded-xl border border-stone-200 text-stone-500 animate-in fade-in duration-300">
+            <div className="flex flex-col items-center justify-center h-64 bg-black rounded-xl border border-white/10 text-stone-400 animate-in fade-in duration-300">
               <VideoOff className="w-12 h-12 mb-4 opacity-50" />
               <p className="font-semibold text-lg">No videos available</p>
               <p className="text-sm">There are no videos available for this performer yet.</p>

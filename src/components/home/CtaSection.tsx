@@ -80,7 +80,7 @@ export default function CtaSection({
   return (
     <section
       ref={sectionRef}
-      className="relative overflow-hidden bg-[#FBFAF8] border-t border-b border-stone-100 pt-6 sm:pt-8 lg:pt-10 pb-12 sm:pb-16 lg:pb-20 font-sans"
+      className="relative overflow-hidden bg-black border-t border-b border-white/10 pt-6 sm:pt-8 lg:pt-10 pb-12 sm:pb-16 lg:pb-20 font-sans"
     >
       <div className="w-full relative mx-auto max-w-[120rem] px-5 sm:px-6 lg:px-12 py-2 sm:py-4">
         <Reveal>
@@ -90,7 +90,7 @@ export default function CtaSection({
             <div className="md:col-span-6 xl:col-span-6 z-30 relative py-2 md:pr-8 lg:pr-12">
               <h2
                 ref={headingRef}
-                className="font-sans font-bold text-[26px] sm:text-3xl md:text-4xl lg:text-[38px] xl:text-[42px] text-stone-900 tracking-tight leading-[1.2]"
+                className="font-sans font-bold text-[26px] sm:text-3xl md:text-4xl lg:text-[38px] xl:text-[42px] text-white tracking-tight leading-[1.2]"
               >
                 Ready to Plan <br />
                 <span className="font-script font-normal text-[#5C0005] text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-none block sm:inline my-1">
@@ -105,7 +105,7 @@ export default function CtaSection({
                 data-cms-section={sectionId ?? undefined}
                 data-cms-type="cta"
                 data-cms-field="subtitle"
-                className="mt-4 text-stone-800 text-base sm:text-lg lg:text-[18px] max-w-sm leading-relaxed font-normal"
+                className="mt-4 text-stone-300 text-base sm:text-lg lg:text-[18px] max-w-sm leading-relaxed font-normal"
               >
                 {subtitle}
               </p>
@@ -119,10 +119,10 @@ export default function CtaSection({
                   BOOK ONLINE
                 </Link>
                 <div className="text-left space-y-0.5 mt-0.5">
-                  <p className="text-xs sm:text-sm text-stone-700 font-normal">
+                  <p className="text-xs sm:text-sm text-stone-300 font-normal">
                     Our team is ready to help you create
                   </p>
-                  <p className="font-normal text-stone-900 tracking-wide text-xs sm:text-sm uppercase">
+                  <p className="font-normal text-white tracking-wide text-xs sm:text-sm uppercase">
                     MEMORIES • MOMENTS
                   </p>
                 </div>

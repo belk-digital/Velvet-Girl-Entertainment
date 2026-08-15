@@ -138,11 +138,11 @@ export default function JoinTeamPage() {
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-5">
           {benefits.map(({ icon: Icon, title }, i) => (
             <Reveal key={title} delay={i * 0.08}>
-              <div className="h-full border border-stone-200/80 rounded-xl bg-white p-8 text-center shadow-sm hover:border-[#5C0005]/50 hover:shadow-md transition-all">
+              <div className="h-full border border-white/10 rounded-xl bg-black p-8 text-center shadow-sm hover:border-[#5C0005]/50 hover:shadow-md transition-all">
                 <span className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-[#5C0005]/10 text-[#5C0005]">
                   <Icon className="h-6 w-6" strokeWidth={1.75} />
                 </span>
-                <h3 className="mt-5 font-display text-lg font-bold text-stone-900">
+                <h3 className="mt-5 font-display text-lg font-bold text-white">
                   {title}
                 </h3>
               </div>
@@ -152,7 +152,7 @@ export default function JoinTeamPage() {
 
         {/* Performer Spotlight Showcase (.webp) */}
         <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 gap-6 pt-6 text-left">
-          <div className="relative overflow-hidden rounded-2xl shadow-xl border border-stone-200/80 aspect-[16/10] group">
+          <div className="relative overflow-hidden rounded-2xl shadow-xl border border-white/10 aspect-[16/10] group">
             <Image
               src={encodeURI("/gallery images/LOTUS.webp")}
               alt="Performer Spotlight 1"
@@ -165,7 +165,7 @@ export default function JoinTeamPage() {
               Nationwide VIP Bookings &amp; Professional Concierge Support
             </p>
           </div>
-          <div className="relative overflow-hidden rounded-2xl shadow-xl border border-stone-200/80 aspect-[16/10] group">
+          <div className="relative overflow-hidden rounded-2xl shadow-xl border border-white/10 aspect-[16/10] group">
             <Image
               src={encodeURI("/gallery images/DIOR.webp")}
               alt="Performer Spotlight 2"
@@ -185,17 +185,17 @@ export default function JoinTeamPage() {
         <HowToBookTimeline steps={steps} />
       </Section>
 
-      <div className="border-t border-stone-200/80 bg-[#FAF7F2] px-6 py-20 sm:py-28">
+      <div className="border-t border-white/10 bg-black px-6 py-20 sm:py-28">
         <Reveal className="mx-auto max-w-3xl">
           <div className="text-center">
             <p className="tracking-caps mb-3 font-body text-xs font-bold uppercase text-[#5C0005]">
               APPLICATION
             </p>
-            <h2 className="font-display text-3xl font-bold uppercase tracking-wider text-[#5C0005] sm:text-4xl">
+            <h2 className="font-display text-3xl font-bold uppercase tracking-wider text-white sm:text-4xl">
               Apply to join
             </h2>
           </div>
-          <div className="mt-10 border border-stone-200/80 rounded-2xl bg-white p-8 sm:p-12 shadow-xl">
+          <div className="mt-10 border border-white/10 rounded-2xl bg-black p-8 sm:p-12 shadow-xl">
             <ApplicationForm />
           </div>
         </Reveal>
@@ -205,9 +205,9 @@ export default function JoinTeamPage() {
         <div className="mx-auto max-w-3xl space-y-6">
           {faqs.map(({ question, answer }) => (
             <Reveal key={question}>
-              <div className="border border-stone-200/80 rounded-xl bg-white p-6 shadow-sm">
-                <h3 className="font-display text-lg font-bold text-stone-900">{question}</h3>
-                <p className="mt-2 font-body text-sm text-stone-600 font-medium leading-relaxed">
+              <div className="border border-white/10 rounded-xl bg-black p-6 shadow-sm">
+                <h3 className="font-display text-lg font-bold text-white">{question}</h3>
+                <p className="mt-2 font-body text-sm text-stone-300 font-medium leading-relaxed">
                   {answer}
                 </p>
               </div>

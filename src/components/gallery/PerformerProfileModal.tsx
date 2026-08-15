@@ -57,7 +57,7 @@ export default function PerformerProfileModal({
       onClick={onClose}
     >
       <div
-        className="relative max-w-4xl w-full bg-white rounded-3xl shadow-2xl overflow-hidden border border-stone-200 grid grid-cols-1 md:grid-cols-12 max-h-[90vh] md:max-h-[85vh] animate-in zoom-in-95 duration-300"
+        className="relative max-w-4xl w-full bg-black rounded-3xl shadow-2xl overflow-hidden border border-white/10 grid grid-cols-1 md:grid-cols-12 max-h-[90vh] md:max-h-[85vh] animate-in zoom-in-95 duration-300"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Close Button */}
@@ -82,7 +82,7 @@ export default function PerformerProfileModal({
           {/* Top Left Badges */}
           <div className="absolute top-4 left-4 flex flex-col gap-2 items-start z-10">
             {performer.availableTonight && (
-              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/85 backdrop-blur-md text-[11px] font-bold uppercase tracking-wider text-stone-900 shadow-sm border border-white/60">
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/85 backdrop-blur-md text-[11px] font-bold uppercase tracking-wider text-white shadow-sm border border-white/60">
                 <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
                 Available Tonight
               </span>
@@ -113,7 +113,7 @@ export default function PerformerProfileModal({
                   {performer.name}
                 </h2>
               </div>
-              <p className="mt-1 font-body text-xs font-bold uppercase tracking-widest text-stone-500 flex items-center gap-1">
+              <p className="mt-1 font-body text-xs font-bold uppercase tracking-widest text-stone-400 flex items-center gap-1">
                 <MapPin className="w-3.5 h-3.5 text-[#5C0005]" />
                 {performer.location || performer.city || "United States"}
               </p>
@@ -121,26 +121,26 @@ export default function PerformerProfileModal({
 
             {/* Mobile Header info */}
             <div className="md:hidden mb-4">
-              <p className="font-body text-xs font-bold uppercase tracking-widest text-stone-500 flex items-center gap-1">
+              <p className="font-body text-xs font-bold uppercase tracking-widest text-stone-400 flex items-center gap-1">
                 <MapPin className="w-3.5 h-3.5 text-[#5C0005]" />
                 {performer.location || performer.city || "United States"}
               </p>
             </div>
 
             {/* Ratings & Reviews Pill */}
-            <div className="mt-4 inline-flex items-center gap-2 bg-stone-50 px-4 py-2 rounded-xl border border-stone-200/80 text-xs font-bold text-stone-800">
+            <div className="mt-4 inline-flex items-center gap-2 bg-black px-4 py-2 rounded-xl border border-white/10 text-xs font-bold text-white">
               <span className="flex items-center gap-1 text-amber-500">
                 <Star className="w-4 h-4 fill-amber-500" />
-                <span className="text-stone-900 font-black">
+                <span className="text-white font-black">
                   {displayRating}
                 </span>
               </span>
               <span className="text-stone-300">|</span>
-              <span className="text-stone-600">
+              <span className="text-stone-300">
                 {displayReviewsCount} Verified Client Reviews
               </span>
               <span className="text-stone-300">|</span>
-              <span className="text-stone-600 uppercase">
+              <span className="text-stone-300 uppercase">
                 {performer.eventsCount || "100+ EVENTS"}
               </span>
             </div>
@@ -155,13 +155,13 @@ export default function PerformerProfileModal({
                   {performer.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-stone-100 text-stone-700 capitalize border border-stone-200/60"
+                      className="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-[#111] text-stone-300 capitalize border border-white/10/60"
                     >
                       {tag}
                     </span>
                   ))}
                   {performer.hairColor && (
-                    <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-stone-100 text-stone-700 border border-stone-200/60">
+                    <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-[#111] text-stone-300 border border-white/10/60">
                       {performer.hairColor} Hair
                     </span>
                   )}
@@ -186,7 +186,7 @@ export default function PerformerProfileModal({
                 ).map((service, idx) => (
                   <div
                     key={idx}
-                    className="flex items-center gap-2 text-xs font-medium text-stone-700 bg-stone-50 px-3 py-2 rounded-lg border border-stone-150"
+                    className="flex items-center gap-2 text-xs font-medium text-stone-300 bg-black px-3 py-2 rounded-lg border border-stone-150"
                   >
                     <div className="w-1.5 h-1.5 rounded-full bg-[#5C0005] flex-shrink-0" />
                     <span className="truncate">{service}</span>
@@ -196,7 +196,7 @@ export default function PerformerProfileModal({
             </div>
 
             {/* Tagline or quote */}
-            <div className="mt-6 p-4 rounded-2xl bg-stone-50 border border-stone-200/60 text-stone-600 text-xs leading-relaxed italic">
+            <div className="mt-6 p-4 rounded-2xl bg-black border border-white/10/60 text-stone-300 text-xs leading-relaxed italic">
               &ldquo;
               {performer.tagline ||
                 `Real women. Real photos. Real experience. Book ${performer.name} for an unforgettable VIP gathering in ${
@@ -207,7 +207,7 @@ export default function PerformerProfileModal({
           </div>
 
           {/* Action Footer - Stacked full-width buttons to prevent text wrapping and squished ovals */}
-          <div className="mt-8 pt-6 border-t border-stone-200/80 flex flex-col gap-2.5 w-full">
+          <div className="mt-8 pt-6 border-t border-white/10 flex flex-col gap-2.5 w-full">
             <a
               href="tel:8439387377"
               className="w-full inline-flex items-center justify-center gap-2.5 bg-[#5C0005] hover:bg-[#5c0911] text-white px-6 py-3.5 rounded-full text-xs sm:text-sm font-bold uppercase tracking-wider transition-all duration-300 shadow-md hover:shadow-lg hover:scale-[1.01] whitespace-nowrap"
@@ -225,7 +225,7 @@ export default function PerformerProfileModal({
             <Link
               href={`/book-now?performer=${performer.slug || performer.id}`}
               onClick={onClose}
-              className="w-full inline-flex items-center justify-center gap-2.5 border border-stone-300 bg-white hover:bg-stone-50 text-stone-800 px-6 py-3.5 rounded-full text-xs sm:text-sm font-bold uppercase tracking-wider transition-all duration-300 shadow-sm hover:shadow-md hover:scale-[1.01] whitespace-nowrap"
+              className="w-full inline-flex items-center justify-center gap-2.5 border border-white/10 bg-black hover:bg-black text-white px-6 py-3.5 rounded-full text-xs sm:text-sm font-bold uppercase tracking-wider transition-all duration-300 shadow-sm hover:shadow-md hover:scale-[1.01] whitespace-nowrap"
             >
               <span>BOOK ONLINE FORM</span>
             </Link>

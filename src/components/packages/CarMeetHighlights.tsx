@@ -146,7 +146,7 @@ export default function CarMeetHighlights() {
               </div>
               <h3 className="mb-1 font-bold text-[10px] uppercase leading-tight tracking-wider text-white sm:text-xs lg:text-[15px]">{feat.title}</h3>
               <p className="px-1 text-[9px] leading-tight text-white/80 sm:text-[11px] lg:text-[13px]">{feat.desc}</p>
-              <div className="mt-3 h-[2px] w-8 bg-white/40 transition-all duration-300 group-hover:w-10 group-hover:bg-white"></div>
+              <div className="mt-3 h-[2px] w-8 bg-white/40 transition-all duration-300 group-hover:w-10 group-hover:bg-black"></div>
             </div>
           ))}
         </div>

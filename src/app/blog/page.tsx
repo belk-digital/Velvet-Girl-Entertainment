@@ -52,7 +52,7 @@ export default function BlogIndexPage() {
         subtitle="Bachelor party planning guides, city guides, and everything else you need to plan an unforgettable celebration."
         bgImage="/gallery images/BREAKFAST WITH BABES.webp"
       />
-      <div className="px-6 py-20 sm:py-28 bg-[#FAF7F2]">
+      <div className="px-6 py-20 sm:py-28 bg-black">
         <div className="mx-auto grid max-w-6xl grid-cols-1 gap-8 sm:grid-cols-2">
           {blogPosts.map((post, i) => {
             const imgUrl = blogImages[post.slug] || "/gallery images/Velvet girl.webp";
@@ -60,7 +60,7 @@ export default function BlogIndexPage() {
               <Reveal key={post.slug} delay={(i % 2) * 0.1}>
                 <Link
                   href={`/blog/${post.slug}`}
-                  className="group flex h-full flex-col justify-between overflow-hidden rounded-2xl border border-stone-200/80 bg-white transition-all duration-500 hover:border-[#5C0005]/60 hover:shadow-2xl transform hover:-translate-y-1"
+                  className="group flex h-full flex-col justify-between overflow-hidden rounded-2xl border border-white/10 bg-black transition-all duration-500 hover:border-[#5C0005]/60 hover:shadow-2xl transform hover:-translate-y-1"
                 >
                   <div>
                     <div className="relative aspect-[16/9] w-full overflow-hidden bg-stone-900">
@@ -80,15 +80,15 @@ export default function BlogIndexPage() {
                       </div>
                     </div>
                     <div className="p-8">
-                      <h2 className="font-display text-xl font-bold uppercase tracking-wide text-stone-900 group-hover:text-[#5C0005] transition-colors">
+                      <h2 className="font-display text-xl font-bold uppercase tracking-wide text-white group-hover:text-[#5C0005] transition-colors">
                         {post.title}
                       </h2>
-                      <p className="mt-3 font-body text-sm text-stone-600 leading-relaxed font-medium">
+                      <p className="mt-3 font-body text-sm text-stone-300 leading-relaxed font-medium">
                         {post.excerpt}
                       </p>
                     </div>
                   </div>
-                  <div className="mx-8 mb-8 pt-4 border-t border-stone-200/80 flex items-center justify-between font-body text-xs font-bold uppercase tracking-widest text-[#5C0005] group-hover:translate-x-1 transition-transform">
+                  <div className="mx-8 mb-8 pt-4 border-t border-white/10 flex items-center justify-between font-body text-xs font-bold uppercase tracking-widest text-[#5C0005] group-hover:translate-x-1 transition-transform">
                     <span>Read article</span>
                     <ArrowRight className="h-4 w-4" />
                   </div>

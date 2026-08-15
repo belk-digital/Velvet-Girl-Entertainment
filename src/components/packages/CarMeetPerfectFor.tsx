@@ -50,7 +50,7 @@ export default function CarMeetPerfectFor({ items }: CarMeetPerfectForProps) {
   }, { scope: container, dependencies: [isExpanded] });
 
   return (
-    <section ref={container} className="w-full bg-[#FAF7F2]">
+    <section ref={container} className="w-full bg-black">
       <div className="relative mx-auto max-w-[120rem] overflow-hidden px-6 py-20 lg:px-12 lg:py-32">
       <Image
         src="/images/event gallery/IMG_4361.webp"
@@ -109,7 +109,7 @@ export default function CarMeetPerfectFor({ items }: CarMeetPerfectForProps) {
           <div className="mt-8 flex justify-center lg:justify-start">
             <button
               onClick={() => setIsExpanded(!isExpanded)}
-              className="text-xs font-bold uppercase tracking-widest text-[#5C0005] bg-white hover:bg-[#FAF7F2] transition-colors py-3 px-8 rounded-full shadow-md"
+              className="text-xs font-bold uppercase tracking-widest text-[#5C0005] bg-white hover:bg-black transition-colors py-3 px-8 rounded-full shadow-md"
             >
               {isExpanded ? "Show Less" : "View All"}
             </button>

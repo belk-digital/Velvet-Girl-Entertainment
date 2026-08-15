@@ -7,7 +7,7 @@ import Reveal from "@/components/ui/Reveal";
 
 export default function EventDualCTA() {
   return (
-    <section className="py-16 md:py-24 bg-white relative overflow-hidden">
+    <section className="py-16 md:py-24 bg-black relative overflow-hidden">
       {/* Background Accents */}
       <div className="absolute top-0 right-0 w-1/3 h-1/3 bg-[#5C0005]/5 blur-[100px] rounded-full pointer-events-none" />
       <div className="absolute bottom-0 left-0 w-1/3 h-1/3 bg-stone-200/50 blur-[100px] rounded-full pointer-events-none" />
@@ -15,13 +15,13 @@ export default function EventDualCTA() {
       <div className="max-w-6xl mx-auto px-5 lg:px-8 relative z-10">
         <Reveal>
           <div className="text-center max-w-2xl mx-auto mb-12">
-            <h2 className="font-sans font-bold text-3xl md:text-4xl lg:text-5xl text-stone-900 tracking-tight leading-tight">
+            <h2 className="font-sans font-bold text-3xl md:text-4xl lg:text-5xl text-white tracking-tight leading-tight">
               Ready to Join the{" "}
               <span className="font-script text-[#5C0005] text-4xl md:text-5xl lg:text-6xl font-normal block mt-2">
                 Bike Week Experience?
               </span>
             </h2>
-            <p className="mt-6 text-stone-600 text-lg md:text-xl font-medium">
+            <p className="mt-6 text-stone-300 text-lg md:text-xl font-medium">
               Choose your path below. Whether you want to book premium VIP entertainment or join our elite team of Velvet Girls, we have you covered.
             </p>
           </div>
@@ -30,17 +30,17 @@ export default function EventDualCTA() {
         <Reveal delay={0.2}>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 lg:gap-12">
             {/* Left CTA: Book Girls */}
-            <div className="group relative overflow-hidden rounded-[2rem] bg-stone-50 border border-stone-200 p-8 md:p-12 transition-all duration-500 hover:shadow-2xl hover:border-[#5C0005]/20 flex flex-col items-center text-center">
+            <div className="group relative overflow-hidden rounded-[2rem] bg-black border border-white/10 p-8 md:p-12 transition-all duration-500 hover:shadow-2xl hover:border-[#5C0005]/20 flex flex-col items-center text-center">
               <div className="absolute inset-0 bg-gradient-to-br from-[#5C0005]/0 to-[#5C0005]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
               
               <div className="w-16 h-16 rounded-full bg-white shadow-sm flex items-center justify-center mb-6 text-[#5C0005] group-hover:scale-110 transition-transform duration-500">
                 <CalendarCheck className="w-8 h-8" strokeWidth={1.5} />
               </div>
               
-              <h3 className="font-display font-bold text-2xl md:text-3xl text-stone-900 mb-4">
+              <h3 className="font-display font-bold text-2xl md:text-3xl text-white mb-4">
                 Book Girls for Bike Week
               </h3>
-              <p className="text-stone-600 mb-8 leading-relaxed font-medium">
+              <p className="text-stone-300 mb-8 leading-relaxed font-medium">
                 Elevate your Bike Week experience with our premium Velvet Girl entertainers. VIP hospitality, private parties, and unforgettable memories.
               </p>
               

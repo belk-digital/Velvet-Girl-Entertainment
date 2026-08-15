@@ -73,7 +73,7 @@ export default async function PerformerPage({ params }: { params: Promise<{ slug
   const galleryImages = uniqueGalleryImages;
 
   return (
-    <main className="min-h-screen bg-[var(--background)] font-body text-stone-900 pb-24 relative overflow-hidden">
+    <main className="min-h-screen bg-[var(--background)] font-body text-white pb-24 relative overflow-hidden">
       <VelvetCurtains variant="top-left" />
       
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 sm:pt-32 relative z-10">
@@ -86,11 +86,11 @@ export default async function PerformerPage({ params }: { params: Promise<{ slug
 
           {/* Right: Details */}
           <div className="flex flex-col py-4">
-            <h1 className="font-display text-5xl sm:text-6xl md:text-7xl font-bold tracking-tight text-black mb-3">
+            <h1 className="font-display text-5xl sm:text-6xl md:text-7xl font-bold tracking-tight text-white mb-3">
               {performer.name}
             </h1>
             
-            <div className="flex items-center gap-2 text-stone-800 font-bold tracking-widest text-sm uppercase mb-4">
+            <div className="flex items-center gap-2 text-white font-bold tracking-widest text-sm uppercase mb-4">
               <MapPin className="w-4 h-4" />
               <span>{performer.location || performer.city || "CHARLESTON, SC"}</span>
             </div>
@@ -98,10 +98,10 @@ export default async function PerformerPage({ params }: { params: Promise<{ slug
             <div className="flex flex-wrap items-center gap-3 text-sm font-semibold mb-8">
               <div className="flex items-center gap-1.5 text-[#5C0005]">
                 <Star className="w-4 h-4 fill-current" />
-                <span className="text-stone-800">{displayRating}</span>
+                <span className="text-white">{displayRating}</span>
               </div>
               <span className="text-stone-300">|</span>
-              <span className="text-stone-600">{displayReviewsCount} Verified Client Reviews</span>
+              <span className="text-stone-300">{displayReviewsCount} Verified Client Reviews</span>
               <span className="text-stone-300">|</span>
               <span className="text-[#5C0005] uppercase">{eventsCount}</span>
             </div>
@@ -111,12 +111,12 @@ export default async function PerformerPage({ params }: { params: Promise<{ slug
               <h3 className="text-[#5C0005] font-bold text-sm mb-3">Attributes:</h3>
               <div className="flex flex-wrap gap-2">
                 {performer.tags?.map((tag: string) => (
-                  <span key={tag} className="px-4 py-1.5 rounded-full border border-stone-200 text-stone-600 text-sm font-medium capitalize shadow-sm">
+                  <span key={tag} className="px-4 py-1.5 rounded-full border border-white/10 text-stone-300 text-sm font-medium capitalize shadow-sm">
                     {tag}
                   </span>
                 ))}
                 {performer.hairColor && (
-                  <span className="px-4 py-1.5 rounded-full border border-stone-200 text-stone-600 text-sm font-medium capitalize shadow-sm">
+                  <span className="px-4 py-1.5 rounded-full border border-white/10 text-stone-300 text-sm font-medium capitalize shadow-sm">
                     {performer.hairColor} Hair
                   </span>
                 )}
@@ -133,7 +133,7 @@ export default async function PerformerPage({ params }: { params: Promise<{ slug
                     return (
                       <div key={service} className="flex flex-col items-center gap-2 text-[#5C0005]">
                         <Icon className="w-8 h-8 stroke-1" />
-                        <span className="text-xs font-semibold text-stone-700 text-center max-w-[80px]">{service}</span>
+                        <span className="text-xs font-semibold text-stone-300 text-center max-w-[80px]">{service}</span>
                       </div>
                     );
                   })}
@@ -146,10 +146,10 @@ export default async function PerformerPage({ params }: { params: Promise<{ slug
               <div className="mb-10">
                 <h3 className="text-[#5C0005] font-bold text-sm mb-3">About</h3>
                 {performer.tagline && (
-                  <p className="text-stone-800 font-semibold mb-2">{performer.tagline}</p>
+                  <p className="text-white font-semibold mb-2">{performer.tagline}</p>
                 )}
                 {performer.bio && (
-                  <p className="text-stone-600 leading-relaxed whitespace-pre-line">{performer.bio}</p>
+                  <p className="text-stone-300 leading-relaxed whitespace-pre-line">{performer.bio}</p>
                 )}
               </div>
             )}
@@ -160,7 +160,7 @@ export default async function PerformerPage({ params }: { params: Promise<{ slug
                 <Phone className="w-4 h-4" />
                 CALL / TEXT
               </a>
-              <Link href={`/book-now?performer=${performer.slug || performer.id}`} className="flex items-center justify-center gap-2 bg-white hover:bg-stone-50 text-[#5C0005] border border-stone-200 py-4 rounded-md font-bold text-sm tracking-widest transition-colors shadow-sm">
+              <Link href={`/book-now?performer=${performer.slug || performer.id}`} className="flex items-center justify-center gap-2 bg-white hover:bg-black text-[#5C0005] border border-white/10 py-4 rounded-md font-bold text-sm tracking-widest transition-colors shadow-sm">
                 <Calendar className="w-4 h-4" />
                 BOOK ONLINE
               </Link>

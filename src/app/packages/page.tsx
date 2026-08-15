@@ -61,12 +61,12 @@ export default function PackagesPage() {
         theme="muted"
       >
         <Reveal className="mx-auto max-w-2xl text-center">
-          <div className="p-8 sm:p-12 rounded-3xl bg-white border border-black/10 shadow-lg relative overflow-hidden group">
+          <div className="p-8 sm:p-12 rounded-3xl bg-black border border-white/10 shadow-lg relative overflow-hidden group">
             <div className="absolute top-0 right-0 w-48 h-48 bg-gradient-to-bl from-[#5C0005]/10 to-transparent rounded-bl-full pointer-events-none" />
-            <h3 className="font-display text-2xl sm:text-3xl font-extrabold text-stone-900 mb-3">
+            <h3 className="font-display text-2xl sm:text-3xl font-extrabold text-white mb-3">
               Ready to Customize Your Night?
             </h3>
-            <p className="text-stone-600 font-body text-sm sm:text-base mb-8 max-w-md mx-auto">
+            <p className="text-stone-300 font-body text-sm sm:text-base mb-8 max-w-md mx-auto">
               Choose from verified VIP entertainers, select editorial costumes, and tailor upgrades in real time.
             </p>
             <Link

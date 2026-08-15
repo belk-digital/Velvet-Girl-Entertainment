@@ -30,13 +30,13 @@ export default function UpgradeCard({
       className={`relative flex flex-col items-center justify-between p-6 sm:p-7 rounded-2xl border text-center transition-all duration-300 cursor-pointer min-h-[160px] ${
         selected
           ? "border-2 border-[#5C0005] bg-white text-[#5C0005] shadow-[0_4px_25px_rgba(92, 0, 5,0.15)]"
-          : "border-black/15 bg-white text-stone-700 hover:border-black/30 hover:shadow-md"
+          : "border-white/10 bg-black text-stone-300 hover:border-black/30 hover:shadow-md"
       }`}
     >
       {/* Icon top */}
       <div
         className={`mb-3 flex items-center justify-center text-2xl ${
-          selected ? "text-[#5C0005]" : "text-stone-600"
+          selected ? "text-[#5C0005]" : "text-stone-300"
         }`}
       >
         {icon}
@@ -46,13 +46,13 @@ export default function UpgradeCard({
       <div className="flex-1 flex flex-col justify-center mb-4">
         <h4
           className={`font-display text-sm sm:text-base font-bold tracking-wide mb-1 ${
-            selected ? "text-[#5C0005]" : "text-stone-900"
+            selected ? "text-[#5C0005]" : "text-white"
           }`}
         >
           {title}
         </h4>
         {description && (
-          <p className="font-body text-xs text-stone-500 font-normal leading-relaxed">
+          <p className="font-body text-xs text-stone-400 font-normal leading-relaxed">
             {description}
           </p>
         )}
@@ -63,7 +63,7 @@ export default function UpgradeCard({
         className={`flex h-6 w-6 items-center justify-center rounded-lg border transition-all duration-300 ${
           selected
             ? "border-[#5C0005] bg-[#5C0005] text-white"
-            : "border-black/25 bg-white"
+            : "border-black/25 bg-black"
         }`}
       >
         {selected && <Check className="h-4 w-4 stroke-[3]" />}

@@ -130,20 +130,20 @@ export default async function CityPage({ params }: Props) {
         subtitle={`Professional exotic dancers and strippers available throughout ${cityData.name} and surrounding areas.`}
         bgImage="/gallery images/BEACH DAY PACKAGE OR BEACH CITY PAGE.webp"
       >
-        <nav className="flex flex-wrap items-center justify-center gap-2 font-body text-xs font-semibold uppercase tracking-widest text-stone-500">
+        <nav className="flex flex-wrap items-center justify-center gap-2 font-body text-xs font-semibold uppercase tracking-widest text-stone-400">
           <Link href="/cities" className="hover:text-[#5C0005] transition-colors">
             Cities
           </Link>
           <span className="text-[#5C0005]">/</span>
-          <span className="text-stone-800">{cityData.stateName}</span>
+          <span className="text-white">{cityData.stateName}</span>
           <span className="text-[#5C0005]">/</span>
-          <span className="text-stone-800">{cityData.name}</span>
+          <span className="text-white">{cityData.name}</span>
         </nav>
       </PageHero>
 
       <Section eyebrow="ABOUT THIS MARKET" title={`Entertainment Booking in ${cityData.name}`}>
         <Reveal className="mx-auto max-w-3xl space-y-6 text-center">
-          <p className="font-body text-base leading-relaxed text-stone-700 sm:text-lg font-medium">
+          <p className="font-body text-base leading-relaxed text-stone-300 sm:text-lg font-medium">
             {cityData.content.intro}
           </p>
         </Reveal>
@@ -163,7 +163,7 @@ export default async function CityPage({ params }: Props) {
 
       <Section eyebrow="LOCAL COVERAGE" title={`The ${cityData.name} Scene`}>
         <Reveal className="mx-auto max-w-3xl text-center">
-          <p className="font-body text-base leading-relaxed text-stone-700 sm:text-lg font-medium">
+          <p className="font-body text-base leading-relaxed text-stone-300 sm:text-lg font-medium">
             {cityData.content.localScene}
           </p>
         </Reveal>
@@ -175,12 +175,12 @@ export default async function CityPage({ params }: Props) {
             <Reveal key={service.slug} delay={(i % 3) * 0.08}>
               <Link
                 href={`/services/${service.slug}`}
-                className="group block h-full border border-black/10 bg-white p-8 transition-all duration-300 hover:border-[#5C0005]/60 hover:shadow-xl"
+                className="group block h-full border border-white/10 bg-black p-8 transition-all duration-300 hover:border-[#5C0005]/60 hover:shadow-xl"
               >
-                <h3 className="font-display text-2xl font-bold text-black group-hover:text-[#5C0005] transition-colors">
+                <h3 className="font-display text-2xl font-bold text-white group-hover:text-[#5C0005] transition-colors">
                   {service.title}
                 </h3>
-                <p className="mt-3 font-body text-sm text-black/70 leading-relaxed font-medium">
+                <p className="mt-3 font-body text-sm text-stone-300 leading-relaxed font-medium">
                   {service.shortDescription}
                 </p>
               </Link>
@@ -198,7 +198,7 @@ export default async function CityPage({ params }: Props) {
           {cityData.popularAreas.map((area) => (
             <span
               key={area}
-              className="border border-black/15 bg-white px-6 py-3 font-body text-xs font-bold uppercase tracking-widest text-black/85 shadow-sm"
+              className="border border-white/10 bg-black px-6 py-3 font-body text-xs font-bold uppercase tracking-widest text-white shadow-sm"
             >
               {area}
             </span>
@@ -215,7 +215,7 @@ export default async function CityPage({ params }: Props) {
             <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#5C0005] text-white">
               <ShieldCheck className="h-5 w-5" />
             </div>
-            <p className="font-body text-sm sm:text-base leading-relaxed text-black/85 font-medium">
+            <p className="font-body text-sm sm:text-base leading-relaxed text-stone-300 font-medium">
               Every photo below is real and unedited — no filters, no
               stock images, no bait-and-switch. Who you see is who shows up.
             </p>

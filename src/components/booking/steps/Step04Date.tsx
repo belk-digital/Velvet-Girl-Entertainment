@@ -32,7 +32,7 @@ export default function Step04Date() {
         <div>
           <label
             htmlFor="event-date"
-            className="mb-2 block font-body text-xs font-bold uppercase tracking-widest text-stone-500"
+            className="mb-2 block font-body text-xs font-bold uppercase tracking-widest text-stone-400"
           >
             Event Date
           </label>
@@ -46,7 +46,7 @@ export default function Step04Date() {
               value={state.eventDate}
               onChange={(e) => setField("eventDate", e.target.value)}
               min={new Date().toISOString().split("T")[0]}
-              className="w-full appearance-none rounded-2xl border border-black/20 bg-white pl-12 pr-4 py-4 font-body text-base font-semibold text-stone-800 outline-none transition-all duration-300 focus:border-[#5C0005] focus:ring-2 focus:ring-[#5C0005]/20 shadow-sm cursor-pointer"
+              className="w-full appearance-none rounded-2xl border border-white/10 bg-black pl-12 pr-4 py-4 font-body text-base font-semibold text-white outline-none transition-all duration-300 focus:border-[#5C0005] focus:ring-2 focus:ring-[#5C0005]/20 shadow-sm cursor-pointer"
             />
           </div>
         </div>
@@ -55,7 +55,7 @@ export default function Step04Date() {
         <div>
           <label
             htmlFor="event-time"
-            className="mb-2 block font-body text-xs font-bold uppercase tracking-widest text-stone-500"
+            className="mb-2 block font-body text-xs font-bold uppercase tracking-widest text-stone-400"
           >
             Start Time
           </label>
@@ -67,7 +67,7 @@ export default function Step04Date() {
               id="event-time"
               value={state.eventTime}
               onChange={(e) => setField("eventTime", e.target.value)}
-              className="w-full appearance-none rounded-2xl border border-black/20 bg-white pl-12 pr-10 py-4 font-body text-base font-semibold text-stone-800 outline-none transition-all duration-300 focus:border-[#5C0005] focus:ring-2 focus:ring-[#5C0005]/20 shadow-sm cursor-pointer"
+              className="w-full appearance-none rounded-2xl border border-white/10 bg-black pl-12 pr-10 py-4 font-body text-base font-semibold text-white outline-none transition-all duration-300 focus:border-[#5C0005] focus:ring-2 focus:ring-[#5C0005]/20 shadow-sm cursor-pointer"
             >
               {TIME_SLOTS.map((slot) => (
                 <option key={slot} value={slot}>

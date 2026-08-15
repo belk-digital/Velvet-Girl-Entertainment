@@ -357,9 +357,9 @@ export default function PhotoGalleryContent() {
 
   return (
     <>
-      <div className="w-full bg-[#FAF7F2] pb-24 relative z-20">
+      <div className="w-full bg-black pb-24 relative z-20">
         {/* FILTER TABS & COUNT */}
-      <section className="relative z-30 max-w-[120rem] mx-auto px-4 sm:px-6 lg:px-12 py-6 bg-[#FAF7F2]/95 backdrop-blur-md sticky top-0 border-b border-stone-200/50 shadow-sm">
+      <section className="relative z-30 max-w-[120rem] mx-auto px-4 sm:px-6 lg:px-12 py-6 bg-black/95 backdrop-blur-md sticky top-0 border-b border-white/10/50 shadow-sm">
         <div className="flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-2 overflow-x-auto w-full md:w-auto pb-2 md:pb-0 scrollbar-none hide-scrollbar">
             {categories.map((cat) => {
@@ -373,7 +373,7 @@ export default function PhotoGalleryContent() {
                   className={`px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider whitespace-nowrap transition-all duration-300 ${
                     active
                       ? "bg-[#5C0005] text-white shadow-md scale-105"
-                      : "bg-white text-stone-700 border border-stone-200 hover:border-[#5C0005] hover:text-[#5C0005]"
+                      : "bg-black text-stone-300 border border-white/10 hover:border-[#5C0005] hover:text-[#5C0005]"
                   }`}
                 >
                   {cat}
@@ -382,7 +382,7 @@ export default function PhotoGalleryContent() {
             })}
           </div>
 
-          <div className="text-xs font-bold uppercase tracking-wider text-stone-500 self-end md:self-center">
+          <div className="text-xs font-bold uppercase tracking-wider text-stone-400 self-end md:self-center">
             Showing <span className="text-[#5C0005]">{filteredPhotos.length}</span>{" "}
             {filteredPhotos.length === 1 ? "Photo" : "Photos"}
           </div>
@@ -392,7 +392,7 @@ export default function PhotoGalleryContent() {
       {/* GALLERY GRID */}
       <section className="max-w-[120rem] mx-auto px-4 sm:px-6 lg:px-12 mt-12">
         {filteredPhotos.length === 0 ? (
-          <div className="text-center py-20 text-stone-500">No photos found in this category.</div>
+          <div className="text-center py-20 text-stone-400">No photos found in this category.</div>
         ) : (
           <div className="grid grid-flow-dense grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-2 md:gap-4 auto-rows-[150px] sm:auto-rows-[200px] md:auto-rows-[250px] lg:auto-rows-[300px]">
             {filteredPhotos.map((photo, index) => {

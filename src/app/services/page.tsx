@@ -76,7 +76,7 @@ export default function ServicesIndexPage() {
         subtitle="Every service is available across all 8 of our served cities. Pick your occasion to see what's included."
         bgImage="/gallery images/BREAKFAST WITH BABES.webp"
       />
-      <div className="px-6 py-20 sm:py-28 bg-[#FAF7F2]">
+      <div className="px-6 py-20 sm:py-28 bg-black">
         <div className="mx-auto grid max-w-7xl grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
           {services.map((service, i) => {
             const Icon = icons[service.slug] ?? Sparkles;
@@ -85,7 +85,7 @@ export default function ServicesIndexPage() {
               <Reveal key={service.slug} delay={(i % 3) * 0.08}>
                 <Link
                   href={`/services/${service.slug}`}
-                  className="group flex h-full flex-col justify-between overflow-hidden rounded-2xl border border-stone-200/80 bg-white transition-all duration-500 hover:border-[#5C0005]/60 hover:shadow-2xl transform hover:-translate-y-1"
+                  className="group flex h-full flex-col justify-between overflow-hidden rounded-2xl border border-stone-800 bg-black transition-all duration-500 hover:border-[#5C0005]/60 hover:shadow-2xl transform hover:-translate-y-1"
                 >
                   <div>
                     <div className="relative aspect-[16/10] w-full overflow-hidden bg-stone-900">
@@ -107,12 +107,12 @@ export default function ServicesIndexPage() {
                       </div>
                     </div>
                     <div className="p-6">
-                      <p className="font-body text-sm text-stone-600 leading-relaxed font-medium">
+                      <p className="font-body text-sm text-stone-300 leading-relaxed font-medium">
                         {service.shortDescription}
                       </p>
                     </div>
                   </div>
-                  <div className="mx-6 mb-6 pt-4 border-t border-stone-200/80 flex items-center justify-between font-body text-xs font-bold uppercase tracking-widest text-[#5C0005] group-hover:translate-x-1 transition-transform">
+                  <div className="mx-6 mb-6 pt-4 border-t border-white/10 flex items-center justify-between font-body text-xs font-bold uppercase tracking-widest text-[#5C0005] group-hover:translate-x-1 transition-transform">
                     <span>Learn more</span>
                     <ArrowRight className="h-4 w-4" />
                   </div>

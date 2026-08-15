@@ -124,12 +124,12 @@ export default async function PackageThemeDetailPage({ params }: Props) {
               {theme.highlights.map((item) => (
                 <div
                   key={item}
-                  className="flex items-center gap-4 border border-stone-200/80 rounded-xl bg-white p-6 shadow-sm hover:border-[#5C0005]/50 transition-colors"
+                  className="flex items-center gap-4 border border-white/10 rounded-xl bg-black p-6 shadow-sm hover:border-[#5C0005]/50 transition-colors"
                 >
                   <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#5C0005]/10 text-[#5C0005]">
                     <Check className="h-5 w-5" />
                   </div>
-                  <span className="font-display text-base font-bold text-stone-900">{item}</span>
+                  <span className="font-display text-base font-bold text-white">{item}</span>
                 </div>
               ))}
             </div>
@@ -191,7 +191,7 @@ export default async function PackageThemeDetailPage({ params }: Props) {
                 {theme.perfectFor.map((item) => (
                   <div
                     key={item}
-                    className="rounded-full bg-stone-100 px-6 py-3 font-display text-sm font-semibold tracking-wide text-stone-900 transition-colors hover:bg-stone-200"
+                    className="rounded-full bg-white/10 px-6 py-3 font-display text-sm font-semibold tracking-wide text-white transition-colors hover:bg-white/20"
                   >
                     {item}
                   </div>

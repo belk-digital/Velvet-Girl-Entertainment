@@ -19,11 +19,11 @@ export default function DisclaimerPage() {
   return (
     <>
       <PageHero eyebrow="LEGAL" title="18+ Disclaimer" />
-      <div className="px-6 py-20 sm:py-28 bg-white">
-        <div className="mx-auto max-w-3xl space-y-8">
+      <div className="px-6 py-20 sm:py-28 bg-black">
+        <div className="mx-auto max-w-3xl space-y-8 font-body text-base leading-relaxed text-stone-300 font-normal">
           <div className="flex items-start gap-4 border border-[#5C0005]/30 bg-[#5C0005]/5 p-6 shadow-sm">
             <ShieldAlert className="mt-1 h-6 w-6 shrink-0 text-[#5C0005]" />
-            <p className="font-body text-base leading-relaxed text-black/85 font-medium">
+            <p className="font-body text-base leading-relaxed text-stone-200 font-medium">
               This website is intended solely for adults 18 years of age or
               older. By accessing or using this site, you confirm that you
               are at least 18 years old and that viewing this content is
@@ -31,7 +31,7 @@ export default function DisclaimerPage() {
             </p>
           </div>
 
-          <div className="space-y-6 font-body text-base leading-relaxed text-black/80 font-normal">
+          <div className="space-y-6 font-body text-base leading-relaxed text-stone-300 font-normal">
             <p>
               Velvet Girl Entertainment provides entertainment booking
               services for private, legal celebrations. All performers

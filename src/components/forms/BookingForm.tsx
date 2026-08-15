@@ -157,7 +157,7 @@ export default function BookingForm() {
           <h4 className="font-display text-sm font-bold uppercase tracking-wider text-[#5C0005]">
             Want Instant VIP Booking?
           </h4>
-          <p className="text-xs text-stone-600 font-medium">
+          <p className="text-xs text-stone-300 font-medium">
             Call or text us directly for immediate response &amp; date lock-in.
           </p>
         </div>
@@ -295,7 +295,7 @@ export default function BookingForm() {
 
             {/* Quick Event Type Selector Badges */}
             <div>
-              <label className="mb-2 block font-body text-xs font-bold uppercase tracking-widest text-black/60">
+              <label className="mb-2 block font-body text-xs font-bold uppercase tracking-widest text-white/60">
                 Popular Event Categories
               </label>
               <div className="flex flex-wrap gap-2">
@@ -312,7 +312,7 @@ export default function BookingForm() {
                       className={`rounded-full border px-4 py-2 font-body text-xs font-bold uppercase tracking-wider transition-all duration-300 ${
                         isSelected
                           ? "border-[#5C0005] bg-[#5C0005] text-white shadow-sm"
-                          : "border-black/20 bg-white text-black/80 hover:border-[#5C0005]/60"
+                          : "border-white/10 bg-black text-white/80 hover:border-[#5C0005]/60"
                       }`}
                     >
                       {s.title}
@@ -325,7 +325,7 @@ export default function BookingForm() {
             {isLastMinute && dateValue && (
               <div className="flex items-start gap-3 border border-[#5C0005]/40 bg-[#5C0005]/10 p-4 rounded-xl">
                 <Phone className="mt-0.5 h-4 w-4 shrink-0 text-[#5C0005] animate-pulse" />
-                <p className="font-body text-xs leading-relaxed text-black/90 font-medium">
+                <p className="font-body text-xs leading-relaxed text-white/90 font-medium">
                   This date is less than 24 hours away, so online deposit booking
                   isn&rsquo;t available. You can continue submitting this request, or{" "}
                   <a href="tel:8439387377" className="text-[#5C0005] font-bold underline">
@@ -378,18 +378,18 @@ export default function BookingForm() {
                 <button
                   type="button"
                   onClick={() => setDancers((d) => Math.max(2, d - 1))}
-                  className="flex h-11 w-11 items-center justify-center border border-black/20 bg-white text-black transition-all hover:border-[#5C0005] hover:bg-[#5C0005] hover:text-white rounded-lg shadow-sm"
+                  className="flex h-11 w-11 items-center justify-center border border-white/10 bg-black text-white transition-all hover:border-[#5C0005] hover:bg-[#5C0005] hover:text-white rounded-lg shadow-sm"
                   aria-label="Decrease dancer count"
                 >
                   <Minus className="h-4 w-4" />
                 </button>
-                <span className="w-10 text-center font-display text-2xl font-bold text-black">
+                <span className="w-10 text-center font-display text-2xl font-bold text-white">
                   {dancers}
                 </span>
                 <button
                   type="button"
                   onClick={() => setDancers((d) => d + 1)}
-                  className="flex h-11 w-11 items-center justify-center border border-black/20 bg-white text-black transition-all hover:border-[#5C0005] hover:bg-[#5C0005] hover:text-white rounded-lg shadow-sm"
+                  className="flex h-11 w-11 items-center justify-center border border-white/10 bg-black text-white transition-all hover:border-[#5C0005] hover:bg-[#5C0005] hover:text-white rounded-lg shadow-sm"
                   aria-label="Increase dancer count"
                 >
                   <Plus className="h-4 w-4" />
@@ -407,8 +407,8 @@ export default function BookingForm() {
                       key={u.slug}
                       className={`flex items-start gap-3 border px-4 py-3.5 font-body text-xs cursor-pointer rounded-xl transition-all duration-300 ${
                         isChecked
-                          ? "border-[#5C0005] bg-[#5C0005]/5 text-black font-semibold shadow-sm"
-                          : "border-black/15 bg-white text-black/80 hover:border-[#5C0005]/40"
+                          ? "border-[#5C0005] bg-[#5C0005]/5 text-white font-semibold shadow-sm"
+                          : "border-white/10 bg-black text-white/80 hover:border-[#5C0005]/40"
                       }`}
                     >
                       <input
@@ -420,7 +420,7 @@ export default function BookingForm() {
                       <span>
                         <span className="text-sm font-semibold block">{u.label}</span>
                         {u.note && (
-                          <span className="mt-0.5 block text-[11px] text-black/60 font-normal">
+                          <span className="mt-0.5 block text-[11px] text-white/60 font-normal">
                             {u.note}
                           </span>
                         )}
@@ -435,7 +435,7 @@ export default function BookingForm() {
               <button
                 type="button"
                 onClick={() => handleBack(1)}
-                className="flex w-full sm:w-1/3 items-center justify-center gap-2 border border-black/25 bg-white px-6 py-4 font-body text-sm font-bold uppercase tracking-widest text-black/80 transition-all duration-300 hover:border-black/50 hover:bg-black/5 cursor-pointer"
+                className="flex w-full sm:w-1/3 items-center justify-center gap-2 border border-black/25 bg-black px-6 py-4 font-body text-sm font-bold uppercase tracking-widest text-white/80 transition-all duration-300 hover:border-black/50 hover:bg-black/5 cursor-pointer"
               >
                 <ArrowLeft className="h-4 w-4" />
                 <span>Back</span>
@@ -519,34 +519,34 @@ export default function BookingForm() {
             </div>
 
             {/* Booking Summary Box */}
-            <div className="rounded-xl border border-black/15 bg-black/[0.03] p-5 font-body text-xs text-black/85">
-              <h4 className="mb-2 font-display text-sm font-bold uppercase tracking-wider text-black">
+            <div className="rounded-xl border border-white/10 bg-black/[0.03] p-5 font-body text-xs text-white/85">
+              <h4 className="mb-2 font-display text-sm font-bold uppercase tracking-wider text-white">
                 Booking Summary
               </h4>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                 <div>
-                  <span className="font-semibold text-black">Event City:</span>{" "}
+                  <span className="font-semibold text-white">Event City:</span>{" "}
                   {cities.find((c) => c.slug === formData.city)?.name ||
                     formData.city ||
                     "Not specified"}
                 </div>
                 <div>
-                  <span className="font-semibold text-black">Date &amp; Time:</span>{" "}
+                  <span className="font-semibold text-white">Date &amp; Time:</span>{" "}
                   {dateValue || "TBD"} {timeValue ? `at ${timeValue}` : ""}
                 </div>
                 <div>
-                  <span className="font-semibold text-black">Performers:</span>{" "}
+                  <span className="font-semibold text-white">Performers:</span>{" "}
                   {dancers} Dancers
                 </div>
                 <div>
-                  <span className="font-semibold text-black">Outfit Preference:</span>{" "}
+                  <span className="font-semibold text-white">Outfit Preference:</span>{" "}
                   {costumes.find((c) => c.slug === formData.costume)?.name ||
                     formData.costume ||
                     "No preference"}
                 </div>
                 {selectedUpgrades.length > 0 && (
                   <div className="sm:col-span-2">
-                    <span className="font-semibold text-black">Upgrades:</span>{" "}
+                    <span className="font-semibold text-white">Upgrades:</span>{" "}
                     {selectedUpgrades
                       .map((uSlug) => upgrades.find((u) => u.slug === uSlug)?.label)
                       .filter(Boolean)
@@ -560,7 +560,7 @@ export default function BookingForm() {
               (isLastMinute ? (
                 <div className="flex items-start gap-3 border border-[#5C0005]/30 bg-[#5C0005]/5 p-4 rounded-xl">
                   <Phone className="mt-0.5 h-4 w-4 shrink-0 text-[#5C0005]" />
-                  <p className="font-body text-xs leading-relaxed text-black/80 font-medium">
+                  <p className="font-body text-xs leading-relaxed text-white/80 font-medium">
                     This date is less than 24 hours away, so online deposit booking
                     isn&rsquo;t available. Submit this form, then{" "}
                     <a href="tel:8439387377" className="text-[#5C0005] font-bold underline">
@@ -574,9 +574,9 @@ export default function BookingForm() {
                   </p>
                 </div>
               ) : (
-                <div className="flex items-start gap-3 border border-black/15 bg-[#f7f7f9] p-4 rounded-xl">
+                <div className="flex items-start gap-3 border border-white/10 bg-[#f7f7f9] p-4 rounded-xl">
                   <ShieldCheck className="mt-0.5 h-4 w-4 shrink-0 text-[#5C0005]" />
-                  <p className="font-body text-xs leading-relaxed text-black/80 font-medium">
+                  <p className="font-body text-xs leading-relaxed text-white/80 font-medium">
                     A {DEPOSIT_AMOUNT} deposit secures bookings made 24+ hours in
                     advance. Submit this request and your booking specialist will
                     follow up to collect the deposit securely.
@@ -588,7 +588,7 @@ export default function BookingForm() {
               <button
                 type="button"
                 onClick={() => handleBack(2)}
-                className="flex w-full sm:w-1/3 items-center justify-center gap-2 border border-black/25 bg-white px-6 py-4 font-body text-sm font-bold uppercase tracking-widest text-black/80 transition-all duration-300 hover:border-black/50 hover:bg-black/5 cursor-pointer"
+                className="flex w-full sm:w-1/3 items-center justify-center gap-2 border border-black/25 bg-black px-6 py-4 font-body text-sm font-bold uppercase tracking-widest text-white/80 transition-all duration-300 hover:border-black/50 hover:bg-black/5 cursor-pointer"
               >
                 <ArrowLeft className="h-4 w-4" />
                 <span>Back</span>

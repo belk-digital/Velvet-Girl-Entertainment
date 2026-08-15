@@ -37,7 +37,7 @@ export default function PackageBuilder() {
   };
 
   return (
-    <div className="border border-black/10 bg-white p-6 sm:p-10 shadow-sm">
+    <div className="border border-white/10 bg-black p-6 sm:p-10 shadow-sm">
       <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
         <div>
           <label className={labelClass} htmlFor="builder-theme">
@@ -83,18 +83,18 @@ export default function PackageBuilder() {
           <button
             type="button"
             onClick={() => setDancers((d) => Math.max(2, d - 1))}
-            className="flex h-11 w-11 items-center justify-center border border-black/20 bg-white text-black transition-all hover:border-[#5C0005] hover:bg-[#5C0005] hover:text-white"
+            className="flex h-11 w-11 items-center justify-center border border-white/10 bg-black text-white transition-all hover:border-[#5C0005] hover:bg-[#5C0005] hover:text-white"
             aria-label="Decrease dancer count"
           >
             <Minus className="h-4 w-4" />
           </button>
-          <span className="w-10 text-center font-display text-2xl font-bold text-black">
+          <span className="w-10 text-center font-display text-2xl font-bold text-white">
             {dancers}
           </span>
           <button
             type="button"
             onClick={() => setDancers((d) => d + 1)}
-            className="flex h-11 w-11 items-center justify-center border border-black/20 bg-white text-black transition-all hover:border-[#5C0005] hover:bg-[#5C0005] hover:text-white"
+            className="flex h-11 w-11 items-center justify-center border border-white/10 bg-black text-white transition-all hover:border-[#5C0005] hover:bg-[#5C0005] hover:text-white"
             aria-label="Increase dancer count"
           >
             <Plus className="h-4 w-4" />
@@ -112,8 +112,8 @@ export default function PackageBuilder() {
                 key={u.slug}
                 className={`flex items-start gap-3 border px-4 py-3.5 font-body text-xs cursor-pointer transition-all duration-300 ${
                   isChecked
-                    ? "border-[#5C0005] bg-[#5C0005]/5 text-black font-semibold"
-                    : "border-black/15 bg-white text-black/80 hover:border-[#5C0005]/40"
+                    ? "border-[#5C0005] bg-[#5C0005]/5 text-white font-semibold"
+                    : "border-white/10 bg-black text-white/80 hover:border-[#5C0005]/40"
                 }`}
               >
                 <input
@@ -125,7 +125,7 @@ export default function PackageBuilder() {
                 <span>
                   <span className="text-sm font-semibold block">{u.label}</span>
                   {u.note && (
-                    <span className="mt-0.5 block text-[11px] text-black/60 font-normal">
+                    <span className="mt-0.5 block text-[11px] text-white/60 font-normal">
                       {u.note}
                     </span>
                   )}

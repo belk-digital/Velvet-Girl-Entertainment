@@ -9,14 +9,14 @@ export default function TextMarquee({ items }: TextMarqueeProps) {
   const repeatedItems = Array(5).fill(items).flat();
 
   return (
-    <div className="w-full bg-[#FBFAF8] py-4 overflow-hidden border-y border-black/10 flex items-center">
+    <div className="w-full bg-black py-4 overflow-hidden border-y border-white/10 flex items-center">
       <div className="flex w-max animate-marquee-fast">
         {repeatedItems.map((item, idx) => (
           <div key={idx} className="flex items-center shrink-0">
             <span className="text-[#5C0005] font-black text-2xl md:text-3xl uppercase tracking-widest px-8">
               {item}
             </span>
-            <span className="text-black/20 text-xl px-4">•</span>
+            <span className="text-white/20 text-xl px-4">•</span>
           </div>
         ))}
         {/* Duplicate set for seamless loop */}
@@ -25,7 +25,7 @@ export default function TextMarquee({ items }: TextMarqueeProps) {
             <span className="text-[#5C0005] font-black text-2xl md:text-3xl uppercase tracking-widest px-8">
               {item}
             </span>
-            <span className="text-black/20 text-xl px-4">•</span>
+            <span className="text-white/20 text-xl px-4">•</span>
           </div>
         ))}
       </div>

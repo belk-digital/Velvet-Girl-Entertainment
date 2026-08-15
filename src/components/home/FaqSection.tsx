@@ -29,7 +29,7 @@ export default function FaqSection({
       } ${
         isCrimson
           ? `bg-[#5C0005] ${hideBorder ? "" : "border-white/10"}`
-          : `bg-[#FBFAF8] ${hideBorder ? "" : "border-black/10"}`
+          : `bg-black ${hideBorder ? "" : "border-white/10"}`
       }`}
     >
       <div className="max-w-[120rem] mx-auto">
@@ -50,7 +50,7 @@ export default function FaqSection({
             data-cms-type="faq"
             data-cms-field="title"
             className={`text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-normal font-script tracking-normal leading-tight mb-4 ${
-              isCrimson ? "text-white" : "text-black"
+              isCrimson ? "text-white" : "text-white"
             }`}
           >
             {title}

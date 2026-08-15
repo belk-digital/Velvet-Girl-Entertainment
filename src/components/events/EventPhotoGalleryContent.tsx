@@ -68,12 +68,12 @@ export default function EventPhotoGalleryContent() {
   }, [lightboxIndex]);
 
   return (
-    <div className="relative w-full min-h-screen bg-[#FAF7F2] text-stone-900 overflow-hidden font-body pb-28 sm:pb-36">
+    <div className="relative w-full min-h-screen bg-black text-white overflow-hidden font-body pb-28 sm:pb-36">
       {/* Top Left Red Velvet Curtain Drapery */}
       <VelvetCurtains variant="top-left" />
 
       {/* HERO SECTION WITH FULL-WIDTH BACKGROUND IMAGE */}
-      <section className="relative z-10 w-full overflow-hidden py-20 sm:py-28 md:py-36 border-b border-stone-200/80">
+      <section className="relative z-10 w-full overflow-hidden py-20 sm:py-28 md:py-36 border-b border-white/10">
         <div className="absolute inset-0 z-0">
           <Image
             src={encodeURI(eventGalleryImages[0] || "/gallery images/IMG_9368.webp")}
@@ -105,15 +105,15 @@ export default function EventPhotoGalleryContent() {
                 EVENT GALLERY
               </h1>
 
-              <p className="font-body text-base sm:text-lg text-stone-800 max-w-xl leading-relaxed mb-8 drop-shadow-sm">
+              <p className="font-body text-base sm:text-lg text-white max-w-xl leading-relaxed mb-8 drop-shadow-sm">
                 Unedited moments from our premium event experiences.
                 <br />
-                <span className="font-bold text-stone-900">
+                <span className="font-bold text-white">
                   Take a look at the energy our Velvet Girls bring to Bike Week and other major events.
                 </span>
               </p>
 
-              <div className="inline-flex items-center gap-2 bg-white/90 border border-stone-200 px-4 py-2.5 rounded-full text-xs font-semibold text-stone-700 shadow-sm">
+              <div className="inline-flex items-center gap-2 bg-white/90 border border-white/10 px-4 py-2.5 rounded-full text-xs font-semibold text-stone-300 shadow-sm">
                 <ShieldCheck className="w-4 h-4 text-[#5C0005]" />
                 <span>100% Verified Event Photography</span>
               </div>
@@ -123,7 +123,7 @@ export default function EventPhotoGalleryContent() {
       </section>
 
       {/* FILTER TABS & COUNT */}
-      <section className="relative z-20 max-w-[120rem] mx-auto px-5 sm:px-6 lg:px-12 py-8 border-b border-stone-200/80 bg-[#FAF7F2]/95 backdrop-blur-md sticky top-0">
+      <section className="relative z-20 max-w-[120rem] mx-auto px-5 sm:px-6 lg:px-12 py-8 border-b border-white/10 bg-black/95 backdrop-blur-md sticky top-0">
         <div className="flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-2 overflow-x-auto w-full md:w-auto pb-2 md:pb-0 scrollbar-none">
             <button className="px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider whitespace-nowrap transition-all duration-300 bg-[#5C0005] text-white shadow-md scale-105">
@@ -131,7 +131,7 @@ export default function EventPhotoGalleryContent() {
             </button>
           </div>
 
-          <div className="text-xs font-bold uppercase tracking-wider text-stone-500 self-end md:self-center">
+          <div className="text-xs font-bold uppercase tracking-wider text-stone-400 self-end md:self-center">
             Showing <span className="text-[#5C0005]">{eventGalleryImages.length}</span>{" "}
             {eventGalleryImages.length === 1 ? "Photo" : "Photos"}
           </div>
@@ -145,7 +145,7 @@ export default function EventPhotoGalleryContent() {
             <div
               key={index}
               onClick={() => openLightbox(index)}
-              className="group relative overflow-hidden rounded-2xl bg-stone-100 border border-stone-200/80 shadow-md hover:shadow-2xl transition-all duration-500 cursor-pointer aspect-[3/4]"
+              className="group relative overflow-hidden rounded-2xl bg-[#111] border border-white/10 shadow-md hover:shadow-2xl transition-all duration-500 cursor-pointer aspect-[3/4]"
             >
               <Image
                 src={encodeURI(src)}

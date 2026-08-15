@@ -79,7 +79,7 @@ const PerformerCardContent = ({ performer, isActive }: { performer: any, isActiv
 
       {/* BOOK NOW + Heart */}
       <div className="flex items-center gap-2 mt-1">
-        <button className="flex-1 bg-[#F90267] hover:bg-white hover:text-black transition-colors text-white font-black text-[0.6rem] sm:text-[0.65rem] tracking-widest uppercase py-2.5 px-3 flex items-center justify-center gap-1.5">
+        <button className="flex-1 bg-[#F90267] hover:bg-black hover:text-white transition-colors text-white font-black text-[0.6rem] sm:text-[0.65rem] tracking-widest uppercase py-2.5 px-3 flex items-center justify-center gap-1.5">
           BOOK NOW <ArrowRight className="w-3 h-3" strokeWidth={3} />
         </button>
         <button className="w-9 h-9 flex items-center justify-center border border-white/30 hover:bg-white/10 transition-colors shrink-0">
@@ -144,14 +144,14 @@ export default function OurPerformersGallery() {
             OUR PERFORMERS
           </h2>
           <h2
-            className="text-5xl sm:text-7xl md:text-[7.5rem] font-black uppercase text-black leading-[0.9] tracking-tighter absolute top-3 sm:top-5 md:top-6 left-0 z-20"
+            className="text-5xl sm:text-7xl md:text-[7.5rem] font-black uppercase text-white leading-[0.9] tracking-tighter absolute top-3 sm:top-5 md:top-6 left-0 z-20"
             style={{ WebkitTextStroke: "2px #f90066" }}
             aria-hidden="true"
           >
             OUR PERFORMERS
           </h2>
           <h2
-            className="text-5xl sm:text-7xl md:text-[7.5rem] font-black uppercase text-black leading-[0.9] tracking-tighter absolute top-6 sm:top-10 md:top-12 left-0 z-10"
+            className="text-5xl sm:text-7xl md:text-[7.5rem] font-black uppercase text-white leading-[0.9] tracking-tighter absolute top-6 sm:top-10 md:top-12 left-0 z-10"
             style={{ WebkitTextStroke: "2px #f90066", opacity: 0.4 }}
             aria-hidden="true"
           >

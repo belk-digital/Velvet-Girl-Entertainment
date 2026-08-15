@@ -36,7 +36,7 @@ export default function NumberStepper({
   return (
     <div className="flex flex-col items-center justify-center my-8">
       {label && (
-        <label className="mb-2 font-display text-lg sm:text-xl font-bold text-stone-900 tracking-wide text-center">
+        <label className="mb-2 font-display text-lg sm:text-xl font-bold text-white tracking-wide text-center">
           {label}
         </label>
       )}
@@ -52,8 +52,8 @@ export default function NumberStepper({
           aria-label="Decrease value"
           className={`flex h-14 w-14 sm:h-16 sm:w-16 items-center justify-center rounded-2xl border text-xl font-bold transition-all duration-300 ${
             value <= min
-              ? "border-black/10 bg-stone-100 text-stone-300 cursor-not-allowed shadow-none"
-              : "border-black/20 bg-white text-stone-800 hover:border-[#5C0005] hover:bg-[#5C0005] hover:text-white cursor-pointer shadow-sm"
+              ? "border-white/10 bg-[#111] text-stone-300 cursor-not-allowed shadow-none"
+              : "border-white/10 bg-black text-white hover:border-[#5C0005] hover:bg-[#5C0005] hover:text-white cursor-pointer shadow-sm"
           }`}
         >
           <Minus className="h-6 w-6" />
@@ -61,7 +61,7 @@ export default function NumberStepper({
 
         {/* Number Display */}
         <div className="min-w-[80px] text-center">
-          <span className="font-display text-4xl sm:text-5xl font-extrabold text-stone-900 tracking-tight">
+          <span className="font-display text-4xl sm:text-5xl font-extrabold text-white tracking-tight">
             {value}
           </span>
         </div>
@@ -76,8 +76,8 @@ export default function NumberStepper({
           aria-label="Increase value"
           className={`flex h-14 w-14 sm:h-16 sm:w-16 items-center justify-center rounded-2xl border text-xl font-bold transition-all duration-300 ${
             value >= max
-              ? "border-black/10 bg-stone-100 text-stone-300 cursor-not-allowed shadow-none"
-              : "border-black/20 bg-white text-stone-800 hover:border-[#5C0005] hover:bg-[#5C0005] hover:text-white cursor-pointer shadow-sm"
+              ? "border-white/10 bg-[#111] text-stone-300 cursor-not-allowed shadow-none"
+              : "border-white/10 bg-black text-white hover:border-[#5C0005] hover:bg-[#5C0005] hover:text-white cursor-pointer shadow-sm"
           }`}
         >
           <Plus className="h-6 w-6" />
@@ -85,7 +85,7 @@ export default function NumberStepper({
       </div>
 
       {sublabel && (
-        <span className="mt-2 font-body text-xs sm:text-sm text-stone-500 font-medium tracking-wide">
+        <span className="mt-2 font-body text-xs sm:text-sm text-stone-400 font-medium tracking-wide">
           {sublabel}
         </span>
       )}

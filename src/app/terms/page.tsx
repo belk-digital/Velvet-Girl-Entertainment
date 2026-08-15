@@ -16,16 +16,16 @@ export const metadata: Metadata = {
   },
 };
 
-const h2 = "font-display text-2xl font-bold text-black";
-const h3 = "font-display text-lg font-bold text-black";
+const h2 = "font-display text-2xl font-bold text-white";
+const h3 = "font-display text-lg font-bold text-white";
 
 export default function TermsPage() {
   return (
     <>
       <PageHero eyebrow="LEGAL" title="Terms of Service" />
-      <div className="px-6 py-20 sm:py-28 bg-white">
-        <div className="mx-auto max-w-3xl space-y-8 font-body text-base leading-relaxed text-black/80 font-normal">
-          <p className="text-black/40 text-sm font-semibold">
+      <div className="px-6 py-20 sm:py-28 bg-black">
+        <div className="mx-auto max-w-3xl space-y-8 font-body text-base leading-relaxed text-stone-300 font-normal">
+          <p className="text-stone-400 text-sm font-semibold">
             Velvet Girl Entertainment LLC d/b/a Velvet Girl Entertainment
             <br />
             inquiries@velvetgirlentertainment.com
@@ -544,7 +544,7 @@ export default function TermsPage() {
 
           <section className="space-y-3">
             <h2 className={h2}>Warnings, Disclaimers and Assumption of Risk</h2>
-            <p className="uppercase text-sm font-semibold tracking-wide text-black/70">
+            <p className="uppercase text-sm font-semibold tracking-wide text-stone-300">
               The Services are provided on an &ldquo;as is&rdquo; and &ldquo;as available&rdquo;
               basis, without any warranties of any kind, either express or implied. The Company
               does not warrant that the Services will be error-free or uninterrupted, nor does it
@@ -552,7 +552,7 @@ export default function TermsPage() {
               or as to the accuracy, reliability, or legality of any information or performance
               obtained through the Services.
             </p>
-            <p className="uppercase text-sm font-semibold tracking-wide text-black/70">
+            <p className="uppercase text-sm font-semibold tracking-wide text-stone-300">
               You expressly agree that your use of the Services is at your sole risk. You
               voluntarily assume all risks associated with your participation in or hosting of
               any Event, including but not limited to risks of property damage, personal injury,
@@ -566,7 +566,7 @@ export default function TermsPage() {
 
           <section className="space-y-3">
             <h2 className={h2}>Limitation of Liability and Indemnification</h2>
-            <p className="uppercase text-sm font-semibold tracking-wide text-black/70">
+            <p className="uppercase text-sm font-semibold tracking-wide text-stone-300">
               To the fullest extent permitted by law, in no event shall the Company, its
               affiliates, officers, directors, employees, or agents be liable for any indirect,
               incidental, special, consequential, or punitive damages, including without
@@ -575,7 +575,7 @@ export default function TermsPage() {
               Services; (ii) any conduct or content of any third party; or (iii) unauthorized
               access, use, or alteration of your transmissions or content.
             </p>
-            <p className="uppercase text-sm font-semibold tracking-wide text-black/70">
+            <p className="uppercase text-sm font-semibold tracking-wide text-stone-300">
               In no event shall the Company&rsquo;s aggregate liability for all claims relating
               to the Services exceed the greater of one hundred U.S. dollars (USD $100.00) or the
               amount you paid the Company, if any, in the last six months for the Services giving

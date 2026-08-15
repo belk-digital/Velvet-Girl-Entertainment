@@ -68,7 +68,7 @@ export default function PerformerCarousel({ images, name }: PerformerCarouselPro
   return (
     <>
       <div 
-        className="relative aspect-[4/5] w-full rounded-xl overflow-hidden bg-stone-100 shadow-2xl group cursor-pointer"
+        className="relative aspect-[4/5] w-full rounded-xl overflow-hidden bg-[#111] shadow-2xl group cursor-pointer"
         onClick={handleContainerClick}
         onTouchStart={onTouchStart}
         onTouchMove={onTouchMove}
@@ -87,25 +87,25 @@ export default function PerformerCarousel({ images, name }: PerformerCarouselPro
         <>
           <button 
             onClick={prevSlide}
-            className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/90 rounded-full flex items-center justify-center shadow-md hover:bg-white transition-colors opacity-100 md:opacity-0 md:group-hover:opacity-100 focus:opacity-100 z-10"
+            className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/90 rounded-full flex items-center justify-center shadow-md hover:bg-black transition-colors opacity-100 md:opacity-0 md:group-hover:opacity-100 focus:opacity-100 z-10"
             aria-label="Previous image"
           >
-            <ChevronLeft className="w-5 h-5 text-stone-800" />
+            <ChevronLeft className="w-5 h-5 text-white" />
           </button>
           
           <button 
             onClick={nextSlide}
-            className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/90 rounded-full flex items-center justify-center shadow-md hover:bg-white transition-colors opacity-100 md:opacity-0 md:group-hover:opacity-100 focus:opacity-100 z-10"
+            className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/90 rounded-full flex items-center justify-center shadow-md hover:bg-black transition-colors opacity-100 md:opacity-0 md:group-hover:opacity-100 focus:opacity-100 z-10"
             aria-label="Next image"
           >
-            <ChevronRight className="w-5 h-5 text-stone-800" />
+            <ChevronRight className="w-5 h-5 text-white" />
           </button>
           
           <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex items-center gap-2 z-10">
             {images.slice(0, Math.min(images.length, 5)).map((_, idx) => (
               <div 
                 key={idx} 
-                className={`w-2 h-2 rounded-full transition-all duration-300 ${idx === (currentIndex % 5) ? "bg-white scale-110" : "bg-white/50"}`}
+                className={`w-2 h-2 rounded-full transition-all duration-300 ${idx === (currentIndex % 5) ? "bg-black scale-110" : "bg-white/50"}`}
               />
             ))}
           </div>

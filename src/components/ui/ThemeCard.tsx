@@ -33,17 +33,17 @@ export default function ThemeCard({ theme }: { theme: PackageTheme }) {
           </span>
         )}
       </div>
-      <div className="p-6 flex flex-col flex-1 justify-between bg-white border-t border-stone-100">
+      <div className="p-6 flex flex-col flex-1 justify-between bg-black border-t border-stone-100">
         <div>
-          <h3 className="font-display text-xl font-bold text-stone-900 group-hover:text-[#5C0005] transition-colors uppercase tracking-wide">
+          <h3 className="font-display text-xl font-bold text-white group-hover:text-[#5C0005] transition-colors uppercase tracking-wide">
             {theme.name}
           </h3>
-          <p className="mt-2 font-body text-sm text-stone-600 leading-relaxed">
+          <p className="mt-2 font-body text-sm text-stone-300 leading-relaxed">
             {theme.shortDescription}
           </p>
         </div>
         {!theme.comingSoon && (
-          <div className="mt-6 pt-4 border-t border-stone-200/80 flex items-center justify-between font-body text-xs font-semibold uppercase tracking-widest text-[#5C0005] group-hover:translate-x-1 transition-transform">
+          <div className="mt-6 pt-4 border-t border-white/10 flex items-center justify-between font-body text-xs font-semibold uppercase tracking-widest text-[#5C0005] group-hover:translate-x-1 transition-transform">
             <span>View Details</span>
             <ArrowRight className="h-4 w-4" />
           </div>
@@ -54,7 +54,7 @@ export default function ThemeCard({ theme }: { theme: PackageTheme }) {
 
   if (theme.comingSoon) {
     return (
-      <div className="flex h-full flex-col overflow-hidden rounded-2xl border border-stone-200/80 bg-white opacity-75 shadow-sm">
+      <div className="flex h-full flex-col overflow-hidden rounded-2xl border border-white/10 bg-black opacity-75 shadow-sm">
         {content}
       </div>
     );
@@ -63,7 +63,7 @@ export default function ThemeCard({ theme }: { theme: PackageTheme }) {
   return (
     <Link
       href={`/packages/${theme.slug}`}
-      className="group flex h-full flex-col overflow-hidden rounded-2xl border border-stone-200/80 bg-white transition-all duration-500 hover:border-[#5C0005]/60 hover:shadow-2xl transform hover:-translate-y-1"
+      className="group flex h-full flex-col overflow-hidden rounded-2xl border border-white/10 bg-black transition-all duration-500 hover:border-[#5C0005]/60 hover:shadow-2xl transform hover:-translate-y-1"
     >
       {content}
     </Link>

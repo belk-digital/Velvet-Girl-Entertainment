@@ -41,7 +41,7 @@ export default function Accordion({
   return (
     <div
       className={`flex flex-col border-t ${
-        isCrimson ? "border-white/20" : "border-black/20"
+        isCrimson ? "border-white/20" : "border-white/10"
       }`}
     >
       {items.map((faq, index) => {
@@ -53,7 +53,7 @@ export default function Accordion({
           <div
             key={index}
             className={`border-b py-8 cursor-pointer group ${
-              isCrimson ? "border-white/20" : "border-black/20"
+              isCrimson ? "border-white/20" : "border-white/10"
             }`}
             onClick={() => handleToggle(index)}
           >
@@ -82,7 +82,7 @@ export default function Accordion({
                           : "text-[#5C0005]"
                         : isCrimson
                         ? "text-white/90 group-hover:text-white/60"
-                        : "text-black group-hover:text-[#5C0005]"
+                        : "text-white group-hover:text-[#5C0005]"
                     }`}
                   >
                     {faq.question}
@@ -128,7 +128,7 @@ export default function Accordion({
 
                       <p
                         className={`text-sm leading-relaxed max-w-lg font-medium pr-4 ${
-                          isCrimson ? "text-white/80" : "text-black/80"
+                          isCrimson ? "text-white/80" : "text-white/80"
                         }`}
                       >
                         {faq.answer}

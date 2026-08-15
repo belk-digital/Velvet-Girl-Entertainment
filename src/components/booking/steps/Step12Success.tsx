@@ -34,7 +34,7 @@ export default function Step12Success() {
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2, duration: 0.5 }}
-          className="font-display text-3xl sm:text-5xl font-extrabold text-stone-900 tracking-tight mb-4"
+          className="font-display text-3xl sm:text-5xl font-extrabold text-white tracking-tight mb-4"
         >
           You&rsquo;re all set!
         </motion.h1>
@@ -43,7 +43,7 @@ export default function Step12Success() {
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3, duration: 0.5 }}
-          className="font-body text-base sm:text-lg text-stone-600 max-w-md mb-10 leading-relaxed font-normal"
+          className="font-body text-base sm:text-lg text-stone-300 max-w-md mb-10 leading-relaxed font-normal"
         >
           We&rsquo;ve received your request. Our booking specialist will contact
           you shortly to confirm the details.
@@ -64,14 +64,14 @@ export default function Step12Success() {
             <Lock className="w-4 h-4" />
           </button>
 
-          <p className="font-body text-xs text-stone-500 mb-8 font-medium">
+          <p className="font-body text-xs text-stone-400 mb-8 font-medium">
             Details confirmed privately with your booking specialist.
           </p>
 
           <Link
             href="/"
             onClick={resetBooking}
-            className="inline-flex items-center gap-2 text-stone-600 hover:text-[#5C0005] font-body text-sm font-semibold transition-colors"
+            className="inline-flex items-center gap-2 text-stone-300 hover:text-[#5C0005] font-body text-sm font-semibold transition-colors"
           >
             <RefreshCw className="w-3.5 h-3.5" />
             <span>Return to Home &amp; Start Another</span>

@@ -50,7 +50,7 @@ export default function Footer() {
   }, { scope: containerRef });
 
   return (
-    <footer ref={containerRef} className="relative w-full bg-[#FBFAF8] overflow-hidden flex flex-col items-center pt-0 pb-12 font-sans">
+    <footer ref={containerRef} className="relative w-full bg-black overflow-hidden flex flex-col items-center pt-0 pb-12 font-sans">
       {/* Background Glows */}
       <div className="absolute top-0 left-0 w-[600px] h-[600px] bg-[#5C0005] rounded-full blur-[220px] opacity-10 -translate-x-1/2 -translate-y-1/2 pointer-events-none"></div>
       <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-[#5C0005] rounded-full blur-[220px] opacity-10 translate-x-1/3 translate-y-1/3 pointer-events-none"></div>
@@ -111,7 +111,7 @@ export default function Footer() {
             {"contact us \u00A0 contact us \u00A0 contact us \u00A0 ".split("").map((char, i, arr) => (
               <span
                 key={i}
-                className="absolute text-5xl sm:text-6xl md:text-7xl font-black text-[#1c1c1c] whitespace-pre tracking-tight"
+                className="absolute text-5xl sm:text-6xl md:text-7xl font-black text-white whitespace-pre tracking-tight"
                 style={{
                   transform: `rotateY(${i * (360 / arr.length)}deg) translateZ(185px)`,
                   textShadow: '0 4px 15px rgba(0,0,0,0.1)',
@@ -132,20 +132,20 @@ export default function Footer() {
         <div className="footer-content-item flex flex-col gap-6 md:gap-8 shrink-0">
           <Link href="/" className="flex items-center gap-3">
             <Image
-              src="/velvet-logo.png"
+              src="/velvet-logo-transparent-navbar.png"
               alt="Velvet Girl Entertainment"
               width={140}
               height={139}
               className="h-14 w-auto sm:h-16"
             />
-            <span className="font-script font-normal text-4xl sm:text-5xl text-black">
+            <span className="font-script font-normal text-4xl sm:text-5xl text-white">
               Velvet Girl
             </span>
           </Link>
           <div className="flex items-center gap-4">
             <Link
               href="#"
-              className="w-11 h-11 rounded-full bg-white shadow-[0_4px_15px_rgba(0,0,0,0.08)] border border-black/5 flex items-center justify-center text-black hover:bg-[#5C0005] hover:text-white transition-all duration-300 hover:scale-105"
+              className="w-11 h-11 rounded-full bg-white shadow-[0_4px_15px_rgba(0,0,0,0.08)] border border-white/10 flex items-center justify-center text-black hover:bg-[#5C0005] hover:text-white transition-all duration-300 hover:scale-105"
               aria-label="Telegram"
             >
               <Send className="w-5 h-5 -ml-0.5 mt-0.5" />
@@ -154,7 +154,7 @@ export default function Footer() {
               href="https://www.instagram.com/velvetgirlentertainment"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-11 h-11 rounded-full bg-white shadow-[0_4px_15px_rgba(0,0,0,0.08)] border border-black/5 flex items-center justify-center text-black hover:bg-[#5C0005] hover:text-white transition-all duration-300 hover:scale-105"
+              className="w-11 h-11 rounded-full bg-white shadow-[0_4px_15px_rgba(0,0,0,0.08)] border border-white/10 flex items-center justify-center text-black hover:bg-[#5C0005] hover:text-white transition-all duration-300 hover:scale-105"
               aria-label="Instagram"
             >
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -167,7 +167,7 @@ export default function Footer() {
         </div>
 
         {/* Column 2: Links */}
-        <div className="footer-content-item grid grid-cols-2 gap-x-10 gap-y-2.5 font-medium text-black/75 text-sm md:text-base">
+        <div className="footer-content-item grid grid-cols-2 gap-x-10 gap-y-2.5 font-medium text-white/75 text-sm md:text-base">
           <div className="flex flex-col gap-2.5">
             <Link href="/services" className="hover:text-[#5C0005] transition-colors lowercase">services</Link>
             <Link href="/girls" className="hover:text-[#5C0005] transition-colors lowercase">girls</Link>
@@ -190,8 +190,8 @@ export default function Footer() {
         {/* Column 3: Big Text 'we'll be happy to assist you' matching photo */}
         <div className="footer-content-item whitespace-nowrap my-2 lg:my-0">
           <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-[4.2rem] font-black leading-[0.93] tracking-tight lowercase">
-            <span className="text-black">we'll be happy</span><br />
-            <span className="text-black">to </span>
+            <span className="text-white">we'll be happy</span><br />
+            <span className="text-white">to </span>
             <span className="text-[#5C0005]">assist you</span>
           </h2>
         </div>
@@ -207,19 +207,19 @@ export default function Footer() {
           <div className="flex flex-col items-start lg:items-center gap-1">
             <a
               href="tel:8439387377"
-              className="text-black/80 hover:text-[#5C0005] transition-colors text-sm md:text-base font-semibold"
+              className="text-white/80 hover:text-[#5C0005] transition-colors text-sm md:text-base font-semibold"
             >
               (843) 938-7377
             </a>
             <a
               href="mailto:bookings@velvetgirlentertainment.com"
-              className="text-black/80 hover:text-[#5C0005] transition-colors text-sm md:text-base font-medium"
+              className="text-white/80 hover:text-[#5C0005] transition-colors text-sm md:text-base font-medium"
             >
               bookings@velvetgirlentertainment.com
             </a>
             <a
               href="mailto:inquiries@velvetgirlentertainment.com"
-              className="text-black/60 hover:text-[#5C0005] transition-colors text-xs md:text-sm font-medium"
+              className="text-white/60 hover:text-[#5C0005] transition-colors text-xs md:text-sm font-medium"
             >
               inquiries@velvetgirlentertainment.com
             </a>
@@ -229,9 +229,9 @@ export default function Footer() {
       </div>
 
       {/* Disclaimer */}
-      <div className="relative z-10 w-full max-w-[120rem] mx-auto px-6 lg:px-12 mt-12 flex flex-col sm:flex-row items-center justify-between gap-4 pt-6 border-t border-black/10">
+      <div className="relative z-10 w-full max-w-[120rem] mx-auto px-6 lg:px-12 mt-12 flex flex-col sm:flex-row items-center justify-between gap-4 pt-6 border-t border-white/10">
         <div className="flex flex-col gap-1.5">
-          <div className="flex items-center gap-2 text-black/40">
+          <div className="flex items-center gap-2 text-white/40">
             <span className="relative flex h-5 w-5 items-center justify-center">
               <Shield className="h-5 w-5" strokeWidth={1.5} />
               <span className="absolute text-[6px] font-bold">18+</span>
@@ -240,7 +240,7 @@ export default function Footer() {
               © {new Date().getFullYear()} Velvet Girl Entertainment. All Rights Reserved.
             </p>
           </div>
-          <p className="font-body text-xs text-black/40 pl-7">
+          <p className="font-body text-xs text-white/40 pl-7">
             Designed and developed by{" "}
             <a
               href="https://belkdigital.com"
@@ -252,7 +252,7 @@ export default function Footer() {
             </a>
           </p>
         </div>
-        <p className="font-body text-xs text-black/40 text-center sm:text-right">
+        <p className="font-body text-xs text-white/40 text-center sm:text-right">
           This site contains mature content intended only for adults 18+.
         </p>
       </div>

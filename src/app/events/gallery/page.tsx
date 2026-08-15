@@ -40,7 +40,7 @@ const galleryFaqs = [
 
 export default function EventGalleryPage() {
   return (
-    <main className="min-h-screen bg-[#FAF7F2]">
+    <main className="min-h-screen bg-black">
       {/* Complete Editorial Reference Design Photo Gallery Section */}
       <EventPhotoGalleryContent />
 

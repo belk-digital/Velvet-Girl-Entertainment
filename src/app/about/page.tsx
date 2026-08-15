@@ -85,7 +85,7 @@ export default function AboutPage() {
 
       <Section eyebrow="OUR STORY" title="Built around discretion and reliability">
         <Reveal className="mx-auto max-w-3xl space-y-6 text-center">
-          <p className="font-body text-base leading-relaxed text-black/80 sm:text-lg font-medium">
+          <p className="font-body text-base leading-relaxed text-white/80 sm:text-lg font-medium">
             Velvet Girl Entertainment was built to solve a simple problem:
             booking professional entertainment for a private celebration
             shouldn&rsquo;t be stressful, uncertain, or unsafe. We work with a
@@ -93,14 +93,14 @@ export default function AboutPage() {
             client gets a smooth, discreet experience from first contact to
             the night of the event.
           </p>
-          <p className="font-body text-base leading-relaxed text-black/80 sm:text-lg font-medium">
+          <p className="font-body text-base leading-relaxed text-white/80 sm:text-lg font-medium">
             Every booking is handled with professionalism, discretion, and
             attention to detail. Whether you&rsquo;re planning a bachelor
             party, birthday celebration, VIP gathering, or private event, our
             booking specialists help match you with dancers that fit your
             occasion.
           </p>
-          <p className="font-body text-base leading-relaxed text-black/80 sm:text-lg font-medium">
+          <p className="font-body text-base leading-relaxed text-white/80 sm:text-lg font-medium">
             We&rsquo;re also one of the only booking agencies that posts real,
             unedited photos of every dancer on our roster. No stock photos,
             no bait-and-switch — you know exactly who&rsquo;s showing up.
@@ -108,7 +108,7 @@ export default function AboutPage() {
 
           {/* Luxury Editorial Photo Grid (.webp from gallery images) */}
           <div className="mt-12 grid grid-cols-1 sm:grid-cols-3 gap-6 pt-6 text-left">
-            <div className="relative overflow-hidden rounded-2xl shadow-xl border border-stone-200/80 aspect-[4/5] group">
+            <div className="relative overflow-hidden rounded-2xl shadow-xl border border-white/10 aspect-[4/5] group">
               <Image
                 src={encodeURI("/gallery images/BACHELOR PARTY_GUYS NIGHT.webp")}
                 alt="Bachelor Party VIP Entertainment"
@@ -121,7 +121,7 @@ export default function AboutPage() {
                 Bachelor Parties &amp; Guys Nights
               </p>
             </div>
-            <div className="relative overflow-hidden rounded-2xl shadow-xl border border-stone-200/80 aspect-[4/5] group">
+            <div className="relative overflow-hidden rounded-2xl shadow-xl border border-white/10 aspect-[4/5] group">
               <Image
                 src={encodeURI("/gallery images/BREAKFAST WITH BABES.webp")}
                 alt="Breakfast With Babes Package"
@@ -134,7 +134,7 @@ export default function AboutPage() {
                 VIP Daytime Packages
               </p>
             </div>
-            <div className="relative overflow-hidden rounded-2xl shadow-xl border border-stone-200/80 aspect-[4/5] group">
+            <div className="relative overflow-hidden rounded-2xl shadow-xl border border-white/10 aspect-[4/5] group">
               <Image
                 src={encodeURI("/gallery images/GAME DAY GIRLS.webp")}
                 alt="Game Day Girls Entertainment"
@@ -174,14 +174,14 @@ export default function AboutPage() {
             {standards.map((item, idx) => (
               <li
                 key={item}
-                className={`flex items-start gap-4 border border-black/10 bg-white p-6 transition-all duration-300 hover:border-[#5C0005]/50 hover:shadow-md ${
+                className={`flex items-start gap-4 border border-white/10 bg-black p-6 transition-all duration-300 hover:border-[#5C0005]/50 hover:shadow-md ${
                   idx === standards.length - 1 ? "md:col-span-2" : ""
                 }`}
               >
                 <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#5C0005]/10 text-[#5C0005]">
                   <ShieldCheck className="h-5 w-5" />
                 </div>
-                <span className="font-body text-base text-black/85 font-medium">
+                <span className="font-body text-base text-white/85 font-medium">
                   {item}
                 </span>
               </li>
@@ -192,7 +192,7 @@ export default function AboutPage() {
 
       <Section eyebrow="FROM OUR TEAM" title="A note from Velvet Girl Entertainment">
         <Reveal className="mx-auto max-w-2xl text-center">
-          <p className="font-body text-lg sm:text-xl leading-relaxed text-black/85 font-medium italic">
+          <p className="font-body text-lg sm:text-xl leading-relaxed text-white/85 font-medium italic">
             &ldquo;We built this agency because we were tired of seeing bait-and-switch
             booking sites. Every performer on our roster is verified, every photo
             is real, and every booking is backed by a team that actually answers
@@ -214,11 +214,11 @@ export default function AboutPage() {
           {["Choose city", "Select your dancers", "Confirm booking", "Enjoy your event"].map(
             (step, i) => (
               <Reveal key={step} delay={i * 0.08}>
-                <div className="h-full border border-black/10 bg-white p-8 text-center shadow-sm hover:shadow-lg transition-all duration-300 group">
+                <div className="h-full border border-white/10 bg-black p-8 text-center shadow-sm hover:shadow-lg transition-all duration-300 group">
                   <span className="font-display text-4xl font-bold text-[#5C0005] group-hover:scale-110 inline-block transition-transform">
                     {String(i + 1).padStart(2, "0")}
                   </span>
-                  <p className="mt-4 font-body text-base font-bold text-black uppercase tracking-wider">
+                  <p className="mt-4 font-body text-base font-bold text-white uppercase tracking-wider">
                     {step}
                   </p>
                 </div>
@@ -238,7 +238,7 @@ export default function AboutPage() {
             <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-[#5C0005] text-white shadow-md">
               <Lock className="h-7 w-7" />
             </div>
-            <p className="mt-6 font-body text-base sm:text-lg leading-relaxed text-black/85 font-medium">
+            <p className="mt-6 font-body text-base sm:text-lg leading-relaxed text-white/85 font-medium">
               Discretion is a core part of how we operate — from how our
               booking team communicates to how dancers arrive and depart
               your event. Your personal information is never shared beyond

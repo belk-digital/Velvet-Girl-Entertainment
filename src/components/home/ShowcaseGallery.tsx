@@ -170,7 +170,7 @@ export default function ShowcaseGallery({
           <span className="text-white/80 tracking-[0.2em] text-xs md:text-sm font-medium">{new Date().getFullYear()}</span>
           <Link
             href={linkHref}
-            className="border-2 border-white/30 rounded-full w-12 h-12 md:w-14 md:h-14 flex items-center justify-center text-white hover:bg-white hover:text-[#5C0005] hover:border-white transition-colors shrink-0"
+            className="border-2 border-white/30 rounded-full w-12 h-12 md:w-14 md:h-14 flex items-center justify-center text-white hover:bg-black hover:text-[#5C0005] hover:border-white transition-colors shrink-0"
             aria-label="View full gallery"
           >
             <ArrowUpRight className="w-5 h-5" strokeWidth={2} />

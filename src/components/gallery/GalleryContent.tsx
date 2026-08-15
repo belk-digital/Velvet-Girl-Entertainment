@@ -131,9 +131,9 @@ export default function GalleryContent({ performers }: { performers: CmsPerforme
             sizes="100vw"
             className="object-cover object-center"
           />
-          {/* Editorial overlay gradient to ensure high text contrast and luxury ivory/cream theme consistency */}
-          <div className="absolute inset-0 bg-gradient-to-r from-[#FAF7F2] via-[#FAF7F2]/90 to-[#FAF7F2]/40" />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#FAF7F2] via-[#FAF7F2]/40 to-transparent opacity-95" />
+          {/* Dark mode overlay gradient to ensure high text contrast against the image */}
+          <div className="absolute inset-0 bg-gradient-to-r from-black via-black/80 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/80 to-transparent opacity-95" />
         </div>
 
         {/* Content Container */}
@@ -167,9 +167,9 @@ export default function GalleryContent({ performers }: { performers: CmsPerforme
 
             {/* Search Input Pill */}
             <div className="relative w-full max-w-md">
-              <div className="relative flex items-center w-full rounded-full bg-white/95 backdrop-blur-md border border-white/10 shadow-lg focus-within:border-[#540403] focus-within:ring-2 focus-within:ring-[#540403]/20 transition-all duration-300">
+              <div className="relative flex items-center w-full rounded-full bg-[#111] backdrop-blur-md border border-white/10 shadow-lg focus-within:border-[#540403] focus-within:ring-2 focus-within:ring-[#540403]/20 transition-all duration-300">
                 <div className="pl-5 pr-2 py-3.5 text-stone-400">
-                  <Search className="w-5 h-5 text-[#540403]" />
+                  <Search className="w-5 h-5 text-white/50" />
                 </div>
                 <input
                   type="text"
@@ -242,7 +242,7 @@ export default function GalleryContent({ performers }: { performers: CmsPerforme
                   className={`flex-shrink-0 px-6 py-2.5 rounded-full text-xs sm:text-sm font-bold uppercase tracking-wider transition-all duration-300 shadow-sm ${
                     isActive
                       ? "bg-[#540403] text-white shadow-md scale-[1.02]"
-                      : "bg-white/90 hover:bg-black text-stone-300 hover:text-stone-950 border border-white/10/90"
+                      : "bg-[#111] hover:bg-[#222] text-stone-400 hover:text-white border border-white/10"
                   }`}
                 >
                   {city.label}
@@ -264,7 +264,7 @@ export default function GalleryContent({ performers }: { performers: CmsPerforme
           <div className="relative flex-shrink-0 self-end md:self-auto pl-2">
             <button
               onClick={() => setIsSortOpen((prev) => !prev)}
-              className="flex items-center gap-2 bg-white/90 hover:bg-black border border-white/10 rounded-full px-5 py-2.5 text-xs font-semibold text-stone-300 shadow-sm transition-all"
+              className="flex items-center gap-2 bg-[#111] hover:bg-[#222] border border-white/10 rounded-full px-5 py-2.5 text-xs font-semibold text-white shadow-sm transition-all"
             >
               <span className="text-stone-400">Sort by:</span>
               <span className="font-bold text-white">{sortBy}</span>

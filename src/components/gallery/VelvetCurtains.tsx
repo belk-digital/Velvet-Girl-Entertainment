@@ -32,7 +32,7 @@ export default function VelvetCurtains({
             <linearGradient id={`${uid}vf1`} x1="0" y1="0" x2="1" y2="1">
               <stop offset="0%" stopColor="#8c040d" />
               <stop offset="25%" stopColor="#4a0105" />
-              <stop offset="55%" stopColor="#4C0C0A" />
+              <stop offset="55%" stopColor="#380605" />
               <stop offset="85%" stopColor="#2b0002" />
               <stop offset="100%" stopColor="#1a0001" />
             </linearGradient>
@@ -40,7 +40,7 @@ export default function VelvetCurtains({
             <linearGradient id={`${uid}vf2`} x1="0.1" y1="0" x2="0.9" y2="1">
               <stop offset="0%" stopColor="#a80510" />
               <stop offset="35%" stopColor="#5c0911" />
-              <stop offset="70%" stopColor="#4C0C0A" />
+              <stop offset="70%" stopColor="#380605" />
               <stop offset="100%" stopColor="#1a0001" />
             </linearGradient>
 
@@ -60,7 +60,7 @@ export default function VelvetCurtains({
               fy="20%"
             >
               <stop offset="0%" stopColor="#df1424" stopOpacity="0.45" />
-              <stop offset="40%" stopColor="#4C0C0A" stopOpacity="0.2" />
+              <stop offset="40%" stopColor="#380605" stopOpacity="0.2" />
               <stop offset="100%" stopColor="#2b0002" stopOpacity="0" />
             </radialGradient>
           </defs>
@@ -107,21 +107,21 @@ export default function VelvetCurtains({
       >
         <defs>
           <linearGradient id={`${uid}bv1`} x1="0" y1="1" x2="0" y2="0">
-            <stop offset="0%" stopColor="#4C0C0A" />
-            <stop offset="30%" stopColor="#4C0C0A" />
+            <stop offset="0%" stopColor="#380605" />
+            <stop offset="30%" stopColor="#380605" />
             <stop offset="65%" stopColor="#4a0105" />
             <stop offset="100%" stopColor="#2b0002" stopOpacity="0" />
           </linearGradient>
 
           <linearGradient id={`${uid}bv2`} x1="0" y1="1" x2="1" y2="0">
-            <stop offset="0%" stopColor="#4C0C0A" />
-            <stop offset="35%" stopColor="#4C0C0A" />
+            <stop offset="0%" stopColor="#380605" />
+            <stop offset="35%" stopColor="#380605" />
             <stop offset="75%" stopColor="#5c0911" />
             <stop offset="100%" stopColor="#1a0001" stopOpacity="0" />
           </linearGradient>
         </defs>
 
-        <path d="M0 220 L1440 220 L1440 240 L0 240 Z" fill="#4C0C0A" />
+        <path d="M0 220 L1440 220 L1440 240 L0 240 Z" fill="#380605" />
         <path
           d="M0 240 C180 240 320 160 480 200 C640 240 800 240 960 190 C1120 140 1280 220 1440 240 L1440 240 L0 240 Z"
           fill={`url(#${uid}bv1)`}

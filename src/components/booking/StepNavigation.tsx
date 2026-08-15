@@ -92,7 +92,7 @@ export default function StepNavigation({
             className={`inline-flex items-center gap-2 px-8 py-3.5 rounded-full font-body text-sm font-bold uppercase tracking-wider transition-all duration-300 shadow-md ${
               isNextDisabled
                 ? "bg-stone-300 text-stone-400 cursor-not-allowed opacity-60 shadow-none"
-                : "bg-[#4C0C0A] text-white hover:bg-[#5a0105] cursor-pointer"
+                : "bg-[#380605] text-white hover:bg-[#5a0105] cursor-pointer"
             }`}
           >
             <span>{nextLabel}</span>

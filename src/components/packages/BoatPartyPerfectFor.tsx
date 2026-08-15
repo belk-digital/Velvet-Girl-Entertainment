@@ -50,7 +50,7 @@ export default function BoatPartyPerfectFor({ items }: BoatPartyPerfectForProps)
 
   return (
     <section ref={container} className="w-full bg-black">
-      <div className="max-w-[120rem] mx-auto bg-[#4C0C0A] py-20 lg:py-32 px-6 lg:px-12 rounded-none">
+      <div className="max-w-[120rem] mx-auto bg-[#380605] py-20 lg:py-32 px-6 lg:px-12 rounded-none">
       {/* Header Area */}
       <div ref={headerRef} className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-start md:items-end mb-16 gap-8">
         <div>
@@ -98,7 +98,7 @@ export default function BoatPartyPerfectFor({ items }: BoatPartyPerfectForProps)
           <div className="mt-8 flex justify-center lg:justify-start">
             <button
               onClick={() => setIsExpanded(!isExpanded)}
-              className="text-xs font-bold uppercase tracking-widest text-[#4C0C0A] bg-white hover:bg-black transition-colors py-3 px-8 rounded-full shadow-md"
+              className="text-xs font-bold uppercase tracking-widest text-[#380605] bg-white hover:bg-black transition-colors py-3 px-8 rounded-full shadow-md"
             >
               {isExpanded ? "Show Less" : "View All"}
             </button>

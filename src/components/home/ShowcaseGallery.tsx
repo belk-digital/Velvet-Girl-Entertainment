@@ -66,7 +66,7 @@ export default function ShowcaseGallery({
   }, { scope: containerRef });
 
   return (
-    <section ref={containerRef} className="w-full bg-[#4C0C0A] text-white relative py-12 md:py-20 font-sans border-t border-white/10 overflow-hidden">
+    <section ref={containerRef} className="w-full bg-[#380605] text-white relative py-12 md:py-20 font-sans border-t border-white/10 overflow-hidden">
       
       {/* Top Header Section */}
       <div className="w-full max-w-[120rem] mx-auto px-6 lg:px-12 mb-12 md:mb-16 flex flex-col md:flex-row md:items-end justify-between gap-6">
@@ -154,7 +154,7 @@ export default function ShowcaseGallery({
       <div className="w-full max-w-[1800px] mx-auto px-4 flex flex-col md:flex-row items-center justify-between mt-12 pb-8 gap-8">
         
         <div className="flex items-center gap-6 self-start md:self-auto w-full md:w-auto">
-          <button className="bg-white text-[#4C0C0A] w-14 h-14 md:w-16 md:h-16 flex items-center justify-center hover:bg-black hover:text-white transition-colors shrink-0">
+          <button className="bg-white text-[#380605] w-14 h-14 md:w-16 md:h-16 flex items-center justify-center hover:bg-black hover:text-white transition-colors shrink-0">
             <ArrowLeft className="w-5 h-5 md:w-6 md:h-6" strokeWidth={2.5} />
           </button>
           <span className="text-white/80 tracking-[0.2em] text-xs md:text-sm font-medium">VELVET GIRL</span>
@@ -170,7 +170,7 @@ export default function ShowcaseGallery({
           <span className="text-white/80 tracking-[0.2em] text-xs md:text-sm font-medium">{new Date().getFullYear()}</span>
           <Link
             href={linkHref}
-            className="border-2 border-white/30 rounded-full w-12 h-12 md:w-14 md:h-14 flex items-center justify-center text-white hover:bg-black hover:text-[#4C0C0A] hover:border-white transition-colors shrink-0"
+            className="border-2 border-white/30 rounded-full w-12 h-12 md:w-14 md:h-14 flex items-center justify-center text-white hover:bg-black hover:text-[#380605] hover:border-white transition-colors shrink-0"
             aria-label="View full gallery"
           >
             <ArrowUpRight className="w-5 h-5" strokeWidth={2} />

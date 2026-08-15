@@ -114,7 +114,7 @@ export default function BookingWizardFlow() {
   };
 
   return (
-    <div className="min-h-screen w-full flex flex-col bg-black text-white selection:bg-[#4C0C0A] selection:text-white">
+    <div className="min-h-screen w-full flex flex-col bg-black text-white selection:bg-[#380605] selection:text-white">
       <ProgressBar />
       <main className="flex-1 flex flex-col">{renderStep()}</main>
     </div>

@@ -29,11 +29,11 @@ export default function Section({
       id={id}
       className={`px-6 py-20 sm:py-28 transition-colors duration-300 ${
         isCrimson
-          ? "bg-[#4C0C0A] text-white"
+          ? "bg-[#380605] text-white"
           : isDark
           ? "bg-[#0f0f11] text-white"
           : isMuted
-          ? "bg-[#4C0C0A] text-white border-y border-white/10 shadow-xs"
+          ? "bg-[#380605] text-white border-y border-white/10 shadow-xs"
           : "bg-black text-white"
       } ${className}`}
     >
@@ -43,7 +43,7 @@ export default function Section({
             {eyebrow && (
               <p
                 className={`text-xs md:text-sm font-bold uppercase tracking-widest mb-3 ${
-                  isDeepText ? "text-white/80" : "text-[#4C0C0A]"
+                  isDeepText ? "text-white/80" : "text-[#380605]"
                 }`}
               >
                 {eyebrow}
@@ -52,7 +52,7 @@ export default function Section({
             {title && (
               <h2
                 className={`font-display text-3xl sm:text-4xl md:text-5xl font-bold uppercase tracking-wider leading-tight ${
-                  isDeepText ? "text-white" : "text-[#4C0C0A]"
+                  isDeepText ? "text-white" : "text-[#380605]"
                 }`}
               >
                 {title}

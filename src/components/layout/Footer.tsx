@@ -52,14 +52,14 @@ export default function Footer() {
   return (
     <footer ref={containerRef} className="relative w-full bg-black overflow-hidden flex flex-col items-center pt-0 pb-12 font-sans">
       {/* Background Glows */}
-      <div className="absolute top-0 left-0 w-[600px] h-[600px] bg-[#4C0C0A] rounded-full blur-[220px] opacity-10 -translate-x-1/2 -translate-y-1/2 pointer-events-none"></div>
-      <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-[#4C0C0A] rounded-full blur-[220px] opacity-10 translate-x-1/3 translate-y-1/3 pointer-events-none"></div>
+      <div className="absolute top-0 left-0 w-[600px] h-[600px] bg-[#380605] rounded-full blur-[220px] opacity-10 -translate-x-1/2 -translate-y-1/2 pointer-events-none"></div>
+      <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-[#380605] rounded-full blur-[220px] opacity-10 translate-x-1/3 translate-y-1/3 pointer-events-none"></div>
 
       {/* Top-Left Deep Red Solid Watermark (matching 'octo') */}
       <div className="footer-watermark absolute top-0 left-0 -translate-x-[2%] -translate-y-[10%] pointer-events-none z-0">
         <div
           aria-hidden="true"
-          className="text-[9rem] sm:text-[14rem] md:text-[18rem] lg:text-[23rem]   text-[#4C0C0A] leading-none tracking-normal select-none "
+          className="text-[9rem] sm:text-[14rem] md:text-[18rem] lg:text-[23rem]   text-[#380605] leading-none tracking-normal select-none "
           style={{
             maskImage: 'linear-gradient(to bottom, black 35%, transparent 100%)',
             WebkitMaskImage: 'linear-gradient(to bottom, black 35%, transparent 100%)',
@@ -73,7 +73,7 @@ export default function Footer() {
       <div className="footer-watermark absolute bottom-0 right-0 translate-x-[5%] translate-y-[15%] pointer-events-none z-0">
         <div
           aria-hidden="true"
-          className="text-[9rem] sm:text-[14rem] md:text-[18rem] lg:text-[24rem] text-[#4C0C0A]/12 leading-none tracking-normal select-none "
+          className="text-[9rem] sm:text-[14rem] md:text-[18rem] lg:text-[24rem] text-[#380605]/12 leading-none tracking-normal select-none "
         >
           GIRLS
         </div>
@@ -145,7 +145,7 @@ export default function Footer() {
           <div className="flex items-center gap-4">
             <Link
               href="#"
-              className="w-11 h-11 rounded-full bg-white shadow-[0_4px_15px_rgba(0,0,0,0.08)] border border-white/10 flex items-center justify-center text-black hover:bg-[#4C0C0A] hover:text-white transition-all duration-300 hover:scale-105"
+              className="w-11 h-11 rounded-full bg-white shadow-[0_4px_15px_rgba(0,0,0,0.08)] border border-white/10 flex items-center justify-center text-black hover:bg-[#380605] hover:text-white transition-all duration-300 hover:scale-105"
               aria-label="Telegram"
             >
               <Send className="w-5 h-5 -ml-0.5 mt-0.5" />
@@ -154,7 +154,7 @@ export default function Footer() {
               href="https://www.instagram.com/velvetgirlentertainment"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-11 h-11 rounded-full bg-white shadow-[0_4px_15px_rgba(0,0,0,0.08)] border border-white/10 flex items-center justify-center text-black hover:bg-[#4C0C0A] hover:text-white transition-all duration-300 hover:scale-105"
+              className="w-11 h-11 rounded-full bg-white shadow-[0_4px_15px_rgba(0,0,0,0.08)] border border-white/10 flex items-center justify-center text-black hover:bg-[#380605] hover:text-white transition-all duration-300 hover:scale-105"
               aria-label="Instagram"
             >
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -169,21 +169,21 @@ export default function Footer() {
         {/* Column 2: Links */}
         <div className="footer-content-item grid grid-cols-2 gap-x-10 gap-y-2.5 font-medium text-white/75 text-sm md:text-base">
           <div className="flex flex-col gap-2.5">
-            <Link href="/services" className="hover:text-[#4C0C0A] transition-colors lowercase">services</Link>
-            <Link href="/girls" className="hover:text-[#4C0C0A] transition-colors lowercase">girls</Link>
-            <Link href="/gallery" className="hover:text-[#4C0C0A] transition-colors lowercase">gallery</Link>
-            <Link href="/packages" className="hover:text-[#4C0C0A] transition-colors lowercase">packages</Link>
+            <Link href="/services" className="hover:text-[#380605] transition-colors lowercase">services</Link>
+            <Link href="/girls" className="hover:text-[#380605] transition-colors lowercase">girls</Link>
+            <Link href="/gallery" className="hover:text-[#380605] transition-colors lowercase">gallery</Link>
+            <Link href="/packages" className="hover:text-[#380605] transition-colors lowercase">packages</Link>
 
-            <Link href="/cities" className="hover:text-[#4C0C0A] transition-colors lowercase">cities</Link>
-            <Link href="/about" className="hover:text-[#4C0C0A] transition-colors lowercase">about us</Link>
-            <Link href="/blog" className="hover:text-[#4C0C0A] transition-colors lowercase">blog</Link>
+            <Link href="/cities" className="hover:text-[#380605] transition-colors lowercase">cities</Link>
+            <Link href="/about" className="hover:text-[#380605] transition-colors lowercase">about us</Link>
+            <Link href="/blog" className="hover:text-[#380605] transition-colors lowercase">blog</Link>
           </div>
           <div className="flex flex-col gap-2.5">
-            <Link href="/faq" className="hover:text-[#4C0C0A] transition-colors lowercase">faq</Link>
-            <Link href="/join-team" className="hover:text-[#4C0C0A] transition-colors lowercase">join team</Link>
-            <Link href="/privacy" className="hover:text-[#4C0C0A] transition-colors lowercase">privacy</Link>
-            <Link href="/terms" className="hover:text-[#4C0C0A] transition-colors lowercase">terms</Link>
-            <Link href="/disclaimer" className="hover:text-[#4C0C0A] transition-colors lowercase">18+ disclaimer</Link>
+            <Link href="/faq" className="hover:text-[#380605] transition-colors lowercase">faq</Link>
+            <Link href="/join-team" className="hover:text-[#380605] transition-colors lowercase">join team</Link>
+            <Link href="/privacy" className="hover:text-[#380605] transition-colors lowercase">privacy</Link>
+            <Link href="/terms" className="hover:text-[#380605] transition-colors lowercase">terms</Link>
+            <Link href="/disclaimer" className="hover:text-[#380605] transition-colors lowercase">18+ disclaimer</Link>
           </div>
         </div>
 
@@ -192,7 +192,7 @@ export default function Footer() {
           <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-[4.2rem] font-black leading-[0.93] tracking-tight lowercase">
             <span className="text-white">we'll be happy</span><br />
             <span className="text-white">to </span>
-            <span className="text-[#4C0C0A]">assist you</span>
+            <span className="text-[#380605]">assist you</span>
           </h2>
         </div>
 
@@ -200,26 +200,26 @@ export default function Footer() {
         <div className="footer-content-item flex flex-col items-start lg:items-center gap-3.5 shrink-0 mt-2 lg:mt-0">
           <Link
             href="/book-now"
-            className="w-full bg-gradient-to-r from-[#4C0C0A] to-[#5a0105] text-white font-extrabold text-xs sm:text-sm py-4 px-10 text-center hover:from-[#5a0105] hover:to-[#4C0C0A] transition-all duration-300 tracking-widest uppercase rounded-full shadow-[0_10px_25px_rgba(92, 0, 5,0.35)] hover:shadow-[0_15px_30px_rgba(92, 0, 5,0.5)] hover:scale-105"
+            className="w-full bg-gradient-to-r from-[#380605] to-[#5a0105] text-white font-extrabold text-xs sm:text-sm py-4 px-10 text-center hover:from-[#5a0105] hover:to-[#380605] transition-all duration-300 tracking-widest uppercase rounded-full shadow-[0_10px_25px_rgba(92, 0, 5,0.35)] hover:shadow-[0_15px_30px_rgba(92, 0, 5,0.5)] hover:scale-105"
           >
             BOOK NOW
           </Link>
           <div className="flex flex-col items-start lg:items-center gap-1">
             <a
               href="tel:8439387377"
-              className="text-white/80 hover:text-[#4C0C0A] transition-colors text-sm md:text-base font-semibold"
+              className="text-white/80 hover:text-[#380605] transition-colors text-sm md:text-base font-semibold"
             >
               (843) 938-7377
             </a>
             <a
               href="mailto:bookings@velvetgirlentertainment.com"
-              className="text-white/80 hover:text-[#4C0C0A] transition-colors text-sm md:text-base font-medium"
+              className="text-white/80 hover:text-[#380605] transition-colors text-sm md:text-base font-medium"
             >
               bookings@velvetgirlentertainment.com
             </a>
             <a
               href="mailto:inquiries@velvetgirlentertainment.com"
-              className="text-white/60 hover:text-[#4C0C0A] transition-colors text-xs md:text-sm font-medium"
+              className="text-white/60 hover:text-[#380605] transition-colors text-xs md:text-sm font-medium"
             >
               inquiries@velvetgirlentertainment.com
             </a>
@@ -246,7 +246,7 @@ export default function Footer() {
               href="https://belkdigital.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-[#4C0C0A] hover:underline"
+              className="text-[#380605] hover:underline"
             >
               Belk Digital
             </a>

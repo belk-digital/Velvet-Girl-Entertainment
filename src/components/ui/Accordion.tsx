@@ -63,7 +63,7 @@ export default function Accordion({
               <div className="md:w-1/2">
                 <span
                   className={`font-mono text-xl tracking-wider ${
-                    isCrimson ? "text-white/60" : "text-[#4C0C0A] font-bold"
+                    isCrimson ? "text-white/60" : "text-[#380605] font-bold"
                   }`}
                 >
                   /{number}
@@ -79,17 +79,17 @@ export default function Accordion({
                       isOpen
                         ? isCrimson
                           ? "text-white"
-                          : "text-[#4C0C0A]"
+                          : "text-[#380605]"
                         : isCrimson
                         ? "text-white/90 group-hover:text-white/60"
-                        : "text-white group-hover:text-[#4C0C0A]"
+                        : "text-white group-hover:text-[#380605]"
                     }`}
                   >
                     {faq.question}
                   </h3>
                   <div
                     className={`ml-4 shrink-0 transition-transform duration-300 ${
-                      isCrimson ? "text-white/60" : "text-[#4C0C0A]"
+                      isCrimson ? "text-white/60" : "text-[#380605]"
                     }`}
                   >
                     {isOpen ? (

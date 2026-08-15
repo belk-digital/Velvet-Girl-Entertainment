@@ -28,7 +28,7 @@ export default function FaqSection({
         hideBorder ? "" : "border-t"
       } ${
         isCrimson
-          ? `bg-[#4C0C0A] ${hideBorder ? "" : "border-white/10"}`
+          ? `bg-[#380605] ${hideBorder ? "" : "border-white/10"}`
           : `bg-black ${hideBorder ? "" : "border-white/10"}`
       }`}
     >
@@ -40,7 +40,7 @@ export default function FaqSection({
             data-cms-type="faq"
             data-cms-field="eyebrow"
             className={`text-xs md:text-sm font-bold uppercase tracking-widest mb-3 ${
-              isCrimson ? "text-white/70" : "text-[#4C0C0A]"
+              isCrimson ? "text-white/70" : "text-[#380605]"
             }`}
           >
             {eyebrow}

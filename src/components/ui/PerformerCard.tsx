@@ -5,7 +5,7 @@ import type { Performer } from "@/data/performers";
 
 export default function PerformerCard({ performer }: { performer: Performer }) {
   return (
-    <div className="group flex h-full flex-col overflow-hidden rounded-[2rem] border border-white/10 bg-black transition-all duration-300 hover:border-[#4C0C0A]/60 hover:shadow-[0_0_30px_rgba(84,4,3,0.15)]">
+    <div className="group flex h-full flex-col overflow-hidden rounded-[2rem] border border-white/10 bg-black transition-all duration-300 hover:border-[#380605]/60 hover:shadow-[0_0_30px_rgba(84,4,3,0.15)]">
       {/* Image Section */}
       <div className="relative aspect-[3/4] w-full overflow-hidden bg-[#111]">
         <Image
@@ -33,7 +33,7 @@ export default function PerformerCard({ performer }: { performer: Performer }) {
       {/* Content Section */}
       <div className="flex flex-1 flex-col justify-between p-6">
         <div className="text-center">
-          <h3 className="font-display text-2xl font-normal tracking-[0.2em] uppercase text-white transition-colors group-hover:text-[#4C0C0A]">
+          <h3 className="font-display text-2xl font-normal tracking-[0.2em] uppercase text-white transition-colors group-hover:text-[#380605]">
             {performer.name}
           </h3>
           
@@ -54,7 +54,7 @@ export default function PerformerCard({ performer }: { performer: Performer }) {
         <div className="mt-6 flex flex-col gap-3">
           <Link
             href={`/girls/${performer.slug || performer.id}`}
-            className="flex w-full items-center justify-center gap-2 rounded-full bg-[#4C0C0A] py-3.5 font-body text-[10px] font-bold uppercase tracking-widest text-white transition-colors hover:bg-[#5c0911]"
+            className="flex w-full items-center justify-center gap-2 rounded-full bg-[#380605] py-3.5 font-body text-[10px] font-bold uppercase tracking-widest text-white transition-colors hover:bg-[#5c0911]"
           >
             <span>View Profile</span>
             <ArrowRight className="h-3.5 w-3.5" />

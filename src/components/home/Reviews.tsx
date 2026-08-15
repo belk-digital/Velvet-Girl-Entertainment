@@ -106,7 +106,7 @@ export default function Reviews({ eyebrow, title, description, sectionId }: Revi
           
           {/* Left: Heading & Description */}
           <div className="review-header-element max-w-2xl">
-            <p className="text-xs md:text-sm font-bold uppercase tracking-widest text-[#4C0C0A] mb-3" data-cms-section={sectionId ?? undefined} data-cms-type="reviews" data-cms-field="eyebrow">
+            <p className="text-xs md:text-sm font-bold uppercase tracking-widest text-[#380605] mb-3" data-cms-section={sectionId ?? undefined} data-cms-type="reviews" data-cms-field="eyebrow">
               {eyebrow || "REVIEWS"}
             </p>
             <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-normal font-script tracking-normal text-white leading-tight mb-4" data-cms-section={sectionId ?? undefined} data-cms-type="reviews" data-cms-field="title">
@@ -122,14 +122,14 @@ export default function Reviews({ eyebrow, title, description, sectionId }: Revi
             <button 
               onClick={handlePrev}
               disabled={currentIndex === 0}
-              className="w-14 h-14 bg-[#4C0C0A] flex items-center justify-center text-white hover:bg-[#5c0911] transition-colors disabled:opacity-30 disabled:hover:bg-[#4C0C0A] cursor-pointer disabled:cursor-not-allowed group"
+              className="w-14 h-14 bg-[#380605] flex items-center justify-center text-white hover:bg-[#5c0911] transition-colors disabled:opacity-30 disabled:hover:bg-[#380605] cursor-pointer disabled:cursor-not-allowed group"
             >
               <ArrowLeft className="w-6 h-6 transition-transform group-hover:-translate-x-1" strokeWidth={2} />
             </button>
             <button 
               onClick={handleNext}
               disabled={currentIndex === maxIndex}
-              className="w-14 h-14 bg-[#4C0C0A] flex items-center justify-center text-white hover:bg-[#5c0911] transition-colors disabled:opacity-30 disabled:hover:bg-[#4C0C0A] cursor-pointer disabled:cursor-not-allowed group"
+              className="w-14 h-14 bg-[#380605] flex items-center justify-center text-white hover:bg-[#5c0911] transition-colors disabled:opacity-30 disabled:hover:bg-[#380605] cursor-pointer disabled:cursor-not-allowed group"
             >
               <ArrowRight className="w-6 h-6 transition-transform group-hover:translate-x-1" strokeWidth={2} />
             </button>
@@ -146,7 +146,7 @@ export default function Reviews({ eyebrow, title, description, sectionId }: Revi
               >
                 <div className="mb-12">
                   <div className="inline-flex items-center gap-3 border border-white/20 rounded-full px-5 py-2 mb-8">
-                    <div className="w-2 h-2 rounded-full bg-[#4C0C0A]"></div>
+                    <div className="w-2 h-2 rounded-full bg-[#380605]"></div>
                     <span className="text-xs font-bold text-white/80 uppercase tracking-widest">{t.name}</span>
                   </div>
                   <p className="text-xl md:text-2xl font-semibold text-white/95 leading-relaxed tracking-tight">

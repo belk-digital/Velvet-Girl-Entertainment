@@ -108,7 +108,7 @@ export default function CarMeetHighlights() {
   }, { scope: container });
 
   return (
-    <section ref={container} className="relative w-full overflow-hidden bg-[#4C0C0A]">
+    <section ref={container} className="relative w-full overflow-hidden bg-[#380605]">
       {/* Top Content Area */}
       <div ref={textRef} className="relative z-10 mx-auto flex max-w-5xl flex-col items-center px-6 py-16 text-center lg:py-24">
         <p className="mb-4 inline-block border-t-2 border-white/70 pt-2 text-xs font-bold uppercase tracking-widest text-white/80 md:text-base">
@@ -153,7 +153,7 @@ export default function CarMeetHighlights() {
 
         {/* Bottom Banner */}
         <div ref={bannerRef} className="relative z-10 mx-auto mt-10 flex max-w-2xl items-center justify-center gap-4 border-t border-white/25 pt-6 text-center">
-          <div className="shrink-0 rounded-full bg-white p-2.5 text-[#4C0C0A] shadow-sm">
+          <div className="shrink-0 rounded-full bg-white p-2.5 text-[#380605] shadow-sm">
             <Star className="h-5 w-5" fill="currentColor" />
           </div>
           <div>

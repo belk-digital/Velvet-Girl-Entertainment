@@ -154,7 +154,7 @@ export default function ContactPage() {
         <HowToBookTimeline steps={bookingSteps} />
         <p className="mt-8 text-center font-body text-sm text-stone-300 font-medium">
           Not sure which package fits your event? Browse our{" "}
-          <Link href="/packages" className="font-bold text-[#4C0C0A] hover:underline">
+          <Link href="/packages" className="font-bold text-[#380605] hover:underline">
             entertainment packages
           </Link>{" "}
           to get a feel for pricing before you reach out.
@@ -167,8 +167,8 @@ export default function ContactPage() {
             <div className="space-y-4">
               {infoItems.map(({ icon: Icon, label, value, href }) => {
                 const content = (
-                  <div className="flex items-start gap-4 border border-white/10 rounded-xl bg-black p-6 shadow-sm hover:border-[#4C0C0A]/50 transition-colors duration-300">
-                    <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[#4C0C0A]/10 text-[#4C0C0A]">
+                  <div className="flex items-start gap-4 border border-white/10 rounded-xl bg-black p-6 shadow-sm hover:border-[#380605]/50 transition-colors duration-300">
+                    <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[#380605]/10 text-[#380605]">
                       <Icon className="h-5 w-5" />
                     </span>
                     <div>
@@ -194,7 +194,7 @@ export default function ContactPage() {
 
           <Reveal className="lg:col-span-3" delay={0.15}>
             <div className="border border-white/10 rounded-2xl bg-black p-8 sm:p-12 shadow-xl">
-              <h2 className="font-display text-2xl font-bold uppercase tracking-wider text-[#4C0C0A]">
+              <h2 className="font-display text-2xl font-bold uppercase tracking-wider text-[#380605]">
                 Send a Booking Inquiry
               </h2>
               <p className="mt-2 font-body text-sm text-stone-300 font-medium">

@@ -79,7 +79,7 @@ export default function Hero({
           data-cms-section={sectionId ?? undefined}
           data-cms-type="hero"
           data-cms-field="title"
-          className="relative font-script font-normal leading-[1.15] opacity-0 text-4xl sm:text-5xl lg:text-[3.25rem] xl:text-[3.75rem] text-white lg:text-[#4C0C0A]"
+          className="relative font-script font-normal leading-[1.15] opacity-0 text-4xl sm:text-5xl lg:text-[3.25rem] xl:text-[3.75rem] text-white lg:text-[#380605]"
         >
           {title}
         </h1>
@@ -100,7 +100,7 @@ export default function Hero({
         >
           <a
             href="tel:8439387377"
-            className="tracking-caps group flex items-center justify-center gap-2 rounded-full bg-white text-[#4C0C0A] hover:bg-white/90 lg:bg-[#4C0C0A] lg:text-white lg:hover:bg-[#5c0911] px-5 py-3 sm:px-8 sm:py-5 font-body text-xs sm:text-sm font-bold transition-all duration-300 hover:scale-105 shadow-lg"
+            className="tracking-caps group flex items-center justify-center gap-2 rounded-full bg-white text-[#380605] hover:bg-white/90 lg:bg-[#380605] lg:text-white lg:hover:bg-[#5c0911] px-5 py-3 sm:px-8 sm:py-5 font-body text-xs sm:text-sm font-bold transition-all duration-300 hover:scale-105 shadow-lg"
           >
             <Phone className="h-3.5 w-3.5 sm:h-4 sm:w-4 animate-pulse" />
             <span>CALL NOW</span>

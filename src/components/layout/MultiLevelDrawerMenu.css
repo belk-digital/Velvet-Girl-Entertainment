@@ -13,7 +13,7 @@
 }
 
 .mldm_toggle:hover {
-  color: #4C0C0A;
+  color: #380605;
 }
 
 .mldm_toggle_label_wrap {
@@ -251,7 +251,7 @@
   width: 0.5rem;
   height: 0.5rem;
   border-radius: 50%;
-  background-color: #4C0C0A;
+  background-color: #380605;
   transform: translate(0, -50%) scale(0);
   transform-origin: center;
   will-change: transform;

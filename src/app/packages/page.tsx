@@ -62,7 +62,7 @@ export default function PackagesPage() {
       >
         <Reveal className="mx-auto max-w-2xl text-center">
           <div className="p-8 sm:p-12 rounded-3xl bg-black border border-white/10 shadow-lg relative overflow-hidden group">
-            <div className="absolute top-0 right-0 w-48 h-48 bg-gradient-to-bl from-[#4C0C0A]/10 to-transparent rounded-bl-full pointer-events-none" />
+            <div className="absolute top-0 right-0 w-48 h-48 bg-gradient-to-bl from-[#380605]/10 to-transparent rounded-bl-full pointer-events-none" />
             <h3 className="font-display text-2xl sm:text-3xl font-extrabold text-white mb-3">
               Ready to Customize Your Night?
             </h3>
@@ -71,7 +71,7 @@ export default function PackagesPage() {
             </p>
             <Link
               href="/book-now"
-              className="inline-flex items-center gap-3 rounded-full bg-[#4C0C0A] px-8 py-4 font-heading text-sm sm:text-base font-bold uppercase tracking-wider text-white shadow-md transition-all hover:bg-[#5c0911] hover:scale-105"
+              className="inline-flex items-center gap-3 rounded-full bg-[#380605] px-8 py-4 font-heading text-sm sm:text-base font-bold uppercase tracking-wider text-white shadow-md transition-all hover:bg-[#5c0911] hover:scale-105"
             >
               <span>Launch Interactive Package Builder</span>
               <span className="text-lg">→</span>

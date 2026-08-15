@@ -154,8 +154,8 @@ export default function CarMeetGallery() {
         <div ref={headerRef} className="mb-10 lg:mb-16 flex flex-col md:flex-row justify-between items-start md:items-end gap-6">
           <div>
             <div className="flex items-center gap-3 mb-4 lg:mb-6">
-              <div className="w-3.5 h-3.5 rounded-full border border-[#4C0C0A]/50"></div>
-              <p className="text-[#4C0C0A] text-xs font-bold tracking-widest uppercase">
+              <div className="w-3.5 h-3.5 rounded-full border border-[#380605]/50"></div>
+              <p className="text-[#380605] text-xs font-bold tracking-widest uppercase">
                 GALLERY
               </p>
             </div>

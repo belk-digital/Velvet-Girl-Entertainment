@@ -14,32 +14,32 @@ if (typeof window !== "undefined") {
 export default function BreakfastHighlights() {
   const features = [
     {
-      icon: <Sun className="h-8 w-8 text-[#4C0C0A]" strokeWidth={1.5} />,
+      icon: <Sun className="h-8 w-8 text-[#380605]" strokeWidth={1.5} />,
       title: "MORNING VIBES",
       desc: "Start the day right",
     },
     {
-      icon: <Coffee className="h-8 w-8 text-[#4C0C0A]" strokeWidth={1.5} />,
+      icon: <Coffee className="h-8 w-8 text-[#380605]" strokeWidth={1.5} />,
       title: "PRE-PARTY WARMUP",
       desc: "Perfect morning energy",
     },
     {
-      icon: <HeartHandshake className="h-8 w-8 text-[#4C0C0A]" strokeWidth={1.5} />,
+      icon: <HeartHandshake className="h-8 w-8 text-[#380605]" strokeWidth={1.5} />,
       title: "CASUAL FORMAT",
       desc: "Playful & engaging",
     },
     {
-      icon: <Utensils className="h-8 w-8 text-[#4C0C0A]" strokeWidth={1.5} />,
+      icon: <Utensils className="h-8 w-8 text-[#380605]" strokeWidth={1.5} />,
       title: "INTERACTIVE",
       desc: "Breakfast service",
     },
     {
-      icon: <Camera className="h-8 w-8 text-[#4C0C0A]" strokeWidth={1.5} />,
+      icon: <Camera className="h-8 w-8 text-[#380605]" strokeWidth={1.5} />,
       title: "GROUP PHOTOS",
       desc: "Capture the moment",
     },
     {
-      icon: <Sparkles className="h-8 w-8 text-[#4C0C0A]" strokeWidth={1.5} />,
+      icon: <Sparkles className="h-8 w-8 text-[#380605]" strokeWidth={1.5} />,
       title: "THEMED OUTFITS",
       desc: "Matching and stylish",
     },
@@ -119,11 +119,11 @@ export default function BreakfastHighlights() {
 
       {/* Top Content Area */}
       <div ref={textRef} className="w-[55%] lg:w-[55%] xl:w-[60%] pl-4 pr-2 lg:px-6 lg:pl-16 xl:pl-24 relative z-10 flex flex-col justify-center mt-4 lg:mt-0 pb-6 lg:pb-0 min-h-[320px] sm:min-h-[400px] md:min-h-[500px] lg:min-h-0">
-        <p className="text-[#4C0C0A] text-[10px] sm:text-xs md:text-base font-bold tracking-widest uppercase mb-2 lg:mb-4 border-t-[1.5px] lg:border-t-2 border-[#4C0C0A] pt-1 lg:pt-2 inline-block max-w-max">
+        <p className="text-[#380605] text-[10px] sm:text-xs md:text-base font-bold tracking-widest uppercase mb-2 lg:mb-4 border-t-[1.5px] lg:border-t-2 border-[#380605] pt-1 lg:pt-2 inline-block max-w-max">
           HIGHLIGHTS
         </p>
         <h2 className="font-display text-[32px] leading-[1] sm:text-5xl md:text-6xl lg:text-7xl font-bold uppercase tracking-wide text-white mb-3 lg:mb-6">
-          MORNINGS<br className="lg:hidden" /> <span className="text-[#4C0C0A]">ELEVATED</span>
+          MORNINGS<br className="lg:hidden" /> <span className="text-[#380605]">ELEVATED</span>
         </h2>
         <p className="text-stone-300 max-w-xl text-[10px] sm:text-sm md:text-lg leading-tight md:leading-relaxed mb-4 lg:mb-12 pr-1">
           A playful daytime booking — a fun, low-key way to kick off a celebration weekend or recover with style.
@@ -141,20 +141,20 @@ export default function BreakfastHighlights() {
                   {feat.icon}
                 </div>
               </div>
-              <h3 className="font-bold text-[9px] sm:text-xs lg:text-[15px] text-[#4C0C0A] lg:text-white uppercase mb-1 tracking-wider leading-tight">{feat.title}</h3>
+              <h3 className="font-bold text-[9px] sm:text-xs lg:text-[15px] text-[#380605] lg:text-white uppercase mb-1 tracking-wider leading-tight">{feat.title}</h3>
               <p className="text-[8px] sm:text-[10px] lg:text-[13px] text-stone-300 leading-tight px-1 lg:px-0">{feat.desc}</p>
-              <div className="w-6 lg:w-8 h-[1.5px] lg:h-[2px] bg-[#4C0C0A]/40 mt-1.5 lg:mt-3 group-hover:w-10 group-hover:bg-[#4C0C0A] transition-all duration-300"></div>
+              <div className="w-6 lg:w-8 h-[1.5px] lg:h-[2px] bg-[#380605]/40 mt-1.5 lg:mt-3 group-hover:w-10 group-hover:bg-[#380605] transition-all duration-300"></div>
             </div>
           ))}
         </div>
 
         {/* Bottom Banner */}
         <div ref={bannerRef} className="mt-8 lg:mt-16 flex items-center lg:items-start gap-3 lg:gap-4 bg-[#3d0f0f] lg:bg-transparent border-t-0 lg:border-t-2 border-white/10 p-3 lg:p-0 pt-3 lg:pt-6 rounded-lg lg:rounded-none mx-2 lg:mx-0 max-w-2xl shadow-md lg:shadow-none mb-4 lg:mb-0">
-          <div className="bg-black lg:bg-[#4C0C0A] rounded-full p-2 lg:p-2.5 text-[#3d0f0f] lg:text-white shrink-0 shadow-sm">
+          <div className="bg-black lg:bg-[#380605] rounded-full p-2 lg:p-2.5 text-[#3d0f0f] lg:text-white shrink-0 shadow-sm">
             <Star className="h-4 w-4 lg:h-5 lg:w-5" fill="currentColor" />
           </div>
           <div>
-            <h4 className="font-bold text-white lg:text-[#4C0C0A] text-[11px] sm:text-sm lg:text-base leading-tight">Start the day right.</h4>
+            <h4 className="font-bold text-white lg:text-[#380605] text-[11px] sm:text-sm lg:text-base leading-tight">Start the day right.</h4>
             <p className="text-[9px] sm:text-xs lg:text-sm text-stone-300 lg:text-stone-300 mt-0.5 leading-tight lg:leading-normal pr-2">Our entertainers provide a vibrant atmosphere from the moment you wake up.</p>
           </div>
         </div>

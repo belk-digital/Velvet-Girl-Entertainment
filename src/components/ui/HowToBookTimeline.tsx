@@ -120,21 +120,21 @@ export default function HowToBookTimeline({
   const normalizedSteps = steps.map((s, i) => normalizeStep(s, i));
 
   return (
-    <div className={`relative overflow-hidden rounded-3xl border border-[#4C0C0A]/20 p-8 sm:p-12 lg:p-16 shadow-2xl ${className}`}>
+    <div className={`relative overflow-hidden rounded-3xl border border-[#380605]/20 p-8 sm:p-12 lg:p-16 shadow-2xl ${className}`}>
       {/* Ambient Velvet Crimson & Ruby Spotlight Aurora Background (replacing gray and blue with red!) */}
       <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden bg-black">
         {/* Subtle top light wash */}
         <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-[#FAF7F2] via-[#FAF7F2]/80 to-transparent" />
 
         {/* Soft bottom-up atmospheric crimson red aurora glow */}
-        <div className="absolute inset-x-0 bottom-0 h-4/5 bg-gradient-to-t from-[#4C0C0A]/25 via-[#4C0C0A]/10 to-transparent" />
+        <div className="absolute inset-x-0 bottom-0 h-4/5 bg-gradient-to-t from-[#380605]/25 via-[#380605]/10 to-transparent" />
 
-        {/* Vertical Spotlight Light Cones rising from bottom (using Velvet Crimson #4C0C0A instead of Blue!) */}
-        <div className="absolute -bottom-16 left-[10%] h-[85%] w-[25%] -translate-x-1/2 rounded-full bg-gradient-to-t from-[#4C0C0A]/35 via-[#4C0C0A]/12 to-transparent blur-3xl" />
-        <div className="absolute -bottom-16 left-[30%] h-[95%] w-[25%] -translate-x-1/2 -rotate-6 rounded-full bg-gradient-to-t from-[#990000]/40 via-[#4C0C0A]/15 to-transparent blur-3xl" />
-        <div className="absolute -bottom-16 left-[50%] h-[90%] w-[30%] -translate-x-1/2 rotate-6 rounded-full bg-gradient-to-t from-[#4C0C0A]/45 via-[#4C0C0A]/18 to-transparent blur-3xl" />
-        <div className="absolute -bottom-16 left-[70%] h-[95%] w-[25%] -translate-x-1/2 -rotate-6 rounded-full bg-gradient-to-t from-[#990000]/40 via-[#4C0C0A]/15 to-transparent blur-3xl" />
-        <div className="absolute -bottom-16 left-[90%] h-[85%] w-[25%] -translate-x-1/2 rounded-full bg-gradient-to-t from-[#4C0C0A]/35 via-[#4C0C0A]/12 to-transparent blur-3xl" />
+        {/* Vertical Spotlight Light Cones rising from bottom (using Velvet Crimson #380605 instead of Blue!) */}
+        <div className="absolute -bottom-16 left-[10%] h-[85%] w-[25%] -translate-x-1/2 rounded-full bg-gradient-to-t from-[#380605]/35 via-[#380605]/12 to-transparent blur-3xl" />
+        <div className="absolute -bottom-16 left-[30%] h-[95%] w-[25%] -translate-x-1/2 -rotate-6 rounded-full bg-gradient-to-t from-[#990000]/40 via-[#380605]/15 to-transparent blur-3xl" />
+        <div className="absolute -bottom-16 left-[50%] h-[90%] w-[30%] -translate-x-1/2 rotate-6 rounded-full bg-gradient-to-t from-[#380605]/45 via-[#380605]/18 to-transparent blur-3xl" />
+        <div className="absolute -bottom-16 left-[70%] h-[95%] w-[25%] -translate-x-1/2 -rotate-6 rounded-full bg-gradient-to-t from-[#990000]/40 via-[#380605]/15 to-transparent blur-3xl" />
+        <div className="absolute -bottom-16 left-[90%] h-[85%] w-[25%] -translate-x-1/2 rounded-full bg-gradient-to-t from-[#380605]/35 via-[#380605]/12 to-transparent blur-3xl" />
       </div>
 
       {/* Desktop Horizontal Roadmap Layout (lg and up) */}
@@ -148,7 +148,7 @@ export default function HowToBookTimeline({
               <div className="flex flex-col items-start text-left group">
                 {/* 1. Top Pill Badge */}
                 <div className="h-9 mb-5 flex items-center">
-                  <span className="inline-flex items-center rounded-full bg-white/95 px-4 py-1.5 font-body text-xs font-bold uppercase tracking-widest text-[#4C0C0A] border border-[#4C0C0A]/30 shadow-md group-hover:bg-[#4C0C0A] group-hover:text-white transition-all duration-300">
+                  <span className="inline-flex items-center rounded-full bg-white/95 px-4 py-1.5 font-body text-xs font-bold uppercase tracking-widest text-[#380605] border border-[#380605]/30 shadow-md group-hover:bg-[#380605] group-hover:text-white transition-all duration-300">
                     STEP 0{i + 1}
                   </span>
                 </div>
@@ -157,7 +157,7 @@ export default function HowToBookTimeline({
                 <div className="relative my-4 flex items-center w-full h-6">
                   {/* Continuous horizontal connecting line */}
                   <div
-                    className={`absolute top-1/2 -translate-y-1/2 h-[2px] bg-stone-300 transition-colors duration-300 group-hover:bg-[#4C0C0A]/40 ${
+                    className={`absolute top-1/2 -translate-y-1/2 h-[2px] bg-stone-300 transition-colors duration-300 group-hover:bg-[#380605]/40 ${
                       isFirst
                         ? "left-2 right-0"
                         : isLast
@@ -167,17 +167,17 @@ export default function HowToBookTimeline({
                   />
 
                   {/* Circular Node Dot */}
-                  <div className="relative z-10 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-black border-[3px] border-[#4C0C0A] ring-4 ring-[#4C0C0A]/15 shadow-sm group-hover:scale-125 transition-transform duration-300" />
+                  <div className="relative z-10 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-black border-[3px] border-[#380605] ring-4 ring-[#380605]/15 shadow-sm group-hover:scale-125 transition-transform duration-300" />
 
                   {/* Right arrowhead terminating the roadmap */}
                   {isLast && (
-                    <ArrowRight className="absolute right-0 top-1/2 -translate-y-1/2 h-5 w-5 text-stone-400 group-hover:text-[#4C0C0A] group-hover:translate-x-1 transition-all duration-300" />
+                    <ArrowRight className="absolute right-0 top-1/2 -translate-y-1/2 h-5 w-5 text-stone-400 group-hover:text-[#380605] group-hover:translate-x-1 transition-all duration-300" />
                   )}
                 </div>
 
                 {/* 3. Step Title, Subtitle, & Description */}
                 <div className="mt-5 pr-6 xl:pr-10">
-                  <h3 className="font-display text-xl font-bold uppercase tracking-wider text-white group-hover:text-[#4C0C0A] transition-colors duration-300">
+                  <h3 className="font-display text-xl font-bold uppercase tracking-wider text-white group-hover:text-[#380605] transition-colors duration-300">
                     {item.title}
                   </h3>
                   {item.subtitle && (
@@ -205,16 +205,16 @@ export default function HowToBookTimeline({
               <div className="relative flex items-start gap-5 group">
                 {/* Vertical connecting line */}
                 {!isLast && (
-                  <div className="absolute left-[9px] top-7 bottom-[-40px] w-[2px] bg-stone-300 group-hover:bg-[#4C0C0A]/40 transition-colors duration-300" />
+                  <div className="absolute left-[9px] top-7 bottom-[-40px] w-[2px] bg-stone-300 group-hover:bg-[#380605]/40 transition-colors duration-300" />
                 )}
 
                 {/* Circular Node Dot */}
-                <div className="relative z-10 mt-1 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-black border-[3px] border-[#4C0C0A] ring-4 ring-[#4C0C0A]/15 shadow-sm group-hover:scale-125 transition-transform duration-300" />
+                <div className="relative z-10 mt-1 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-black border-[3px] border-[#380605] ring-4 ring-[#380605]/15 shadow-sm group-hover:scale-125 transition-transform duration-300" />
 
                 {/* Right content column */}
                 <div className="flex-1 pb-2">
                   <div className="flex flex-wrap items-center gap-2.5">
-                    <span className="inline-flex items-center rounded-full bg-white/95 px-3.5 py-1 font-body text-[11px] font-bold uppercase tracking-widest text-[#4C0C0A] border border-[#4C0C0A]/30 shadow-sm group-hover:bg-[#4C0C0A] group-hover:text-white transition-all duration-300">
+                    <span className="inline-flex items-center rounded-full bg-white/95 px-3.5 py-1 font-body text-[11px] font-bold uppercase tracking-widest text-[#380605] border border-[#380605]/30 shadow-sm group-hover:bg-[#380605] group-hover:text-white transition-all duration-300">
                       STEP 0{i + 1}
                     </span>
                     {item.subtitle && (
@@ -224,7 +224,7 @@ export default function HowToBookTimeline({
                     )}
                   </div>
 
-                  <h3 className="mt-3 font-display text-lg sm:text-xl font-bold uppercase tracking-wider text-white group-hover:text-[#4C0C0A] transition-colors duration-300">
+                  <h3 className="mt-3 font-display text-lg sm:text-xl font-bold uppercase tracking-wider text-white group-hover:text-[#380605] transition-colors duration-300">
                     {item.title}
                   </h3>
 

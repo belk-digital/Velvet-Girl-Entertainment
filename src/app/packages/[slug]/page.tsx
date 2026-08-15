@@ -124,9 +124,9 @@ export default async function PackageThemeDetailPage({ params }: Props) {
               {theme.highlights.map((item) => (
                 <div
                   key={item}
-                  className="flex items-center gap-4 border border-white/10 rounded-xl bg-black p-6 shadow-sm hover:border-[#4C0C0A]/50 transition-colors"
+                  className="flex items-center gap-4 border border-white/10 rounded-xl bg-black p-6 shadow-sm hover:border-[#380605]/50 transition-colors"
                 >
-                  <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#4C0C0A]/10 text-[#4C0C0A]">
+                  <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#380605]/10 text-[#380605]">
                     <Check className="h-5 w-5" />
                   </div>
                   <span className="font-display text-base font-bold text-white">{item}</span>
@@ -137,7 +137,7 @@ export default async function PackageThemeDetailPage({ params }: Props) {
         </Section>
       )}
 
-      <section className="relative w-full overflow-hidden bg-[#4C0C0A]">
+      <section className="relative w-full overflow-hidden bg-[#380605]">
         <div className="relative z-10 mx-auto flex max-w-5xl flex-col items-center px-6 py-16 text-center lg:py-24">
           <p className="mb-4 inline-block border-t-2 border-white/70 pt-2 text-xs font-bold uppercase tracking-widest text-white/80 md:text-base">
             CUSTOMIZE
@@ -155,7 +155,7 @@ export default async function PackageThemeDetailPage({ params }: Props) {
                 </p>
                 <Link
                   href="/contact"
-                  className="mt-10 inline-flex items-center gap-2 bg-white px-8 py-4 font-body text-xs font-bold uppercase tracking-widest text-[#4C0C0A] transition-all duration-300 hover:scale-105 border border-white shadow-md rounded-full"
+                  className="mt-10 inline-flex items-center gap-2 bg-white px-8 py-4 font-body text-xs font-bold uppercase tracking-widest text-[#380605] transition-all duration-300 hover:scale-105 border border-white shadow-md rounded-full"
                 >
                   <span>NOTIFY ME</span>
                 </Link>
@@ -167,7 +167,7 @@ export default async function PackageThemeDetailPage({ params }: Props) {
                 </p>
                 <Link
                   href={`/book-now?theme=${theme.slug}`}
-                  className="mt-10 inline-flex items-center gap-2 bg-white px-8 py-4 font-body text-xs font-bold uppercase tracking-widest text-[#4C0C0A] transition-all duration-300 hover:scale-105 border border-white shadow-md rounded-full"
+                  className="mt-10 inline-flex items-center gap-2 bg-white px-8 py-4 font-body text-xs font-bold uppercase tracking-widest text-[#380605] transition-all duration-300 hover:scale-105 border border-white shadow-md rounded-full"
                 >
                   <span>CUSTOMIZE & BOOK THIS PACKAGE</span>
                 </Link>

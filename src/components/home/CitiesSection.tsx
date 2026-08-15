@@ -64,7 +64,7 @@ export default function CitiesSection({
   }, []);
 
   return (
-    <section className="w-full bg-[#4C0C0A] py-20 md:py-32 font-sans border-t border-white/10 overflow-hidden flex flex-col items-center">
+    <section className="w-full bg-[#380605] py-20 md:py-32 font-sans border-t border-white/10 overflow-hidden flex flex-col items-center">
       
       <div className="mb-12 md:mb-16 text-center px-4 relative z-10">
         <p
@@ -113,8 +113,8 @@ export default function CitiesSection({
         className="cities-carousel relative w-full h-[250px] md:h-[400px] flex items-center justify-center pointer-events-none"
         style={{
           perspective: '1200px',
-          maskImage: 'linear-gradient(to right, transparent, #4C0C0A 15%, #4C0C0A 85%, transparent)',
-          WebkitMaskImage: 'linear-gradient(to right, transparent, #4C0C0A 15%, #4C0C0A 85%, transparent)'
+          maskImage: 'linear-gradient(to right, transparent, #380605 15%, #380605 85%, transparent)',
+          WebkitMaskImage: 'linear-gradient(to right, transparent, #380605 15%, #380605 85%, transparent)'
         }}
       >
 

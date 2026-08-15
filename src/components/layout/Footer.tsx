@@ -52,8 +52,8 @@ export default function Footer() {
   return (
     <footer ref={containerRef} className="relative w-full bg-black overflow-hidden flex flex-col items-center pt-0 pb-12 font-sans">
       {/* Background Glows */}
-      <div className="absolute top-0 left-0 w-[600px] h-[600px] bg-[#380605] rounded-full blur-[220px] opacity-10 -translate-x-1/2 -translate-y-1/2 pointer-events-none"></div>
-      <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-[#380605] rounded-full blur-[220px] opacity-10 translate-x-1/3 translate-y-1/3 pointer-events-none"></div>
+      <div className="absolute top-0 left-0 w-[600px] h-[600px] bg-[#380605] rounded-full blur-[220px] opacity-30 -translate-x-1/2 -translate-y-1/2 pointer-events-none"></div>
+      <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-[#380605] rounded-full blur-[220px] opacity-30 translate-x-1/3 translate-y-1/3 pointer-events-none"></div>
 
       {/* Top-Left Deep Red Solid Watermark (matching 'octo') */}
       <div className="footer-watermark absolute top-0 left-0 -translate-x-[2%] -translate-y-[10%] pointer-events-none z-0">
@@ -73,7 +73,7 @@ export default function Footer() {
       <div className="footer-watermark absolute bottom-0 right-0 translate-x-[5%] translate-y-[15%] pointer-events-none z-0">
         <div
           aria-hidden="true"
-          className="text-[9rem] sm:text-[14rem] md:text-[18rem] lg:text-[24rem] text-[#380605]/12 leading-none tracking-normal select-none "
+          className="text-[9rem] sm:text-[14rem] md:text-[18rem] lg:text-[24rem] text-[#380605]/40 leading-none tracking-normal select-none "
         >
           GIRLS
         </div>

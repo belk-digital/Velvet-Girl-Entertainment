@@ -12,7 +12,14 @@ gsap.registerPlugin(ScrollTrigger);
 // Duplicate testimonials to have enough for a slider experience
 const extendedTestimonials = [...testimonials, ...testimonials, ...testimonials];
 
-export default function Reviews() {
+interface ReviewsProps {
+  eyebrow?: string;
+  title?: string;
+  description?: string;
+  sectionId?: string | null;
+}
+
+export default function Reviews({ eyebrow, title, description, sectionId }: ReviewsProps) {
   const containerRef = useRef<HTMLElement>(null);
   const sliderRef = useRef<HTMLDivElement>(null);
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -99,14 +106,14 @@ export default function Reviews() {
           
           {/* Left: Heading & Description */}
           <div className="review-header-element max-w-2xl">
-            <p className="text-xs md:text-sm font-bold uppercase tracking-widest text-[#5C0005] mb-3">
-              REVIEWS
+            <p className="text-xs md:text-sm font-bold uppercase tracking-widest text-[#5C0005] mb-3" data-cms-section={sectionId ?? undefined} data-cms-type="reviews" data-cms-field="eyebrow">
+              {eyebrow || "REVIEWS"}
             </p>
-            <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-normal font-script tracking-normal text-white leading-tight mb-4">
-              What Our Clients Say
+            <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-normal font-script tracking-normal text-white leading-tight mb-4" data-cms-section={sectionId ?? undefined} data-cms-type="reviews" data-cms-field="title">
+              {title || "What Our Clients Say"}
             </h2>
-            <p className="text-white/65 text-base md:text-lg max-w-xl font-body">
-              Explore reviews and stories from those who trusted us. Their satisfaction drives our dedication to creating unforgettable experiences.
+            <p className="text-white/65 text-base md:text-lg max-w-xl font-body" data-cms-section={sectionId ?? undefined} data-cms-type="reviews" data-cms-field="description">
+              {description || "Explore reviews and stories from those who trusted us. Their satisfaction drives our dedication to creating unforgettable experiences."}
             </p>
           </div>
           

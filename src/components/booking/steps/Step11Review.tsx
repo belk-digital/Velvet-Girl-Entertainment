@@ -65,7 +65,7 @@ export default function Step11Review() {
     } finally {
       setIsSubmitting(false);
       setField("isSubmitted", true);
-      goToStep(12);
+      goToStep(11);
     }
   };
 

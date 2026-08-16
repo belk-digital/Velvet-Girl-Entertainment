@@ -554,6 +554,16 @@ export default function ApplicationForm() {
                 className={inputClass}
                 value={formData.startDate}
                 onChange={handleChange}
+                style={{ colorScheme: "dark" }}
+                onClick={(e) => {
+                  try {
+                    if ('showPicker' in HTMLInputElement.prototype) {
+                      e.currentTarget.showPicker();
+                    }
+                  } catch (err) {
+                    // ignore
+                  }
+                }}
               />
             </div>
 

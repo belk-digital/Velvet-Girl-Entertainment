@@ -258,6 +258,16 @@ export default function BookingForm() {
                     setDateValue(e.target.value);
                     checkTiming(e.target.value, timeValue);
                   }}
+                  style={{ colorScheme: "dark" }}
+                  onClick={(e) => {
+                    try {
+                      if ('showPicker' in HTMLInputElement.prototype) {
+                        e.currentTarget.showPicker();
+                      }
+                    } catch (err) {
+                      // ignore
+                    }
+                  }}
                 />
               </div>
               <div>

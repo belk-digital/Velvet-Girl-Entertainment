@@ -34,7 +34,7 @@ export default function OptionCard({
           className={`flex h-16 w-16 sm:h-20 sm:w-20 items-center justify-center rounded-full border-2 transition-all duration-300 ${
             selected
               ? "border-[#380605] bg-[#380605]/[0.08] text-[#380605] shadow-[0_6px_18px_rgba(92, 0, 5,0.25)]"
-              : "border-white/10 bg-black text-stone-400 group-hover:border-[#380605]/40 group-hover:text-[#380605]/70"
+              : "border-black/10 bg-white text-stone-400 group-hover:border-[#380605]/40 group-hover:text-[#380605]/70"
           }`}
         >
           {icon}
@@ -55,7 +55,7 @@ export default function OptionCard({
 
       <span
         className={`font-body text-[11px] sm:text-xs font-bold uppercase tracking-wider text-center transition-colors duration-300 ${
-          selected ? "text-[#380605]" : "text-stone-400 group-hover:text-stone-300"
+          selected ? "text-[#380605]" : "text-stone-500 group-hover:text-stone-700"
         }`}
       >
         {title}

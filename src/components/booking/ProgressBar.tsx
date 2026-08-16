@@ -17,11 +17,11 @@ export default function ProgressBar() {
       : 100;
 
   return (
-    <header className="w-full px-6 py-4 sm:px-12 flex items-center justify-between border-b border-black/5 bg-black/80 backdrop-blur-md sticky top-0 z-40">
+    <header className="w-full px-6 py-4 sm:px-12 flex items-center justify-between border-b border-black/5 bg-[#FAF7F2]/80 backdrop-blur-md sticky top-0 z-40">
       {/* Left: 01 of 11 indicator */}
       <div className="font-display text-sm sm:text-base font-bold uppercase tracking-widest text-[#380605]">
         {String(Math.min(currentStep, totalSteps)).padStart(2, "0")}
-        <span className="text-white/40 font-normal"> of {totalSteps}</span>
+        <span className="text-black/40 font-normal"> of {totalSteps}</span>
       </div>
 
       {/* Center: Animated Progress Line with dots */}

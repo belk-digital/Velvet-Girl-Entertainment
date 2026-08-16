@@ -73,7 +73,7 @@ export default function StepNavigation({
             onClick={handleBackClick}
             whileHover={{ y: -2, scale: 1.02 }}
             whileTap={{ scale: 0.97 }}
-            className="inline-flex items-center gap-2 px-5 py-3 rounded-full border border-white/10 bg-black text-stone-300 font-body text-sm font-semibold hover:border-black/30 hover:bg-black/[0.02] transition-colors cursor-pointer shadow-sm"
+            className="inline-flex items-center gap-2 px-5 py-3 rounded-full border border-black/15 bg-white text-stone-700 font-body text-sm font-semibold hover:border-black/30 hover:bg-black/[0.02] transition-colors cursor-pointer shadow-sm"
           >
             <ArrowLeft className="w-4 h-4" />
             <span>{backLabel}</span>
@@ -91,7 +91,7 @@ export default function StepNavigation({
             whileTap={isNextDisabled ? {} : { scale: 0.97 }}
             className={`inline-flex items-center gap-2 px-8 py-3.5 rounded-full font-body text-sm font-bold uppercase tracking-wider transition-all duration-300 shadow-md ${
               isNextDisabled
-                ? "bg-stone-300 text-stone-400 cursor-not-allowed opacity-60 shadow-none"
+                ? "bg-stone-300 text-stone-500 cursor-not-allowed opacity-60 shadow-none"
                 : "bg-[#380605] text-white hover:bg-[#5a0105] cursor-pointer"
             }`}
           >

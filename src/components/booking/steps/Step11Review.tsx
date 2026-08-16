@@ -77,9 +77,9 @@ export default function Step11Review() {
     <StepLayout stepKey={10} title="Let's review your booking details">
       <div className="max-w-4xl my-6">
         {/* Selected Performers Visual Display on Review Page */}
-        <div className="mb-8 p-6 rounded-2xl bg-black border border-white/10 shadow-sm">
+        <div className="mb-8 p-6 rounded-2xl bg-white border border-black/10 shadow-sm">
           <div className="flex items-center justify-between mb-4 flex-wrap gap-2">
-            <h3 className="font-display text-base sm:text-lg font-bold text-white flex items-center gap-2">
+            <h3 className="font-display text-base sm:text-lg font-bold text-stone-900 flex items-center gap-2">
               <Sparkles className="w-4 h-4 text-[#380605]" />
               <span>Selected VIP Entertainers</span>
             </h3>
@@ -97,7 +97,7 @@ export default function Step11Review() {
               {selectedPerformersList.map((p) => (
                 <div
                   key={p!.id}
-                  className="flex items-center gap-3 p-3 rounded-xl border border-white/10 bg-black shadow-sm"
+                  className="flex items-center gap-3 p-3 rounded-xl border border-stone-200 bg-stone-50 shadow-sm"
                 >
                   <div className="relative w-14 h-14 rounded-full overflow-hidden bg-stone-200 shrink-0 border-2 border-[#380605]/20">
                     <Image
@@ -109,13 +109,13 @@ export default function Step11Review() {
                     />
                   </div>
                   <div className="min-w-0">
-                    <span className="block font-display text-sm font-bold text-white truncate">
+                    <span className="block font-display text-sm font-bold text-stone-900 truncate">
                       {p!.name}
                     </span>
                     <span className="block text-[11px] font-semibold text-[#380605] uppercase truncate">
                       {p!.location}
                     </span>
-                    <div className="flex items-center gap-1 text-[11px] text-stone-400 font-medium mt-0.5">
+                    <div className="flex items-center gap-1 text-[11px] text-stone-500 font-medium mt-0.5">
                       <Star className="w-3 h-3 fill-amber-400 text-amber-400" />
                       <span>{p!.rating?.toFixed(1) || "5.0"}</span>
                     </div>
@@ -124,13 +124,13 @@ export default function Step11Review() {
               ))}
             </div>
           ) : (
-            <div className="p-4 rounded-xl bg-black border border-white/10 text-stone-300 text-sm flex items-center justify-between flex-wrap gap-3">
+            <div className="p-4 rounded-xl bg-stone-50 border border-stone-200 text-stone-700 text-sm flex items-center justify-between flex-wrap gap-3">
               <div>
-                <p className="font-semibold text-white flex items-center gap-1.5">
+                <p className="font-semibold text-stone-900 flex items-center gap-1.5">
                   <CheckCircle2 className="w-4 h-4 text-[#380605]" />
                   <span>Agency Director Choice (Top Rated Available)</span>
                 </p>
-                <p className="text-xs text-stone-300 mt-0.5">
+                <p className="text-xs text-stone-600 mt-0.5">
                   Our dispatch directors will assign the highest-rated verified
                   performers in{" "}
                   {state.city ? state.city.split(",")[0] : "your area"}.
@@ -151,8 +151,8 @@ export default function Step11Review() {
         <ReviewCard />
 
         {/* Contact Info Capture Container */}
-        <div className="mt-8 p-6 rounded-2xl bg-black border border-white/10 shadow-sm">
-          <h3 className="font-display text-base sm:text-lg font-bold text-white mb-4 flex items-center gap-2">
+        <div className="mt-8 p-6 rounded-2xl bg-white border border-black/10 shadow-sm">
+          <h3 className="font-display text-base sm:text-lg font-bold text-stone-900 mb-4 flex items-center gap-2">
             <Lock className="w-4 h-4 text-[#380605]" />
             <span>Contact Information for Specialist Confirmation</span>
           </h3>
@@ -168,7 +168,7 @@ export default function Step11Review() {
             <div>
               <label
                 htmlFor="booking-name"
-                className="mb-1.5 block font-body text-xs font-bold uppercase tracking-widest text-stone-400"
+                className="mb-1.5 block font-body text-xs font-bold uppercase tracking-widest text-stone-500"
               >
                 Full Name *
               </label>
@@ -183,7 +183,7 @@ export default function Step11Review() {
                   value={state.name}
                   onChange={(e) => setField("name", e.target.value)}
                   placeholder="John Doe"
-                  className="w-full rounded-xl border border-white/10 bg-black pl-10 pr-4 py-3 font-body text-sm font-semibold text-white placeholder-stone-400 outline-none transition-all focus:border-[#380605] focus:ring-2 focus:ring-[#380605]/20"
+                  className="w-full rounded-xl border border-black/20 bg-white pl-10 pr-4 py-3 font-body text-sm font-semibold text-stone-800 placeholder-stone-400 outline-none transition-all focus:border-[#380605] focus:ring-2 focus:ring-[#380605]/20"
                 />
               </div>
             </div>
@@ -192,7 +192,7 @@ export default function Step11Review() {
             <div>
               <label
                 htmlFor="booking-phone"
-                className="mb-1.5 block font-body text-xs font-bold uppercase tracking-widest text-stone-400"
+                className="mb-1.5 block font-body text-xs font-bold uppercase tracking-widest text-stone-500"
               >
                 Phone Number *
               </label>
@@ -207,7 +207,7 @@ export default function Step11Review() {
                   value={state.phone}
                   onChange={(e) => setField("phone", e.target.value)}
                   placeholder="(555) 000-0000"
-                  className="w-full rounded-xl border border-white/10 bg-black pl-10 pr-4 py-3 font-body text-sm font-semibold text-white placeholder-stone-400 outline-none transition-all focus:border-[#380605] focus:ring-2 focus:ring-[#380605]/20"
+                  className="w-full rounded-xl border border-black/20 bg-white pl-10 pr-4 py-3 font-body text-sm font-semibold text-stone-800 placeholder-stone-400 outline-none transition-all focus:border-[#380605] focus:ring-2 focus:ring-[#380605]/20"
                 />
               </div>
             </div>
@@ -216,7 +216,7 @@ export default function Step11Review() {
             <div>
               <label
                 htmlFor="booking-email"
-                className="mb-1.5 block font-body text-xs font-bold uppercase tracking-widest text-stone-400"
+                className="mb-1.5 block font-body text-xs font-bold uppercase tracking-widest text-stone-500"
               >
                 Email Address *
               </label>
@@ -231,7 +231,7 @@ export default function Step11Review() {
                   value={state.email}
                   onChange={(e) => setField("email", e.target.value)}
                   placeholder="john@example.com"
-                  className="w-full rounded-xl border border-white/10 bg-black pl-10 pr-4 py-3 font-body text-sm font-semibold text-white placeholder-stone-400 outline-none transition-all focus:border-[#380605] focus:ring-2 focus:ring-[#380605]/20"
+                  className="w-full rounded-xl border border-black/20 bg-white pl-10 pr-4 py-3 font-body text-sm font-semibold text-stone-800 placeholder-stone-400 outline-none transition-all focus:border-[#380605] focus:ring-2 focus:ring-[#380605]/20"
                 />
               </div>
             </div>

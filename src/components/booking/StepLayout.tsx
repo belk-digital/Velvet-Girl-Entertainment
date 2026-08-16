@@ -27,7 +27,7 @@ export default function StepLayout({
       className={`relative min-h-[calc(100vh-80px)] w-full flex flex-col justify-between overflow-hidden px-6 py-8 sm:px-12 md:py-12 ${
         bgImage
           ? "bg-black text-white"
-          : "bg-black text-white"
+          : "bg-[#FAF7F2] text-stone-900"
       }`}
     >
       {/* Full-Screen Background Image if provided */}
@@ -95,7 +95,7 @@ export default function StepLayout({
             {title && (
               <h1
                 className={`mb-3 font-display text-2xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-center sm:text-left ${
-                  bgImage ? "text-white" : "text-white"
+                  bgImage ? "text-white" : "text-stone-900"
                 }`}
               >
                 {title}
@@ -104,7 +104,7 @@ export default function StepLayout({
             {subtitle && (
               <p
                 className={`mb-8 font-body text-sm sm:text-base md:text-lg max-w-xl font-normal text-center sm:text-left ${
-                  bgImage ? "text-stone-300" : "text-stone-300"
+                  bgImage ? "text-stone-300" : "text-stone-600"
                 }`}
               >
                 {subtitle}

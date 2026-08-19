@@ -74,6 +74,10 @@ export default function Footer() {
         <div
           aria-hidden="true"
           className="text-[9rem] sm:text-[14rem] md:text-[18rem] lg:text-[24rem] text-[#380605]/40 leading-none tracking-normal select-none "
+          style={{
+            maskImage: 'linear-gradient(to top, black 35%, transparent 100%)',
+            WebkitMaskImage: 'linear-gradient(to top, black 35%, transparent 100%)',
+          }}
         >
           GIRLS
         </div>
@@ -129,17 +133,17 @@ export default function Footer() {
       <div className="relative z-10 w-full max-w-[120rem] mx-auto px-6 lg:px-12 flex flex-col lg:flex-row items-start lg:items-end justify-between gap-12 pb-8">
 
         {/* Column 1: Logo & Social Buttons */}
-        <div className="footer-content-item flex flex-col gap-6 md:gap-8 shrink-0">
-          <Link href="/" className="flex items-center gap-3">
+        <div className="footer-content-item flex flex-col items-start lg:items-center gap-6 md:gap-8 shrink-0">
+          <Link href="/" className="flex items-center lg:flex-col gap-3">
             <Image
               src="/velvet-logo-transparent-navbar.png"
               alt="Velvet Girl Entertainment"
-              width={140}
-              height={139}
-              className="h-14 w-auto sm:h-16"
+              width={160}
+              height={159}
+              className="h-16 w-auto lg:h-28"
             />
-            <span className="font-script font-normal text-4xl sm:text-5xl text-white">
-              Velvet Girl
+            <span className="font-script font-normal text-2xl sm:text-3xl text-white lg:text-center">
+              Velvet Girl Entertainment
             </span>
           </Link>
           <div className="flex items-center gap-4">
@@ -187,17 +191,17 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Column 3: Big Text 'we'll be happy to assist you' matching photo */}
-        <div className="footer-content-item whitespace-nowrap my-2 lg:my-0">
-          <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-[4.2rem] font-black leading-[0.93] tracking-tight lowercase">
-            <span className="text-white">we'll be happy</span><br />
-            <span className="text-white">to </span>
-            <span className="text-[#380605]">assist you</span>
+        {/* Column 3: Big Text 'Your perfect night starts here.' */}
+        <div className="footer-content-item whitespace-nowrap mt-2 mb-0 lg:my-0">
+          <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-[4.2rem] font-black leading-[0.93] tracking-tight">
+            <span className="text-white">Your perfect</span><br />
+            <span className="text-white">night starts </span>
+            <span className="text-[#380605]">here.</span>
           </h2>
         </div>
 
         {/* Column 4: Pill Button & Email matching photo */}
-        <div className="footer-content-item flex flex-col items-start lg:items-center gap-3.5 shrink-0 mt-2 lg:mt-0">
+        <div className="footer-content-item flex flex-col items-start lg:items-center gap-3.5 shrink-0 -mt-6 lg:mt-0">
           <Link
             href="/book-now"
             className="w-full bg-gradient-to-r from-[#380605] to-[#5a0105] text-white font-extrabold text-xs sm:text-sm py-4 px-10 text-center hover:from-[#5a0105] hover:to-[#380605] transition-all duration-300 tracking-widest uppercase rounded-full shadow-[0_10px_25px_rgba(92, 0, 5,0.35)] hover:shadow-[0_15px_30px_rgba(92, 0, 5,0.5)] hover:scale-105"

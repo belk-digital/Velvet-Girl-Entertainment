@@ -65,13 +65,7 @@ export default function Navbar() {
   
   // Force white background on performer profile pages
   const isPerformerPage = pathname?.startsWith("/girls/") && pathname !== "/girls";
-  const isGalleryPage = pathname === "/gallery";
-  const isCarMeetPage = pathname === "/packages/car-meet";
-  const isHomePage = pathname === "/";
   const effectiveScrolled = scrolled || isPerformerPage;
-  const isTransparent = (isGalleryPage || isCarMeetPage || isHomePage) && !effectiveScrolled;
-  const useTransparentNavBranding = isTransparent && !isMenuOpen && !isHomePage;
-  const useTransparentNavLinks = isTransparent && !isMenuOpen;
 
   useEffect(() => {
     let lastScrollY = window.scrollY;
@@ -93,51 +87,24 @@ export default function Navbar() {
   }, []);
 
   return (
-    <header className={`fixed top-0 w-full z-[110] transition-all duration-300 pointer-events-none ${hidden && !isMenuOpen ? "-translate-y-full" : "translate-y-0"} ${isTransparent && !isMenuOpen ? "bg-transparent" : (effectiveScrolled && !isMenuOpen ? "bg-[#FBFAF8]/95 backdrop-blur-md shadow-sm" : "bg-[#FBFAF8]")} border-transparent`}>
+    <header className={`fixed top-0 w-full z-[110] transition-all duration-300 pointer-events-none ${hidden && !isMenuOpen ? "-translate-y-full" : "translate-y-0"} ${effectiveScrolled && !isMenuOpen ? "bg-[#FBFAF8]/95 backdrop-blur-md shadow-sm" : "bg-[#FBFAF8]"} border-transparent`}>
       <nav className="mx-auto flex max-w-[120rem] items-center justify-between px-6 py-3 lg:px-12">
         <Link href="/" className="pointer-events-auto flex items-center gap-2 sm:gap-3">
-          {isHomePage && isTransparent && !isMenuOpen ? (
-            <>
-              {/* Mobile: White (Dark background) */}
-              <Image
-                src="/velvet-logo.png"
-                alt="Velvet Girl Entertainment"
-                width={160}
-                height={159}
-                priority
-                className="h-16 w-auto sm:h-20 lg:hidden"
-              />
-              <span className="font-script font-normal text-lg sm:text-xl transition-colors duration-300 text-white drop-shadow-md lg:hidden">
-                Velvet Girl Entertainment
-              </span>
-              {/* Desktop: Red (White background panel) */}
-              <Image
-                src="/velvet-logo.png"
-                alt="Velvet Girl Entertainment"
-                width={160}
-                height={159}
-                priority
-                className="hidden lg:block h-16 w-auto sm:h-20"
-              />
-              <span className="hidden lg:block font-script font-normal text-2xl lg:text-3xl transition-colors duration-300 text-[#380605]">
-                Velvet Girl Entertainment
-              </span>
-            </>
-          ) : (
-            <>
-              <Image
-                src={useTransparentNavBranding ? "/velvet-logo.png" : "/velvet-logo.png"}
-                alt="Velvet Girl Entertainment"
-                width={160}
-                height={159}
-                priority
-                className="h-16 w-auto sm:h-20"
-              />
-              <span className={`font-script font-normal text-lg sm:text-xl lg:text-3xl transition-colors duration-300 ${useTransparentNavBranding ? "text-white drop-shadow-md" : "text-[#380605]"}`}>
-                Velvet Girl Entertainment
-              </span>
-            </>
-          )}
+          <Image
+            src="/velvet-logo.png"
+            alt="Velvet Girl Entertainment"
+            width={160}
+            height={159}
+            priority
+            className="h-16 w-auto sm:h-20"
+          />
+          <span className="lg:hidden flex flex-col leading-tight font-script font-normal text-lg sm:text-xl text-[#380605]">
+            <span>Velvet</span>
+            <span>Girl Entertainment</span>
+          </span>
+          <span className="hidden lg:block font-script font-normal text-2xl lg:text-3xl text-[#380605]">
+            Velvet Girl Entertainment
+          </span>
         </Link>
 
         <div className="flex items-center gap-4 sm:gap-6 pointer-events-auto">
@@ -153,7 +120,7 @@ export default function Navbar() {
               <Link
                 key={link.label}
                 href={link.href}
-                className={`font-heading text-sm font-semibold uppercase tracking-wider transition-colors hover:text-[#380605] ${useTransparentNavLinks ? "text-white/90 drop-shadow-md hover:text-white" : "text-black/85"}`}
+                className="font-heading text-sm font-semibold uppercase tracking-wider text-black/85 transition-colors hover:text-[#380605]"
               >
                 {link.label}
               </Link>
@@ -161,7 +128,7 @@ export default function Navbar() {
           </div>
 
           <div className="ml-2 sm:ml-4">
-            <MultiLevelDrawerMenu primaries={primaries} onOpenChange={setIsMenuOpen} scrolled={!useTransparentNavLinks} />
+            <MultiLevelDrawerMenu primaries={primaries} onOpenChange={setIsMenuOpen} scrolled />
           </div>
         </div>
       </nav>

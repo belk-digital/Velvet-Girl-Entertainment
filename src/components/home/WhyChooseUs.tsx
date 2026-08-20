@@ -50,6 +50,16 @@ const rightReasons = [
   },
 ];
 
+// Mirrors the reference mock: 3 rows of (left badge, right badge) floating over the model.
+const mobileBadges = [
+  { icon: Lock, title: "Private & Discreet", side: "left" as const, top: "54%" },
+  { icon: Map, title: "Nationwide Coverage", side: "right" as const, top: "54%" },
+  { icon: Award, title: "Verified Performers", side: "left" as const, top: "68%" },
+  { icon: CalendarCheck, title: "Professional Booking", side: "right" as const, top: "68%" },
+  { icon: Diamond, title: "Premium Experience", side: "left" as const, top: "90%" },
+  { icon: Clock, title: "Reliable Scheduling", side: "right" as const, top: "90%" },
+];
+
 const DEFAULT_EYEBROW = "WHY US";
 const DEFAULT_TITLE = "Why Choose Velvet Girl";
 
@@ -63,7 +73,7 @@ export default function WhyChooseUs({
   sectionId?: string | null;
 }) {
   return (
-    <section id="why-choose-us" className="relative w-full min-h-screen overflow-hidden bg-[#380605] flex flex-col justify-between pt-16 sm:pt-24 pb-0">
+    <section id="why-choose-us" className="relative w-full overflow-hidden bg-[#380605] flex flex-col pb-0 pt-16 sm:pt-24 lg:min-h-screen lg:justify-between">
       {/* Interactive WebGL Animated Silk Background */}
       <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
         <Silk
@@ -75,7 +85,7 @@ export default function WhyChooseUs({
         />
       </div>
 
-      <div className="relative z-10 mx-auto max-w-[120rem] px-4 sm:px-6 flex-1 flex flex-col justify-between">
+      <div className="relative z-10 mx-auto max-w-[120rem] px-4 sm:px-6 flex-1 flex flex-col lg:justify-between">
 
         {/* Title */}
         <div className="mb-12 md:mb-16 text-center z-20 relative">
@@ -97,11 +107,42 @@ export default function WhyChooseUs({
           </h2>
         </div>
 
-        {/* 3-Column Grid */}
-        <div className="relative grid grid-cols-1 lg:grid-cols-[1fr_auto_1fr] items-end gap-12 lg:gap-0 max-w-[85rem] mx-auto z-10 w-full mt-auto">
-          
+        {/* Mobile: image with floating icon+label badges scattered over it, flush to the bottom of the section */}
+        <div className="lg:hidden relative mx-auto mt-4 w-full max-w-sm z-10">
+          <div className="relative aspect-[3/4] w-full">
+            <Image
+              src="https://res.cloudinary.com/denskvdyt/image/upload/v1784623153/about-image_zwdvdt.webp"
+              alt="Why Choose Us Model"
+              fill
+              sizes="100vw"
+              className="object-contain object-bottom"
+              priority
+            />
+
+            {mobileBadges.map(({ icon: Icon, title, side, top }) => (
+              <div
+                key={title}
+                className={`absolute z-20 max-w-[44%] ${side === "left" ? "left-0" : "right-0"}`}
+                style={{ top }}
+              >
+                <div className={`flex items-center gap-1 ${side === "right" ? "flex-row-reverse" : ""}`}>
+                  <span className="font-body text-[9px] leading-tight sm:text-[11px] font-bold text-white drop-shadow-[0_1px_4px_rgba(0,0,0,0.6)]">
+                    {title}
+                  </span>
+                  <span className="flex h-5 w-5 sm:h-6 sm:w-6 shrink-0 items-center justify-center rounded-md border border-white/60 bg-black/10 backdrop-blur-sm">
+                    <Icon className="h-3 w-3 sm:h-3.5 sm:w-3.5 text-white" strokeWidth={2} />
+                  </span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* 3-Column Grid (desktop) */}
+        <div className="relative hidden lg:grid lg:grid-cols-[1fr_auto_1fr] items-end gap-0 max-w-[85rem] mx-auto z-10 w-full mt-auto">
+
           {/* Left Features */}
-          <div className="order-1 flex flex-col gap-10 lg:gap-16 z-20 lg:pr-8 xl:pr-12 self-center pb-12 lg:pb-24">
+          <div className="flex flex-col gap-10 lg:gap-16 z-20 pr-8 xl:pr-12 self-center pb-12 lg:pb-24">
              {leftReasons.map(({icon: Icon, title, description}, i) => (
                 <Reveal key={title} delay={i * 0.1}>
                   <div className="flex items-start gap-4 sm:gap-5">
@@ -118,7 +159,7 @@ export default function WhyChooseUs({
           </div>
 
           {/* Center Image */}
-          <div className="order-3 lg:order-2 relative h-[450px] sm:h-[600px] lg:h-[750px] w-full lg:w-[450px] xl:w-[550px] mx-auto z-0 mt-4 lg:mt-0 lg:-mx-8 pointer-events-none self-end mb-0">
+          <div className="relative h-[450px] sm:h-[600px] lg:h-[750px] w-full lg:w-[450px] xl:w-[550px] mx-auto z-0 lg:-mx-8 pointer-events-none self-end mb-0">
              <Image
                 src="https://res.cloudinary.com/denskvdyt/image/upload/v1784623153/about-image_zwdvdt.webp"
                 alt="Why Choose Us Model"
@@ -129,7 +170,7 @@ export default function WhyChooseUs({
           </div>
 
           {/* Right Features */}
-          <div className="order-2 lg:order-3 flex flex-col gap-10 lg:gap-16 z-20 lg:pl-8 xl:pl-12 self-center pb-12 lg:pb-24">
+          <div className="flex flex-col gap-10 lg:gap-16 z-20 pl-8 xl:pl-12 self-center pb-12 lg:pb-24">
              {rightReasons.map(({icon: Icon, title, description}, i) => (
                 <Reveal key={title} delay={i * 0.1}>
                   <div className="flex items-start gap-4 sm:gap-5">

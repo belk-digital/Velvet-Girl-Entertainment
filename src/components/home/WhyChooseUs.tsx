@@ -3,12 +3,13 @@
 import dynamic from "next/dynamic";
 import Image from "next/image";
 import {
-  Award,
   CalendarCheck,
   Map,
   Lock,
   Clock,
   Diamond,
+  User,
+  Camera,
 } from "lucide-react";
 import Reveal from "@/components/ui/Reveal";
 
@@ -16,32 +17,14 @@ const Silk = dynamic(() => import("@/components/ui/Silk"), { ssr: false });
 
 const leftReasons = [
   {
-    icon: Award,
-    title: "Verified Performers",
-    description: "Every performer is verified before joining our roster.",
-  },
-  {
-    icon: CalendarCheck,
-    title: "Professional Booking",
-    description: "Dedicated booking agents available day and night.",
-  },
-  {
-    icon: Map,
-    title: "Nationwide Coverage",
-    description: "Available in more than fifty major cities.",
-  },
-];
-
-const rightReasons = [
-  {
     icon: Lock,
     title: "Private & Discreet",
     description: "Your privacy is always protected.",
   },
   {
-    icon: Clock,
-    title: "Reliable Scheduling",
-    description: "On-time arrivals and dependable communication.",
+    icon: User,
+    title: "Verified Performers",
+    description: "Every performer is verified before joining our roster.",
   },
   {
     icon: Diamond,
@@ -50,18 +33,36 @@ const rightReasons = [
   },
 ];
 
-// Mirrors the reference mock: 3 rows of (left badge, right badge) floating over the model.
+const rightReasons = [
+  {
+    icon: Map,
+    title: "Nationwide Coverage",
+    description: "Available in more than fifty major cities.",
+  },
+  {
+    icon: Camera,
+    title: "Real Photos",
+    description: "What you see is who you get.",
+  },
+  {
+    icon: Clock,
+    title: "Reliable Scheduling",
+    description: "On-time arrivals and dependable communication.",
+  },
+];
+
+// Mirrors the reference mock: 3 rows of floating badges over the model.
 const mobileBadges = [
-  { icon: Lock, title: "Private & Discreet", side: "left" as const, top: "54%" },
-  { icon: Map, title: "Nationwide Coverage", side: "right" as const, top: "54%" },
-  { icon: Award, title: "Verified Performers", side: "left" as const, top: "68%" },
-  { icon: CalendarCheck, title: "Professional Booking", side: "right" as const, top: "68%" },
-  { icon: Diamond, title: "Premium Experience", side: "left" as const, top: "90%" },
-  { icon: Clock, title: "Reliable Scheduling", side: "right" as const, top: "90%" },
+  { icon: Lock, title: "Private &\nDiscreet", side: "left" as const, top: "48%" },
+  { icon: Map, title: "Nationwide\nCoverage", side: "right" as const, top: "48%" },
+  { icon: User, title: "Verified\nPerformers", side: "left" as const, top: "66%" },
+  { icon: Camera, title: "Real\nPhotos", side: "right" as const, top: "66%" },
+  { icon: Diamond, title: "Premium\nExperience", side: "left" as const, top: "84%" },
+  { icon: Clock, title: "Reliable\nScheduling", side: "right" as const, top: "84%" },
 ];
 
 const DEFAULT_EYEBROW = "WHY US";
-const DEFAULT_TITLE = "Why Choose Velvet Girl";
+const DEFAULT_TITLE = "Why Choose Velvet Girls";
 
 export default function WhyChooseUs({
   eyebrow = DEFAULT_EYEBROW,
@@ -73,13 +74,13 @@ export default function WhyChooseUs({
   sectionId?: string | null;
 }) {
   return (
-    <section id="why-choose-us" className="relative w-full overflow-hidden bg-[#380605] flex flex-col pb-0 pt-16 sm:pt-24 lg:min-h-screen lg:justify-between">
+    <section id="why-choose-us" className="relative w-full overflow-hidden bg-[#2a0404] flex flex-col pb-0 pt-16 sm:pt-24 lg:min-h-screen lg:justify-between">
       {/* Interactive WebGL Animated Silk Background */}
       <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
         <Silk
           speed={5}
           scale={1}
-          color="#A80512"
+          color="#8a030b"
           noiseIntensity={0.8}
           rotation={1.6}
         />
@@ -88,12 +89,12 @@ export default function WhyChooseUs({
       <div className="relative z-10 mx-auto max-w-[120rem] px-4 sm:px-6 flex-1 flex flex-col lg:justify-between">
 
         {/* Title */}
-        <div className="mb-12 md:mb-16 text-center z-20 relative">
+        <div className="mb-2 md:mb-12 text-center z-20 relative">
           <p
             data-cms-section={sectionId ?? undefined}
             data-cms-type="whyChooseUs"
             data-cms-field="eyebrow"
-            className="text-xs md:text-sm font-bold uppercase tracking-widest text-white/70 mb-3"
+            className="text-[10px] md:text-xs font-bold uppercase tracking-[0.3em] text-white/70 mb-4"
           >
             {eyebrow}
           </p>
@@ -101,15 +102,15 @@ export default function WhyChooseUs({
             data-cms-section={sectionId ?? undefined}
             data-cms-type="whyChooseUs"
             data-cms-field="title"
-            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-normal font-script tracking-normal text-white leading-tight mb-4"
+            className="text-[2.5rem] sm:text-5xl md:text-6xl lg:text-7xl font-normal font-script tracking-normal text-white leading-[1.1]"
           >
             {title}
           </h2>
         </div>
 
         {/* Mobile: image with floating icon+label badges scattered over it, flush to the bottom of the section */}
-        <div className="lg:hidden relative mx-auto mt-4 w-full max-w-sm z-10">
-          <div className="relative aspect-[3/4] w-full">
+        <div className="lg:hidden relative mx-auto mt-0 sm:mt-4 w-full max-w-sm z-10 h-[550px]">
+          <div className="relative h-full w-full">
             <Image
               src="https://res.cloudinary.com/denskvdyt/image/upload/v1784623153/about-image_zwdvdt.webp"
               alt="Why Choose Us Model"
@@ -122,15 +123,15 @@ export default function WhyChooseUs({
             {mobileBadges.map(({ icon: Icon, title, side, top }) => (
               <div
                 key={title}
-                className={`absolute z-20 max-w-[44%] ${side === "left" ? "left-0" : "right-0"}`}
-                style={{ top }}
+                className={`absolute z-20 w-24 ${side === "left" ? "left-0 sm:left-4" : "right-0 sm:right-4"}`}
+                style={{ top, transform: 'translateY(-50%)' }}
               >
-                <div className={`flex items-center gap-1 ${side === "right" ? "flex-row-reverse" : ""}`}>
-                  <span className="font-body text-[9px] leading-tight sm:text-[11px] font-bold text-white drop-shadow-[0_1px_4px_rgba(0,0,0,0.6)]">
-                    {title}
+                <div className="flex flex-col items-center gap-2">
+                  <span className="flex h-11 w-11 sm:h-12 sm:w-12 shrink-0 items-center justify-center rounded-[10px] border border-white/30 bg-transparent">
+                    <Icon className="h-5 w-5 sm:h-5 sm:w-5 text-white" strokeWidth={1} />
                   </span>
-                  <span className="flex h-5 w-5 sm:h-6 sm:w-6 shrink-0 items-center justify-center rounded-md border border-white/60 bg-black/10 backdrop-blur-sm">
-                    <Icon className="h-3 w-3 sm:h-3.5 sm:w-3.5 text-white" strokeWidth={2} />
+                  <span className="font-body text-[11px] leading-[1.3] sm:text-xs font-medium text-white text-center whitespace-pre-line drop-shadow-md">
+                    {title}
                   </span>
                 </div>
               </div>
@@ -147,7 +148,7 @@ export default function WhyChooseUs({
                 <Reveal key={title} delay={i * 0.1}>
                   <div className="flex items-start gap-4 sm:gap-5">
                     <div className="mt-1 flex-shrink-0 text-white">
-                       <Icon className="h-8 w-8 sm:h-10 sm:w-10" strokeWidth={2} />
+                       <Icon className="h-8 w-8 sm:h-10 sm:w-10" strokeWidth={1} />
                     </div>
                     <div>
                       <h3 className="font-display text-xl sm:text-2xl font-bold text-white">{title}</h3>
@@ -175,7 +176,7 @@ export default function WhyChooseUs({
                 <Reveal key={title} delay={i * 0.1}>
                   <div className="flex items-start gap-4 sm:gap-5">
                     <div className="mt-1 flex-shrink-0 text-white">
-                       <Icon className="h-8 w-8 sm:h-10 sm:w-10" strokeWidth={2} />
+                       <Icon className="h-8 w-8 sm:h-10 sm:w-10" strokeWidth={1} />
                     </div>
                     <div>
                       <h3 className="font-display text-xl sm:text-2xl font-bold text-white">{title}</h3>

@@ -148,8 +148,7 @@ export default function AgeGate({ onVerified }: AgeGateProps) {
             data-gate-sub
             className="mt-2 sm:mt-3 font-body text-xs sm:text-sm font-medium text-white/80 opacity-0 sm:text-base"
           >
-            Premium luxury companionship and exclusive entertainment
-            experiences.
+            Premium adult entertainment for private parties and exclusive events.
           </p>
 
           <div

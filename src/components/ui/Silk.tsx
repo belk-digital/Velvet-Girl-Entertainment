@@ -50,17 +50,19 @@ vec2 rotateUvs(vec2 uv, float angle) {
   return rot * uv;
 }
 
-// Deep & Dark Luxury Velvet Red Palette: #9C0412, #740107, #520102, #3D0606, #340506
-vec3 getSilkPalette(float t) {
+vec3 getSilkPalette(float t, vec3 baseColor) {
   float p = clamp(t, 0.0, 1.0);
-  p = pow(p, 1.35); // Curve toward deeper dark reds for a moody, luxurious velvet feel
+  p = pow(p, 1.35); 
 
-  vec3 c1 = vec3(0.11, 0.01, 0.015);         // Deepest wine/black-red (#1C0202)
-  vec3 c2 = vec3(0.20392, 0.01960, 0.02352); // #340506 (dark wine shadow)
-  vec3 c3 = vec3(0.23921, 0.02352, 0.02352); // #3D0606 (crimson shadow)
-  vec3 c4 = vec3(0.32156, 0.00392, 0.00784); // #520102 (rich dark burgundy midtone)
-  vec3 c5 = vec3(0.45490, 0.00392, 0.02745); // #740107 (velvet red highlight)
-  vec3 c6 = vec3(0.61176, 0.01568, 0.07058); // #9C0412 (bright ruby crest peak)
+  // Derive shades by darkening the base color and optionally adding a slight blue/cool tint in shadows
+  vec3 shadowTint = vec3(baseColor.r * 0.8, baseColor.g, baseColor.b * 1.2); 
+  
+  vec3 c1 = shadowTint * 0.05;         // Deepest shadow
+  vec3 c2 = shadowTint * 0.15;         // Dark shadow
+  vec3 c3 = shadowTint * 0.35;         // Mid shadow
+  vec3 c4 = baseColor * 0.60;          // Midtone
+  vec3 c5 = baseColor * 0.85;          // Highlight
+  vec3 c6 = mix(baseColor, vec3(1.0), 0.1); // Peak highlight (slightly brightened base)
 
   if (p < 0.20) {
     return mix(c1, c2, p * 5.0);
@@ -91,7 +93,7 @@ void main() {
                            sin(20.0 * (tex.x + tex.y - 0.1 * tOffset)));
 
   float normP = clamp((pattern - 0.2) / 0.8, 0.0, 1.0);
-  vec3 paletteColor = getSilkPalette(normP);
+  vec3 paletteColor = getSilkPalette(normP, uColor);
 
   vec4 col = vec4(paletteColor, 1.0) - rnd / 15.0 * uNoiseIntensity;
   col.a = 1.0;

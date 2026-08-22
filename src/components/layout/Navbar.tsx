@@ -99,8 +99,8 @@ export default function Navbar() {
             className="h-16 w-auto sm:h-20"
           />
           <span className="lg:hidden flex flex-col leading-tight font-script font-normal text-lg sm:text-xl text-[#380605]">
-            <span>Velvet</span>
-            <span>Girl Entertainment</span>
+            <span>Velvet Girl</span>
+            <span>Entertainment</span>
           </span>
           <span className="hidden lg:block font-script font-normal text-2xl lg:text-3xl text-[#380605]">
             Velvet Girl Entertainment

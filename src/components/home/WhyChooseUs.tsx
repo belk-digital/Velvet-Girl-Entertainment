@@ -53,16 +53,16 @@ const rightReasons = [
 
 // Mirrors the reference mock: 3 rows of floating badges over the model.
 const mobileBadges = [
-  { icon: Lock, title: "Private &\nDiscreet", side: "left" as const, top: "48%" },
-  { icon: Map, title: "Nationwide\nCoverage", side: "right" as const, top: "48%" },
-  { icon: User, title: "Verified\nPerformers", side: "left" as const, top: "66%" },
-  { icon: Camera, title: "Real\nPhotos", side: "right" as const, top: "66%" },
-  { icon: Diamond, title: "Premium\nExperience", side: "left" as const, top: "84%" },
-  { icon: Clock, title: "Reliable\nScheduling", side: "right" as const, top: "84%" },
+  { icon: Lock, title: "Private &\nDiscreet", side: "left" as const, top: "38%" },
+  { icon: Map, title: "Nationwide\nCoverage", side: "right" as const, top: "38%" },
+  { icon: User, title: "Verified\nPerformers", side: "left" as const, top: "64%" },
+  { icon: Camera, title: "Real\nPhotos", side: "right" as const, top: "64%" },
+  { icon: Diamond, title: "Premium\nExperience", side: "left" as const, top: "90%" },
+  { icon: Clock, title: "Reliable\nScheduling", side: "right" as const, top: "90%" },
 ];
 
 const DEFAULT_EYEBROW = "WHY US";
-const DEFAULT_TITLE = "Why Choose Velvet Girls";
+const DEFAULT_TITLE = "Why Choose Velvet Girl";
 
 export default function WhyChooseUs({
   eyebrow = DEFAULT_EYEBROW,
@@ -86,7 +86,7 @@ export default function WhyChooseUs({
         />
       </div>
 
-      <div className="relative z-10 mx-auto max-w-[120rem] px-4 sm:px-6 flex-1 flex flex-col lg:justify-between">
+      <div className="relative w-full z-10 mx-auto max-w-[120rem] px-4 sm:px-6 flex-1 flex flex-col lg:justify-between">
 
         {/* Title */}
         <div className="mb-2 md:mb-12 text-center z-20 relative">
@@ -102,14 +102,14 @@ export default function WhyChooseUs({
             data-cms-section={sectionId ?? undefined}
             data-cms-type="whyChooseUs"
             data-cms-field="title"
-            className="text-[2.5rem] sm:text-5xl md:text-6xl lg:text-7xl font-normal font-script tracking-normal text-white leading-[1.1]"
+            className="text-[2rem] sm:text-5xl md:text-6xl lg:text-7xl font-normal font-script tracking-normal text-white leading-[1.1]"
           >
             {title}
           </h2>
         </div>
 
         {/* Mobile: image with floating icon+label badges scattered over it, flush to the bottom of the section */}
-        <div className="lg:hidden relative mx-auto mt-0 sm:mt-4 w-full max-w-sm z-10 h-[550px]">
+        <div className="lg:hidden relative mx-auto mt-0 sm:mt-4 w-full max-w-lg z-10 h-[460px]">
           <div className="relative h-full w-full">
             <Image
               src="https://res.cloudinary.com/denskvdyt/image/upload/v1784623153/about-image_zwdvdt.webp"
@@ -123,14 +123,14 @@ export default function WhyChooseUs({
             {mobileBadges.map(({ icon: Icon, title, side, top }) => (
               <div
                 key={title}
-                className={`absolute z-20 w-24 ${side === "left" ? "left-0 sm:left-4" : "right-0 sm:right-4"}`}
+                className={`absolute z-20 w-24 ${side === "left" ? "-left-4 sm:left-0" : "-right-4 sm:right-0"}`}
                 style={{ top, transform: 'translateY(-50%)' }}
               >
-                <div className="flex flex-col items-center gap-2">
-                  <span className="flex h-11 w-11 sm:h-12 sm:w-12 shrink-0 items-center justify-center rounded-[10px] border border-white/30 bg-transparent">
-                    <Icon className="h-5 w-5 sm:h-5 sm:w-5 text-white" strokeWidth={1} />
+                <div className="flex flex-col items-center gap-1">
+                  <span className="flex h-10 w-10 sm:h-12 sm:w-12 shrink-0 items-center justify-center rounded-[10px] border border-white/30 bg-transparent">
+                    <Icon className="h-5 w-5 sm:h-6 sm:w-6 text-white" strokeWidth={1} />
                   </span>
-                  <span className="font-body text-[11px] leading-[1.3] sm:text-xs font-medium text-white text-center whitespace-pre-line drop-shadow-md">
+                  <span className="font-body text-[11px] leading-[1.25] sm:text-xs font-medium text-white text-center whitespace-pre-line drop-shadow-md">
                     {title}
                   </span>
                 </div>

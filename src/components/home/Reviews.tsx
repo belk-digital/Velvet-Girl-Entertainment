@@ -25,9 +25,11 @@ export default function Reviews({ eyebrow, title, description, sectionId }: Revi
   const [currentIndex, setCurrentIndex] = useState(0);
   const [maxIndex, setMaxIndex] = useState(0);
   const [step, setStep] = useState(0);
+  const [isMounted, setIsMounted] = useState(false);
 
   // Measure slider dimensions for responsive sliding
   useEffect(() => {
+    setIsMounted(true);
     const measure = () => {
       if (!sliderRef.current || !containerRef.current) return;
       const children = sliderRef.current.children;
@@ -97,6 +99,9 @@ export default function Reviews({ eyebrow, title, description, sectionId }: Revi
     }
   };
 
+  const isPrevDisabled = isMounted ? currentIndex <= 0 : false;
+  const isNextDisabled = isMounted ? (maxIndex > 0 && currentIndex >= maxIndex) : false;
+
   return (
     <section ref={containerRef} className="w-full bg-black py-24 md:py-32 overflow-hidden border-t border-white/10">
       <div className="max-w-[120rem] mx-auto px-6 lg:px-12">
@@ -121,14 +126,16 @@ export default function Reviews({ eyebrow, title, description, sectionId }: Revi
           <div className="review-header-element flex items-center gap-4 shrink-0 pb-2">
             <button 
               onClick={handlePrev}
-              disabled={currentIndex === 0}
+              disabled={isPrevDisabled}
+              suppressHydrationWarning
               className="w-14 h-14 bg-[#380605] flex items-center justify-center text-white hover:bg-[#5c0911] transition-colors disabled:opacity-30 disabled:hover:bg-[#380605] cursor-pointer disabled:cursor-not-allowed group"
             >
               <ArrowLeft className="w-6 h-6 transition-transform group-hover:-translate-x-1" strokeWidth={2} />
             </button>
             <button 
               onClick={handleNext}
-              disabled={currentIndex === maxIndex}
+              disabled={isNextDisabled}
+              suppressHydrationWarning
               className="w-14 h-14 bg-[#380605] flex items-center justify-center text-white hover:bg-[#5c0911] transition-colors disabled:opacity-30 disabled:hover:bg-[#380605] cursor-pointer disabled:cursor-not-allowed group"
             >
               <ArrowRight className="w-6 h-6 transition-transform group-hover:translate-x-1" strokeWidth={2} />

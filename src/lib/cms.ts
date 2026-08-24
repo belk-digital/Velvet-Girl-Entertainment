@@ -1,6 +1,6 @@
 import type { Performer } from "@/data/performers";
 
-const CMS_API_URL = process.env.CMS_API_URL ?? "http://localhost:3000";
+const CMS_API_URL = process.env.CMS_API_URL;
 
 export interface CmsPerformer extends Omit<Performer, "tags" | "tagline"> {
   tags?: string[];
@@ -83,6 +83,16 @@ function normalize(p: RawCmsPerformer): CmsPerformer {
 import { performers as staticPerformers } from "@/data/performers";
 
 export async function getPublishedPerformers(): Promise<CmsPerformer[]> {
+  if (!CMS_API_URL) {
+    return staticPerformers.map(p => ({
+      ...p,
+      bio: null,
+      tagline: p.tagline || null,
+      videos: [],
+      galleryImages: p.galleryImages || [],
+      tags: p.tags as string[] | undefined,
+    })) as CmsPerformer[];
+  }
   try {
     const res = await fetch(`${CMS_API_URL}/api/public/performers`, {
       next: { revalidate: process.env.NODE_ENV === 'development' ? 0 : 300, tags: ["cms"] },
@@ -104,6 +114,7 @@ export async function getPublishedPerformers(): Promise<CmsPerformer[]> {
 }
 
 export async function getPerformerBySlugFromCms(slug: string): Promise<CmsPerformer | null> {
+  if (!CMS_API_URL) return null;
   try {
     const res = await fetch(`${CMS_API_URL}/api/public/performers/${slug}`, {
       next: { revalidate: process.env.NODE_ENV === 'development' ? 0 : 300, tags: ["cms"] },
@@ -124,6 +135,7 @@ export interface CmsSection {
 }
 
 export async function getPageSections(slug: string): Promise<CmsSection[]> {
+  if (!CMS_API_URL) return [];
   try {
     const res = await fetch(`${CMS_API_URL}/api/public/pages/${slug}`, {
       next: { revalidate: process.env.NODE_ENV === 'development' ? 0 : 60, tags: ["cms"] },

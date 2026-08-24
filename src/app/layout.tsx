@@ -58,6 +58,32 @@ export const metadata: Metadata = {
   },
 };
 
+const orgJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "@id": "https://velvetgirlentertainment.com/#organization",
+  "name": "Velvet Girl Entertainment",
+  "legalName": "Velvet Girl Entertainment LLC",
+  "url": "https://velvetgirlentertainment.com/",
+  "logo": "https://velvetgirlentertainment.com/velvet-logo.png",
+  "sameAs": ["https://www.instagram.com/velvetgirlentertainment"],
+  "contactPoint": [
+    {
+      "@type": "ContactPoint",
+      "telephone": "+1-843-938-7377",
+      "email": "bookings@velvetgirlentertainment.com",
+      "contactType": "reservations",
+      "availableLanguage": "English",
+    },
+    {
+      "@type": "ContactPoint",
+      "email": "inquiries@velvetgirlentertainment.com",
+      "contactType": "customer service",
+      "availableLanguage": "English",
+    },
+  ],
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -67,12 +93,18 @@ export default function RootLayout({
     <html
       lang="en"
       className={`${italiana.variable} ${inter.variable} h-full antialiased`}
+      suppressHydrationWarning
     >
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(orgJsonLd) }}
+        />
+      </head>
       <GoogleAnalytics />
       <body className="min-h-full flex flex-col bg-black text-white" suppressHydrationWarning>
         <SiteShell>{children}</SiteShell>
       </body>
-
     </html>
   );
 }

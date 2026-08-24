@@ -3,6 +3,7 @@ import type { NextConfig } from "next";
 const cmsOrigin = process.env.NEXT_PUBLIC_CMS_ORIGIN ?? "http://localhost:3001";
 
 const nextConfig: NextConfig = {
+  allowedDevOrigins: ["192.168.31.145", "localhost:3000"],
   images: {
     remotePatterns: [
       {

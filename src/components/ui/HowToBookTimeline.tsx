@@ -137,27 +137,37 @@ export default function HowToBookTimeline({
         <div className="absolute -bottom-16 left-[90%] h-[85%] w-[25%] -translate-x-1/2 rounded-full bg-gradient-to-t from-[#380605]/35 via-[#380605]/12 to-transparent blur-3xl" />
       </div>
 
-      {/* Desktop Horizontal Roadmap Layout (lg and up) */}
-      <div className="hidden lg:grid grid-cols-4 gap-x-0 w-full">
+      {/* Single Responsive Step Map (Renders DOM markup exactly ONCE) */}
+      <div className="grid grid-cols-1 lg:grid-cols-4 gap-10 lg:gap-0 w-full">
         {normalizedSteps.map((item, i) => {
           const isFirst = i === 0;
           const isLast = i === normalizedSteps.length - 1;
 
           return (
             <Reveal key={item.title} delay={i * 0.1}>
-              <div className="flex flex-col items-start text-left group">
+              <div className="relative flex flex-col items-start group pl-8 lg:pl-0">
+                {/* Vertical connecting line for mobile (hidden on lg) */}
+                {!isLast && (
+                  <div className="lg:hidden absolute left-[9px] top-7 bottom-[-40px] w-[2px] bg-stone-300 group-hover:bg-[#380605]/40 transition-colors duration-300" />
+                )}
+
                 {/* 1. Top Pill Badge */}
-                <div className="h-9 mb-5 flex items-center">
+                <div className="h-9 mb-3 lg:mb-5 flex items-center gap-2.5">
                   <span className="inline-flex items-center rounded-full bg-white/95 px-4 py-1.5 font-body text-xs font-bold uppercase tracking-widest text-[#380605] border border-[#380605]/30 shadow-md group-hover:bg-[#380605] group-hover:text-white transition-all duration-300">
                     STEP 0{i + 1}
                   </span>
+                  {item.subtitle && (
+                    <span className="lg:hidden font-body text-xs font-bold uppercase tracking-widest text-stone-400" aria-hidden="true">
+                      {item.subtitle}
+                    </span>
+                  )}
                 </div>
 
                 {/* 2. Timeline Connecting Line & Circle Node Row */}
-                <div className="relative my-4 flex items-center w-full h-6">
-                  {/* Continuous horizontal connecting line */}
+                <div className="relative my-2 lg:my-4 flex items-center w-full h-6">
+                  {/* Continuous horizontal connecting line for desktop */}
                   <div
-                    className={`absolute top-1/2 -translate-y-1/2 h-[2px] bg-stone-300 transition-colors duration-300 group-hover:bg-[#380605]/40 ${
+                    className={`hidden lg:block absolute top-1/2 -translate-y-1/2 h-[2px] bg-stone-300 transition-colors duration-300 group-hover:bg-[#380605]/40 ${
                       isFirst
                         ? "left-2 right-0"
                         : isLast
@@ -166,69 +176,26 @@ export default function HowToBookTimeline({
                     }`}
                   />
 
-                  {/* Circular Node Dot */}
-                  <div className="relative z-10 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-black border-[3px] border-[#380605] ring-4 ring-[#380605]/15 shadow-sm group-hover:scale-125 transition-transform duration-300" />
+                  {/* Circular Node Dot (positioned on left line for mobile, inline for desktop) */}
+                  <div className="absolute -left-8 lg:static z-10 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-black border-[3px] border-[#380605] ring-4 ring-[#380605]/15 shadow-sm group-hover:scale-125 transition-transform duration-300" />
 
-                  {/* Right arrowhead terminating the roadmap */}
+                  {/* Right arrowhead terminating the desktop roadmap */}
                   {isLast && (
-                    <ArrowRight className="absolute right-0 top-1/2 -translate-y-1/2 h-5 w-5 text-stone-400 group-hover:text-[#380605] group-hover:translate-x-1 transition-all duration-300" />
+                    <ArrowRight className="hidden lg:block absolute right-0 top-1/2 -translate-y-1/2 h-5 w-5 text-stone-400 group-hover:text-[#380605] group-hover:translate-x-1 transition-all duration-300" />
                   )}
                 </div>
 
                 {/* 3. Step Title, Subtitle, & Description */}
-                <div className="mt-5 pr-6 xl:pr-10">
-                  <h3 className="font-display text-xl font-bold uppercase tracking-wider text-white group-hover:text-[#380605] transition-colors duration-300">
+                <div className="mt-2 lg:mt-5 pr-0 lg:pr-6 xl:pr-10">
+                  <h3 className="font-display text-lg sm:text-xl font-bold uppercase tracking-wider text-white group-hover:text-[#380605] transition-colors duration-300">
                     {item.title}
                   </h3>
                   {item.subtitle && (
-                    <p className="mt-1 font-body text-xs font-bold uppercase tracking-widest text-stone-400">
+                    <p className="hidden lg:block mt-1 font-body text-xs font-bold uppercase tracking-widest text-stone-400">
                       {item.subtitle}
                     </p>
                   )}
-                  <p className="mt-3 font-body text-sm xl:text-base text-stone-300 leading-relaxed font-medium">
-                    {item.description}
-                  </p>
-                </div>
-              </div>
-            </Reveal>
-          );
-        })}
-      </div>
-
-      {/* Mobile & Tablet Vertical Roadmap Layout (below lg) */}
-      <div className="lg:hidden space-y-10">
-        {normalizedSteps.map((item, i) => {
-          const isLast = i === normalizedSteps.length - 1;
-
-          return (
-            <Reveal key={item.title} delay={i * 0.08}>
-              <div className="relative flex items-start gap-5 group">
-                {/* Vertical connecting line */}
-                {!isLast && (
-                  <div className="absolute left-[9px] top-7 bottom-[-40px] w-[2px] bg-stone-300 group-hover:bg-[#380605]/40 transition-colors duration-300" />
-                )}
-
-                {/* Circular Node Dot */}
-                <div className="relative z-10 mt-1 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-black border-[3px] border-[#380605] ring-4 ring-[#380605]/15 shadow-sm group-hover:scale-125 transition-transform duration-300" />
-
-                {/* Right content column */}
-                <div className="flex-1 pb-2">
-                  <div className="flex flex-wrap items-center gap-2.5">
-                    <span className="inline-flex items-center rounded-full bg-white/95 px-3.5 py-1 font-body text-[11px] font-bold uppercase tracking-widest text-[#380605] border border-[#380605]/30 shadow-sm group-hover:bg-[#380605] group-hover:text-white transition-all duration-300">
-                      STEP 0{i + 1}
-                    </span>
-                    {item.subtitle && (
-                      <span className="font-body text-xs font-bold uppercase tracking-widest text-stone-400">
-                        {item.subtitle}
-                      </span>
-                    )}
-                  </div>
-
-                  <h3 className="mt-3 font-display text-lg sm:text-xl font-bold uppercase tracking-wider text-white group-hover:text-[#380605] transition-colors duration-300">
-                    {item.title}
-                  </h3>
-
-                  <p className="mt-2 font-body text-sm sm:text-base text-stone-300 leading-relaxed font-medium">
+                  <p className="mt-2 lg:mt-3 font-body text-sm xl:text-base text-stone-300 leading-relaxed font-medium">
                     {item.description}
                   </p>
                 </div>

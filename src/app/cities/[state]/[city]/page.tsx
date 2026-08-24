@@ -55,15 +55,9 @@ export default async function CityPage({ params }: Props) {
   const cityData = getCityBySlug(state, city);
   if (!cityData) notFound();
 
-  const localPerformers = performers.filter(
+  const showPerformers = performers.filter(
     (p) => p.citySlug === cityData.slug
   );
-  const nearbyPerformers = performers.filter(
-    (p) => p.stateSlug === cityData.stateSlug && p.citySlug !== cityData.slug
-  );
-  const showPerformers = localPerformers.length
-    ? localPerformers
-    : nearbyPerformers.slice(0, 4);
 
   // Real GSC query data shows demand for "stripper" phrasing alongside
   // "exotic dancer" — append a matching FAQ to every city automatically

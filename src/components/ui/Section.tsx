@@ -40,15 +40,17 @@ export default function Section({
       <div className="mx-auto max-w-[120rem] lg:px-6">
         {(eyebrow || title || subtitle) && (
           <div className="mx-auto mb-14 max-w-3xl text-center">
-            {eyebrow && (
-              <p
-                className={`text-xs md:text-sm font-bold uppercase tracking-widest mb-3 ${
-                  isDeepText ? "text-white/80" : "text-[#380605]"
-                }`}
-              >
-                {eyebrow}
-              </p>
-            )}
+            {eyebrow &&
+              (typeof title !== "string" ||
+                eyebrow.toLowerCase().trim() !== title.toLowerCase().trim()) && (
+                <p
+                  className={`text-xs md:text-sm font-bold uppercase tracking-widest mb-3 ${
+                    isDeepText ? "text-white/80" : "text-[#380605]"
+                  }`}
+                >
+                  {eyebrow}
+                </p>
+              )}
             {title && (
               <h2
                 className={`font-display text-3xl sm:text-4xl md:text-5xl font-bold uppercase tracking-wider leading-tight ${

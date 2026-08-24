@@ -61,7 +61,7 @@ export default async function ServiceDetailPage({ params }: Props) {
       {
         "@type": "Service",
         "@id": `${pageUrl}/#service`,
-        name: `${service.title} Entertainment`,
+        name: service.title.endsWith("Entertainment") ? service.title : `${service.title} Entertainment`,
         serviceType: service.title,
         description: service.content.intro,
         url: pageUrl,
@@ -103,7 +103,7 @@ export default async function ServiceDetailPage({ params }: Props) {
 
       <PageHero
         eyebrow="SERVICES"
-        title={`${service.title} Entertainment`}
+        title={service.title.endsWith("Entertainment") ? service.title : `${service.title} Entertainment`}
         subtitle={service.heroDescription}
         bgImage="/gallery images/DIOR.webp"
       >
@@ -169,7 +169,7 @@ export default async function ServiceDetailPage({ params }: Props) {
       </Section>
 
       <Section
-        eyebrow="AVAILABLE NATIONWIDE"
+        eyebrow="ESTABLISHED SERVICE MARKETS"
         title={`Book ${service.title} in your city`}
         theme="muted"
       >

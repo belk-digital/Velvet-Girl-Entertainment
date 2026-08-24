@@ -13,6 +13,7 @@ interface PageHeroProps {
   theme?: "light" | "crimson" | "dark";
   className?: string;
   bgImage?: string;
+  bgImageAlt?: string;
 }
 
 export default function PageHero({
@@ -23,6 +24,7 @@ export default function PageHero({
   theme = "light",
   className = "",
   bgImage = "/gallery images/Velvet girl.webp",
+  bgImageAlt = "",
 }: PageHeroProps) {
   const isCrimson = theme === "crimson";
   const isDark = theme === "dark";
@@ -45,7 +47,7 @@ export default function PageHero({
         <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
           <Image
             src={encodeURI(bgImage)}
-            alt=""
+            alt={bgImageAlt}
             fill
             priority
             sizes="100vw"

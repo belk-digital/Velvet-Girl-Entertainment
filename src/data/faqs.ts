@@ -32,7 +32,7 @@ export const faqs: Faq[] = [
   {
     question: "Do you require a deposit?",
     answer:
-      "Yes. A deposit secures your booking and confirmed dancer(s). The remaining balance is handled with your booking specialist ahead of the event.",
+      "Yes. A non-refundable deposit is required to confirm the booking. The remaining balance is due when the entertainer arrives, before the performance begins.",
   },
   {
     question: "What if I need to book within 24 hours?",

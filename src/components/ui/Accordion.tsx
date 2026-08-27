@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { Plus, Minus } from "lucide-react";
 import type { Faq } from "@/data/faqs";
 
@@ -19,6 +20,39 @@ const faqImages = [
   encodeURI("/gallery images/GAME DAY GIRLS.webp"),
   encodeURI("/gallery images/Velvet girl.webp"),
 ];
+
+const renderFaqAnswer = (text: string) => {
+  if (!text || typeof text !== "string") return text;
+  const regex = /\[([^\]]+)\]\(([^)]+)\)/g;
+  const parts = [];
+  let lastIndex = 0;
+  let match;
+
+  while ((match = regex.exec(text)) !== null) {
+    if (match.index > lastIndex) {
+      parts.push(text.substring(lastIndex, match.index));
+    }
+    const rawUrl = match[2];
+    const href = rawUrl.startsWith("https://velvetgirlentertainment.com")
+      ? rawUrl.replace("https://velvetgirlentertainment.com", "")
+      : rawUrl;
+    parts.push(
+      <Link
+        key={match.index}
+        href={href}
+        className="text-white underline hover:text-[#380605] transition-colors"
+        onClick={(e) => e.stopPropagation()}
+      >
+        {match[1]}
+      </Link>
+    );
+    lastIndex = regex.lastIndex;
+  }
+  if (lastIndex < text.length) {
+    parts.push(text.substring(lastIndex));
+  }
+  return parts.length > 0 ? parts : text;
+};
 
 export default function Accordion({
   items,
@@ -131,7 +165,7 @@ export default function Accordion({
                           isCrimson ? "text-white/80" : "text-white/80"
                         }`}
                       >
-                        {faq.answer}
+                        {renderFaqAnswer(faq.answer)}
                       </p>
                     </div>
                   </div>

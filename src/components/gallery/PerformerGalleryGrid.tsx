@@ -125,23 +125,33 @@ export default function PerformerGalleryGrid({
                       <ArrowRight className="h-3.5 w-3.5" />
                     </div>
                     
-                    <div className="grid grid-cols-2 gap-3" onClick={(e) => e.preventDefault()}>
-                      <a
-                        href="tel:8439387377"
+                    <div className="grid grid-cols-2 gap-3">
+                      <button
+                        type="button"
+                        onClick={(e) => {
+                          e.preventDefault();
+                          e.stopPropagation();
+                          window.location.href = "tel:8439387377";
+                        }}
                         className="flex items-center justify-center gap-2 rounded-full border border-white/5 bg-[#111] py-3 font-body text-[10px] font-bold uppercase tracking-widest text-white/90 transition-colors hover:bg-[#222]"
                         title="Call to book"
                       >
                         <span className="text-sm">📞</span>
                         <span>Call</span>
-                      </a>
-                      <a
-                        href={`sms:8439387377?body=Hi! I would like to book ${performer.name} in ${performer.city || performer.location}`}
+                      </button>
+                      <button
+                        type="button"
+                        onClick={(e) => {
+                          e.preventDefault();
+                          e.stopPropagation();
+                          window.location.href = `sms:8439387377?body=Hi! I would like to book ${performer.name} in ${performer.city || performer.location}`;
+                        }}
                         className="flex items-center justify-center gap-2 rounded-full border border-white/5 bg-[#111] py-3 font-body text-[10px] font-bold uppercase tracking-widest text-white/90 transition-colors hover:bg-[#222]"
                         title="Text to book"
                       >
                         <span className="text-sm">💬</span>
                         <span>Text</span>
-                      </a>
+                      </button>
                     </div>
                   </div>
                 </div>

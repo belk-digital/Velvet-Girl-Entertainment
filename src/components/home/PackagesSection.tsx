@@ -20,7 +20,7 @@ const packageCards: PackageCardData[] = [
     number: "01",
     title: "Car & Bike Meet",
     slug: "car-meet",
-    video: "https://res.cloudinary.com/denskvdyt/video/upload/v1785953309/Car_meet_package_page_hn3yep.mov",
+    image: "/images/HARLEY.jpg",
     description: "Rev up your engines with the ultimate car meet experience and stunning company.",
     minDancers: "2 DANCERS MINIMUM",
   },

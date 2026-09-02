@@ -63,7 +63,6 @@ export default function CarMeetHighlights() {
   const textRef = useRef<HTMLDivElement>(null);
   const gridRef = useRef<HTMLDivElement>(null);
   const bannerRef = useRef<HTMLDivElement>(null);
-  const videoRef = useRef<HTMLVideoElement>(null);
 
   useGSAP(() => {
     // Subtle parallax effect on the video removed per user request
@@ -124,13 +123,9 @@ export default function CarMeetHighlights() {
 
       {/* Bottom Grid and Banner Area */}
       <div className="relative z-10 w-full overflow-hidden px-4 py-16 sm:px-6 lg:px-16 lg:py-24 xl:px-24">
-        <video
-          ref={videoRef}
-          src="https://res.cloudinary.com/denskvdyt/video/upload/v1785953309/Car_meet_package_page_hn3yep.mov"
-          autoPlay
-          muted
-          loop
-          playsInline
+        <img
+          src="/images/HARLEY.jpg"
+          alt="Car Meet Highlights"
           className="absolute inset-0 h-full w-full object-cover object-center"
         />
 

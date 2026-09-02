@@ -120,7 +120,7 @@ export default function Hero({
         data-hero-img
         className="absolute inset-0 lg:relative lg:inset-auto lg:flex-1 lg:min-h-screen bg-black overflow-hidden opacity-0"
       >
-        <video
+        {/* <video
           autoPlay
           muted
           loop
@@ -130,7 +130,12 @@ export default function Hero({
         >
           <source media="(min-width: 1024px)" src={HERO_VIDEO_DESKTOP} type="video/mp4" />
           <source src={HERO_VIDEO_MOBILE} type="video/mp4" />
-        </video>
+        </video> */}
+        <img
+          src="/images/velvet-image.jpeg"
+          alt="Velvet Girls Entertainment"
+          className="absolute inset-0 h-full w-full object-cover object-center"
+        />
       </div>
 
     </div>
